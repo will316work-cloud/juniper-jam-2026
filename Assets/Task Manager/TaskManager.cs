@@ -3,6 +3,18 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        
+        else
+            Destroy(gameObject);
+    }
+
+    public static TaskManager Instance;
+
+
     [SerializeField] private float _minTimeBetweenTasks = 5;
     [SerializeField] private float _taskGettingAttemptFrequency;
     [SerializeField] private float _baseChanceToGetTask = 10;
@@ -11,10 +23,10 @@ public class TaskManager : MonoBehaviour
     private float _chanceToGetTask;
     private float _timeSinceLastTask;
 
-    bool _hasActiveTask;
-    bool _isTryingToGetTask;
+    private bool _hasActiveTask;
+    private bool _isTryingToGetTask;
 
-    Coroutine _taskGettingAttemptCoroutine;
+    private Coroutine _taskGettingAttemptCoroutine;
 
     void Start()
     {
@@ -76,5 +88,6 @@ public class TaskManager : MonoBehaviour
         _hasActiveTask = false;
         _isTryingToGetTask = false;
         _chanceToGetTask = _baseChanceToGetTask;
+        Debug.Log("Task is completed. Restarting task attempt timer.");
     }
 }
