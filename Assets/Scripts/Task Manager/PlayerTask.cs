@@ -10,4 +10,5 @@ public abstract class PlayerTask
     public abstract void StartTask();
     public abstract void OnTaskFail();
     public abstract void OnTaskSuccess();
+    public abstract void Tick();
 }

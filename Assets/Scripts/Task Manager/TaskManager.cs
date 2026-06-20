@@ -32,6 +32,9 @@ public class TaskManager : MonoBehaviour
     #region Unity lifecycle methods
     void Update()
     {
+        if(_currentTask != null)
+            _currentTask.Tick();
+
         if(!_isSystemActive) return;
         TimeSinceLastTaskTimer();
     }
@@ -81,7 +84,6 @@ public class TaskManager : MonoBehaviour
             _playerTasks.AddRange(_completedTasks);
             _completedTasks.Clear();
         }
-
 
         PlayerTask randomTask = _playerTasks[Random.Range(0, _playerTasks.Count)];
 
