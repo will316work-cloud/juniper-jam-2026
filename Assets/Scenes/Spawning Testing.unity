@@ -664,6 +664,7 @@ MonoBehaviour:
   _taskGettingAttemptFrequency: 2
   _baseChanceToGetTask: 10
   _chanceIncreaseAfterFailedAttempt: 10
+  _isDebugOn: 1
 --- !u!1 &663153727
 GameObject:
   m_ObjectHideFlags: 0
