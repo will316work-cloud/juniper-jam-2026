@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    #region Temporary
+    public GameObject PrinterUi;
+    public void SetPrinterUiState(bool state) => PrinterUi.SetActive(state);
+    #endregion
+
     #region Serialized fields
     [SerializeField] private float _minTimeBetweenTasks = 5;
     [SerializeField] private float _taskGettingAttemptFrequency;
     [SerializeField] private float _baseChanceToGetTask = 10;
     [SerializeField] private float _chanceIncreaseAfterFailedAttempt = 10;
     [SerializeField] private bool _isDebugOn = false;
-    
     #endregion
     #region Private fields
     private float _chanceToGetTask;
@@ -23,28 +26,31 @@ public class TaskManager : MonoBehaviour
     private Coroutine _taskGettingAttemptCoroutine;
     private bool _isSystemActive;
 
-    PlayerTask _currentTask;
+    PlayerTask _currentTask; public PlayerTask CurrentTask => _currentTask;
     List<PlayerTask> _playerTasks = new();
-    List<PlayerTask> _completedTasks = new();
-
+    List<PlayerTask> _completedTasks = new(); 
     #endregion
 
     #region Unity lifecycle methods
     void Update()
     {
-        if(_currentTask != null)
-            _currentTask.Tick();
+        _currentTask?.Tick();
 
         if(!_isSystemActive) return;
         TimeSinceLastTaskTimer();
     }
 
-    public void Initialize(GameContext ctx)
+    public void Initialize(GameContext ctx, List<TaskTriggerEntry> triggerObjects)
     {
+        _playerTasks.Add(new PrinterTask());
+
         _chanceToGetTask = _baseChanceToGetTask;
 
         foreach (PlayerTask task in _playerTasks)
-            task.Initialize(ctx);
+        {
+            foreach(TaskTriggerEntry to in triggerObjects)
+                if(to.TaskType == task.TaskType) task.Initialize(ctx,to.TriggerObj);
+        }
 
         SetSystemState(false);
     }
@@ -90,8 +96,9 @@ public class TaskManager : MonoBehaviour
         _currentTask = randomTask;
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
+        _currentTask.OnTaskAnnouncement();
 
-        if(_isDebugOn) Debug.Log($"Getting random task");
+        if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskType}");
     }
 
     /// <summary>
@@ -133,25 +140,5 @@ public class TaskManager : MonoBehaviour
             _chanceToGetTask += _chanceIncreaseAfterFailedAttempt;
             yield return new WaitForSeconds(_taskGettingAttemptFrequency);
         }
-    }
-
-    public void OnTaskSuccess()
-    {
-        _hasActiveTask = false;
-        _isTryingToGetTask = false;
-        _chanceToGetTask = _baseChanceToGetTask;
-        _currentTask.OnTaskSuccess();
-
-        if(_isDebugOn) Debug.Log("Task is completed. Restarting task attempt timer.");
-    }
-
-    public void OnTaskFailed()
-    {
-        _hasActiveTask = false;
-        _isTryingToGetTask = false;
-        _chanceToGetTask = _baseChanceToGetTask;
-        _currentTask.OnTaskFail();
-
-        if(_isDebugOn) Debug.Log("Task is failed. Restarting task attempt timer.");
     }
 }
