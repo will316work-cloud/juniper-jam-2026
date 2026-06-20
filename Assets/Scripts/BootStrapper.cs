@@ -19,5 +19,6 @@ public class BootStrapper : MonoBehaviour
         GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);
         GameContext.GameInput.Initialize();
+        GameContext.PlayerControl.Instantiate();
     }
 }
