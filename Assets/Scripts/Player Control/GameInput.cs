@@ -16,7 +16,7 @@ public class GameInput : MonoBehaviour
     public bool clickPressedThisFrame;
     public bool clickCurrentlyHeld;
 
-    private void Start()
+    public void Initialize()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         interactAction = InputSystem.actions.FindAction("Interact");
