@@ -11,7 +11,7 @@ public class MoneyController : MonoBehaviour
     public void Initialize(MoneyControllerData data)
     {
         _model = new();
-        _view = new(data.MoneyText);
+        _view = new(data.MoneyTexts);
 
         _initialStartingMoney = data.InitialStartingMoney;
 
