@@ -17,9 +17,9 @@ public class TaskManagerEditor : Editor
         EditorGUILayout.LabelField("Tests");
 
         TaskManager myScript = (TaskManager)target;
-        if (GUILayout.Button("On Task Complete"))
+        if (GUILayout.Button("Start task system"))
         {
-            myScript.OnTaskSuccess();
+            myScript.RestartTaskSystem();
         }
 
         GUI.enabled = true;

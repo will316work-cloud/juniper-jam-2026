@@ -10,6 +10,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private float _taskGettingAttemptFrequency;
     [SerializeField] private float _baseChanceToGetTask = 10;
     [SerializeField] private float _chanceIncreaseAfterFailedAttempt = 10;
+    [SerializeField] private bool _isDebugOn = false;
     
     #endregion
     #region Private fields
@@ -25,12 +26,16 @@ public class TaskManager : MonoBehaviour
     PlayerTask _currentTask;
     List<PlayerTask> _playerTasks = new();
     List<PlayerTask> _completedTasks = new();
+
     #endregion
 
     #region Unity lifecycle methods
     void Update()
     {
-        if(!_isSystemActive)
+        if(_currentTask != null)
+            _currentTask.Tick();
+
+        if(!_isSystemActive) return;
         TimeSinceLastTaskTimer();
     }
 
@@ -40,6 +45,8 @@ public class TaskManager : MonoBehaviour
 
         foreach (PlayerTask task in _playerTasks)
             task.Initialize(ctx);
+
+        SetSystemState(false);
     }
     #endregion
     
@@ -47,11 +54,12 @@ public class TaskManager : MonoBehaviour
     {
         _chanceToGetTask = _baseChanceToGetTask;
         _timeSinceLastTask = 0;
+        _currentTask = null;
         _hasActiveTask = false;
-        _isTryingToGetTask = true;
+        _isTryingToGetTask = false;
         SetSystemState(true);
 
-        Debug.Log("Task system restarted and reset.");
+        if(_isDebugOn) Debug.Log("Task system restarted and reset.");
     }
 
     public void SetSystemState(bool state) => _isSystemActive = state;
@@ -66,6 +74,13 @@ public class TaskManager : MonoBehaviour
 
         if(_playerTasks.Count == 0)
         {
+            if(_completedTasks.Count == 0)
+            {
+                if(_isDebugOn) Debug.Log("Attempted to get a task but no tasks are available. Tasks system turns off.");
+                SetSystemState(false);
+                return;
+            }
+
             _playerTasks.AddRange(_completedTasks);
             _completedTasks.Clear();
         }
@@ -76,7 +91,7 @@ public class TaskManager : MonoBehaviour
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
 
-        Debug.Log($"Getting random task");
+        if(_isDebugOn) Debug.Log($"Getting random task");
     }
 
     /// <summary>
@@ -106,7 +121,7 @@ public class TaskManager : MonoBehaviour
     {
         while(_isTryingToGetTask && !_hasActiveTask)
         {
-            Debug.Log("Attempting to get a new task");
+            if(_isDebugOn) Debug.Log("Attempting to get a new task");
             float randomChance = Random.Range(0f,100f);
             if(randomChance <= _chanceToGetTask)
             {
@@ -114,7 +129,7 @@ public class TaskManager : MonoBehaviour
                 break;
             }
 
-            Debug.Log("Failed to get a new task");
+            if(_isDebugOn) Debug.Log("Failed to get a new task");
             _chanceToGetTask += _chanceIncreaseAfterFailedAttempt;
             yield return new WaitForSeconds(_taskGettingAttemptFrequency);
         }
@@ -127,7 +142,7 @@ public class TaskManager : MonoBehaviour
         _chanceToGetTask = _baseChanceToGetTask;
         _currentTask.OnTaskSuccess();
 
-        Debug.Log("Task is completed. Restarting task attempt timer.");
+        if(_isDebugOn) Debug.Log("Task is completed. Restarting task attempt timer.");
     }
 
     public void OnTaskFailed()
@@ -137,6 +152,6 @@ public class TaskManager : MonoBehaviour
         _chanceToGetTask = _baseChanceToGetTask;
         _currentTask.OnTaskFail();
 
-        Debug.Log("Task is failed. Restarting task attempt timer.");
+        if(_isDebugOn) Debug.Log("Task is failed. Restarting task attempt timer.");
     }
 }
