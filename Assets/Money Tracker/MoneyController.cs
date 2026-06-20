@@ -24,7 +24,7 @@ public class MoneyController : MonoBehaviour
     public void Initialize()
     {
         _model = new();
-        _view = new(_data.MoneyText);
+        _view = new(_data.MoneyTexts);
         ResetMoney();
     }    
 
@@ -68,5 +68,5 @@ public class MoneyController : MonoBehaviour
 public struct MoneyControllerData
 {
     public int InitialStartingMoney;
-    public TextMeshProUGUI MoneyText;
+    public TextMeshProUGUI[] MoneyTexts;
 }
