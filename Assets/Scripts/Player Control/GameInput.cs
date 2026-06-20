@@ -10,11 +10,8 @@ public class GameInput : MonoBehaviour
     private InputAction pointAction;
     private InputAction clickAction;
 
-    public Vector2 moveInput;
-    public bool interactPressedThisFrame;
-    public Vector2 mousePosition;
-    public bool clickPressedThisFrame;
-    public bool clickCurrentlyHeld;
+    [HideInInspector] public Vector2 moveInput, mousePosition;
+    [HideInInspector] public bool interactPressedThisFrame, clickPressedThisFrame, clickCurrentlyHeld;
 
     public void Initialize()
     {
