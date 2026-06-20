@@ -2,9 +2,15 @@ using TMPro;
 
 public class MoneyView
 {
-    private TextMeshProUGUI _moneyText;
+    private TextMeshProUGUI[] _moneyTexts;
 
-    public MoneyView(TextMeshProUGUI moneyText) => _moneyText = moneyText;
+    public MoneyView(TextMeshProUGUI[] moneyTexts) => _moneyTexts = moneyTexts;
 
-    public void RefreshView(int amount) => _moneyText.text = amount.ToString();
+    public void RefreshView(int amount)
+    {
+        foreach (var moneyText in _moneyTexts)
+        {
+            moneyText.text = amount.ToString();
+        }
+    }
 }
