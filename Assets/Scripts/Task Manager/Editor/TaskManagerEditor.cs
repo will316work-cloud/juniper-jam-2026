@@ -19,7 +19,7 @@ public class TaskManagerEditor : Editor
         TaskManager myScript = (TaskManager)target;
         if (GUILayout.Button("On Task Complete"))
         {
-            myScript.OnTaskComplete();
+            myScript.OnTaskSuccess();
         }
 
         GUI.enabled = true;

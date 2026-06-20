@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -30,6 +32,10 @@ public class TaskManager : MonoBehaviour
 
     private Coroutine _taskGettingAttemptCoroutine;
     private bool _isSystemActive;
+    
+    PlayerTask _currentTask;
+    List<PlayerTask> _playerTasks = new();
+    List<PlayerTask> _completedTasks = new();
     #endregion
 
     #region Unity lifecycle methods
@@ -42,6 +48,14 @@ public class TaskManager : MonoBehaviour
     {
         if(!_isSystemActive)
         TimeSinceLastTaskTimer();
+    }
+
+    public void Initialize(GameContext ctx)
+    {
+        _chanceToGetTask = _baseChanceToGetTask;
+
+        foreach (PlayerTask task in _playerTasks)
+            task.Initialize(ctx);
     }
     #endregion
     
@@ -66,7 +80,19 @@ public class TaskManager : MonoBehaviour
         _hasActiveTask = true;
         _chanceToGetTask = _baseChanceToGetTask;
 
-        Debug.Log("Getting random task");
+        if(_playerTasks.Count == 0)
+        {
+            _playerTasks.AddRange(_completedTasks);
+            _completedTasks.Clear();
+        }
+
+        PlayerTask randomTask = _playerTasks[Random.Range(0, _playerTasks.Count)];
+
+        _currentTask = randomTask;
+        _playerTasks.Remove(randomTask);
+        _completedTasks.Add(randomTask);
+
+        Debug.Log($"Getting random task");
     }
 
     /// <summary>
@@ -90,13 +116,12 @@ public class TaskManager : MonoBehaviour
     /// <summary>
     /// Tries to get a new task every _taskGettingAttemptFrequency seconds. 
     /// If it fails it increases the chances of success by _chanceIncreaseAfterFailedAttempt and retries it until it succeeds.
-    /// </summary>
+    /// /summary>
     /// <returns></returns>
     IEnumerator TaskGettingAttempt()
     {
         while(_isTryingToGetTask && !_hasActiveTask)
         {
-
             Debug.Log("Attempting to get a new task");
             float randomChance = Random.Range(0f,100f);
             if(randomChance <= _chanceToGetTask)
@@ -111,13 +136,12 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    public void OnTaskComplete()
+    public void OnTaskSuccess()
     {
         _hasActiveTask = false;
         _isTryingToGetTask = false;
         _chanceToGetTask = _baseChanceToGetTask;
-
-        // Current task reward gain should come here
+        _currentTask.OnTaskSuccess();
 
         Debug.Log("Task is completed. Restarting task attempt timer.");
     }
@@ -127,8 +151,7 @@ public class TaskManager : MonoBehaviour
         _hasActiveTask = false;
         _isTryingToGetTask = false;
         _chanceToGetTask = _baseChanceToGetTask;
-
-        // Current task punishment should come here
+        _currentTask.OnTaskFail();
 
         Debug.Log("Task is failed. Restarting task attempt timer.");
     }
