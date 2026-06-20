@@ -19,6 +19,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private float _taskGettingAttemptFrequency;
     [SerializeField] private float _baseChanceToGetTask = 10;
     [SerializeField] private float _chanceIncreaseAfterFailedAttempt = 10;
+    
     #endregion
     #region Private fields
     private float _chanceToGetTask;
@@ -30,6 +31,7 @@ public class TaskManager : MonoBehaviour
     private Coroutine _taskGettingAttemptCoroutine;
     private bool _isSystemActive;
     #endregion
+
     #region Unity lifecycle methods
     void Start()
     {
