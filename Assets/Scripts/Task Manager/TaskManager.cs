@@ -5,17 +5,6 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
-    #region Singleton
-    public static TaskManager Instance;
-    void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        
-        else
-            Destroy(gameObject);
-    }
-    #endregion
     #region Serialized fields
     [SerializeField] private float _minTimeBetweenTasks = 5;
     [SerializeField] private float _taskGettingAttemptFrequency;
@@ -32,18 +21,13 @@ public class TaskManager : MonoBehaviour
 
     private Coroutine _taskGettingAttemptCoroutine;
     private bool _isSystemActive;
-    
+
     PlayerTask _currentTask;
     List<PlayerTask> _playerTasks = new();
     List<PlayerTask> _completedTasks = new();
     #endregion
 
     #region Unity lifecycle methods
-    void Start()
-    {
-        _chanceToGetTask = _baseChanceToGetTask;
-    }
-
     void Update()
     {
         if(!_isSystemActive)

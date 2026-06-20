@@ -3,28 +3,18 @@ using UnityEngine;
 
 public class MoneyController : MonoBehaviour
 {
-
-    public static MoneyController Instance;
-    [SerializeField] MoneyControllerData _data;
-
     MoneyModel _model;
     MoneyView _view;
 
-    void Awake()
-    {
-        if(Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
+    int _initialStartingMoney;
 
-    void Start()
-    {
-        Initialize();
-    }
-
-    public void Initialize()
+    public void Initialize(MoneyControllerData data)
     {
         _model = new();
-        _view = new(_data.MoneyText);
+        _view = new(data.MoneyText);
+
+        _initialStartingMoney = data.InitialStartingMoney;
+
         ResetMoney();
     }    
 
@@ -56,7 +46,7 @@ public class MoneyController : MonoBehaviour
 
     public void ResetMoney()
     {
-        _model.SetMoney(_data.InitialStartingMoney);
+        _model.SetMoney(_initialStartingMoney);
         RefreshView();
     }
     public int CurrentMoney() => _model.CurrentMoney();
