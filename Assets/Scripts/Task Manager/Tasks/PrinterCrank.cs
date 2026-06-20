@@ -5,10 +5,15 @@ using UnityEngine.InputSystem;
 public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject PivotObj;
+    public GameObject PaperObj;
+    public Transform PaperStartPosition;
+    public Transform PaperEndPosition;
     public int RoundsNeeded;
-    bool _isDragging;
-    float _previousAngle;
-    float _amountRotated;
+
+    private bool _isDragging;
+    private bool _taskCompleted;
+    private float _previousAngle;
+    private float _amountRotated;
 
     GameContext _ctx;
 
@@ -16,11 +21,15 @@ public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         _ctx = ctx;
     }
+
     public void OnTaskStart()
     {
+        PaperObj.transform.localPosition = PaperStartPosition.localPosition;
         PivotObj.transform.rotation = Quaternion.Euler(0, 0, 0);
         _amountRotated = 0;
+        _taskCompleted = false;
     }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         _isDragging = true;
@@ -34,7 +43,7 @@ public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     void Update()
     {
-        if (_isDragging)
+        if (_isDragging && !_taskCompleted)
         {
             float currentAngle = GetMouseAngle();
             float delta = Mathf.DeltaAngle(_previousAngle, currentAngle);
@@ -44,8 +53,12 @@ public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 PivotObj.transform.rotation = Quaternion.Euler(0, 0, currentAngle);
                 _amountRotated += Mathf.Abs(delta);
 
-                if(_amountRotated >= RoundsNeeded * 360)
+                float progress = Mathf.Clamp01(_amountRotated / (RoundsNeeded * 360));
+                PaperObj.transform.localPosition = Vector3.Lerp(PaperStartPosition.localPosition, PaperEndPosition.localPosition, progress);
+
+                if (_amountRotated >= RoundsNeeded * 360)
                 {
+                    _taskCompleted = true;
                     _ctx.TaskManager.CurrentTask.OnTaskSuccess();
                 }
             }
