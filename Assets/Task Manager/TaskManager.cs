@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    #region Singleton
+    public static TaskManager Instance;
     void Awake()
     {
         if (Instance == null)
@@ -11,15 +13,14 @@ public class TaskManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
-    public static TaskManager Instance;
-
-
+    #endregion
+    #region Serialized fields
     [SerializeField] private float _minTimeBetweenTasks = 5;
     [SerializeField] private float _taskGettingAttemptFrequency;
     [SerializeField] private float _baseChanceToGetTask = 10;
     [SerializeField] private float _chanceIncreaseAfterFailedAttempt = 10;
-
+    #endregion
+    #region Private fields
     private float _chanceToGetTask;
     private float _timeSinceLastTask;
 
@@ -27,7 +28,9 @@ public class TaskManager : MonoBehaviour
     private bool _isTryingToGetTask;
 
     private Coroutine _taskGettingAttemptCoroutine;
-
+    private bool _isSystemActive;
+    #endregion
+    #region Unity lifecycle methods
     void Start()
     {
         _chanceToGetTask = _baseChanceToGetTask;
@@ -35,8 +38,23 @@ public class TaskManager : MonoBehaviour
 
     void Update()
     {
+        if(!_isSystemActive)
         TimeSinceLastTaskTimer();
     }
+    #endregion
+    
+    public void RestartTaskSystem()
+    {
+        _chanceToGetTask = _baseChanceToGetTask;
+        _timeSinceLastTask = 0;
+        _hasActiveTask = false;
+        _isTryingToGetTask = true;
+        SetSystemState(true);
+
+        Debug.Log("Task system restarted and reset.");
+    }
+
+    public void SetSystemState(bool state) => _isSystemActive = state;
 
     public void GetRandomTask()
     {
@@ -49,6 +67,9 @@ public class TaskManager : MonoBehaviour
         Debug.Log("Getting random task");
     }
 
+    /// <summary>
+    /// Accumulates time since last task completion. When the minimum amount of time is passed between tasks it calls the random task getter and stops the time accumulation. 
+    /// </summary>
     void TimeSinceLastTaskTimer()
     {
         if(_isTryingToGetTask || _hasActiveTask)
@@ -64,6 +85,11 @@ public class TaskManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Tries to get a new task every _taskGettingAttemptFrequency seconds. 
+    /// If it fails it increases the chances of success by _chanceIncreaseAfterFailedAttempt and retries it until it succeeds.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator TaskGettingAttempt()
     {
         while(_isTryingToGetTask && !_hasActiveTask)
@@ -88,6 +114,20 @@ public class TaskManager : MonoBehaviour
         _hasActiveTask = false;
         _isTryingToGetTask = false;
         _chanceToGetTask = _baseChanceToGetTask;
+
+        // Current task reward gain should come here
+
         Debug.Log("Task is completed. Restarting task attempt timer.");
+    }
+
+    public void OnTaskFailed()
+    {
+        _hasActiveTask = false;
+        _isTryingToGetTask = false;
+        _chanceToGetTask = _baseChanceToGetTask;
+
+        // Current task punishment should come here
+
+        Debug.Log("Task is failed. Restarting task attempt timer.");
     }
 }
