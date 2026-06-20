@@ -25,14 +25,13 @@ public class MoneyController : MonoBehaviour
     {
         _model = new();
         _view = new(_data.MoneyText);
-
-        GainMoney(_data.InitialStartingMoney);
+        ResetMoney();
     }    
 
     public void GainMoney(int amount)
     {
         _model.GainMoney(amount);
-        _view.GainMoney(_model.CurrentMoney());
+        RefreshView();
     }
 
     /// <summary>
@@ -41,7 +40,7 @@ public class MoneyController : MonoBehaviour
     public void LoseMoney(int amount)
     {
         _model.LoseMoney(amount);
-        _view.LoseMoney(_model.CurrentMoney());
+        RefreshView();
     }
 
     /// <summary>
@@ -55,8 +54,14 @@ public class MoneyController : MonoBehaviour
         LoseMoney(amount);
     }
 
+    public void ResetMoney()
+    {
+        _model.SetMoney(_data.InitialStartingMoney);
+        RefreshView();
+    }
     public int CurrentMoney() => _model.CurrentMoney();
     public bool CanAfford(int amount) => _model.CanAfford(amount);
+    void RefreshView() => _view.RefreshView(_model.CurrentMoney());
 }
 
 [System.Serializable]

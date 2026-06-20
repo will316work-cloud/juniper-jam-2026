@@ -10,4 +10,5 @@ public class MoneyModel
     }
     public int CurrentMoney() => _money;  
     public bool CanAfford(int amount) => _money >= amount;
+    public void SetMoney(int amount) => _money = amount;
 }
