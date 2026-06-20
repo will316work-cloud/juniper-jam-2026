@@ -10,6 +10,8 @@ public class BootStrapper : MonoBehaviour
     [Header("Dependency references")]
     public MoneyControllerData MoneyControllerData;
     public List<TaskTriggerEntry> TaskTriggerObjects;
+    public Rigidbody playerRigidbody;
+    public GameObject playerCollisionObject;
 
     void Start()
     {
@@ -21,5 +23,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.TaskManager.Initialize(GameContext,TaskTriggerObjects);
         GameContext.MoneyController.Initialize(MoneyControllerData);
         GameContext.PrinterCrank.Initialize(GameContext);
+        GameContext.GameInput.Initialize();
+        GameContext.PlayerControl.Instantiate(playerRigidbody, GameContext.GameInput, playerCollisionObject);
     }
 }
