@@ -5233,6 +5233,14 @@ PrefabInstance:
       propertyPath: PrinterCrank
       value: 
       objectReference: {fileID: 1325975435}
+    - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskMoneyReward
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskHealthReward
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7308703328897265374, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: m_Name
       value: Tasks
