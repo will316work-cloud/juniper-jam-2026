@@ -28,6 +28,7 @@ public class PrinterTask : PlayerTask
     public override void OnTaskSuccess()
     {
         _ctx.MoneyController.GainMoney(TaskMoneyReward);
+        _ctx.WorldHealthMeter.GainHealth(TaskHealthReward);
     }
     public override void OnTaskEnd(bool isSuccess)
     {
