@@ -96,7 +96,6 @@ public class TaskManager : MonoBehaviour
         _currentTask = randomTask;
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
-        _currentTask.OnTaskAnnouncement();
 
         if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskType}");
     }
@@ -140,5 +139,23 @@ public class TaskManager : MonoBehaviour
             _chanceToGetTask += _chanceIncreaseAfterFailedAttempt;
             yield return new WaitForSeconds(_taskGettingAttemptFrequency);
         }
+    }
+
+    public void BeginTask()
+    {
+        SetSystemState(false);
+        _currentTask.OnTaskAnnouncement();
+    }
+
+    public void OnTaskEnd()
+    {
+        if(_currentTask.IsSuccess)
+            _currentTask.OnTaskSuccess();
+        else
+            _currentTask.OnTaskFail();
+
+        _currentTask.OnTaskEnd();
+
+        SetSystemState(true);
     }
 }

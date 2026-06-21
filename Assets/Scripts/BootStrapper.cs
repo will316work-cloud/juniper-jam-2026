@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class BootStrapper : MonoBehaviour
 {
+    public StateType StartingState;
+
     [Header("System references")]
     public GameContext GameContext;
 
@@ -30,5 +32,21 @@ public class BootStrapper : MonoBehaviour
         GameContext.GameInput.Initialize();
         GameContext.PlayerControl.Instantiate(playerRigidbody, GameContext.GameInput, playerCollisionObject);
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);
+        GameContext.GameStateController.Initialize(GameContext);
+        GameContext.PlayerInteractor.Initialize(GameContext.GameInput);
+
+        InitializeTaskTriggerObjectInstances();
+
+        GameContext.GameStateController.ChangeState(StartingState);
+    }
+
+    void InitializeTaskTriggerObjectInstances()
+    {
+        TaskTriggerObjectInstance[] ttoi = FindObjectsByType<TaskTriggerObjectInstance>();
+
+        if(ttoi.Length > 0)
+        {
+            foreach (TaskTriggerObjectInstance instance in ttoi) instance.Initialize(GameContext);
+        }
     }
 }

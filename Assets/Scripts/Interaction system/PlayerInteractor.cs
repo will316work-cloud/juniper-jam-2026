@@ -1,20 +1,26 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // Should be attached to the Player object
 public class PlayerInteractor : MonoBehaviour
 {
     [Header("Settings")]
     public float range = 3f;
-    public KeyCode interactKey = KeyCode.E;
+    public InputAction input;
 
     private Interactable currentInteractable;
     private bool hasAnyInteractable;
+
+    public void Initialize(GameInput gameInput)
+    {
+        // input = gameInput;
+    }
 
     void Update()
     {
         UpdateCurrentInteractable();
 
-        if (currentInteractable != null && currentInteractable.canInteract && Input.GetKeyDown(interactKey))
+        if (currentInteractable != null && currentInteractable.canInteract && Keyboard.current.eKey.wasPressedThisFrame)
         {
             currentInteractable.Interact();
         }

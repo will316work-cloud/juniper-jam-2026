@@ -9,11 +9,12 @@ public class UiManagerEditor : Editor
         DrawDefaultInspector();
 
         EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Tests");
+        EditorGUILayout.LabelField("TESTS");
 
         UiManager myScript = (UiManager)target;
 
-        if (GUILayout.Button("Trigger ingame menu"))
+        EditorGUILayout.LabelField("In Game Menu Panel");
+        if (GUILayout.Button("Trigger ingame Panel"))
         {
             if(myScript.InGameUiHandler.IsPanelActive())
                 myScript.InGameUiHandler.SetPanelState(false);
@@ -27,6 +28,15 @@ public class UiManagerEditor : Editor
                 myScript.InGameUiHandler.SetInteractionIndicatorstate(false);
             else 
                 myScript.InGameUiHandler.SetInteractionIndicatorstate(true);
+        }
+
+        EditorGUILayout.LabelField("Game Over Panel");
+        if (GUILayout.Button("Trigger Game Over Panel"))
+        {
+            if(myScript.GameOverUiHandler.IsPanelActive())
+                myScript.GameOverUiHandler.SetPanelState(false);
+            else 
+                myScript.GameOverUiHandler.SetPanelState(true);
         }
     }   
 }

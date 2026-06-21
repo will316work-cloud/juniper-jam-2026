@@ -59,7 +59,8 @@ public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 if (_amountRotated >= RoundsNeeded * 360)
                 {
                     _taskCompleted = true;
-                    _ctx.TaskManager.CurrentTask.OnTaskSuccess();
+                    _ctx.TaskManager.CurrentTask.IsSuccess = true;
+                    _ctx.GameStateController.ChangeState(StateType.Gameplay);
                 }
             }
 
