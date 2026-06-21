@@ -4,6 +4,7 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private float accelSpeed, rotSpeed, maxSpeed;
     [SerializeField] private GameObject movementDirPivotObj;
+    [SerializeField] private Battery battery;
     private float _rotationDeltaSum = 0f;
     private Rigidbody rb;
     private GameInput gameInput;
@@ -66,8 +67,9 @@ public class PlayerControl : MonoBehaviour
             //full rotation check
             if (_rotationDeltaSum > 360f || _rotationDeltaSum < -360f)
             {
-                Debug.Log("Full Rotation: " + _rotationDeltaSum);
+                //Debug.Log("Full Rotation: " + _rotationDeltaSum);
                 _rotationDeltaSum = 0f;
+                battery.ChargeBattery();
             }
 
             //applying rotation

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4095779992716182556}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: -0.264, z: -1.8184199}
+  m_LocalPosition: {x: 0, y: -0.264, z: 0}
   m_LocalScale: {x: 0.8000001, y: 1.37, z: 0.8000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 595109291236477237}
   - component: {fileID: 5199263833904328195}
   - component: {fileID: 7150254033019917723}
+  - component: {fileID: 5820115036824001221}
   m_Layer: 0
   m_Name: MC Scripts
   m_TagString: Untagged
@@ -202,9 +203,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106035217ef91534b8e8a108b82fe8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameInput
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4420df6c-a9a2-42ab-a8e0-127a72131667
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   moveInput: {x: 0, y: 0}
   mousePosition: {x: 0, y: 0}
-  interactPressedThisFrame: 0
   clickPressedThisFrame: 0
   clickCurrentlyHeld: 0
 --- !u!114 &7150254033019917723
@@ -223,3 +232,22 @@ MonoBehaviour:
   rotSpeed: 5
   maxSpeed: 3
   movementDirPivotObj: {fileID: 0}
+  battery: {fileID: 5820115036824001221}
+--- !u!114 &5820115036824001221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110928345041699031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643a27bb13488ac4c94c3922c2c69cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Battery
+  batteryVisual: {fileID: 0}
+  moneyPerDropoff: 10
+  healthPerDropoff: 10
+  rotationsPerFill: 10
+  rotationsSoFar: 0
+  _isFilled: 0
