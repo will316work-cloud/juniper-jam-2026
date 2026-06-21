@@ -20,8 +20,8 @@ public class TransitionController : MonoBehaviour
 
     public void Initialize(GameContext ctx)
     {
-        _transitionText.color = new(255, 255, 255, 0);
-        _transitionImage.color = new(0, 0, 0, 0);
+        // _transitionText.color = new(255, 255, 255, 0);
+        _transitionImage.color = new(255, 255, 255, 0);
         _transitionPanel.SetActive(false);
         
         _ctx = ctx;

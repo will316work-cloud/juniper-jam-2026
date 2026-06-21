@@ -14,7 +14,7 @@ public class TransitionControllerEditor : Editor
         TransitionController myScript = (TransitionController)target;
 
         if (GUILayout.Button("Start Transition"))
-            myScript.StartCoroutine(myScript.TransitionFadeIn("Loading..."));
+            myScript.StartCoroutine(myScript.TransitionFadeIn(""));
 
         if(GUILayout.Button("Stop Transition"))
             myScript.StartCoroutine(myScript.TransitionFadeOut());
