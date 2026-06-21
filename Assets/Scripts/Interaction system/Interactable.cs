@@ -6,6 +6,8 @@ public abstract class Interactable : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject interactionIcon;
 
+    public bool canInteract = true;
+
     public abstract void Interact();
     public void ShowIcon()
     {

@@ -8,12 +8,13 @@ public class PlayerInteractor : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
 
     private Interactable currentInteractable;
+    private bool hasAnyInteractable;
 
     void Update()
     {
         UpdateCurrentInteractable();
 
-        if (currentInteractable != null && Input.GetKeyDown(interactKey))
+        if (currentInteractable != null && currentInteractable.canInteract && Input.GetKeyDown(interactKey))
         {
             currentInteractable.Interact();
         }
@@ -23,6 +24,8 @@ public class PlayerInteractor : MonoBehaviour
     {
         Interactable newInteractable = GetClosestInteractable();
 
+        hasAnyInteractable = newInteractable != null;
+
         if (newInteractable == currentInteractable)
             return;
 
@@ -31,7 +34,7 @@ public class PlayerInteractor : MonoBehaviour
 
         currentInteractable = newInteractable;
 
-        if (currentInteractable != null)
+        if (currentInteractable != null && currentInteractable.canInteract)
             currentInteractable.ShowIcon();
     }
 
@@ -52,6 +55,9 @@ public class PlayerInteractor : MonoBehaviour
             if (interactable == null)
                 continue;
 
+            if (!interactable.canInteract) // Ignore Inactive Interactable Objects
+                continue;
+
             float distance = Vector3.Distance(transform.position, hit.transform.position);
 
             if (distance < closestDistance)
@@ -66,7 +72,7 @@ public class PlayerInteractor : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = currentInteractable != null ? Color.green: Color.red;
+        Gizmos.color = hasAnyInteractable ? Color.green : Color.red;
 
         Gizmos.DrawWireSphere(transform.position, range);
 
@@ -74,8 +80,7 @@ public class PlayerInteractor : MonoBehaviour
         {
             Gizmos.color = Color.yellow;
 
-            Gizmos.DrawLine(transform.position, currentInteractable.transform.position);
+            Gizmos.DrawLine(transform.position,currentInteractable.transform.position);
         }
     }
-
 }
