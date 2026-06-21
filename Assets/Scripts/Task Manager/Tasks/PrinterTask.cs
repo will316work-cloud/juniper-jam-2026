@@ -1,14 +1,21 @@
 public class PrinterTask : PlayerTask
 {
+    public PrinterCrank PrinterCrank; 
+
+    public override void Initialize(GameContext ctx)
+    {
+        base.Initialize(ctx);
+        PrinterCrank.Initialize(ctx);
+    }
+
     public override void OnTaskAnnouncement()
     {
-        // _triggerObj.SetActive(true);
-        OnTaskStart();
+        EnableTriggerObj();
     }
 
     public override void OnTaskStart()
     {
-        _ctx.PrinterCrank.OnTaskStart();
+        PrinterCrank.OnTaskStart();
         _ctx.TaskManager.SetPrinterUiState(true);
         _ctx.PlayerControl.enabled = false;
     }
@@ -20,12 +27,12 @@ public class PrinterTask : PlayerTask
 
     public override void OnTaskSuccess()
     {
-        // Reward logic
+        _ctx.MoneyController.GainMoney(TaskMoneyReward);
     }
-    public override void OnTaskEnd()
+    public override void OnTaskEnd(bool isSuccess)
     {
-        _ctx.TaskManager.SetPrinterUiState(false);
-        DisableTriggerObj();
+        IsSuccess = isSuccess;
+        _ctx.GameStateController.ChangeState(StateType.Gameplay);
     }
 
     public override void Tick()

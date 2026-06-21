@@ -1861,6 +1861,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718467670}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &734880264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734880265}
+  - component: {fileID: 734880266}
+  m_Layer: 0
+  m_Name: Printer Task
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734880265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734880264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1014728329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734880266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734880264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc2a073b4f0cf248a283ab88cc3bfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrinterTask
+  TriggerObj: {fileID: 1349910593}
+  TaskName: Printing
+  TaskDescription: Print out some very serious documents
+  TaskMoneyReward: 0
+  IsSuccess: 0
+  PrinterCrank: {fileID: 1325975435}
 --- !u!1 &753360796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,7 +2579,6 @@ MonoBehaviour:
   GameContext:
     TaskManager: {fileID: 690640483}
     MoneyController: {fileID: 753360798}
-    PrinterCrank: {fileID: 1325975435}
     GameInput: {fileID: 880874988}
     PlayerControl: {fileID: 880874989}
     UiManager: {fileID: 2038809235}
@@ -2539,9 +2588,6 @@ MonoBehaviour:
     InitialStartingMoney: 10
     MoneyTexts:
     - {fileID: 1264969655437357974}
-  TaskTriggerObjects:
-  - TaskType: 0
-    TriggerObj: {fileID: 1833760910}
   UiManagerContext:
     InGameUiHandlerData:
       InGameUiPanel: {fileID: 1264969655437357971}
@@ -2554,6 +2600,38 @@ MonoBehaviour:
       MainMenuButton: {fileID: 1308418097}
   playerRigidbody: {fileID: 874905338}
   playerCollisionObject: {fileID: 874905332}
+--- !u!1 &1014728328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014728329}
+  m_Layer: 0
+  m_Name: Tasks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1014728329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014728328}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.32486, y: -0.5, z: 0.76006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 734880265}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1033909397 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2212863423938414348, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -5247,3 +5325,4 @@ SceneRoots:
   - {fileID: 1531521642}
   - {fileID: 1833760914}
   - {fileID: 1813385900}
+  - {fileID: 1014728329}

@@ -11,7 +11,6 @@ public class BootStrapper : MonoBehaviour
     [Space(10)]
     [Header("Dependency references")]
     public MoneyControllerData MoneyControllerData;
-    public List<TaskTriggerEntry> TaskTriggerObjects;
     public UiManagerContext UiManagerContext;
     
     [Space(10)]
@@ -26,9 +25,8 @@ public class BootStrapper : MonoBehaviour
 
     void Initialize()
     {
-        GameContext.TaskManager.Initialize(GameContext,TaskTriggerObjects);
+        GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);
-        GameContext.PrinterCrank.Initialize(GameContext);
         GameContext.GameInput.Initialize();
         GameContext.PlayerControl.Instantiate(playerRigidbody, GameContext.GameInput, playerCollisionObject);
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    
     public GameObject PivotObj;
     public GameObject PaperObj;
     public Transform PaperStartPosition;
@@ -28,6 +29,7 @@ public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         PivotObj.transform.rotation = Quaternion.Euler(0, 0, 0);
         _amountRotated = 0;
         _taskCompleted = false;
+        _isDragging = false;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -56,11 +58,10 @@ public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
                 float progress = Mathf.Clamp01(_amountRotated / (RoundsNeeded * 360));
                 PaperObj.transform.localPosition = Vector3.Lerp(PaperStartPosition.localPosition, PaperEndPosition.localPosition, progress);
 
-                if (_amountRotated >= RoundsNeeded * 360)
+                if (_amountRotated >= RoundsNeeded * 360 && !_taskCompleted)
                 {
                     _taskCompleted = true;
-                    _ctx.TaskManager.CurrentTask.IsSuccess = true;
-                    _ctx.GameStateController.ChangeState(StateType.Gameplay);
+                    _ctx.TaskManager.CurrentTask.OnTaskEnd(true);
                 }
             }
 
