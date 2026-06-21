@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 595109291236477237}
   - component: {fileID: 5199263833904328195}
   - component: {fileID: 7150254033019917723}
+  - component: {fileID: 3142793854620547353}
   m_Layer: 0
   m_Name: MC Scripts
   m_TagString: Untagged
@@ -202,9 +203,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106035217ef91534b8e8a108b82fe8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameInput
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dfb9c5f5-2771-4e07-af4f-a525e4d90d10
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   moveInput: {x: 0, y: 0}
   mousePosition: {x: 0, y: 0}
-  interactPressedThisFrame: 0
   clickPressedThisFrame: 0
   clickCurrentlyHeld: 0
 --- !u!114 &7150254033019917723
@@ -223,3 +232,23 @@ MonoBehaviour:
   rotSpeed: 5
   maxSpeed: 3
   movementDirPivotObj: {fileID: 0}
+--- !u!114 &3142793854620547353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110928345041699031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

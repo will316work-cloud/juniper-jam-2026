@@ -10,4 +10,5 @@ public class GameContext
     public PlayerInteractor PlayerInteractor;
     public WorldHealthMeter WorldHealthMeter;
     public DayTimeController DayTimeController;
+    public CoworkerManager CoworkerManager;
 }
