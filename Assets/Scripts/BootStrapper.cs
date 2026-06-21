@@ -6,10 +6,14 @@ public class BootStrapper : MonoBehaviour
     [Header("System references")]
     public GameContext GameContext;
 
-    [Space]
+    [Space(10)]
     [Header("Dependency references")]
     public MoneyControllerData MoneyControllerData;
     public List<TaskTriggerEntry> TaskTriggerObjects;
+    public UiManagerContext UiManagerContext;
+    
+    [Space(10)]
+    [Header("Player references")]
     public Rigidbody playerRigidbody;
     public GameObject playerCollisionObject;
 
@@ -25,5 +29,6 @@ public class BootStrapper : MonoBehaviour
         GameContext.PrinterCrank.Initialize(GameContext);
         GameContext.GameInput.Initialize();
         GameContext.PlayerControl.Instantiate(playerRigidbody, GameContext.GameInput, playerCollisionObject);
+        GameContext.UiManager.Initialize(GameContext, UiManagerContext);
     }
 }
