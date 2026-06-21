@@ -4,6 +4,7 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private float accelSpeed, rotSpeed, maxSpeed;
     [SerializeField] private GameObject movementDirPivotObj;
+    private float _rotationDeltaSum = 0f;
     private Rigidbody rb;
     private GameInput gameInput;
     private GameObject playerCollisionObject;
@@ -37,15 +38,40 @@ public class PlayerControl : MonoBehaviour
             //setting direction depending on input and camera orientation
             Vector3 movementDir = ((_camForward * _forwardInput) + (_camRight * _rightInput));
 
+            //movement call
             rb.AddForce(movementDir * accelSpeed, ForceMode.Acceleration);
 
+            //speed cap
             if(rb.linearVelocity.magnitude > maxSpeed)
             {
                 rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
             }
 
+            //calculating target rotation. calculated early to be able to use it for rotation delta calculation
             Quaternion targetRot = Quaternion.LookRotation(movementDir);
-            playerCollisionObject.transform.rotation = Quaternion.Slerp(playerCollisionObject.transform.rotation, targetRot, rotSpeed * Time.deltaTime);
+            Quaternion targetRotThisTick = Quaternion.Slerp(playerCollisionObject.transform.rotation, targetRot, rotSpeed * Time.deltaTime);
+
+            //rotation delta calculation and logging
+            Vector3 playerEuler = playerCollisionObject.transform.rotation * Vector3.forward;
+            Vector3 targetEuler = targetRotThisTick * Vector3.forward;
+            float rotationDelta = Vector3.SignedAngle(playerEuler, targetEuler, Vector3.up);
+
+            //if you change rotation direction, reset the sum, otherwise it takes up to two rotations to trigger another full rotation
+            if(Mathf.Sign(rotationDelta) != Mathf.Sign(_rotationDeltaSum))
+            {
+                _rotationDeltaSum = 0f;
+            }
+            _rotationDeltaSum += rotationDelta;
+
+            //full rotation check
+            if (_rotationDeltaSum > 360f || _rotationDeltaSum < -360f)
+            {
+                Debug.Log("Full Rotation: " + _rotationDeltaSum);
+                _rotationDeltaSum = 0f;
+            }
+
+            //applying rotation
+            playerCollisionObject.transform.rotation = targetRotThisTick;
 
         }
     }
