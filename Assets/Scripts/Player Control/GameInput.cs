@@ -27,11 +27,14 @@ public class GameInput : MonoBehaviour
 
         //movement/interaction
         moveInput = moveAction.ReadValue<Vector2>();
-        if (interactAction.triggered) interactPressedThisFrame = true;
+        if (interactAction.WasPressedThisFrame())
+        {
+            interactPressedThisFrame = true;
+        }
         else interactPressedThisFrame = false;
 
         //mouse input
-        clickPressedThisFrame = clickAction.triggered;
+        clickPressedThisFrame = clickAction.WasPressedThisFrame();
         clickCurrentlyHeld = clickAction.IsPressed();
         mousePosition = pointAction.ReadValue<Vector2>();
     }
