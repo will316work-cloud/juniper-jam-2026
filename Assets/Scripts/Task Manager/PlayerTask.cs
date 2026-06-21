@@ -1,26 +1,26 @@
 using UnityEngine;
 
-public abstract class PlayerTask
+public abstract class PlayerTask : MonoBehaviour
 {
+    public TaskTriggerObjectInstance TriggerObj;
+    public string TaskName;
+    [TextArea] public string TaskDescription;
+    public int TaskMoneyReward;
+    [HideInInspector] public bool IsSuccess;
     protected GameContext _ctx;
-    protected GameObject _triggerObj;
-    public  TaskType TaskType;
-    public bool IsSuccess { get; set; }
-
-    public void Initialize(GameContext ctx, GameObject triggerObj)
+    public virtual void Initialize(GameContext ctx)
     {
         _ctx = ctx;
-        _triggerObj = triggerObj;
+        DisableTriggerObj();
     }
-    public string TaskName { get; protected set; }
-    public string TaskDescription { get; protected set; }
 
     public abstract void OnTaskAnnouncement();
     public abstract void OnTaskStart();
     public abstract void OnTaskFail();
     public abstract void OnTaskSuccess();
-    public abstract void OnTaskEnd();
+    public abstract void OnTaskEnd(bool isSuccess);
     public abstract void Tick();
 
-    protected void DisableTriggerObj() => _triggerObj.SetActive(false);
+    public void DisableTriggerObj() => TriggerObj.canInteract = false;
+    public void EnableTriggerObj() => TriggerObj.canInteract = true;
 }
