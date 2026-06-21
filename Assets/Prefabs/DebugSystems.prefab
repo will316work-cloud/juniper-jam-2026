@@ -198,6 +198,9 @@ MonoBehaviour:
     WorldHealthMeter: {fileID: 7865111822663165091}
     DayTimeController: {fileID: 7962077968466086223}
     CoworkerManager: {fileID: 0}
+    BatteryDropoff: {fileID: 0}
+    Battery: {fileID: 0}
+    TransitionController: {fileID: 0}
   MoneyControllerData:
     InitialStartingMoney: 10
     MoneyTexts:
@@ -383,8 +386,58 @@ Transform:
   - {fileID: 573322975362796703}
   - {fileID: 410416987249261353}
   - {fileID: 4059040463682871233}
+  - {fileID: 4910002407465157291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6487487001928579356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4910002407465157291}
+  - component: {fileID: 156353508272246205}
+  m_Layer: 0
+  m_Name: Transition Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4910002407465157291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6487487001928579356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5710150950220461322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &156353508272246205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6487487001928579356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04ba0f141b4e014e98867190fc94b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransitionController
+  _transitionPanel: {fileID: 0}
+  _transitionText: {fileID: 0}
+  _transitionImage: {fileID: 0}
+  _baseStillTime: 4
+  _baseFadeTime: 2
 --- !u!1 &7952648505988107125
 GameObject:
   m_ObjectHideFlags: 0
