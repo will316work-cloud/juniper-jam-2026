@@ -78,6 +78,12 @@ public class WorldHealthMeter : MonoBehaviour
         _timePassed = 0;
     }
 
+    void ResetHealth()
+    {
+        _currentHealth = MaxHealth;
+        UpdateVisual();
+    }
+
     void Update()
     {
         Timer();
