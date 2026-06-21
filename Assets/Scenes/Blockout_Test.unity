@@ -2290,6 +2290,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418130a5d94a36749bcf3ce0745316c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
+--- !u!114 &880874991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7731068390153870466, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
+  m_PrefabInstance: {fileID: 8033675884765271869}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643a27bb13488ac4c94c3922c2c69cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Battery
 --- !u!4 &913368440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1520232546967683078, guid: a87b149f60b4bef4281b05bf6411a537, type: 3}
@@ -5366,6 +5377,10 @@ PrefabInstance:
       propertyPath: playerRigidbody
       value: 
       objectReference: {fileID: 874905338}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: GameContext.Battery
+      value: 
+      objectReference: {fileID: 880874991}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.GameInput
       value: 
