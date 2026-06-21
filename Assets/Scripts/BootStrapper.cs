@@ -32,6 +32,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);
         GameContext.GameStateController.Initialize(GameContext);
         GameContext.PlayerInteractor.Initialize(GameContext.GameInput);
+        GameContext.WorldHealthMeter.Initialize();
 
         InitializeTaskTriggerObjectInstances();
 
