@@ -10,21 +10,27 @@ public class PrinterTask : PlayerTask
     {
         _ctx.PrinterCrank.OnTaskStart();
         _ctx.TaskManager.SetPrinterUiState(true);
-        // _ctx.ChairManager.DeactivateMovement();
+        _ctx.PlayerControl.enabled = false;
     }
 
     public override void OnTaskFail()
     {
-        // _ctx.UiManager.HidePrinterUI();
-        DisableTriggerObj();
+        // Punishment logic
+        OnTaskEnd();
     }
 
     public override void OnTaskSuccess()
     {
-        // _ctx.UiManager.HidePrinterUI();
+        // Reward logic
+        OnTaskEnd();
+    }
+
+    void OnTaskEnd()
+    {
         _ctx.TaskManager.SetPrinterUiState(false);
         DisableTriggerObj();
         _ctx.TaskManager.RestartTaskSystem();
+        _ctx.PlayerControl.enabled = true;
     }
 
     public override void Tick()
