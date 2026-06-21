@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -29,6 +30,8 @@ public class TaskManager : MonoBehaviour
     PlayerTask _currentTask; public PlayerTask CurrentTask => _currentTask;
     List<PlayerTask> _playerTasks = new();
     List<PlayerTask> _completedTasks = new(); 
+
+    GameContext _ctx;
     #endregion
 
     #region Unity lifecycle methods
@@ -40,16 +43,15 @@ public class TaskManager : MonoBehaviour
         TimeSinceLastTaskTimer();
     }
 
-    public void Initialize(GameContext ctx, List<TaskTriggerEntry> triggerObjects)
-    {
-        _playerTasks.Add(new PrinterTask());
-
+    public void Initialize(GameContext ctx)
+    {       
+        _ctx = ctx;
+        _playerTasks.AddRange(FindObjectsByType<PlayerTask>().ToList());
         _chanceToGetTask = _baseChanceToGetTask;
 
         foreach (PlayerTask task in _playerTasks)
         {
-            foreach(TaskTriggerEntry to in triggerObjects)
-                if(to.TaskType == task.TaskType) task.Initialize(ctx,to.TriggerObj);
+            task.Initialize(ctx);
         }
 
         SetSystemState(false);
@@ -96,8 +98,9 @@ public class TaskManager : MonoBehaviour
         _currentTask = randomTask;
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
+        _currentTask.OnTaskAnnouncement();
 
-        if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskType}");
+        if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskName}");
     }
 
     /// <summary>
@@ -144,7 +147,7 @@ public class TaskManager : MonoBehaviour
     public void BeginTask()
     {
         SetSystemState(false);
-        _currentTask.OnTaskAnnouncement();
+        _currentTask.OnTaskStart();
     }
 
     public void OnTaskEnd()
@@ -154,8 +157,9 @@ public class TaskManager : MonoBehaviour
         else
             _currentTask.OnTaskFail();
 
-        _currentTask.OnTaskEnd();
-
+        _currentTask.DisableTriggerObj();
         SetSystemState(true);
+        SetPrinterUiState(false);
+        _currentTask = null;
     }
 }
