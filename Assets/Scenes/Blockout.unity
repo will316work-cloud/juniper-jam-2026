@@ -2349,6 +2349,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848939234}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &866008893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+  m_PrefabInstance: {fileID: 4448607743259810631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20d1295c4b285c449736c0b20acf833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoworkerManager
 --- !u!1 &874905332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4095779992716182556, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
@@ -5095,6 +5106,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 82621170}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: GameContext.CoworkerManager
+      value: 
+      objectReference: {fileID: 866008893}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.PlayerInteractor
       value: 
       objectReference: {fileID: 874905339}
@@ -5281,7 +5296,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
 --- !u!114 &8033675884765271871 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5820115036824001221, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7731068390153870466, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
   m_PrefabInstance: {fileID: 8033675884765271869}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
