@@ -8,4 +8,5 @@ public class GameContext
     public UiManager UiManager;
     public GameStateController GameStateController;
     public PlayerInteractor PlayerInteractor;
+    public WorldHealthMeter WorldHealthMeter;
 }

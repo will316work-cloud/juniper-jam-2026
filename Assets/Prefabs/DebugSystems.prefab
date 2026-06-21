@@ -147,6 +147,7 @@ MonoBehaviour:
     UiManager: {fileID: 4487798231870117352}
     GameStateController: {fileID: 6041146866851106236}
     PlayerInteractor: {fileID: 0}
+    WorldHealthMeter: {fileID: 7865111822663165091}
   MoneyControllerData:
     InitialStartingMoney: 10
     MoneyTexts:
@@ -163,6 +164,55 @@ MonoBehaviour:
       MainMenuButton: {fileID: 0}
   playerRigidbody: {fileID: 0}
   playerCollisionObject: {fileID: 0}
+--- !u!1 &5054912498085588025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 573322975362796703}
+  - component: {fileID: 7865111822663165091}
+  m_Layer: 0
+  m_Name: World Health Meter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &573322975362796703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054912498085588025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5710150950220461322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7865111822663165091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054912498085588025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52112ecd36d3af74d937dd0a9a2e147b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldHealthMeter
+  Panel: {fileID: 0}
+  MaxHealth: 100
+  HealthLossPerSecond: 1
+  HealthBarUpdateFrequency: 0.2
+  HealthBar: {fileID: 0}
 --- !u!1 &6419247997763452446
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +247,7 @@ Transform:
   - {fileID: 448706483986355246}
   - {fileID: 5889629315439246667}
   - {fileID: 3449565491023234715}
+  - {fileID: 573322975362796703}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7952648505988107125
