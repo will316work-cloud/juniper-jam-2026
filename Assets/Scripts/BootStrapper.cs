@@ -35,6 +35,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.WorldHealthMeter.Initialize();
         GameContext.DayTimeController.Initialize(GameContext);
         GameContext.BatteryDropoff.Initialize(GameContext);
+        GameContext.Battery.Initialize(GameContext);
 
         InitializeTaskTriggerObjectInstances();
 

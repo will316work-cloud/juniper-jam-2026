@@ -8,13 +8,23 @@ public class Battery : MonoBehaviour
     public int rotationsPerFill;
     public int rotationsSoFar = 0;
     public bool _isFilled;
+    private GameContext _ctx;
+
+    public void Initialize(GameContext ctx)
+    {
+        _ctx = ctx;
+    }
 
     public void ChargeBattery()
     {
         if (_isFilled) return;
         rotationsSoFar++;
         IncreaseVisualFill();
-        if (rotationsSoFar >= rotationsPerFill) _isFilled = true;
+        if (rotationsSoFar >= rotationsPerFill)
+        {
+            _isFilled = true;
+            _ctx.BatteryDropoff.canInteract = true;
+        }
     }
 
     private void IncreaseVisualFill()
@@ -38,6 +48,7 @@ public class Battery : MonoBehaviour
         Debug.Log("Battery swapped");
         rotationsSoFar = 0;
         _isFilled = false;
+        _ctx.BatteryDropoff.canInteract = false;
     }
 
 }
