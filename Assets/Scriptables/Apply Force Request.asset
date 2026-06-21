@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9739bd492e5660d4a832d0fb32f7968f, type: 3}
+  m_Name: Apply Force Request
+  m_EditorClassIdentifier: Assembly-CSharp::ApplyForceRequest
+  _forcePower: 100
+  _forceMode: 0
+  _directionMode: 1
+  _directionOrigin: 0
+  _eulerAngleDeviation: {x: 0, y: 0, z: 0}
