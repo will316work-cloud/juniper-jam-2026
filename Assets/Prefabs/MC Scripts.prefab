@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 5199263833904328195}
   - component: {fileID: 7150254033019917723}
   - component: {fileID: 3142793854620547353}
+  - component: {fileID: 7731068390153870466}
   m_Layer: 0
   m_Name: MC Scripts
   m_TagString: Untagged
@@ -232,6 +233,7 @@ MonoBehaviour:
   rotSpeed: 5
   maxSpeed: 3
   movementDirPivotObj: {fileID: 0}
+  battery: {fileID: 7731068390153870466}
 --- !u!114 &3142793854620547353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,3 +254,21 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &7731068390153870466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110928345041699031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643a27bb13488ac4c94c3922c2c69cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Battery
+  batteryVisual: {fileID: 0}
+  moneyPerDropoff: 10
+  healthPerDropoff: 10
+  rotationsPerFill: 10
+  rotationsSoFar: 0
+  _isFilled: 0
