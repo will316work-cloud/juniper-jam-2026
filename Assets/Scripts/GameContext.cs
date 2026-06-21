@@ -9,4 +9,5 @@ public class GameContext
     public GameStateController GameStateController;
     public PlayerInteractor PlayerInteractor;
     public WorldHealthMeter WorldHealthMeter;
+    public DayTimeController DayTimeController;
 }

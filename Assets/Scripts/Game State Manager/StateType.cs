@@ -2,5 +2,6 @@ public enum StateType
 {
     Gameplay,
     GameOver,
-    PlayerTask
+    PlayerTask,
+    DayChange
 }

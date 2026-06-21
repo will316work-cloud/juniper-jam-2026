@@ -21,6 +21,9 @@ public class WorldHealthMeter : MonoBehaviour
         UpdateVisual();
     }
 
+     /// <summary>
+    /// Disables the timer.
+    /// </summary>
     public void SetTimerState(bool state)
     {
         if(!state)
@@ -31,6 +34,9 @@ public class WorldHealthMeter : MonoBehaviour
         ResetTimer();
     }
 
+    /// <summary>
+    /// Disables the timer and the panel.
+    /// </summary>
     public void SetSystemIsEnabled(bool state)
     {
         _isSystemActive = state;
@@ -76,6 +82,12 @@ public class WorldHealthMeter : MonoBehaviour
     void ResetTimer()
     {
         _timePassed = 0;
+    }
+
+    public void ResetHealth()
+    {
+        _currentHealth = MaxHealth;
+        UpdateVisual();
     }
 
     void Update()
