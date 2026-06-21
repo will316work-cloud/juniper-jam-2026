@@ -44,8 +44,8 @@ public class GameStateController : MonoBehaviour
     {
         if(_currentState != null)
         {
-            // if(hasTransition)
-                // yield return StartCoroutine(_ctx.TransitionController.TransitionFadeIn(transitionText));
+            if(hasTransition)
+                yield return StartCoroutine(_ctx.TransitionController.TransitionFadeIn(transitionText));
 
             yield return StartCoroutine(_currentState.OnExit());
         }
@@ -59,8 +59,8 @@ public class GameStateController : MonoBehaviour
         
             if(hasTransition)
             {
-                // yield return new WaitForSeconds(3.5f);
-                // yield return StartCoroutine(_ctx.TransitionController.TransitionFadeOut());
+                yield return new WaitForSeconds(3.5f);
+                yield return StartCoroutine(_ctx.TransitionController.TransitionFadeOut());
             }
                 
         }
