@@ -6,21 +6,21 @@ public class PlayerInteractor : MonoBehaviour
 {
     [Header("Settings")]
     public float range = 3f;
-    public InputAction input;
 
+    private bool input;
     private Interactable currentInteractable;
     private bool hasAnyInteractable;
 
     public void Initialize(GameInput gameInput)
     {
-        // input = gameInput;
+         input = gameInput.interactPressedThisFrame;
     }
 
     void Update()
     {
         UpdateCurrentInteractable();
 
-        if (currentInteractable != null && currentInteractable.canInteract && Keyboard.current.eKey.wasPressedThisFrame)
+        if (currentInteractable != null && currentInteractable.canInteract && input)
         {
             currentInteractable.Interact();
         }

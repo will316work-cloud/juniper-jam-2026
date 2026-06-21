@@ -4799,18 +4799,6 @@ PrefabInstance:
       value: MC Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 7150254033019917723, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
-      propertyPath: maxSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7150254033019917723, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
-      propertyPath: rotSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7150254033019917723, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
-      propertyPath: accelSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7150254033019917723, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
       propertyPath: movementDirPivotObj
       value: 
       objectReference: {fileID: 395274918}

@@ -156,23 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   range: 2
-  input:
-    m_Name: Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 61bbd25b-d709-4d79-9fcd-a230baf613db
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 79f8ce86-2b43-431c-ab14-8a68eb597dfd
-      m_Path: <Keyboard>/#(E)
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Input
-      m_Flags: 0
-    m_Flags: 0
 --- !u!1 &7110928345041699031
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418130a5d94a36749bcf3ce0745316c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
-  accelSpeed: 5
-  rotSpeed: 10
-  maxSpeed: 10
+  accelSpeed: 3
+  rotSpeed: 5
+  maxSpeed: 3
   movementDirPivotObj: {fileID: 0}
