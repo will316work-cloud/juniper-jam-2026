@@ -94,6 +94,53 @@ MonoBehaviour:
   _baseChanceToGetTask: 10
   _chanceIncreaseAfterFailedAttempt: 10
   _isDebugOn: 1
+--- !u!1 &816527460147394048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410416987249261353}
+  - component: {fileID: 7962077968466086223}
+  m_Layer: 0
+  m_Name: Day Time Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410416987249261353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816527460147394048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5710150950220461322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7962077968466086223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816527460147394048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba1fa3b264aa134b8c11b84cfbc7601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayTimeController
+  DayLenghtInSeconds: 60
+  DayText: {fileID: 0}
+  TimeText: {fileID: 0}
 --- !u!1 &2919626840520574295
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +195,7 @@ MonoBehaviour:
     GameStateController: {fileID: 6041146866851106236}
     PlayerInteractor: {fileID: 0}
     WorldHealthMeter: {fileID: 7865111822663165091}
+    DayTimeController: {fileID: 0}
   MoneyControllerData:
     InitialStartingMoney: 10
     MoneyTexts:
@@ -248,6 +296,7 @@ Transform:
   - {fileID: 5889629315439246667}
   - {fileID: 3449565491023234715}
   - {fileID: 573322975362796703}
+  - {fileID: 410416987249261353}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7952648505988107125

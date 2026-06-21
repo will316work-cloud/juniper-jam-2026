@@ -10,6 +10,9 @@ public class GameplayState : GameState
             _ctx.WorldHealthMeter.SetTimerState(true);
         }
 
+        if(_ctx.DayTimeController.IsTimerOn == false)
+            _ctx.DayTimeController.SetIsTimerOn(true);
+
         _ctx.PlayerControl.enabled = true;
         _ctx.UiManager.InGameUiHandler.SetPanelState(true);
         yield return null;

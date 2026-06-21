@@ -20,6 +20,8 @@ public class GameStateController : MonoBehaviour
     {
         _states.Add(StateType.Gameplay, new GameplayState());
         _states.Add(StateType.PlayerTask, new PlayerTaskState());
+        _states.Add(StateType.GameOver, new GameOverState());
+        _states.Add(StateType.DayChange, new DayChangeState());
     }
     void InitializeStates(GameContext ctx)
     {
