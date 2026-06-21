@@ -1468,6 +1468,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474185186}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &560706802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 156353508272246205, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+  m_PrefabInstance: {fileID: 4448607743259810631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04ba0f141b4e014e98867190fc94b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransitionController
 --- !u!1 &596750615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1765,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20d1295c4b285c449736c0b20acf833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoworkerManager
+--- !u!1 &641314407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6279747580694586268, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &692676619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,6 +3257,17 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &1351637543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2503092415359712078, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1402417234
 GameObject:
   m_ObjectHideFlags: 0
@@ -4920,6 +4947,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999394403}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2099676636 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1657855180836076390, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &2144299351
 GameObject:
   m_ObjectHideFlags: 0
@@ -5177,6 +5215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6279747580694586268, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8265508664105121230, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5373,6 +5415,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 156353508272246205, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: _transitionText
+      value: 
+      objectReference: {fileID: 1351637543}
+    - target: {fileID: 156353508272246205, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: _transitionImage
+      value: 
+      objectReference: {fileID: 2099676636}
+    - target: {fileID: 156353508272246205, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: _transitionPanel
+      value: 
+      objectReference: {fileID: 641314407}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: playerRigidbody
       value: 
@@ -5405,6 +5459,10 @@ PrefabInstance:
       propertyPath: GameContext.PlayerInteractor
       value: 
       objectReference: {fileID: 874905339}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: GameContext.TransitionController
+      value: 
+      objectReference: {fileID: 560706802}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: 'MoneyControllerData.MoneyTexts.Array.data[0]'
       value: 

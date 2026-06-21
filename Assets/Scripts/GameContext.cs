@@ -13,4 +13,5 @@ public class GameContext
     public CoworkerManager CoworkerManager;
     public BatteryDropoff BatteryDropoff;
     public Battery Battery;
+    public TransitionController TransitionController;
 }
