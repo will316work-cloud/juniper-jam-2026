@@ -5,6 +5,7 @@ public abstract class PlayerTask
     protected GameContext _ctx;
     protected GameObject _triggerObj;
     public  TaskType TaskType;
+    public bool IsSuccess { get; protected set; }
 
     public void Initialize(GameContext ctx, GameObject triggerObj)
     {
