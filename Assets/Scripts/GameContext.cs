@@ -6,4 +6,5 @@ public class GameContext
     public PrinterCrank PrinterCrank;
     public GameInput GameInput;
     public PlayerControl PlayerControl;
+    public UiManager UiManager;
 }
