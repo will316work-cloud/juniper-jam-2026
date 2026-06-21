@@ -8,4 +8,5 @@ public class GameContext
     public PlayerControl PlayerControl;
     public UiManager UiManager;
     public GameStateController GameStateController;
+    public PlayerInteractor PlayerInteractor;
 }

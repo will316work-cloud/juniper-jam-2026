@@ -16,12 +16,11 @@ public class GameStateController : MonoBehaviour
         CreateDictionary();
         InitializeStates(_ctx);
     }
-
     void CreateDictionary()
     {
-
+        _states.Add(StateType.Gameplay, new GameplayState());
+        _states.Add(StateType.PlayerTask, new PlayerTaskState());
     }
-
     void InitializeStates(GameContext ctx)
     {
         foreach (GameState state in _states.Values) state.Initialize(ctx);
@@ -29,7 +28,7 @@ public class GameStateController : MonoBehaviour
 
     void Update()
     {
-        _currentState.Tick();
+        _currentState?.Tick();
     }
 
     public void ChangeState(StateType stateType, bool hasTransition = false, string transitionText = "")

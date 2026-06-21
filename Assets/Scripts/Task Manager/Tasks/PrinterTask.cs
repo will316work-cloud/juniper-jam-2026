@@ -22,20 +22,10 @@ public class PrinterTask : PlayerTask
     {
         // Reward logic
     }
-
-    void OnTaskEnd()
+    public override void OnTaskEnd()
     {
         _ctx.TaskManager.SetPrinterUiState(false);
         DisableTriggerObj();
-
-        if(IsSuccess)
-            OnTaskSuccess();
-        else
-            OnTaskFail();
-
-        _ctx.TaskManager.OnTaskEnd();
-
-        _ctx.GameStateController.ChangeState(StateType.Gameplay);
     }
 
     public override void Tick()

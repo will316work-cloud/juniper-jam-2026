@@ -149,6 +149,13 @@ public class TaskManager : MonoBehaviour
 
     public void OnTaskEnd()
     {
+        if(_currentTask.IsSuccess)
+            _currentTask.OnTaskSuccess();
+        else
+            _currentTask.OnTaskFail();
+
+        _currentTask.OnTaskEnd();
+
         SetSystemState(true);
     }
 }

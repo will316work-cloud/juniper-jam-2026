@@ -10,7 +10,7 @@ public class PlayerTaskState : GameState
 
     public override IEnumerator OnExit()
     {
-
+        _ctx.TaskManager.OnTaskEnd();
         yield return null;
     }
 

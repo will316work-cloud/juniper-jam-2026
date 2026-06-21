@@ -5,7 +5,7 @@ public abstract class PlayerTask
     protected GameContext _ctx;
     protected GameObject _triggerObj;
     public  TaskType TaskType;
-    public bool IsSuccess { get; protected set; }
+    public bool IsSuccess { get; set; }
 
     public void Initialize(GameContext ctx, GameObject triggerObj)
     {
@@ -19,6 +19,7 @@ public abstract class PlayerTask
     public abstract void OnTaskStart();
     public abstract void OnTaskFail();
     public abstract void OnTaskSuccess();
+    public abstract void OnTaskEnd();
     public abstract void Tick();
 
     protected void DisableTriggerObj() => _triggerObj.SetActive(false);
