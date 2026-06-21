@@ -6,12 +6,12 @@ public class GameInput : MonoBehaviour
     //this script is only meant for in game input, not menu input.
 
     private InputAction moveAction;
-    private InputAction interactAction;
+    public InputAction interactAction;
     private InputAction pointAction;
     private InputAction clickAction;
 
     [HideInInspector] public Vector2 moveInput, mousePosition;
-    [HideInInspector] public bool interactPressedThisFrame, clickPressedThisFrame, clickCurrentlyHeld;
+    [HideInInspector] public bool clickPressedThisFrame, clickCurrentlyHeld;
 
     public void Initialize()
     {
@@ -27,11 +27,6 @@ public class GameInput : MonoBehaviour
 
         //movement/interaction
         moveInput = moveAction.ReadValue<Vector2>();
-        if (interactAction.WasPressedThisFrame())
-        {
-            interactPressedThisFrame = true;
-        }
-        else interactPressedThisFrame = false;
 
         //mouse input
         clickPressedThisFrame = clickAction.WasPressedThisFrame();

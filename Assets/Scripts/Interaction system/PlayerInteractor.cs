@@ -7,20 +7,20 @@ public class PlayerInteractor : MonoBehaviour
     [Header("Settings")]
     public float range = 3f;
 
-    private bool input;
+    private InputAction input;
     private Interactable currentInteractable;
     private bool hasAnyInteractable;
 
     public void Initialize(GameInput gameInput)
     {
-         input = gameInput.interactPressedThisFrame;
+         input = gameInput.interactAction;
     }
 
     void Update()
     {
         UpdateCurrentInteractable();
 
-        if (currentInteractable != null && currentInteractable.canInteract && input)
+        if (currentInteractable != null && currentInteractable.canInteract && input.WasPressedThisFrame())
         {
             currentInteractable.Interact();
         }
