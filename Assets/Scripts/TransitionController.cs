@@ -20,7 +20,6 @@ public class TransitionController : MonoBehaviour
 
     public void Initialize(GameContext ctx)
     {
-        // _transitionText.color = new(255, 255, 255, 0);
         _transitionImage.color = new(255, 255, 255, 0);
         _transitionPanel.SetActive(false);
         
@@ -43,7 +42,7 @@ public class TransitionController : MonoBehaviour
         _transitionImage.DOFade(0, fadeTime / 2).OnComplete(() => _transitionPanel.SetActive(false));
     }
 
-    public IEnumerator TransitionFadeIn(string text)
+    public IEnumerator TransitionFadeIn(string text = "")
     {
         _transitionText.text = text;
         _transitionPanel.SetActive(true);
@@ -60,6 +59,6 @@ public class TransitionController : MonoBehaviour
                 =>_transitionImage.DOFade(0, 2f).OnComplete(() 
                 => _transitionPanel.SetActive(false)));
 
-        yield return new WaitForSeconds(3f);                                
+        yield return new WaitForSeconds(4f);                                
     }
 }
