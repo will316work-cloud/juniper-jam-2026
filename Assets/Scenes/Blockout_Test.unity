@@ -1540,17 +1540,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474185186}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &560706802 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 156353508272246205, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-  m_PrefabInstance: {fileID: 4448607743259810631}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d04ba0f141b4e014e98867190fc94b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TransitionController
 --- !u!1 &596750615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,17 +1815,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 29.037, y: -45, z: 0}
---- !u!114 &634332790 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-  m_PrefabInstance: {fileID: 4448607743259810631}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20d1295c4b285c449736c0b20acf833, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoworkerManager
 --- !u!1 &641314407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6279747580694586268, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -5530,25 +5508,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1754958060}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: GameContext.CoworkerManager
-      value: 
-      objectReference: {fileID: 634332790}
-    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: AudioPoolData.AudioEntryList
-      value: 
-      objectReference: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
-    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.PlayerInteractor
       value: 
       objectReference: {fileID: 874905339}
-    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: GameContext.DifficultyManager
-      value: 
-      objectReference: {fileID: 4448607743259810632}
-    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: GameContext.TransitionController
-      value: 
-      objectReference: {fileID: 560706802}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: 'MoneyControllerData.MoneyTexts.Array.data[0]'
       value: 
@@ -5581,38 +5543,6 @@ PrefabInstance:
       propertyPath: UiManagerContext.InGameUiHandlerData.InteractionIndicatorObj
       value: 
       objectReference: {fileID: 1264969655437357972}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: IsDebugOn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: Coworkers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: PathPoints.Array.size
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: 'Coworkers.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: 'Coworkers.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: 'Coworkers.Array.data[2]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: 'Coworkers.Array.data[3]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: 'Coworkers.Array.data[4]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: 'PathPoints.Array.data[0]'
       value: 
@@ -5654,10 +5584,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1188678405}
     - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: CoworkerBaseMovementSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: 'PathPoints.Array.data[10]'
       value: 
       objectReference: {fileID: 913368440}
@@ -5673,30 +5599,6 @@ PrefabInstance:
       propertyPath: 'PathPoints.Array.data[13]'
       value: 
       objectReference: {fileID: 744921506}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: MaximumBaseConcurrentMovingCoworkers
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: InitialChanceOfMovingWorkerInPercentage
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: MinimumBaseTimeGapeBetweenMovingCoworkers
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: ChanceIncreaseOnFailedCoworkerMovingInPercentage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725412534249507964, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: m_VoxelSize
-      value: 0.16666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 2725412534249507964, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 38d0c03844866974ea4468d036108bb4, type: 2}
     - target: {fileID: 5710150950220461322, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.87231
@@ -5742,33 +5644,13 @@ PrefabInstance:
       value: DebugSystems
       objectReference: {fileID: 0}
     - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: PrinterUi
-      value: 
-      objectReference: {fileID: 703900888}
-    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: _isDebugOn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: _timerData.Panel
       value: 
       objectReference: {fileID: 1461143247}
     - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: _minTimeBetweenTasks
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: _timerData.TimerText
       value: 
       objectReference: {fileID: 1618519926}
-    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: _taskGettingAttemptFrequency
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: _chanceIncreaseAfterFailedAttempt
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 7865111822663165091, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: Panel
       value: 
@@ -5789,42 +5671,11 @@ PrefabInstance:
       propertyPath: TimeText
       value: 
       objectReference: {fileID: 1273065507}
-    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: DaySettings.Array.data[0].TaskGapTime
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: DaySettings.Array.data[0].CoworkerSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: DaySettings.Array.data[0].HealthLossPerSecond
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: DaySettings.Array.data[0].CoworkerMoverGapTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-      propertyPath: DaySettings.Array.data[0].ChargedBatteryQuotaCount
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
---- !u!114 &4448607743259810632 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
-  m_PrefabInstance: {fileID: 4448607743259810631}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e34bb72bd2c7849ba9ff3965b51dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
 --- !u!1001 &8033675884765271869
 PrefabInstance:
   m_ObjectHideFlags: 0
