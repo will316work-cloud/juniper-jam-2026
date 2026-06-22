@@ -81,6 +81,7 @@ public class DayTimeController : MonoBehaviour
                 if(_currentHour >= _shiftEndHour)
                 {
                     SetIsTimerOn(false);
+                    if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = false;
                     _ctx.GameStateController.ChangeState(StateType.DayChange);
                 }
             }

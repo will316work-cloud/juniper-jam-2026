@@ -28,7 +28,7 @@ public class TaskManager : MonoBehaviour
     private bool _isTryingToGetTask;
 
     private Coroutine _taskGettingAttemptCoroutine;
-    private bool _isSystemActive;
+    private bool _isSystemActive; public bool IsSystemActive => _isSystemActive;
 
     PlayerTask _currentTask; public PlayerTask CurrentTask => _currentTask;
     List<PlayerTask> _playerTasks = new();
@@ -74,6 +74,8 @@ public class TaskManager : MonoBehaviour
     }
 
     public void SetSystemState(bool state) => _isSystemActive = state;
+    public void SetisTimerOn(bool state) => _timer.SetIsTimerOn(state);
+    public bool IsTimerOn() => _timer.IsTimerOn;
 
     public void GetRandomTask()
     {
@@ -102,7 +104,7 @@ public class TaskManager : MonoBehaviour
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
         _currentTask.OnTaskAnnouncement();
-        _timer.StartTimer(_currentTask.AvailableTime);
+        _timer.StartTimer(_currentTask.AvailableTime, _currentTask.TaskDescription);
 
         if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskName}");
     }
@@ -162,14 +164,17 @@ public class TaskManager : MonoBehaviour
             _currentTask.OnTaskFail();
 
         _currentTask.DisableTriggerObj();
+        _currentTask.SetTaskPanelState(false);
         SetSystemState(true);
         _currentTask = null;
         _timer.SetIsTimerOn(false);
         _timer.SetPanelState(false);
+        RestartTaskSystem();
     }
 
     public void OnTimeOut()
     {
-        _currentTask.OnTaskEnd(false);
+        if(_currentTask != null) 
+            _currentTask.OnTaskEnd(false);
     }
 }

@@ -4,7 +4,6 @@ public class DayChangeState : GameState
 {
     public override IEnumerator OnEnter()
     {
-        // start transition and get to dark
         _ctx.WorldHealthMeter.SetTimerState(false);
         _ctx.DayTimeController.SetIsTimerOn(false);
         yield return _ctx.TransitionController.TransitionFadeIn();
@@ -17,8 +16,8 @@ public class DayChangeState : GameState
         _ctx.DayTimeController.IncrementDay();
         _ctx.DayTimeController.ResetTime();
         _ctx.WorldHealthMeter.ResetHealth();
+        _ctx.CoworkerManager.TeleportCoworkersToOriginalPlace();
         yield return _ctx.TransitionController.TransitionFadeOut();
-        // end transition
         yield return null;
     }
 
