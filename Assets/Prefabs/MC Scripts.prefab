@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
   accelSpeed: 3
   rotSpeed: 5
-  maxSpeed: 3
+  maxSpeed: 4
   movementDirPivotObj: {fileID: 0}
   battery: {fileID: 7731068390153870466}
   stunHandler: {fileID: 8667831404183613881}
@@ -283,8 +283,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Battery
   batteryVisual: {fileID: 0}
+  batteryUI: {fileID: 0}
   moneyPerDropoff: 10
-  healthPerDropoff: 10
+  healthPerDropoff: 5
   rotationsPerFill: 10
   rotationsSoFar: 0
   _isFilled: 0
+  IsDebugOn: 0

@@ -352,21 +352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20d1295c4b285c449736c0b20acf833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoworkerManager
-  PathPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   InitialChanceOfMovingWorkerInPercentage: 60
   ChanceIncreaseOnFailedCoworkerMovingInPercentage: 20
   IsDebugOn: 0
@@ -596,48 +581,34 @@ MonoBehaviour:
     MaxConcurrentMovingCoworker: 5
     CoworkerSpeed: 2
     CoworkerMoverGapTime: 1
-    TaskGapTime: 5
-    HealthLossPerSecond: 0.01
-    ChargedBatteryQuotaCount: 8
+    TaskGapTime: 7
+    HealthLossPerSecond: 0.15
+    BatteryQuotaCountPerDay: 7
   - Day: 2
     MaxConcurrentMovingCoworker: 6
-    CoworkerSpeed: 0
-    CoworkerMoverGapTime: 0
-    TaskGapTime: 0
-    HealthLossPerSecond: 0
-    ChargedBatteryQuotaCount: 0
+    CoworkerSpeed: 3
+    CoworkerMoverGapTime: 1
+    TaskGapTime: 6
+    HealthLossPerSecond: 0.2
+    BatteryQuotaCountPerDay: 8
   - Day: 3
     MaxConcurrentMovingCoworker: 7
-    CoworkerSpeed: 0
-    CoworkerMoverGapTime: 0
-    TaskGapTime: 0
-    HealthLossPerSecond: 0
-    ChargedBatteryQuotaCount: 0
+    CoworkerSpeed: 4
+    CoworkerMoverGapTime: 1
+    TaskGapTime: 5
+    HealthLossPerSecond: 0.25
+    BatteryQuotaCountPerDay: 9
   - Day: 4
     MaxConcurrentMovingCoworker: 8
-    CoworkerSpeed: 0
-    CoworkerMoverGapTime: 0
-    TaskGapTime: 0
-    HealthLossPerSecond: 0
-    ChargedBatteryQuotaCount: 0
-  - Day: 5
-    MaxConcurrentMovingCoworker: 9
-    CoworkerSpeed: 0
-    CoworkerMoverGapTime: 0
-    TaskGapTime: 0
-    HealthLossPerSecond: 0
-    ChargedBatteryQuotaCount: 0
+    CoworkerSpeed: 5
+    CoworkerMoverGapTime: 1
+    TaskGapTime: 4
+    HealthLossPerSecond: 0.3
+    BatteryQuotaCountPerDay: 10
   - Day: 6
-    MaxConcurrentMovingCoworker: 0
-    CoworkerSpeed: 0
-    CoworkerMoverGapTime: 0
-    TaskGapTime: 0
-    HealthLossPerSecond: 0
-    ChargedBatteryQuotaCount: 0
-  - Day: 7
-    MaxConcurrentMovingCoworker: 0
-    CoworkerSpeed: 0
-    CoworkerMoverGapTime: 0
-    TaskGapTime: 0
-    HealthLossPerSecond: 0
-    ChargedBatteryQuotaCount: 0
+    MaxConcurrentMovingCoworker: 9
+    CoworkerSpeed: 6
+    CoworkerMoverGapTime: 1
+    TaskGapTime: 3
+    HealthLossPerSecond: 0.4
+    BatteryQuotaCountPerDay: 12

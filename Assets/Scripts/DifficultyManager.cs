@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DifficultyManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class DifficultyManager : MonoBehaviour
         
     public void SetDifficulty(int day)
     {
+        Debug.Log($"Setting difficulty for day {day}.");
+        if (day > DaySettings.Count) day = DaySettings.Count;
         ApplySettings(DaySettings.Find(setting => setting.Day == day));
     }
 
