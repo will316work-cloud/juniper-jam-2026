@@ -174,7 +174,7 @@ public class TaskManager : MonoBehaviour
 
     public void OnTimeOut()
     {
-        if(_currentTask != null)
+        if(_currentTask != null) 
             _currentTask.OnTaskEnd(false);
     }
 }
