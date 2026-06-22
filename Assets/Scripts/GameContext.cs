@@ -11,6 +11,7 @@ public class GameContext
     public WorldHealthMeter WorldHealthMeter;
     public DayTimeController DayTimeController;
     public CoworkerManager CoworkerManager;
+    public Quota Quota;
     public BatteryDropoff BatteryDropoff;
     public Battery Battery;
     public TransitionController TransitionController;
