@@ -7,6 +7,7 @@ public class GameOverState : GameState
         _ctx.UiManager.GameOverUiHandler.SetPanelState(true);
         _ctx.PlayerControl.enabled = false;
         _ctx.DayTimeController.SetIsTimerOn(false);
+        _ctx.WorldHealthMeter.SetSystemIsEnabled(false);
         yield return null;
     }
 

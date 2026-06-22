@@ -12,12 +12,13 @@ public class WorldHealthMeter : MonoBehaviour
     private float _timePassed;
     private float _healthLossPerTick;
     private bool _isSystemActive; public bool IsSystemActive => _isSystemActive;
+    GameContext _ctx;
 
-    public void Initialize()
+    public void Initialize(GameContext ctx)
     {
         _currentHealth = MaxHealth;
         _healthLossPerTick = HealthLossPerSecond * HealthBarUpdateFrequency;
-
+        _ctx = ctx;
         UpdateVisual();
     }
 
@@ -49,12 +50,19 @@ public class WorldHealthMeter : MonoBehaviour
     public void GainHealth(float health)
     {
         _currentHealth += health;
+        if(_currentHealth > MaxHealth) _currentHealth = MaxHealth;
         UpdateVisual();
     }
 
     public void LoseHealth(float health)
     {
         _currentHealth -= health;
+        if(_currentHealth < 0)
+        {
+            _currentHealth = 0;
+            _ctx.GameStateController.ChangeState(StateType.GameOver);
+        }
+
         UpdateVisual();
     }
 
@@ -73,8 +81,7 @@ public class WorldHealthMeter : MonoBehaviour
 
         if(_timePassed >= HealthBarUpdateFrequency)
         {
-            _currentHealth -= _healthLossPerTick;
-            UpdateVisual();
+            LoseHealth(_healthLossPerTick);
             ResetTimer();
         }
     }
