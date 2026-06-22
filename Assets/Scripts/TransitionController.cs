@@ -15,7 +15,7 @@ public class TransitionController : MonoBehaviour
     [SerializeField] TextMeshProUGUI _transitionText;
     [SerializeField] Image _transitionImage;
     [SerializeField] float _baseStillTime = 4;
-    [SerializeField] float _baseFadeTime = 2;
+    // [SerializeField] float _baseFadeTime = 2;
     GameContext _ctx;
 
     public void Initialize(GameContext ctx)

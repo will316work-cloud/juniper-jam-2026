@@ -53,13 +53,14 @@ public class Coworker : MonoBehaviour
     IEnumerator GoBackToOriginalPosition()
     {
         _agent.SetDestination(_originalPosition);
-        while(_agent.pathPending) 
+        while(_agent.pathPending)
             yield return null;
         while (_agent.remainingDistance > _agent.stoppingDistance)
             yield return null;
 
         yield return new WaitForSeconds(1f);
 
+        _movementRoutine = null;
         _manager.AddCoworkerToAvailableCoworkers(this);
     }
 
@@ -80,7 +81,7 @@ public class Coworker : MonoBehaviour
 
     void StuckHandler()
     {
-        if(_movementRoutine != null && _agent.velocity.magnitude <= 0.1f)
+        if(_movementRoutine != null && _agent.velocity.magnitude <= 0.1f && _agent.remainingDistance > _agent.stoppingDistance)
         {
             _stuckTimerTime += Time.deltaTime;
             if(_stuckTimerTime >= 2f)

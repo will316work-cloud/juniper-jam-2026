@@ -88,12 +88,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b65b5a5f75a424ab1ad049ff52414f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
-  PrinterUi: {fileID: 0}
   _minTimeBetweenTasks: 5
   _taskGettingAttemptFrequency: 0
   _baseChanceToGetTask: 10
   _chanceIncreaseAfterFailedAttempt: 10
   _isDebugOn: 1
+  _timerData:
+    TimerText: {fileID: 0}
+    Panel: {fileID: 0}
 --- !u!1 &816527460147394048
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,10 +199,10 @@ MonoBehaviour:
     PlayerInteractor: {fileID: 0}
     WorldHealthMeter: {fileID: 7865111822663165091}
     DayTimeController: {fileID: 7962077968466086223}
-    CoworkerManager: {fileID: 0}
+    CoworkerManager: {fileID: 1760346673991785314}
     BatteryDropoff: {fileID: 0}
     Battery: {fileID: 0}
-    TransitionController: {fileID: 0}
+    TransitionController: {fileID: 156353508272246205}
   MoneyControllerData:
     InitialStartingMoney: 10
     MoneyTexts:
@@ -217,6 +219,9 @@ MonoBehaviour:
       MainMenuButton: {fileID: 0}
   playerRigidbody: {fileID: 0}
   playerCollisionObject: {fileID: 0}
+  AudioPoolData:
+    AudioEntryList: {fileID: 0}
+    BasePoolSize: 12
 --- !u!1 &5054912498085588025
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoworkerManager
   PathPoints: []
-  Coworkers: []
   CoworkerBaseMovementSpeed: 4
   MaximumBaseConcurrentMovingCoworkers: 2
   MinimumBaseTimeGapeBetweenMovingCoworkers: 3
@@ -437,7 +441,6 @@ MonoBehaviour:
   _transitionText: {fileID: 0}
   _transitionImage: {fileID: 0}
   _baseStillTime: 4
-  _baseFadeTime: 2
 --- !u!1 &7952648505988107125
 GameObject:
   m_ObjectHideFlags: 0

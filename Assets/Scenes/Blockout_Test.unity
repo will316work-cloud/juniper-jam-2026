@@ -1043,6 +1043,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6804237865349008312, guid: a87b149f60b4bef4281b05bf6411a537, type: 3}
   m_PrefabInstance: {fileID: 4209062073579059676}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &335484441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335484442}
+  m_Layer: 0
+  m_Name: AudioSources
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &335484442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335484441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.17315, y: -0.5, z: -6.4094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378819144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,6 +5510,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 880874991}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: AudioPoolData.Parent
+      value: 
+      objectReference: {fileID: 335484442}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.GameInput
       value: 
       objectReference: {fileID: 880874988}
@@ -5498,6 +5533,10 @@ PrefabInstance:
       propertyPath: GameContext.CoworkerManager
       value: 
       objectReference: {fileID: 634332790}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: AudioPoolData.AudioEntryList
+      value: 
+      objectReference: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.PlayerInteractor
       value: 
@@ -5628,11 +5667,19 @@ PrefabInstance:
       objectReference: {fileID: 744921506}
     - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: MaximumBaseConcurrentMovingCoworkers
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: InitialChanceOfMovingWorkerInPercentage
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: MinimumBaseTimeGapeBetweenMovingCoworkers
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: ChanceIncreaseOnFailedCoworkerMovingInPercentage
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2725412534249507964, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: m_VoxelSize
@@ -5690,6 +5737,10 @@ PrefabInstance:
       propertyPath: PrinterUi
       value: 
       objectReference: {fileID: 703900888}
+    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: _isDebugOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: _timerData.Panel
       value: 
@@ -5929,3 +5980,4 @@ SceneRoots:
   - {fileID: 8099264243421505155}
   - {fileID: 1886611441461358762}
   - {fileID: 4209062073579059676}
+  - {fileID: 335484442}

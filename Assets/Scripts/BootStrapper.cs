@@ -18,6 +18,10 @@ public class BootStrapper : MonoBehaviour
     public Rigidbody playerRigidbody;
     public GameObject playerCollisionObject;
 
+    [Space(10)]
+    [Header("Audio List")]
+    public AudioPoolData AudioPoolData;
+
     void Start()
     {
         Initialize();
@@ -25,6 +29,9 @@ public class BootStrapper : MonoBehaviour
 
     void Initialize()
     {
+        GameContext.AudioPool = new();
+        
+        GameContext.AudioPool.Initialize(AudioPoolData,this);
         GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);
         GameContext.GameInput.Initialize();

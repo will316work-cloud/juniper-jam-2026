@@ -82,7 +82,7 @@ public class DayTimeController : MonoBehaviour
                 {
                     SetIsTimerOn(false);
                     if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = false;
-                    _ctx.GameStateController.ChangeState(StateType.DayChange);
+                    GoNextDay();
                 }
             }
 
@@ -100,7 +100,7 @@ public class DayTimeController : MonoBehaviour
     public void SetIsTimerOn(bool state)
     {
         _isTimerOn = state;
-        Debug.Log($"Timer is {_isTimerOn}");
+        Debug.Log($"Day Time Timer is {_isTimerOn}");
     }  
     public void SetPanelState(bool state) => Panel.SetActive(state);
 

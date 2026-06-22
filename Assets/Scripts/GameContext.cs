@@ -14,4 +14,5 @@ public class GameContext
     public BatteryDropoff BatteryDropoff;
     public Battery Battery;
     public TransitionController TransitionController;
+    public AudioPool AudioPool;
 }
