@@ -8,7 +8,7 @@ public class GameStateController : MonoBehaviour
 
     GameContext _ctx;
     Dictionary<StateType, GameState> _states = new();
-    GameState _currentState;
+    GameState _currentState; public GameState CurrentState => _currentState;   
     GameState _previousState;
     public void Initialize(GameContext ctx)
     {

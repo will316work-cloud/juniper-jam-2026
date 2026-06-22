@@ -8,6 +8,7 @@ public class Battery : MonoBehaviour
     public int rotationsPerFill;
     public int rotationsSoFar = 0;
     public bool _isFilled;
+    public bool IsDebugOn;
     private GameContext _ctx;
 
     public void Initialize(GameContext ctx)
@@ -30,14 +31,14 @@ public class Battery : MonoBehaviour
     private void IncreaseVisualFill()
     {
         if (_isFilled) return;
-        Debug.Log("Battery is " + (float)rotationsSoFar / (float)rotationsPerFill * 100 + " percent full");
+        if(IsDebugOn) Debug.Log("Battery is " + (float)rotationsSoFar / (float)rotationsPerFill * 100 + " percent full");
         //visual element changes here (soFar / perFill) amount
     }
 
     private void DecreaseVisualFill()
     {
         if (!_isFilled) return;
-        Debug.Log("New Battery Visual");
+        if(IsDebugOn) Debug.Log("New Battery Visual");
         //visual element changes here (soFar / perFill) amount
     }
 
@@ -45,7 +46,7 @@ public class Battery : MonoBehaviour
     {
         if(!_isFilled) return;
         DecreaseVisualFill();
-        Debug.Log("Battery swapped");
+        if(IsDebugOn) Debug.Log("Battery swapped");
         rotationsSoFar = 0;
         _isFilled = false;
         _ctx.BatteryDropoff.canInteract = false;
