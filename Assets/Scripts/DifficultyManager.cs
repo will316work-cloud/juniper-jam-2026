@@ -24,7 +24,7 @@ public class DifficultyManager : MonoBehaviour
         _gameContext.CoworkerManager.SetMoverGapTime(setting.CoworkerMoverGapTime);
         _gameContext.TaskManager.SetTaskGettingGapTime(setting.TaskGapTime);
         _gameContext.WorldHealthMeter.SetHealthLossPerSecond(setting.HealthLossPerSecond);
-        _gameContext.Quota.quotaAmount = setting.ChargedBatteryQuotaCount;
+        _gameContext.Quota.SetQuota(setting.BatteryQuotaCountPerDay);
 
         Debug.Log($"Day {setting.Day} settings applied.");
     }
@@ -39,5 +39,5 @@ public class DayDifficultySetting
     public float CoworkerMoverGapTime;
     public float TaskGapTime;
     public float HealthLossPerSecond;
-    public int ChargedBatteryQuotaCount;
+    public int BatteryQuotaCountPerDay;
 }

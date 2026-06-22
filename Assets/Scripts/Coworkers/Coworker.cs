@@ -11,6 +11,7 @@ public class Coworker : MonoBehaviour
     CoworkerManager _manager;
     Coroutine _movementRoutine;
     private bool _isMoving; public bool IsMoving => _isMoving;
+    List<PathPoint> _currentPathPoints = new();
 
 
     private float _stuckTimerTime;
@@ -23,23 +24,24 @@ public class Coworker : MonoBehaviour
         SetMovementSpeed(movementSpeed);
     }
 
-    public void StartMoving(List<Transform> pathPoints)
+    public void StartMoving(List<PathPoint> pathPoints)
     {
         _isMoving = true;
+        _currentPathPoints = pathPoints;
         _stuckTimerTime = 0;
         _manager.AddCoworkerToMovingCoworkers(this);
-        _movementRoutine = StartCoroutine(PathPointHandler(pathPoints));
+        _movementRoutine = StartCoroutine(PathPointHandler());
     }
 
-    IEnumerator PathPointHandler(List<Transform> pathPoints)
+    IEnumerator PathPointHandler()
     {
         int pathPointIndex = 0;
         
-        while(pathPointIndex < pathPoints.Count)
+        while(pathPointIndex < _currentPathPoints.Count)
         {
-            Transform currentPathPoint = pathPoints[pathPointIndex];
+            PathPoint currentPathPoint = _currentPathPoints[pathPointIndex];
 
-            _agent.SetDestination(currentPathPoint.position);
+            _agent.SetDestination(currentPathPoint.Position);
             while(_agent.pathPending)
                 yield return null;
 
@@ -54,6 +56,8 @@ public class Coworker : MonoBehaviour
 
     IEnumerator GoBackToOriginalPosition()
     {
+        foreach(PathPoint point in _currentPathPoints) point.IsAvailable = true;
+
         _agent.SetDestination(_originalPosition);
         while(_agent.pathPending)
             yield return null;
