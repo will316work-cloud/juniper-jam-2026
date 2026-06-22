@@ -32,7 +32,6 @@ public abstract class PlayerTask : MonoBehaviour
     {
         TaskProp.OnTaskStart();
         SetTaskPanelState(true);
-        _ctx.PlayerControl.enabled = false;
     }
     public void OnTaskFail()
     {

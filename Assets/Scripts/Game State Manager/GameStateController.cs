@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameStateController : MonoBehaviour
 {
-    GameContext _ctx;
+    public bool IsDebugOn;
 
+    GameContext _ctx;
     Dictionary<StateType, GameState> _states = new();
     GameState _currentState;
     GameState _previousState;
@@ -36,7 +37,7 @@ public class GameStateController : MonoBehaviour
     public void ChangeState(StateType stateType, bool hasTransition = false, string transitionText = "")
     {
         StartCoroutine(ChangeStateRoutine(stateType, hasTransition, transitionText));
-        Debug.Log($"Change state to [{stateType}]");
+        if(IsDebugOn) Debug.Log($"Change state to [{stateType}]");
     }
 
 

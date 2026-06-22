@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
@@ -5,6 +6,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float accelSpeed, rotSpeed, maxSpeed;
     [SerializeField] private GameObject movementDirPivotObj;
     [SerializeField] private Battery battery;
+    [SerializeField] private StunHandler stunHandler;
     private float _rotationDeltaSum = 0f;
     private Rigidbody rb;
     private GameInput gameInput;
@@ -12,6 +14,22 @@ public class PlayerControl : MonoBehaviour
     Vector3 _camForward;
     Vector3 _camRight;
 
+    List<MovementBlockReason> _blockReason = new();
+    public bool CanMove => _blockReason.Count == 0;
+
+    public void AddMovementBlockReason(MovementBlockReason reason)
+    {
+        if(!_blockReason.Contains(reason))
+            _blockReason.Add(reason);
+    }
+
+    public void RemoveMovementBlockReason(MovementBlockReason reason)
+    {
+        if (_blockReason.Contains(reason))
+            _blockReason.Remove(reason);
+    }
+
+    public void ClearMovementBlockReasons() => _blockReason.Clear();
 
     public void Instantiate(Rigidbody rigidbody, GameInput input, GameObject collisionObject)
     {
@@ -26,10 +44,16 @@ public class PlayerControl : MonoBehaviour
         _camRight.y = 0;
         _camForward.Normalize();
         _camRight.Normalize();
+
+        stunHandler = gameObject.GetComponentInChildren<StunHandler>();
+        stunHandler.Initialize(this);
     }
 
     private void LateUpdate()
     {
+        if (!CanMove)
+            return;
+
         if (gameInput.moveInput != Vector2.zero) { 
 
             //reading input
@@ -77,5 +101,4 @@ public class PlayerControl : MonoBehaviour
 
         }
     }
-
 }
