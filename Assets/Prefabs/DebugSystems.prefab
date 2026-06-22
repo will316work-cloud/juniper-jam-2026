@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ea29f11e92047448accd900148d89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateController
+  IsDebugOn: 0
 --- !u!1 &379154647252390983
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +204,7 @@ MonoBehaviour:
     BatteryDropoff: {fileID: 0}
     Battery: {fileID: 0}
     TransitionController: {fileID: 156353508272246205}
+    DifficultyManager: {fileID: 0}
   MoneyControllerData:
     InitialStartingMoney: 10
     MoneyTexts:
@@ -222,6 +224,7 @@ MonoBehaviour:
   AudioPoolData:
     AudioEntryList: {fileID: 0}
     BasePoolSize: 12
+    Parent: {fileID: 0}
 --- !u!1 &5054912498085588025
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +356,8 @@ MonoBehaviour:
   MaximumBaseConcurrentMovingCoworkers: 2
   MinimumBaseTimeGapeBetweenMovingCoworkers: 3
   InitialChanceOfMovingWorkerInPercentage: 50
+  ChanceIncreaseOnFailedCoworkerMovingInPercentage: 0
+  IsDebugOn: 0
 --- !u!1 &6419247997763452446
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +396,7 @@ Transform:
   - {fileID: 410416987249261353}
   - {fileID: 4059040463682871233}
   - {fileID: 4910002407465157291}
+  - {fileID: 6682863484729466413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6487487001928579356
@@ -529,3 +535,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50d16add1cddd547a8e9eb0e2a34a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyController
+--- !u!1 &8678448034997937977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6682863484729466413}
+  - component: {fileID: 8904451751828532327}
+  m_Layer: 0
+  m_Name: Dificulty Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6682863484729466413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678448034997937977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5710150950220461322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8904451751828532327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678448034997937977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e34bb72bd2c7849ba9ff3965b51dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
+  DaySettings:
+  - Day: 1
+    MaxConcurrentMovingCoworker: 1
+    CoworkerSpeed: 0.1
+    TaskGapTime: 100
+    HealthLossPerSecond: 0
+    ChargedBatteryQuotaCount: 100
+  - Day: 2
+    MaxConcurrentMovingCoworker: 0
+    CoworkerSpeed: 0
+    TaskGapTime: 0
+    HealthLossPerSecond: 0
+    ChargedBatteryQuotaCount: 0
+  - Day: 3
+    MaxConcurrentMovingCoworker: 0
+    CoworkerSpeed: 0
+    TaskGapTime: 0
+    HealthLossPerSecond: 0
+    ChargedBatteryQuotaCount: 0
+  - Day: 4
+    MaxConcurrentMovingCoworker: 0
+    CoworkerSpeed: 0
+    TaskGapTime: 0
+    HealthLossPerSecond: 0
+    ChargedBatteryQuotaCount: 0
+  - Day: 5
+    MaxConcurrentMovingCoworker: 0
+    CoworkerSpeed: 0
+    TaskGapTime: 0
+    HealthLossPerSecond: 0
+    ChargedBatteryQuotaCount: 0
+  - Day: 6
+    MaxConcurrentMovingCoworker: 0
+    CoworkerSpeed: 0
+    TaskGapTime: 0
+    HealthLossPerSecond: 0
+    ChargedBatteryQuotaCount: 0
+  - Day: 7
+    MaxConcurrentMovingCoworker: 0
+    CoworkerSpeed: 0
+    TaskGapTime: 0
+    HealthLossPerSecond: 0
+    ChargedBatteryQuotaCount: 0

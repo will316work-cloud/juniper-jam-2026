@@ -139,15 +139,17 @@ public class CoworkerManager : MonoBehaviour
         coworker.SetAvoidancePriority(1);
     }
 
-    public void IncreaseCoworkerSpeed()
+    public void SetCoworkerMovementSpeed(float speed)
     {
-        CoworkerBaseMovementSpeed++;
+        _coworkerMovementSpeed = speed;
 
         foreach (Coworker coworker in _movingCoworkers)
-            coworker.SetMovementSpeed(CoworkerBaseMovementSpeed);
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
         foreach (Coworker coworker in _availableCoworkers)
-            coworker.SetMovementSpeed(CoworkerBaseMovementSpeed);
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
     }
+
+    public void SetMaximumConcurrentMovingCoworkers(int count) => _maximumConcurrentMovingCoworkers = count;
 
     /// <summary>
     /// Resets the movement speed of all coworkers to the current movement speed not to the original base speed.

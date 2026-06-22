@@ -95,6 +95,7 @@ public class DayTimeController : MonoBehaviour
     {
         _currentDay++;
         UpdateDayVisual();
+        _ctx.DifficultyManager.SetDifficulty(_currentDay);
     }
 
     public void SetIsTimerOn(bool state)

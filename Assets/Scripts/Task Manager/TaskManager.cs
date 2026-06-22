@@ -76,6 +76,7 @@ public class TaskManager : MonoBehaviour
     public void SetSystemState(bool state) => _isSystemActive = state;
     public void SetisTimerOn(bool state) => _timer.SetIsTimerOn(state);
     public bool IsTimerOn() => _timer.IsTimerOn;
+    public void SetTaskGettingGapTime(float frequency) => _taskGettingAttemptFrequency = frequency;
 
     public void GetRandomTask()
     {
