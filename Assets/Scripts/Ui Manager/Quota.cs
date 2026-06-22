@@ -17,5 +17,5 @@ public class Quota : MonoBehaviour
         else _img.fillAmount += 1f / (float)quotaAmount;
     }
 
-    public void SetQuota(int quotaCount) => QuotaAmount = quotaCount;
+    public void SetQuota(int quotaCount) => quotaAmount = quotaCount;
 }
