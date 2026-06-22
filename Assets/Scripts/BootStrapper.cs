@@ -32,7 +32,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);
         GameContext.GameStateController.Initialize(GameContext);
         GameContext.PlayerInteractor.Initialize(GameContext.GameInput);
-        GameContext.WorldHealthMeter.Initialize();
+        GameContext.WorldHealthMeter.Initialize(GameContext);
         GameContext.DayTimeController.Initialize(GameContext);
         GameContext.CoworkerManager.Initialize(GameContext);
         GameContext.BatteryDropoff.Initialize(GameContext);

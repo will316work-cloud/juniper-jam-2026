@@ -5,8 +5,9 @@ public abstract class PlayerTask : MonoBehaviour
     public TaskTriggerObjectInstance TriggerObj;
     public string TaskName;
     [TextArea] public string TaskDescription;
-    public int TaskMoneyReward;
-    public int TaskHealthReward;
+    public int TaskWorldHealthReward;
+    public int TaskWorldHealthPenalty;
+    public float AvailableTime;
     [HideInInspector] public bool IsSuccess;
     protected GameContext _ctx;
     public virtual void Initialize(GameContext ctx)
