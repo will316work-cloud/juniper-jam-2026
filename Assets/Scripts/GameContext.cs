@@ -10,6 +10,8 @@ public class GameContext
     public PlayerInteractor PlayerInteractor;
     public WorldHealthMeter WorldHealthMeter;
     public DayTimeController DayTimeController;
+    public CoworkerManager CoworkerManager;
     public BatteryDropoff BatteryDropoff;
     public Battery Battery;
+    public TransitionController TransitionController;
 }
