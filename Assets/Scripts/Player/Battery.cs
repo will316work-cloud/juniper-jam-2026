@@ -3,6 +3,7 @@ using UnityEngine;
 public class Battery : MonoBehaviour
 {
     [SerializeField] private GameObject batteryVisual;
+    [SerializeField] private DebugBatteryUI batteryUI;
     public int moneyPerDropoff;
     public int healthPerDropoff;
     public int rotationsPerFill;
@@ -32,6 +33,7 @@ public class Battery : MonoBehaviour
     {
         if (_isFilled) return;
         if(IsDebugOn) Debug.Log("Battery is " + (float)rotationsSoFar / (float)rotationsPerFill * 100 + " percent full");
+        batteryUI.ChangeBatteryText(rotationsSoFar);
         //visual element changes here (soFar / perFill) amount
     }
 
@@ -39,6 +41,7 @@ public class Battery : MonoBehaviour
     {
         if (!_isFilled) return;
         if(IsDebugOn) Debug.Log("New Battery Visual");
+        batteryUI.ChangeBatteryText(rotationsSoFar);
         //visual element changes here (soFar / perFill) amount
     }
 
