@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Quota : MonoBehaviour
 {
     private Image _img;
-    public int QuotaAmount = 10;
+    public int quotaAmount = 10;
 
     private void Start()
     {
@@ -14,6 +14,6 @@ public class Quota : MonoBehaviour
     public void DropOff()
     {
         if (_img.fillAmount >= 1f) return;
-        else _img.fillAmount += 1f / (float)QuotaAmount;
+        else _img.fillAmount += 1f / (float)quotaAmount;
     }
 }
