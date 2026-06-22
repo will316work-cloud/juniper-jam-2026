@@ -5582,6 +5582,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1264969655437357972}
     - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: IsDebugOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: Coworkers.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -5761,6 +5765,10 @@ PrefabInstance:
       propertyPath: _taskGettingAttemptFrequency
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: _chanceIncreaseAfterFailedAttempt
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7865111822663165091, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: Panel
       value: 
@@ -5781,6 +5789,26 @@ PrefabInstance:
       propertyPath: TimeText
       value: 
       objectReference: {fileID: 1273065507}
+    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: DaySettings.Array.data[0].TaskGapTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: DaySettings.Array.data[0].CoworkerSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: DaySettings.Array.data[0].HealthLossPerSecond
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: DaySettings.Array.data[0].CoworkerMoverGapTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: DaySettings.Array.data[0].ChargedBatteryQuotaCount
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5936,11 +5964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3222317774177021148, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskWorldHealthReward
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3222317774177021148, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskWorldHealthPenalty
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
@@ -5964,11 +5992,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskWorldHealthReward
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskWorldHealthPenalty
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7308703328897265374, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: m_Name

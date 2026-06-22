@@ -5,9 +5,9 @@ using UnityEngine;
 public class CoworkerManager : MonoBehaviour
 {
     public List<Transform> PathPoints;
-    public float CoworkerBaseMovementSpeed;
-    public int MaximumBaseConcurrentMovingCoworkers;
-    public float MinimumBaseTimeGapeBetweenMovingCoworkers;
+    // public float CoworkerBaseMovementSpeed;
+    // public int MaximumBaseConcurrentMovingCoworkers;
+    // public float MinimumBaseTimeGapeBetweenMovingCoworkers;
     public int InitialChanceOfMovingWorkerInPercentage;
     public int ChanceIncreaseOnFailedCoworkerMovingInPercentage;
     public bool IsDebugOn;
@@ -32,9 +32,9 @@ public class CoworkerManager : MonoBehaviour
         _availableCoworkers.AddRange(_coworkers);
         
         _player = ctx.PlayerControl.transform;
-        _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
-        _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
-        _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
+        // _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
+        // _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
+        // _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
         _chanceOfMovingWorkerInPercentage = InitialChanceOfMovingWorkerInPercentage;
         _currentChanceOfMovingWorkerInPercentage = _chanceOfMovingWorkerInPercentage;
 
@@ -75,10 +75,12 @@ public class CoworkerManager : MonoBehaviour
         if(_availableCoworkers.Count == 0)
         {
             if(IsDebugOn) Debug.Log("No available coworkers to move.");
+            return;
         }
         if(_movingCoworkers.Count >= _maximumConcurrentMovingCoworkers)
         {
             if(IsDebugOn) Debug.Log("Maximum number of moving coworkers reached.");
+            return;
         }
 
         _availableCoworkers[Random.Range(0, _availableCoworkers.Count)].StartMoving(GetRandomPathPoints(3));
@@ -214,9 +216,9 @@ public class CoworkerManager : MonoBehaviour
     {
         TeleportCoworkersToOriginalPlace();
 
-        _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
-        _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
-        _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
+        // _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
+        // _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
+        // _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
         _chanceOfMovingWorkerInPercentage = InitialChanceOfMovingWorkerInPercentage;
         _currentChanceOfMovingWorkerInPercentage = _chanceOfMovingWorkerInPercentage;
 
@@ -235,4 +237,5 @@ public class CoworkerManager : MonoBehaviour
     {
         _isCoworkerMoverActive = state;
     }
+    public void SetMoverGapTime(float gapTime) => _minimumTimeGapeBetweenMovingCoworkers = gapTime;
 }

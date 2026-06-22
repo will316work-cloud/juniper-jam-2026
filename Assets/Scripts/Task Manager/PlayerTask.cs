@@ -35,17 +35,20 @@ public abstract class PlayerTask : MonoBehaviour
     }
     public void OnTaskFail()
     {
+        Debug.Log("Task failed. Health penalty: " + TaskWorldHealthPenalty);
         _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
     }
     public void OnTaskSuccess()
     {
+        Debug.Log("Task success. Health reward: " + TaskWorldHealthReward);
         _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
     }
     public void OnTaskEnd(bool isSuccess)
     {
         IsSuccess = isSuccess;
         SetTaskPanelState(false);
-        _ctx.GameStateController.ChangeState(StateType.Gameplay);
+        if(_ctx.GameStateController.CurrentState is PlayerTaskState) _ctx.GameStateController.ChangeState(StateType.Gameplay);
+        else _ctx.TaskManager.OnTaskEnd();
     }
 
     public void DisableTriggerObj() => TriggerObj.canInteract = false;
