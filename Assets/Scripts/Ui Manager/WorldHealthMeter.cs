@@ -101,4 +101,6 @@ public class WorldHealthMeter : MonoBehaviour
     {
         Timer();
     }
+
+    public void SetHealthLossPerSecond(float healthLossAmount) => HealthLossPerSecond = healthLossAmount;
 }

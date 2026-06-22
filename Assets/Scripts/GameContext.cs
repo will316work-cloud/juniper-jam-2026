@@ -15,4 +15,5 @@ public class GameContext
     public Battery Battery;
     public TransitionController TransitionController;
     public AudioPool AudioPool;
+    public DifficultyManager DifficultyManager;
 }
