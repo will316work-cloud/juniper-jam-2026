@@ -10,6 +10,7 @@ public class Coworker : MonoBehaviour
     private NavMeshAgent _agent;
     CoworkerManager _manager;
     Coroutine _movementRoutine;
+    private bool _isMoving; public bool IsMoving => _isMoving;
 
 
     private float _stuckTimerTime;
@@ -24,6 +25,7 @@ public class Coworker : MonoBehaviour
 
     public void StartMoving(List<Transform> pathPoints)
     {
+        _isMoving = true;
         _stuckTimerTime = 0;
         _manager.AddCoworkerToMovingCoworkers(this);
         _movementRoutine = StartCoroutine(PathPointHandler(pathPoints));
@@ -57,6 +59,8 @@ public class Coworker : MonoBehaviour
             yield return null;
         while (_agent.remainingDistance > _agent.stoppingDistance)
             yield return null;
+
+        _isMoving = false;
 
         yield return new WaitForSeconds(1f);
 

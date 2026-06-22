@@ -10,7 +10,7 @@ public class GameplayState : GameState
         _ctx.DayTimeController.SetIsTimerOn(true);
         _ctx.DayTimeController.SetPanelState(true);
 
-        _ctx.PlayerControl.enabled = true;
+        _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.StateChange);
         _ctx.UiManager.InGameUiHandler.SetPanelState(true);
 
         _ctx.CoworkerManager.SetCoworkerMoverState(false);
@@ -27,7 +27,7 @@ public class GameplayState : GameState
 
     public override IEnumerator OnExit()
     {
-        _ctx.PlayerControl.enabled = false;
+        _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.StateChange);
         _ctx.UiManager.InGameUiHandler.SetPanelState(false);
         _ctx.TaskManager.SetSystemState(false);
         _ctx.CoworkerManager.SetCoworkerMoverState(false);
