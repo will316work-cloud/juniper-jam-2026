@@ -21,6 +21,7 @@ public class BootStrapper : MonoBehaviour
     [Space(10)]
     [Header("Audio List")]
     public AudioPoolData AudioPoolData;
+    public SongPoolerData SongPoolerData;
 
     void Start()
     {
@@ -30,8 +31,10 @@ public class BootStrapper : MonoBehaviour
     void Initialize()
     {
         GameContext.AudioPool = new();
-        
+        GameContext.SongPooler = new();
         GameContext.AudioPool.Initialize(AudioPoolData,this);
+        GameContext.SongPooler.Initialize(SongPoolerData,this);
+        
         GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);
         GameContext.GameInput.Initialize();
@@ -51,6 +54,8 @@ public class BootStrapper : MonoBehaviour
 
         GameContext.GameStateController.ChangeState(StartingState);
         GameContext.DifficultyManager.SetDifficulty(1);
+
+        GameContext.SongPooler.FadeToNextSong();
     }
 
     void InitializeTaskTriggerObjectInstances()
