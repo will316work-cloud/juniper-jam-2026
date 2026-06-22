@@ -9,6 +9,7 @@ public class CoworkerManager : MonoBehaviour
     public int MaximumBaseConcurrentMovingCoworkers;
     public float MinimumBaseTimeGapeBetweenMovingCoworkers;
     public int InitialChanceOfMovingWorkerInPercentage;
+    public int ChanceIncreaseOnFailedCoworkerMovingInPercentage;
 
     private List<Coworker> _coworkers;
     private Transform _player;
@@ -38,6 +39,8 @@ public class CoworkerManager : MonoBehaviour
 
         foreach (Coworker coworker in _coworkers)
             coworker.Initialize(this, _coworkerMovementSpeed);
+
+        Debug.Log("Coworker count: " + _coworkers.Count);
     }
 
     void CoworkerMover()
@@ -55,7 +58,7 @@ public class CoworkerManager : MonoBehaviour
                 return;
             }
 
-            _currentChanceOfMovingWorkerInPercentage += 100;
+            _currentChanceOfMovingWorkerInPercentage += ChanceIncreaseOnFailedCoworkerMovingInPercentage;
             _coworkerMoverTimer = 0;
         }
     }
@@ -133,6 +136,17 @@ public class CoworkerManager : MonoBehaviour
             coworker.SetMovementSpeed(CoworkerBaseMovementSpeed);
         foreach (Coworker coworker in _availableCoworkers)
             coworker.SetMovementSpeed(CoworkerBaseMovementSpeed);
+    }
+
+    /// <summary>
+    /// Resets the movement speed of all coworkers to the current movement speed not to the original base speed.
+    /// </summary>
+    public void ResetCoworkerMovementSpeed()
+    {
+        foreach (Coworker coworker in _movingCoworkers)
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
+        foreach (Coworker coworker in _availableCoworkers)
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
     }
 
     Vector3 PlayerLocation() => _player.position;

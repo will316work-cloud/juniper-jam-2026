@@ -172,6 +172,11 @@ public class TaskManager : MonoBehaviour
         RestartTaskSystem();
     }
 
+    public void SetTaskTimerPanelState(bool state)
+    {
+        _timer.SetPanelState(state);
+    }
+
     public void OnTimeOut()
     {
         if(_currentTask != null) 

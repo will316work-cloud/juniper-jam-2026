@@ -26,6 +26,7 @@ public abstract class PlayerTask : MonoBehaviour
     public void OnTaskAnnouncement()
     {
         EnableTriggerObj();
+        _ctx.AudioPool.GetAudio(AudioType.TaskAlert);
     }
     public void OnTaskStart()
     {

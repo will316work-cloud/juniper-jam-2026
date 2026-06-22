@@ -82,7 +82,7 @@ public class DayTimeController : MonoBehaviour
                 {
                     SetIsTimerOn(false);
                     if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = false;
-                    _ctx.GameStateController.ChangeState(StateType.DayChange);
+                    GoNextDay();
                 }
             }
 
