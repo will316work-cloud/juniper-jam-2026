@@ -49,9 +49,9 @@ MonoBehaviour:
   TaskProp: {fileID: 0}
   TaskName: Printing
   TaskDescription: Print out some very serious documents
-  TaskWorldHealthReward: 0
-  TaskWorldHealthPenalty: 0
-  AvailableTime: 0
+  TaskWorldHealthReward: 20
+  TaskWorldHealthPenalty: 20
+  AvailableTime: 20
   IsSuccess: 0
 --- !u!1 &7308703328897265374
 GameObject:
@@ -84,6 +84,8 @@ Transform:
   m_Children:
   - {fileID: 2541036097854383938}
   - {fileID: 4172056892963528216}
+  - {fileID: 8862219882085913409}
+  - {fileID: 4011374258719057240}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7526091613525286747
@@ -133,9 +135,117 @@ MonoBehaviour:
   TriggerObj: {fileID: 0}
   TaskPanel: {fileID: 0}
   TaskProp: {fileID: 0}
-  TaskName: 
-  TaskDescription: Roll down some toilet paper
-  TaskWorldHealthReward: 0
-  TaskWorldHealthPenalty: 0
-  AvailableTime: 0
+  TaskName: Roll the paper
+  TaskDescription: Roll down toilet paper in the bathroom
+  TaskWorldHealthReward: 10
+  TaskWorldHealthPenalty: 10
+  AvailableTime: 20
+  IsSuccess: 0
+--- !u!1 &8742345468981911457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8862219882085913409}
+  - component: {fileID: 4068914971914384547}
+  m_Layer: 0
+  m_Name: Water Cooler Task
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8862219882085913409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742345468981911457}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.14356, y: 4.03714, z: -1.18199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1578899578849333645}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4068914971914384547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742345468981911457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0482ee37928e9124982b2be6e9003df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterCoolerTask
+  TriggerObj: {fileID: 0}
+  TaskPanel: {fileID: 0}
+  TaskProp: {fileID: 0}
+  TaskName: Water Cooler
+  TaskDescription: Screw a bottle into the water cooler
+  TaskWorldHealthReward: 10
+  TaskWorldHealthPenalty: 10
+  AvailableTime: 15
+  IsSuccess: 0
+--- !u!1 &9162839752185863690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4011374258719057240}
+  - component: {fileID: 2349072733308461731}
+  m_Layer: 0
+  m_Name: Paper Shredder Task
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4011374258719057240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162839752185863690}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1578899578849333645}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2349072733308461731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162839752185863690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e67c98152e19e746938fd4de65f777a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaperShredderTask
+  TriggerObj: {fileID: 0}
+  TaskPanel: {fileID: 0}
+  TaskProp: {fileID: 0}
+  TaskName: Paper Shredder
+  TaskDescription: 'Sign the right papers and shred the bad ones
+
+'
+  TaskWorldHealthReward: 10
+  TaskWorldHealthPenalty: 10
+  AvailableTime: 200
   IsSuccess: 0
