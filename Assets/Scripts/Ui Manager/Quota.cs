@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Quota : MonoBehaviour
 {
-    private Image _img;
+    public Image _img;
     public int quotaAmount = 10;
 
     private void Start()
@@ -15,6 +15,11 @@ public class Quota : MonoBehaviour
     {
         if (_img.fillAmount >= 1f) return;
         else _img.fillAmount += 1f / (float)quotaAmount;
+    }
+
+    public void ResetQuotaIMG()
+    {
+        _img.fillAmount = .1f;
     }
 
     public void SetQuota(int quotaCount) => quotaAmount = quotaCount;

@@ -93,12 +93,18 @@ public class DayTimeController : MonoBehaviour
 
     public void IncrementDay()
     {
+        if(_ctx.Quota._img.fillAmount * 10 < (float)_ctx.Quota.quotaAmount) {
+            _ctx.GameStateController.ChangeState(StateType.GameOver);
+            return;
+        }
         _currentDay++;
         UpdateDayVisual();
+        _ctx.Quota.ResetQuotaIMG();
         _ctx.DifficultyManager.SetDifficulty(_currentDay);
     }
 
-    public void SetIsTimerOn(bool state)
+
+public void SetIsTimerOn(bool state)
     {
         _isTimerOn = state;
         Debug.Log($"Day Time Timer is {_isTimerOn}");
