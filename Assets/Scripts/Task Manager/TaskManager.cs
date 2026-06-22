@@ -16,8 +16,12 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private float _baseChanceToGetTask = 10;
     [SerializeField] private float _chanceIncreaseAfterFailedAttempt = 10;
     [SerializeField] private bool _isDebugOn = false;
+    [Space(10)]
+    [Header("Timer Data")]
+    [SerializeField] private TaskManagerTimerData _timerData;
     #endregion
     #region Private fields
+    private TaskManagerTimer _timer;
     private float _chanceToGetTask;
     private float _timeSinceLastTask;
 
@@ -38,6 +42,7 @@ public class TaskManager : MonoBehaviour
     void Update()
     {
         _currentTask?.Tick();
+        _timer?.Tick();
 
         if(!_isSystemActive) return;
         TimeSinceLastTaskTimer();
@@ -48,6 +53,9 @@ public class TaskManager : MonoBehaviour
         _ctx = ctx;
         _playerTasks.AddRange(FindObjectsByType<PlayerTask>().ToList());
         _chanceToGetTask = _baseChanceToGetTask;
+
+        _timer = new();
+        _timer.Initialize(this,_timerData);
 
         foreach (PlayerTask task in _playerTasks)
         {
@@ -99,6 +107,7 @@ public class TaskManager : MonoBehaviour
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
         _currentTask.OnTaskAnnouncement();
+        _timer.StartTimer(_currentTask.AvailableTime);
 
         if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskName}");
     }
@@ -161,5 +170,12 @@ public class TaskManager : MonoBehaviour
         SetSystemState(true);
         SetPrinterUiState(false);
         _currentTask = null;
+        _timer.SetIsTimerOn(false);
+        _timer.SetPanelState(false);
+    }
+
+    public void OnTimeOut()
+    {
+        _currentTask.OnTaskEnd(false);
     }
 }

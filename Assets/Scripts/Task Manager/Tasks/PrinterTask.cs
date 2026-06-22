@@ -22,13 +22,12 @@ public class PrinterTask : PlayerTask
 
     public override void OnTaskFail()
     {
-        // Punishment logic
+        _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
     }
 
     public override void OnTaskSuccess()
     {
-        _ctx.MoneyController.GainMoney(TaskMoneyReward);
-        _ctx.WorldHealthMeter.GainHealth(TaskHealthReward);
+        _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
     }
     public override void OnTaskEnd(bool isSuccess)
     {
