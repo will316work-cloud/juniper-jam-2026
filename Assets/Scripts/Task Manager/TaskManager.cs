@@ -6,8 +6,7 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     #region Temporary
-    public GameObject PrinterUi;
-    public void SetPrinterUiState(bool state) => PrinterUi.SetActive(state);
+
     #endregion
 
     #region Serialized fields
@@ -34,14 +33,11 @@ public class TaskManager : MonoBehaviour
     PlayerTask _currentTask; public PlayerTask CurrentTask => _currentTask;
     List<PlayerTask> _playerTasks = new();
     List<PlayerTask> _completedTasks = new(); 
-
-    GameContext _ctx;
     #endregion
 
     #region Unity lifecycle methods
     void Update()
     {
-        _currentTask?.Tick();
         _timer?.Tick();
 
         if(!_isSystemActive) return;
@@ -50,7 +46,6 @@ public class TaskManager : MonoBehaviour
 
     public void Initialize(GameContext ctx)
     {       
-        _ctx = ctx;
         _playerTasks.AddRange(FindObjectsByType<PlayerTask>().ToList());
         _chanceToGetTask = _baseChanceToGetTask;
 
@@ -168,7 +163,6 @@ public class TaskManager : MonoBehaviour
 
         _currentTask.DisableTriggerObj();
         SetSystemState(true);
-        SetPrinterUiState(false);
         _currentTask = null;
         _timer.SetIsTimerOn(false);
         _timer.SetPanelState(false);
