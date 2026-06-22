@@ -17,4 +17,5 @@ public class GameContext
     public TransitionController TransitionController;
     public AudioPool AudioPool;
     public DifficultyManager DifficultyManager;
+    public SongPooler SongPooler;
 }
