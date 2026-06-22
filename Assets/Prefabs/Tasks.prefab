@@ -49,9 +49,9 @@ MonoBehaviour:
   TaskProp: {fileID: 0}
   TaskName: Printing
   TaskDescription: Print out some very serious documents
-  TaskWorldHealthReward: 0
-  TaskWorldHealthPenalty: 0
-  AvailableTime: 0
+  TaskWorldHealthReward: 15
+  TaskWorldHealthPenalty: 40
+  AvailableTime: 20
   IsSuccess: 0
 --- !u!1 &7308703328897265374
 GameObject:
@@ -133,9 +133,9 @@ MonoBehaviour:
   TriggerObj: {fileID: 0}
   TaskPanel: {fileID: 0}
   TaskProp: {fileID: 0}
-  TaskName: 
-  TaskDescription: Roll down some toilet paper
-  TaskWorldHealthReward: 0
-  TaskWorldHealthPenalty: 0
-  AvailableTime: 0
+  TaskName: Roll the paper
+  TaskDescription: Roll down toilet paper in the bathroom
+  TaskWorldHealthReward: 15
+  TaskWorldHealthPenalty: 40
+  AvailableTime: 20
   IsSuccess: 0

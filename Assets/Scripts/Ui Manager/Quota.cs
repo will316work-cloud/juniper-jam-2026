@@ -5,6 +5,7 @@ public class Quota : MonoBehaviour
 {
     public Image _img;
     public int quotaAmount = 10;
+    public bool _debug = false;
 
     private void Start()
     {
@@ -23,4 +24,9 @@ public class Quota : MonoBehaviour
     }
 
     public void SetQuota(int quotaCount) => quotaAmount = quotaCount;
+
+    private void Update()
+    {
+        if (_debug) DropOff();
+    }
 }

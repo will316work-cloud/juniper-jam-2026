@@ -193,7 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deaa16ecc7f5dc44ea9462b190aeb0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quota
+  _img: {fileID: 0}
   quotaAmount: 10
+  _debug: 0
 --- !u!1 &2681906956711100722
 GameObject:
   m_ObjectHideFlags: 0
