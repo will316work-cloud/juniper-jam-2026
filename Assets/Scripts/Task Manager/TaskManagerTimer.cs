@@ -9,7 +9,7 @@ public class TaskManagerTimer : IUiHandler
     private TextMeshProUGUI _timerText;
     private float _timePassed;
     private float _availableTime;
-    private bool _isTimerOn;
+    private bool _isTimerOn; public bool IsTimerOn => _isTimerOn;
     private string _currentTaskDescription;
 
     public void Initialize(TaskManager taskManager, TaskManagerTimerData data)

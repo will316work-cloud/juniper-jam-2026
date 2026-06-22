@@ -1,15 +1,16 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CoworkerManager : MonoBehaviour
 {
     public List<Transform> PathPoints;
-    public List<Coworker> Coworkers;
     public float CoworkerBaseMovementSpeed;
     public int MaximumBaseConcurrentMovingCoworkers;
     public float MinimumBaseTimeGapeBetweenMovingCoworkers;
     public int InitialChanceOfMovingWorkerInPercentage;
 
+    private List<Coworker> _coworkers;
     private Transform _player;
     private float _coworkerMovementSpeed;
     private int _maximumConcurrentMovingCoworkers;
@@ -25,15 +26,17 @@ public class CoworkerManager : MonoBehaviour
 
     public void Initialize(GameContext ctx)
     {
+        _coworkers = FindObjectsByType<Coworker>().ToList();
+        _availableCoworkers.AddRange(_coworkers);
+        
         _player = ctx.PlayerControl.transform;
-        _availableCoworkers.AddRange(Coworkers);
         _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
         _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
         _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
         _chanceOfMovingWorkerInPercentage = InitialChanceOfMovingWorkerInPercentage;
         _currentChanceOfMovingWorkerInPercentage = _chanceOfMovingWorkerInPercentage;
 
-        foreach (Coworker coworker in Coworkers)
+        foreach (Coworker coworker in _coworkers)
             coworker.Initialize(this, _coworkerMovementSpeed);
     }
 
@@ -142,7 +145,7 @@ public class CoworkerManager : MonoBehaviour
         foreach(Coworker coworker in _movingCoworkers)
         {
             coworker.SetMovementSpeed(0);
-            coworker.ZeroVelocity();
+            coworker.SetVelocityToZero();
         }
     }
 
