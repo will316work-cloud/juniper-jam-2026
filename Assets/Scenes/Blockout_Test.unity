@@ -2726,7 +2726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deaa16ecc7f5dc44ea9462b190aeb0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quota
-  QuotaAmount: 10
+  quotaAmount: 10
 --- !u!114 &1037169093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5865,9 +5865,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1754958060}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SongPoolerData.MainMenuSong
+      value: 
+      objectReference: {fileID: 8300000, guid: 325c530dea10af54380a4e6021168843, type: 3}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SongPoolerData.SourceParent
+      value: 
+      objectReference: {fileID: 335484442}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.PlayerInteractor
       value: 
       objectReference: {fileID: 874905339}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SongPoolerData.CrossfadeLength
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SongPoolerData.GameplaySongs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: 'SongPoolerData.GameplaySongs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c0f7ebe5b715584aa1ceaafb16fcb84, type: 3}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: 'SongPoolerData.GameplaySongs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 325c530dea10af54380a4e6021168843, type: 3}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: 'SongPoolerData.GameplaySongs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c83bc434d83a1b4ab1c347a12827f95, type: 3}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: 'MoneyControllerData.MoneyTexts.Array.data[0]'
       value: 

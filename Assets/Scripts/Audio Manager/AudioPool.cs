@@ -16,12 +16,13 @@ public class AudioPool
     Dictionary<AudioType, AudioClip> _soundLookupDictionary = new();
     List<AudioSource> _pool = new(); 
     AudioSource _songSource;
+    
 
     public void StartMainMenuMusic()
     {
         _songSource.volume = 0.7f;
         _songSource.clip = _soundLookupDictionary[AudioType.Song_01];
-        _songSource.Play();
+        // _songSource.Play();
     }
     public void StopSong() => _songSource.DOFade(0f, 2f).OnComplete(() => _songSource.Stop());
 
