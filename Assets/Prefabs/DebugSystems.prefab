@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayTimeController
   Panel: {fileID: 0}
-  DayLenghtInSeconds: 60
+  DayLenghtInSeconds: 180
   DayText: {fileID: 0}
   TimeText: {fileID: 0}
 --- !u!1 &2919626840520574295
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 38d0c03844866974ea4468d036108bb4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a04411f8e47995246a661ec51c8603b5, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &1760346673991785314
 MonoBehaviour:
@@ -593,35 +593,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
   DaySettings:
   - Day: 1
-    MaxConcurrentMovingCoworker: 1
-    CoworkerSpeed: 0.5
-    CoworkerMoverGapTime: 2
-    TaskGapTime: 7
-    HealthLossPerSecond: 0.001
-    ChargedBatteryQuotaCount: 10
+    MaxConcurrentMovingCoworker: 5
+    CoworkerSpeed: 2
+    CoworkerMoverGapTime: 1
+    TaskGapTime: 5
+    HealthLossPerSecond: 0.01
+    ChargedBatteryQuotaCount: 8
   - Day: 2
-    MaxConcurrentMovingCoworker: 0
+    MaxConcurrentMovingCoworker: 6
     CoworkerSpeed: 0
     CoworkerMoverGapTime: 0
     TaskGapTime: 0
     HealthLossPerSecond: 0
     ChargedBatteryQuotaCount: 0
   - Day: 3
-    MaxConcurrentMovingCoworker: 0
+    MaxConcurrentMovingCoworker: 7
     CoworkerSpeed: 0
     CoworkerMoverGapTime: 0
     TaskGapTime: 0
     HealthLossPerSecond: 0
     ChargedBatteryQuotaCount: 0
   - Day: 4
-    MaxConcurrentMovingCoworker: 0
+    MaxConcurrentMovingCoworker: 8
     CoworkerSpeed: 0
     CoworkerMoverGapTime: 0
     TaskGapTime: 0
     HealthLossPerSecond: 0
     ChargedBatteryQuotaCount: 0
   - Day: 5
-    MaxConcurrentMovingCoworker: 0
+    MaxConcurrentMovingCoworker: 9
     CoworkerSpeed: 0
     CoworkerMoverGapTime: 0
     TaskGapTime: 0
