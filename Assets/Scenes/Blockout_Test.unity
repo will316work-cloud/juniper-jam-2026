@@ -5677,6 +5677,10 @@ PrefabInstance:
       propertyPath: MinimumBaseTimeGapeBetweenMovingCoworkers
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1760346673991785314, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: ChanceIncreaseOnFailedCoworkerMovingInPercentage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2725412534249507964, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: m_VoxelSize
       value: 0.16666667
@@ -5733,6 +5737,10 @@ PrefabInstance:
       propertyPath: PrinterUi
       value: 
       objectReference: {fileID: 703900888}
+    - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: _isDebugOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7425457635203395114, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: _timerData.Panel
       value: 

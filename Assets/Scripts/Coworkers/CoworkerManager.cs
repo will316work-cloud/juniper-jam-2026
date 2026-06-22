@@ -10,6 +10,7 @@ public class CoworkerManager : MonoBehaviour
     public float MinimumBaseTimeGapeBetweenMovingCoworkers;
     public int InitialChanceOfMovingWorkerInPercentage;
     public int ChanceIncreaseOnFailedCoworkerMovingInPercentage;
+    public bool IsDebugOn;
 
     private List<Coworker> _coworkers;
     private Transform _player;
@@ -40,7 +41,7 @@ public class CoworkerManager : MonoBehaviour
         foreach (Coworker coworker in _coworkers)
             coworker.Initialize(this, _coworkerMovementSpeed);
 
-        Debug.Log("Coworker count: " + _coworkers.Count);
+        if(IsDebugOn) Debug.Log("Coworker count: " + _coworkers.Count);
     }
 
     void CoworkerMover()
@@ -58,6 +59,7 @@ public class CoworkerManager : MonoBehaviour
                 return;
             }
 
+            if(IsDebugOn) Debug.Log("Coworker moving failed.");
             _currentChanceOfMovingWorkerInPercentage += ChanceIncreaseOnFailedCoworkerMovingInPercentage;
             _coworkerMoverTimer = 0;
         }
@@ -70,8 +72,17 @@ public class CoworkerManager : MonoBehaviour
 
     public void MoveRandomWorker()
     {
-        if(_availableCoworkers.Count == 0 || _movingCoworkers.Count >= _maximumConcurrentMovingCoworkers) return;
+        if(_availableCoworkers.Count == 0)
+        {
+            if(IsDebugOn) Debug.Log("No available coworkers to move.");
+        }
+        if(_movingCoworkers.Count >= _maximumConcurrentMovingCoworkers)
+        {
+            if(IsDebugOn) Debug.Log("Maximum number of moving coworkers reached.");
+        }
+
         _availableCoworkers[Random.Range(0, _availableCoworkers.Count)].StartMoving(GetRandomPathPoints(3));
+        if(IsDebugOn) Debug.Log("Moving coworker.");
     }
 
     List<Transform> GetRandomPathPoints(int numberOfPointsRequested)
@@ -156,6 +167,7 @@ public class CoworkerManager : MonoBehaviour
     /// </summary>
     public void StopCoworkerMovement()
     {
+        if(_movingCoworkers.Count == 0) return;
         foreach(Coworker coworker in _movingCoworkers)
         {
             coworker.SetMovementSpeed(0);
@@ -168,8 +180,11 @@ public class CoworkerManager : MonoBehaviour
     /// </summary>
     public void ContinueMovingCoworkersMovement()
     {
+        if(_movingCoworkers.Count == 0) return;
         foreach (Coworker coworker in _movingCoworkers)
             coworker.SetMovementSpeed(_coworkerMovementSpeed);
+
+        if(IsDebugOn) Debug.Log("Resuming movement of " + _movingCoworkers.Count + " coworkers.");
     }
 
     /// <summary>
