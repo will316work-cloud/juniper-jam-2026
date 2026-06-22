@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StunHandler
   StunDuration: 2
-  StunProtectionDuration: 2
+  StunProtectionDuration: 1
 --- !u!1 &7110928345041699031
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
   maxSpeed: 3
   movementDirPivotObj: {fileID: 0}
   battery: {fileID: 7731068390153870466}
-  stunHandler: {fileID: 0}
+  stunHandler: {fileID: 8667831404183613881}
 --- !u!114 &3142793854620547353
 MonoBehaviour:
   m_ObjectHideFlags: 0
