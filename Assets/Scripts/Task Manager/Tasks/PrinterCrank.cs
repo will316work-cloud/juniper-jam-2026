@@ -54,6 +54,7 @@ public class PrinterCrank : TaskProp, IPointerDownHandler, IPointerUpHandler
                 if (_amountRotated >= RoundsNeeded * 360 && !_taskCompleted)
                 {
                     _taskCompleted = true;
+
                     _ctx.TaskManager.CurrentTask.OnTaskEnd(true);
                 }
             }
