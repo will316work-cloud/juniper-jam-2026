@@ -96,9 +96,7 @@ public class CoworkerManager : MonoBehaviour
         List<PathPoint> paths = new();
         List<PathPoint> availabelPathPoints = new();
         foreach(PathPoint point in _pathPoints)
-        {
             if(point.IsAvailable) availabelPathPoints.Add(point);
-        }
 
         for(int i = 0; i < numberOfPointsRequested; i++)
         {
@@ -107,6 +105,7 @@ public class CoworkerManager : MonoBehaviour
                 PathPoint closestPoint = PathPointClosestToPlayer(availabelPathPoints);
                 paths.Add(closestPoint);
                 availabelPathPoints.Remove(closestPoint);
+                closestPoint.IsAvailable = false;
                 continue;
             }
 
