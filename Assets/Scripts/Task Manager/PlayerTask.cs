@@ -3,6 +3,8 @@ using UnityEngine;
 public abstract class PlayerTask : MonoBehaviour
 {
     public TaskTriggerObjectInstance TriggerObj;
+    public GameObject TaskPanel;
+    public TaskProp TaskProp;
     public string TaskName;
     [TextArea] public string TaskDescription;
     public int TaskWorldHealthReward;
@@ -14,15 +16,37 @@ public abstract class PlayerTask : MonoBehaviour
     {
         _ctx = ctx;
         DisableTriggerObj();
+        TaskProp.Initialize(ctx);
+        TaskPanel.SetActive(false);
     }
 
-    public abstract void OnTaskAnnouncement();
-    public abstract void OnTaskStart();
-    public abstract void OnTaskFail();
-    public abstract void OnTaskSuccess();
-    public abstract void OnTaskEnd(bool isSuccess);
-    public abstract void Tick();
+    public void OnTaskAnnouncement()
+    {
+        EnableTriggerObj();
+    }
+    public void OnTaskStart()
+    {
+        TaskProp.OnTaskStart();
+        SetTaskPanelState(true);
+        _ctx.PlayerControl.enabled = false;
+    }
+    public void OnTaskFail()
+    {
+        _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
+    }
+    public void OnTaskSuccess()
+    {
+        _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
+    }
+    public void OnTaskEnd(bool isSuccess)
+    {
+        IsSuccess = isSuccess;
+        SetTaskPanelState(false);
+        _ctx.GameStateController.ChangeState(StateType.Gameplay);
+    }
 
     public void DisableTriggerObj() => TriggerObj.canInteract = false;
     public void EnableTriggerObj() => TriggerObj.canInteract = true;
+
+    public void SetTaskPanelState(bool sate) => TaskPanel.SetActive(sate);
 }

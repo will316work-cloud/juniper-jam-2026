@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class PrinterCrank : TaskProp, IPointerDownHandler, IPointerUpHandler
 {
     
     public GameObject PivotObj;
@@ -16,14 +16,7 @@ public class PrinterCrank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     private float _previousAngle;
     private float _amountRotated;
 
-    GameContext _ctx;
-
-    public void Initialize(GameContext ctx)
-    {
-        _ctx = ctx;
-    }
-
-    public void OnTaskStart()
+    public override void OnTaskStart()
     {
         PaperObj.transform.localPosition = PaperStartPosition.localPosition;
         PivotObj.transform.rotation = Quaternion.Euler(0, 0, 0);
