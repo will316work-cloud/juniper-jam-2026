@@ -25,13 +25,13 @@ public class PrinterCrank : TaskProp, IPointerDownHandler, IPointerUpHandler
         _isDragging = false;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public override void PointerDownHandler()
     {
         _isDragging = true;
         _previousAngle = GetMouseAngle();
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public override void PointerUpHandler()
     {
         _isDragging = false;
     }
