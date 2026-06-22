@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoworkerManager : MonoBehaviour
 {
-    public List<Transform> PathPoints;
+    private List<PathPoint> _pathPoints;
     // public float CoworkerBaseMovementSpeed;
     // public int MaximumBaseConcurrentMovingCoworkers;
     // public float MinimumBaseTimeGapeBetweenMovingCoworkers;
@@ -29,6 +29,10 @@ public class CoworkerManager : MonoBehaviour
     public void Initialize(GameContext ctx)
     {
         _coworkers = FindObjectsByType<Coworker>().ToList();
+        _pathPoints = FindObjectsByType<PathPoint>().ToList();
+
+        foreach (PathPoint point in _pathPoints) point.Initialize();
+
         _availableCoworkers.AddRange(_coworkers);
         
         _player = ctx.PlayerControl.transform;
@@ -87,36 +91,41 @@ public class CoworkerManager : MonoBehaviour
         if(IsDebugOn) Debug.Log("Moving coworker.");
     }
 
-    List<Transform> GetRandomPathPoints(int numberOfPointsRequested)
+    List<PathPoint> GetRandomPathPoints(int numberOfPointsRequested)
     {
-        List<Transform> paths = new();
-        List<Transform> allPoints = new(PathPoints);
+        List<PathPoint> paths = new();
+        List<PathPoint> availabelPathPoints = new();
+        foreach(PathPoint point in _pathPoints)
+        {
+            if(point.IsAvailable) availabelPathPoints.Add(point);
+        }
 
         for(int i = 0; i < numberOfPointsRequested; i++)
         {
             if(i == 0)
             {
-                Transform closestPoint = PathPointClosestToPlayer(allPoints);
+                PathPoint closestPoint = PathPointClosestToPlayer(availabelPathPoints);
                 paths.Add(closestPoint);
-                allPoints.Remove(closestPoint);
+                availabelPathPoints.Remove(closestPoint);
                 continue;
             }
 
-            int randomIndex = Random.Range(0, allPoints.Count);
-            Transform point = allPoints[randomIndex];
+            int randomIndex = Random.Range(0, availabelPathPoints.Count);
+            PathPoint point = availabelPathPoints[randomIndex];
             paths.Add(point);
-            allPoints.RemoveAt(randomIndex);
+            availabelPathPoints.RemoveAt(randomIndex);
+            point.IsAvailable = false;
         }
         return paths;
     }
 
-    public Transform PathPointClosestToPlayer(List<Transform> pathPoints)
+    public PathPoint PathPointClosestToPlayer(List<PathPoint> pathPoints)
     {
-        Transform closestPath = pathPoints[0];
+        PathPoint closestPath = pathPoints[0];
 
         for(int i = 0; i < pathPoints.Count; i++)
         {
-            if (Vector3.Distance(PlayerLocation(), pathPoints[i].position) < Vector3.Distance(PlayerLocation(), closestPath.position))
+            if (Vector3.Distance(PlayerLocation(), pathPoints[i].Position) < Vector3.Distance(PlayerLocation(), closestPath.Position))
             {
                 closestPath = pathPoints[i];
             }
@@ -205,6 +214,8 @@ public class CoworkerManager : MonoBehaviour
             AddCoworkerToAvailableCoworkers(coworker);
             coworker.SetAvoidancePriority(1);
         }
+
+        ResetPathPoints();
     }
 
     /// <summary>
@@ -236,6 +247,10 @@ public class CoworkerManager : MonoBehaviour
     public void SetCoworkerMoverState(bool state)
     {
         _isCoworkerMoverActive = state;
+    }
+    void ResetPathPoints()
+    {
+        foreach (PathPoint point in _pathPoints) point.IsAvailable = true;
     }
     public void SetMoverGapTime(float gapTime) => _minimumTimeGapeBetweenMovingCoworkers = gapTime;
 }
