@@ -102,7 +102,7 @@ public class TaskManager : MonoBehaviour
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
         _currentTask.OnTaskAnnouncement();
-        _timer.StartTimer(_currentTask.AvailableTime);
+        _timer.StartTimer(_currentTask.AvailableTime, _currentTask.TaskDescription);
 
         if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskName}");
     }
@@ -162,6 +162,7 @@ public class TaskManager : MonoBehaviour
             _currentTask.OnTaskFail();
 
         _currentTask.DisableTriggerObj();
+        _currentTask.SetTaskPanelState(false);
         SetSystemState(true);
         _currentTask = null;
         _timer.SetIsTimerOn(false);
@@ -170,6 +171,7 @@ public class TaskManager : MonoBehaviour
 
     public void OnTimeOut()
     {
-        _currentTask.OnTaskEnd(false);
+        if(_currentTask != null)
+            _currentTask.OnTaskEnd(false);
     }
 }

@@ -134,7 +134,7 @@ MonoBehaviour:
   TaskPanel: {fileID: 0}
   TaskProp: {fileID: 0}
   TaskName: 
-  TaskDescription: 
+  TaskDescription: Roll down some toilet paper
   TaskWorldHealthReward: 0
   TaskWorldHealthPenalty: 0
   AvailableTime: 0
