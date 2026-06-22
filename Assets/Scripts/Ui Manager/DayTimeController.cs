@@ -96,7 +96,11 @@ public class DayTimeController : MonoBehaviour
         UpdateDayVisual();
     }
 
-    public void SetIsTimerOn(bool state) => _isTimerOn = state;  
+    public void SetIsTimerOn(bool state)
+    {
+        _isTimerOn = state;
+        Debug.Log($"Timer is {_isTimerOn}");
+    }  
     public void SetPanelState(bool state) => Panel.SetActive(state);
 
     void Update()
