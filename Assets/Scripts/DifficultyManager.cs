@@ -6,7 +6,9 @@ using UnityEngine.UIElements;
 public class DifficultyManager : MonoBehaviour
 {
     public List<DayDifficultySetting> DaySettings = new();
+    public bool IsDebugOn;
     private GameContext _gameContext;
+    private DayDifficultySetting _currentSetting;
 
     public void Initialize(GameContext gameContext)
     {
@@ -15,9 +17,9 @@ public class DifficultyManager : MonoBehaviour
         
     public void SetDifficulty(int day)
     {
-        Debug.Log($"Setting difficulty for day {day}.");
+        if(IsDebugOn) Debug.Log($"Setting difficulty for day {day}.");
         if (day > DaySettings.Count) day = DaySettings.Count;
-        ApplySettings(DaySettings.Find(setting => setting.Day == day));
+        ApplySettings(GetSettingsForDay(day));
     }
 
     void ApplySettings(DayDifficultySetting setting)
@@ -29,7 +31,21 @@ public class DifficultyManager : MonoBehaviour
         _gameContext.WorldHealthMeter.SetHealthLossPerSecond(setting.HealthLossPerSecond);
         _gameContext.Quota.SetQuota(setting.BatteryQuotaCountPerDay);
 
-        Debug.Log($"Day {setting.Day} settings applied.");
+        if(IsDebugOn) Debug.Log($"Day {setting.Day} settings applied.");
+    }
+
+    DayDifficultySetting GetSettingsForDay(int day)
+    {
+        foreach(DayDifficultySetting setting in DaySettings)
+        {
+            if(setting.Day == day)
+            {
+                _currentSetting = setting;
+                return setting;
+            }
+        }
+
+        return _currentSetting;
     }
 }
 
