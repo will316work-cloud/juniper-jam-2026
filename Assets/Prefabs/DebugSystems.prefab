@@ -733,4 +733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edaeb3bc2667074cbc9d1ea2ba92760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  CameraShakeStrength: 0.8
+  CameraShakeStrength: 0.7
+  FlashIndicatorImage: {fileID: 0}
+  FlashIndicatorColor: {r: 1, g: 0, b: 0, a: 0.7176471}

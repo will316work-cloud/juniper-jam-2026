@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
     public float CameraShakeStrength = 1;
+    public Image FlashIndicatorImage;
+    public Color FlashIndicatorColor;
 
     Camera _menuCamera;
     Camera _gameCamera;
@@ -29,5 +32,12 @@ public class CameraController : MonoBehaviour
     public void ShakeCamera()
     {
         _currentCamera.DOShakePosition(0.5f, CameraShakeStrength);
+        FlashScreen(FlashIndicatorColor);
+    }
+
+    public void FlashScreen(Color color)
+    {
+        FlashIndicatorImage.color = color;
+        FlashIndicatorImage.DOFade(1, 0.05f).OnComplete(() => FlashIndicatorImage.DOFade(0, 0.1f));
     }
 }
