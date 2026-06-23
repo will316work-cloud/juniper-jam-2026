@@ -49,7 +49,7 @@ MonoBehaviour:
   TaskProp: {fileID: 0}
   TaskName: Printing
   TaskDescription: Print out some very serious documents
-  TaskWorldHealthReward: 15
+  TaskWorldHealthReward: 30
   TaskWorldHealthPenalty: 40
   AvailableTime: 15
   IsSuccess: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   TaskProp: {fileID: 0}
   TaskName: Roll the paper
   TaskDescription: Roll down toilet paper in the bathroom
-  TaskWorldHealthReward: 15
+  TaskWorldHealthReward: 30
   TaskWorldHealthPenalty: 40
   AvailableTime: 20
   IsSuccess: 0

@@ -212,7 +212,7 @@ MonoBehaviour:
   MasterVolume: 0.7
   AudioPoolData:
     SfxEntryList: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
-    BasePoolSize: 0
+    BasePoolSize: 10
     Parent: {fileID: 0}
   SongPoolerData:
     SourceParent: {fileID: 0}
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a04411f8e47995246a661ec51c8603b5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ed1069957dfbf9e479754cc178e1c42e, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &1760346673991785314
 MonoBehaviour:
@@ -658,36 +658,36 @@ MonoBehaviour:
     CoworkerSpeed: 2
     CoworkerMoverGapTime: 1
     TaskGapTime: 7
-    HealthLossPerSecond: 0.1
+    HealthLossPerSecond: 1
     BatteryQuotaCountPerDay: 7
   - Day: 2
     MaxConcurrentMovingCoworker: 6
     CoworkerSpeed: 3
     CoworkerMoverGapTime: 0.75
     TaskGapTime: 6
-    HealthLossPerSecond: 0.2
+    HealthLossPerSecond: 1.25
     BatteryQuotaCountPerDay: 8
   - Day: 3
     MaxConcurrentMovingCoworker: 7
     CoworkerSpeed: 4
     CoworkerMoverGapTime: 0.5
     TaskGapTime: 5
-    HealthLossPerSecond: 0.3
-    BatteryQuotaCountPerDay: 9
+    HealthLossPerSecond: 1.5
+    BatteryQuotaCountPerDay: 8
   - Day: 4
     MaxConcurrentMovingCoworker: 8
     CoworkerSpeed: 5
     CoworkerMoverGapTime: 0.25
     TaskGapTime: 4
-    HealthLossPerSecond: 0.4
-    BatteryQuotaCountPerDay: 10
+    HealthLossPerSecond: 1.75
+    BatteryQuotaCountPerDay: 8
   - Day: 5
     MaxConcurrentMovingCoworker: 9
-    CoworkerSpeed: 6
+    CoworkerSpeed: 5.5
     CoworkerMoverGapTime: 0.1
-    TaskGapTime: 3
-    HealthLossPerSecond: 0.5
-    BatteryQuotaCountPerDay: 12
+    TaskGapTime: 4
+    HealthLossPerSecond: 2
+    BatteryQuotaCountPerDay: 10
   IsDebugOn: 0
 --- !u!1 &9209159433902017727
 GameObject:

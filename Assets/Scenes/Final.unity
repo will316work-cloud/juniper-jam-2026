@@ -5562,6 +5562,10 @@ PrefabInstance:
       propertyPath: UiManagerContext.InGameUiHandlerData.InteractionIndicatorObj
       value: 
       objectReference: {fileID: 1264969655437357972}
+    - target: {fileID: 2725412534249507964, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 6f19de701775a3f4c824622467186918, type: 2}
     - target: {fileID: 5710150950220461322, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.87231
