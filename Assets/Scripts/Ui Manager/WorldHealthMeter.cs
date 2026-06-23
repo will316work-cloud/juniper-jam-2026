@@ -56,8 +56,9 @@ public class WorldHealthMeter : MonoBehaviour
     public void LoseHealth(float health)
     {
         _currentHealth -= health;
-        if(_currentHealth < 0)
+        if(_currentHealth < 0 && _ctx.GameStateController.IsPlayerDead == false)
         {
+            _ctx.GameStateController.IsPlayerDead = true;
             _currentHealth = 0;
             _ctx.GameStateController.ChangeState(StateType.GameOver);
         }
