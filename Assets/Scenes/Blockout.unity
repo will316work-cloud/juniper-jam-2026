@@ -2330,6 +2330,17 @@ Transform:
   - {fileID: 68588897}
   m_Father: {fileID: 1512666900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231310755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5774218785832780074, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1250054137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,6 +5391,18 @@ PrefabInstance:
       propertyPath: _transitionPanel
       value: 
       objectReference: {fileID: 641314407}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: AudioPoolData.Parent
+      value: 
+      objectReference: {fileID: 335484442}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: AudioPoolData.BasePoolSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SongPoolerData.SourceParent
+      value: 
+      objectReference: {fileID: 335484442}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: playerRigidbody
       value: 
@@ -5500,6 +5523,10 @@ PrefabInstance:
       propertyPath: _timerData.TimerText
       value: 
       objectReference: {fileID: 1618519926}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorImage
+      value: 
+      objectReference: {fileID: 1231310755}
     - target: {fileID: 7865111822663165091, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: Panel
       value: 
@@ -5520,29 +5547,33 @@ PrefabInstance:
       propertyPath: TimeText
       value: 
       objectReference: {fileID: 1273065507}
+    - target: {fileID: 7962077968466086223, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: QuotaProtection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[4].Day
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[0].HealthLossPerSecond
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[1].HealthLossPerSecond
-      value: 0.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[2].HealthLossPerSecond
-      value: 0.3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[3].HealthLossPerSecond
-      value: 0.4
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[4].HealthLossPerSecond
-      value: 0.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[1].CoworkerMoverGapTime

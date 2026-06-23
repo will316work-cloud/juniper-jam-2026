@@ -12,6 +12,7 @@ public class BatteryDropoff : InteractableObjectInstance
     public override void Interact()
     {
         if(_ctx.Battery._isFilled) {
+            Debug.Log("Battery Dropped Off");
             _ctx.PoolManager.GetSfx(AudioType.BatterySwap);
             _ctx.Battery.SwapBattery();
             _ctx.MoneyController.GainMoney(_ctx.Battery.moneyPerDropoff);

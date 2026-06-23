@@ -96,7 +96,7 @@ public class DayTimeController : MonoBehaviour
     {
         _currentDay++;
         UpdateDayVisual();
-        _ctx.Quota.ResetQuotaIMG();
+        _ctx.Quota.ResetDroppedCount();
         _ctx.DifficultyManager.SetDifficulty(_currentDay);
     }
 
@@ -116,7 +116,7 @@ public void SetIsTimerOn(bool state)
     public void GoNextDay()
     {
         if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = false;
-        if(_ctx.Quota._img.fillAmount * 10 < (float)_ctx.Quota.quotaAmount && !QuotaProtection) 
+        if(_ctx.Quota.batteriesDroppedCount < _ctx.Quota.quotaAmount && !QuotaProtection) 
         {
             _ctx.GameStateController.ChangeState(StateType.GameOver);
             return;
