@@ -40,6 +40,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.Battery.Initialize(GameContext);
         GameContext.TransitionController.Initialize(GameContext);
         GameContext.DifficultyManager.Initialize(GameContext);
+        GameContext.CameraController.Initialize();
 
         InitializeTaskTriggerObjectInstances();
 
