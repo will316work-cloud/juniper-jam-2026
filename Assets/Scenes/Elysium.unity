@@ -2295,6 +2295,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1060843516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5774218785832780074, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &1157966291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+  m_PrefabInstance: {fileID: 4448607743259810631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edaeb3bc2667074cbc9d1ea2ba92760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
 --- !u!1 &1175760791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4979,6 +5001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2644041113344700243, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_Name
+      value: Flash Indicator
+      objectReference: {fileID: 0}
     - target: {fileID: 3013822067310889214, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5473,6 +5499,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 335484442}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: GameContext.CameraController
+      value: 
+      objectReference: {fileID: 1157966291}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.PlayerInteractor
       value: 
       objectReference: {fileID: 874905339}
@@ -5580,6 +5610,26 @@ PrefabInstance:
       propertyPath: _timerData.TimerText
       value: 
       objectReference: {fileID: 1618519926}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorImage
+      value: 
+      objectReference: {fileID: 1060843516}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.a
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7865111822663165091, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: Panel
       value: 

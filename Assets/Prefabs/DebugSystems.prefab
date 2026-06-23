@@ -207,8 +207,9 @@ MonoBehaviour:
     Volume: 0.4
   - Type: 7
     Volume: 0.4
-  SongVolume: 0.5
-  OverallVolume: 0.7
+  OverallVolume_Song: 0.7
+  OverallVolume_SFX: 0.7
+  MasterVolume: 0.7
   AudioPoolData:
     SfxEntryList: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
     BasePoolSize: 0
@@ -283,6 +284,7 @@ MonoBehaviour:
     TransitionController: {fileID: 156353508272246205}
     DifficultyManager: {fileID: 8904451751828532327}
     PoolManager: {fileID: 1280896018878652175}
+    CameraController: {fileID: 7819961338893241385}
   MoneyControllerData:
     InitialStartingMoney: 10
     MoneyTexts:
@@ -467,6 +469,7 @@ Transform:
   - {fileID: 4910002407465157291}
   - {fileID: 6682863484729466413}
   - {fileID: 8759802170040419739}
+  - {fileID: 4921136251831663948}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6487487001928579356
@@ -686,3 +689,50 @@ MonoBehaviour:
     HealthLossPerSecond: 0.5
     BatteryQuotaCountPerDay: 12
   IsDebugOn: 0
+--- !u!1 &9209159433902017727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4921136251831663948}
+  - component: {fileID: 7819961338893241385}
+  m_Layer: 0
+  m_Name: Camera Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4921136251831663948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9209159433902017727}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5710150950220461322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7819961338893241385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9209159433902017727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edaeb3bc2667074cbc9d1ea2ba92760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  CameraShakeStrength: 0.7
+  FlashIndicatorImage: {fileID: 0}
+  FlashIndicatorColor: {r: 1, g: 0, b: 0, a: 0.7176471}

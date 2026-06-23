@@ -17,4 +17,5 @@ public class GameContext
     public TransitionController TransitionController;
     public DifficultyManager DifficultyManager;
     public PoolManager PoolManager;
+    public CameraController CameraController;
 }
