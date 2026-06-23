@@ -38,7 +38,7 @@ public class PoolManager : MonoBehaviour
     {
         MasterVolume = Mathf.Clamp01(MasterVolume);
         // optionally apply immediately in edit mode:
-        if(Application.isPlaying) OnOverallVolumeChange();
+        // if(Application.isPlaying) OnOverallVolumeChange();
     }
 
     public void OnMasterVolumeChange(float volume)

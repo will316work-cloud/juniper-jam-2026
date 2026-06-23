@@ -38,5 +38,14 @@ public class UiManagerEditor : Editor
             else 
                 myScript.GameOverUiHandler.SetPanelState(true);
         }
+
+        EditorGUILayout.LabelField("In Game Menu Panel");
+        if (GUILayout.Button("Trigger ingame Panel"))
+        {
+            if(myScript.IngameMenuHandler.IsPanelActive())
+                myScript.IngameMenuHandler.SetPanelState(false);
+            else 
+                myScript.IngameMenuHandler.SetPanelState(true);
+        }
     }   
 }

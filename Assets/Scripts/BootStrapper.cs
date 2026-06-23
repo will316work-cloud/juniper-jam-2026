@@ -30,7 +30,6 @@ public class BootStrapper : MonoBehaviour
         GameContext.MoneyController.Initialize(MoneyControllerData);
         GameContext.GameInput.Initialize();
         GameContext.PlayerControl.Instantiate(GameContext, playerRigidbody, playerCollisionObject);
-        GameContext.UiManager.Initialize(GameContext, UiManagerContext);
         GameContext.GameStateController.Initialize(GameContext);
         GameContext.PlayerInteractor.Initialize(GameContext.GameInput);
         GameContext.WorldHealthMeter.Initialize(GameContext);
@@ -41,6 +40,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.TransitionController.Initialize(GameContext);
         GameContext.DifficultyManager.Initialize(GameContext);
         GameContext.CameraController.Initialize();
+        GameContext.UiManager.Initialize(GameContext, UiManagerContext);
 
         InitializeTaskTriggerObjectInstances();
 
