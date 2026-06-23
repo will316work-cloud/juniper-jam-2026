@@ -6,7 +6,7 @@ public class DayChangeState : GameState
     {
         _ctx.WorldHealthMeter.SetTimerState(false);
         _ctx.DayTimeController.SetIsTimerOn(false);
-        _ctx.AudioPool.GetAudio(AudioType.DayChangeClockSound);
+        _ctx.PoolManager.GetSfx(AudioType.DayChangeClockSound);
         _ctx.TaskManager.SetSystemState(false);
         _ctx.TaskManager.SetisTimerOn(false);
         _ctx.TaskManager.SetTaskTimerPanelState(false);

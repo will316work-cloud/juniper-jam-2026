@@ -21,6 +21,16 @@ public class SongPooler
     private Coroutine _gameplayCoroutine;
     private AudioClip _previousClip;
 
+    float _overallVolume;
+
+    public void SetOverallVolume(float volume)
+    {
+        _overallVolume = volume;
+        _mainMenuSource.volume = _volume * _overallVolume;
+        _gameplaySource_01.volume = _volume * _overallVolume;
+        _gameplaySource_02.volume = _volume * _overallVolume;
+    }
+
     public void Initialize(SongPoolerData data, MonoBehaviour monoBehaviour)
     {
         _monoBehaviour = monoBehaviour;
@@ -84,8 +94,6 @@ public class SongPooler
             yield return new WaitForSeconds(_crossfadeLength);
         }
     }
-
-    float SongLength(AudioClip clip) => clip.length;
 
     void ResetGameplaySongLists()
     {

@@ -145,6 +145,82 @@ MonoBehaviour:
   DayLenghtInSeconds: 180
   DayText: {fileID: 0}
   TimeText: {fileID: 0}
+  QuotaProtection: 0
+--- !u!1 &1473373069342002853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8759802170040419739}
+  - component: {fileID: 1280896018878652175}
+  m_Layer: 0
+  m_Name: Pool Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8759802170040419739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473373069342002853}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5710150950220461322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1280896018878652175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473373069342002853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d0f071adf2d4b49900ebc736caeeab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PoolManager
+  SfxVolumeSettings:
+  - Type: 0
+    Volume: 0.7
+  - Type: 1
+    Volume: 0.7
+  - Type: 2
+    Volume: 0.6
+  - Type: 3
+    Volume: 0.6
+  - Type: 4
+    Volume: 0.7
+  - Type: 5
+    Volume: 0.7
+  - Type: 6
+    Volume: 0.4
+  - Type: 7
+    Volume: 0.4
+  SongVolume: 0.5
+  OverallVolume: 0.7
+  AudioPoolData:
+    SfxEntryList: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
+    BasePoolSize: 0
+    Parent: {fileID: 0}
+  SongPoolerData:
+    SourceParent: {fileID: 0}
+    CrossfadeLength: 4
+    MainMenuSong: {fileID: 8300000, guid: 3c0f7ebe5b715584aa1ceaafb16fcb84, type: 3}
+    GameplaySongs:
+    - {fileID: 8300000, guid: 8c83bc434d83a1b4ab1c347a12827f95, type: 3}
+    - {fileID: 8300000, guid: 325c530dea10af54380a4e6021168843, type: 3}
+    - {fileID: 8300000, guid: 3c0f7ebe5b715584aa1ceaafb16fcb84, type: 3}
 --- !u!1 &2919626840520574295
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +282,7 @@ MonoBehaviour:
     Battery: {fileID: 0}
     TransitionController: {fileID: 156353508272246205}
     DifficultyManager: {fileID: 8904451751828532327}
+    PoolManager: {fileID: 1280896018878652175}
   MoneyControllerData:
     InitialStartingMoney: 10
     MoneyTexts:
@@ -222,15 +299,6 @@ MonoBehaviour:
       MainMenuButton: {fileID: 0}
   playerRigidbody: {fileID: 0}
   playerCollisionObject: {fileID: 0}
-  AudioPoolData:
-    AudioEntryList: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
-    BasePoolSize: 12
-    Parent: {fileID: 0}
-  SongPoolerData:
-    SourceParent: {fileID: 0}
-    CrossfadeLength: 0
-    MainMenuSong: {fileID: 0}
-    GameplaySongs: []
 --- !u!1 &5054912498085588025
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +345,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldHealthMeter
   Panel: {fileID: 0}
   MaxHealth: 100
-  HealthLossPerSecond: 1
   HealthBarUpdateFrequency: 0.2
   HealthBar: {fileID: 0}
 --- !u!1 &5487570535106420527
@@ -399,6 +466,7 @@ Transform:
   - {fileID: 4059040463682871233}
   - {fileID: 4910002407465157291}
   - {fileID: 6682863484729466413}
+  - {fileID: 8759802170040419739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6487487001928579356
@@ -617,3 +685,4 @@ MonoBehaviour:
     TaskGapTime: 3
     HealthLossPerSecond: 0.5
     BatteryQuotaCountPerDay: 12
+  IsDebugOn: 0

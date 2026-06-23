@@ -33,10 +33,10 @@ public class PlayerControl : MonoBehaviour
 
     public void ClearMovementBlockReasons() => _blockReason.Clear();
 
-    public void Instantiate(Rigidbody rigidbody, GameInput input, GameObject collisionObject)
+    public void Instantiate(GameContext ctx, Rigidbody rigidbody, GameObject collisionObject)
     {
         rb = rigidbody;
-        gameInput = input;
+        gameInput = ctx.GameInput;
         playerCollisionObject = collisionObject;
 
         //setting and normalizing movement directions
@@ -48,7 +48,7 @@ public class PlayerControl : MonoBehaviour
         _camRight.Normalize();
 
         stunHandler = gameObject.GetComponentInChildren<StunHandler>();
-        stunHandler.Initialize(this);
+        stunHandler.Initialize(ctx);
 
         _originalPosition = transform.position;
     }

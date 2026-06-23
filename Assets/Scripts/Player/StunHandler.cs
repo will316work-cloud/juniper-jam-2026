@@ -12,14 +12,17 @@ public class StunHandler : MonoBehaviour
     PlayerControl _playerControl;
 
     public bool IsDebugOn;
+    GameContext _ctx;
 
-    public void Initialize(PlayerControl playerControl)
+    public void Initialize(GameContext ctx)
     {
-        _playerControl = playerControl;
+        _playerControl = ctx.PlayerControl;
+        _ctx = ctx;
     }
 
     IEnumerator StunRoutine()
     {
+        _ctx.PoolManager.GetSfx(AudioType.PlayerIsHit);
         if(IsDebugOn) Debug.Log("Player is stunned");
         _playerControl.AddMovementBlockReason(MovementBlockReason.Stun);
         _isStunned = true;

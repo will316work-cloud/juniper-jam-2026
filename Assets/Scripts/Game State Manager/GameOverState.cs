@@ -4,6 +4,7 @@ public class GameOverState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        _ctx.PoolManager.GetSfx(AudioType.GameOver);
         _ctx.UiManager.GameOverUiHandler.SetPanelState(true);
         _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.GameOver);
         _ctx.CoworkerManager.StopCoworkerMovement();
