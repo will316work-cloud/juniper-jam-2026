@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour
 {
-    [SerializeField] private GameObject batteryVisual;
+    public GameObject batteryVisual;
     [SerializeField] private DebugBatteryUI batteryUI;
     public int moneyPerDropoff;
     public int healthPerDropoff;
@@ -10,6 +10,7 @@ public class Battery : MonoBehaviour
     public int rotationsSoFar = 0;
     public bool _isFilled;
     public bool IsDebugOn;
+    public bool hasBattery = true;
     private GameContext _ctx;
 
     public void Initialize(GameContext ctx)
@@ -19,7 +20,7 @@ public class Battery : MonoBehaviour
 
     public void ChargeBattery()
     {
-        if (_isFilled) return;
+        if (_isFilled || !hasBattery) return;
         rotationsSoFar++;
         IncreaseVisualFill();
         if (rotationsSoFar >= rotationsPerFill)
@@ -39,7 +40,6 @@ public class Battery : MonoBehaviour
 
     private void DecreaseVisualFill()
     {
-        if (!_isFilled) return;
         if(IsDebugOn) Debug.Log("New Battery Visual");
         batteryUI.ChangeBatteryText(rotationsSoFar);
         //visual element changes here (soFar / perFill) amount
@@ -48,9 +48,11 @@ public class Battery : MonoBehaviour
     public void SwapBattery()
     {
         if(!_isFilled) return;
-        DecreaseVisualFill();
-        if(IsDebugOn) Debug.Log("Battery swapped");
         rotationsSoFar = 0;
+        DecreaseVisualFill();
+        hasBattery = false;
+        batteryVisual.SetActive(false);
+        if (IsDebugOn) Debug.Log("Battery swapped");
         _isFilled = false;
         _ctx.BatteryDropoff.canInteract = false;
     }
@@ -60,6 +62,7 @@ public class Battery : MonoBehaviour
         rotationsSoFar = 0;
         _isFilled = false;
         _ctx.BatteryDropoff.canInteract = false;
+        DecreaseVisualFill();
     }
 
 }
