@@ -72,6 +72,7 @@ public class IngameMenuHandler : IUiHandler
         _masterVolumeSlider.value = _ctx.PoolManager.MasterVolume * 100;
         _sfxVolumeSlider.value = _ctx.PoolManager.OverallVolume_SFX * 100;
         _musicVolumeSlider.value = _ctx.PoolManager.OverallVolume_Song * 100;
+
         _vsyncToggle.isOn = QualitySettings.vSyncCount == 1;
         _fpsSlider.value = Application.targetFrameRate;
         _fpsText.text = Application.targetFrameRate.ToString();
