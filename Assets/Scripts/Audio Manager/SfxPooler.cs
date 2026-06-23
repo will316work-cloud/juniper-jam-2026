@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.Mathematics;
 using UnityEngine;
 
 [Serializable]
-public class AudioPool
+public class SfxPooler
 {
     [Header("Audio Pool")]
     int _basePoolSize;
@@ -15,28 +16,18 @@ public class AudioPool
     
     Dictionary<AudioType, AudioClip> _soundLookupDictionary = new();
     List<AudioSource> _pool = new(); 
-    AudioSource _songSource;
-    
+    float _volume;
+    SfxVolumeSettings[] _sfxVolumeSettings;
 
-    public void StartMainMenuMusic()
-    {
-        _songSource.volume = 0.7f;
-        _songSource.clip = _soundLookupDictionary[AudioType.Song_01];
-        // _songSource.Play();
-    }
-    public void StopSong() => _songSource.DOFade(0f, 2f).OnComplete(() => _songSource.Stop());
-
-    public void Initialize(AudioPoolData data, MonoBehaviour monoBehaviour)
+    public void Initialize(SfxPoolData data, MonoBehaviour monoBehaviour,SfxVolumeSettings[] sfxVolumeSettings)
     {
         _monoBehaviour = monoBehaviour;
         _basePoolSize = data.BasePoolSize;
         _parent = data.Parent;
+        _sfxVolumeSettings = sfxVolumeSettings;
 
-        CreateLookupDictionary_Sound(data.AudioEntryList);
+        CreateLookupDictionary_Sound(data.SfxEntryList);
         CreateBasePool();
-        _songSource = Dequeue();
-
-        StartMainMenuMusic();
     }
 
     AudioSource CreateNewSource()
@@ -55,7 +46,7 @@ public class AudioPool
         _extendSize = _basePoolSize;
     }
 
-    void CreateLookupDictionary_Sound(AudioEntryList audioEntryList)
+    void CreateLookupDictionary_Sound(SfxEntryList audioEntryList)
     {
         foreach(AudioEntry entry in audioEntryList.AudioList) _soundLookupDictionary.Add(entry.Type, entry.Clip);
     }
@@ -85,26 +76,10 @@ public class AudioPool
         if(randomPitch) src.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
         else src.pitch = 1f;
         src.clip = _soundLookupDictionary[audioType];
-        
+        src.volume = GetVolume(audioType);
+
         _monoBehaviour.StartCoroutine(WaitForAudioToFinishAndEnqueue(src));
     }
-
-    // public AudioSource PlaySong(LoopedAudioType audioType, bool fadeIn = false)
-    // {
-    //     AudioSource src = Dequeue();
-    //     src.clip = _songLookupDictionary[audioType];
-    //     src.loop = true;
-
-    //     if(fadeIn)
-    //     {
-    //         src.volume = 0;
-    //         src.Play();
-    //         src.DOFade(0.7f, 1f);
-    //     }
-
-    //     _monoBehaviour.StartCoroutine(WaitForAudioToFinishAndEnqueue(src));
-    //     return src;
-    // }
 
     IEnumerator WaitForAudioToFinishAndEnqueue(AudioSource src)
     {
@@ -112,12 +87,25 @@ public class AudioPool
         yield return new WaitUntil(() => !src.isPlaying);
         Enqueue(src);
     }
+
+    float GetVolume(AudioType type)
+    {
+        foreach(SfxVolumeSettings setting in _sfxVolumeSettings)
+        {
+            if(setting.Type == type)
+                return setting.Volume * _volume; 
+        }
+
+        return 0.7f * _volume;
+    }
+
+    public void SetOverallVolume(float volume) => _volume = volume;
 }
 
 [Serializable]
-public class AudioPoolData
+public class SfxPoolData
 {
-    public AudioEntryList AudioEntryList;
+    public SfxEntryList SfxEntryList;
     public int BasePoolSize;
     public Transform Parent;
 }

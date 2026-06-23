@@ -20,6 +20,8 @@ public class DayTimeController : MonoBehaviour
     private bool _isPanelActive => Panel.activeSelf; public bool IsPanelActive => _isPanelActive;
     GameContext _ctx;
 
+    public bool QuotaProtection;
+
     public void Initialize(GameContext ctx)
     {
         _ctx = ctx;
@@ -81,7 +83,6 @@ public class DayTimeController : MonoBehaviour
                 if(_currentHour >= _shiftEndHour)
                 {
                     SetIsTimerOn(false);
-                    if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = false;
                     GoNextDay();
                 }
             }
@@ -93,13 +94,9 @@ public class DayTimeController : MonoBehaviour
 
     public void IncrementDay()
     {
-        if(_ctx.Quota._img.fillAmount * 10 < (float)_ctx.Quota.quotaAmount) {
-            _ctx.GameStateController.ChangeState(StateType.GameOver);
-            return;
-        }
         _currentDay++;
         UpdateDayVisual();
-        _ctx.Quota.ResetQuotaIMG();
+        _ctx.Quota.ResetDroppedCount();
         _ctx.DifficultyManager.SetDifficulty(_currentDay);
     }
 
@@ -116,5 +113,14 @@ public void SetIsTimerOn(bool state)
         Timer();
     }
 
-    public void GoNextDay() => _ctx.GameStateController.ChangeState(StateType.DayChange);
+    public void GoNextDay()
+    {
+        if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = false;
+        if(_ctx.Quota.batteriesDroppedCount < _ctx.Quota.quotaAmount && !QuotaProtection) 
+        {
+            _ctx.GameStateController.ChangeState(StateType.GameOver);
+            return;
+        }
+        _ctx.GameStateController.ChangeState(StateType.DayChange);
+    }
 }

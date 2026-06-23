@@ -15,7 +15,7 @@ public class GameContext
     public BatteryDropoff BatteryDropoff;
     public Battery Battery;
     public TransitionController TransitionController;
-    public AudioPool AudioPool;
     public DifficultyManager DifficultyManager;
-    public SongPooler SongPooler;
+    public PoolManager PoolManager;
+    public CameraController CameraController;
 }

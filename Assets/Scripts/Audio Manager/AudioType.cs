@@ -7,5 +7,5 @@ public enum AudioType
     PlayerIsHit,
     BatterySwap,
     DayChangeClockSound,
-    Song_01
+    GameOver
 }

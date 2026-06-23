@@ -2295,6 +2295,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1060843516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5774218785832780074, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &1157966291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+  m_PrefabInstance: {fileID: 4448607743259810631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edaeb3bc2667074cbc9d1ea2ba92760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
 --- !u!1 &1175760791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,7 +3138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e86aaeb77f3aa4c8f6f4dae748ee75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskTriggerObjectInstance
-  interactionIcon: {fileID: 0}
+  interactionIcon: {fileID: 1264969655437357972}
   canInteract: 1
 --- !u!65 &1537415882
 BoxCollider:
@@ -4979,6 +5001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2644041113344700243, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_Name
+      value: Flash Indicator
+      objectReference: {fileID: 0}
     - target: {fileID: 3013822067310889214, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5380,6 +5406,58 @@ PrefabInstance:
       propertyPath: _transitionPanel
       value: 
       objectReference: {fileID: 641314407}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: OverallVolume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: AudioPoolData.Parent
+      value: 
+      objectReference: {fileID: 335484442}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: AudioPoolData.BasePoolSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: AudioPoolData.SfxEntryList
+      value: 
+      objectReference: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SongPoolerData.SourceParent
+      value: 
+      objectReference: {fileID: 335484442}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[1].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[2].Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[3].Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[4].Type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[5].Type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[6].Type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[7].Type
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SfxVolumeSettings.Array.data[7].Volume
+      value: 0.345
+      objectReference: {fileID: 0}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: playerRigidbody
       value: 
@@ -5420,6 +5498,10 @@ PrefabInstance:
       propertyPath: SongPoolerData.SourceParent
       value: 
       objectReference: {fileID: 335484442}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: GameContext.CameraController
+      value: 
+      objectReference: {fileID: 1157966291}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.PlayerInteractor
       value: 
@@ -5528,6 +5610,26 @@ PrefabInstance:
       propertyPath: _timerData.TimerText
       value: 
       objectReference: {fileID: 1618519926}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorImage
+      value: 
+      objectReference: {fileID: 1060843516}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.a
+      value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819961338893241385, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: FlashIndicatorColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7865111822663165091, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: Panel
       value: 
@@ -5548,13 +5650,17 @@ PrefabInstance:
       propertyPath: TimeText
       value: 
       objectReference: {fileID: 1273065507}
+    - target: {fileID: 7962077968466086223, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: QuotaProtection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[4].Day
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[0].HealthLossPerSecond
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[1].HealthLossPerSecond

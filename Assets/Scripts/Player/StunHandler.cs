@@ -11,19 +11,25 @@ public class StunHandler : MonoBehaviour
 
     PlayerControl _playerControl;
 
-    public void Initialize(PlayerControl playerControl)
+    public bool IsDebugOn;
+    GameContext _ctx;
+
+    public void Initialize(GameContext ctx)
     {
-        _playerControl = playerControl;
+        _playerControl = ctx.PlayerControl;
+        _ctx = ctx;
     }
 
     IEnumerator StunRoutine()
     {
-        Debug.Log("Player is stunned");
+        _ctx.PoolManager.GetSfx(AudioType.PlayerIsHit);
+        _ctx.CameraController.ShakeCamera();
+        if(IsDebugOn) Debug.Log("Player is stunned");
         _playerControl.AddMovementBlockReason(MovementBlockReason.Stun);
         _isStunned = true;
 
         yield return new WaitForSeconds(StunDuration);
-        Debug.Log("Player is not stunned anymore. Player is stun protected");
+        if(IsDebugOn) Debug.Log("Player is not stunned anymore. Player is stun protected");
         _isStunned = false;
         _isProtectedFromStun = true;
         _playerControl.RemoveMovementBlockReason(MovementBlockReason.Stun);
@@ -34,7 +40,7 @@ public class StunHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(StunProtectionDuration);
         _isProtectedFromStun = false;
-        Debug.Log("Stun protection is over");
+        if(IsDebugOn) Debug.Log("Stun protection is over");
     }
 
     void OnTriggerEnter(Collider other)
