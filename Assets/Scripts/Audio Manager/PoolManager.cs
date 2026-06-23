@@ -41,6 +41,26 @@ public class PoolManager : MonoBehaviour
         if(Application.isPlaying) OnOverallVolumeChange();
     }
 
+    public void OnMasterVolumeChange(float volume)
+    {
+        MasterVolume = volume;
+        OnOverallVolumeChange();
+    }
+
+    public void OnSfxVolumeChange(float volume)
+    {
+        OverallVolume_SFX = volume;
+        SfxPooler.SetOverallVolume(MasterVolume * OverallVolume_SFX);
+    }
+
+    public void OnSongVolumeChange(float volume)
+    {
+        OverallVolume_Song = volume;
+        MusicPooler.SetOverallVolume(MasterVolume * OverallVolume_Song);
+    }
+
+
+
 }
 
 [Serializable]
