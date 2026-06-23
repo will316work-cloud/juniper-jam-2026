@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateController
   IsDebugOn: 0
+  IsPlayerDead: 1
 --- !u!1 &379154647252390983
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +425,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: ed1069957dfbf9e479754cc178e1c42e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6f19de701775a3f4c824622467186918, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &1760346673991785314
 MonoBehaviour:
@@ -441,6 +442,8 @@ MonoBehaviour:
   InitialChanceOfMovingWorkerInPercentage: 60
   ChanceIncreaseOnFailedCoworkerMovingInPercentage: 20
   IsDebugOn: 0
+  _availableCoworkers: []
+  _movingCoworkers: []
 --- !u!1 &6419247997763452446
 GameObject:
   m_ObjectHideFlags: 0

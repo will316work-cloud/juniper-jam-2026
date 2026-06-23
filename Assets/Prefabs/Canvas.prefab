@@ -2332,6 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f618d880fe1ce1b4893c751d79e06989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugBatteryUI
+  _text: {fileID: 0}
 --- !u!1 &5522006768282799485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4366,6 +4367,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1212703708212360672, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_Name
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659929481481207293, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_text
+      value: 'Resume
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 1759190595701254891, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4413,6 +4424,14 @@ PrefabInstance:
     - target: {fileID: 2627583305556580231, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028598171123083889, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028598171123083889, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3053018905245462834, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4618,6 +4637,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5841871304871508301, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281479730
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841871304871508301, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 5956845581885742513, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4789,6 +4816,18 @@ PrefabInstance:
     - target: {fileID: 7919568772604814815, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165491069553083822, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165491069553083822, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165491069553083822, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 8310020669277568169, guid: dba552de7ad314542a9ff263a1cd789b, type: 3}
       propertyPath: m_AnchorMax.y
