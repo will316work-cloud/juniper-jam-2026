@@ -6,15 +6,15 @@ using UnityEngine.AI;
 public class Coworker : MonoBehaviour 
 {
     public float TimeTresholdForBeingStuck = 2;
+    public bool IsMoving; 
+
     Vector3 _originalPosition; public Vector3 OriginalPosition => _originalPosition;
     private NavMeshAgent _agent;
     CoworkerManager _manager;
     Coroutine _movementRoutine;
-    public bool IsMoving; 
     List<PathPoint> _currentPathPoints = new();
-
-
     private float _stuckTimerTime;
+
     public void Initialize(CoworkerManager manager, float movementSpeed)
     {
         _manager = manager;
@@ -68,8 +68,8 @@ public class Coworker : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        _movementRoutine = null;
         _manager.AddCoworkerToAvailableCoworkers(this);
+        _movementRoutine = null;
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public class Coworker : MonoBehaviour
         if(_movementRoutine != null && _agent.velocity.magnitude <= 0.1f && _agent.remainingDistance > _agent.stoppingDistance)
         {
             _stuckTimerTime += Time.deltaTime;
-            if(_stuckTimerTime >= 2f)
+            if(_stuckTimerTime >= 4f)
             {
                 StopCoroutine(_movementRoutine);
                 _movementRoutine = StartCoroutine(GoBackToOriginalPosition());
