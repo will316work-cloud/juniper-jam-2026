@@ -2,5 +2,6 @@ public enum MovementBlockReason
 {
     StateChange,
     Stun,
-    GameOver
+    GameOver,
+    Menu
 }

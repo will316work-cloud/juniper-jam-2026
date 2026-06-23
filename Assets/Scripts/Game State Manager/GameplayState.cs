@@ -12,6 +12,7 @@ public class GameplayState : GameState
 
         _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.StateChange);
         _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.GameOver);
+        _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.Menu);
         
         _ctx.UiManager.InGameUiHandler.SetPanelState(true);
 
