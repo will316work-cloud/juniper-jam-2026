@@ -19,6 +19,8 @@ public class GameOverUiHandler : IUiHandler
         _restartButton = data.RestartButton;
         _mainMenuButton = data.MainMenuButton;
 
+        _restartButton.onClick.AddListener(() => GameOverButtonClickHandler());
+
         SetPanelState(false);
     }
 
@@ -27,6 +29,12 @@ public class GameOverUiHandler : IUiHandler
     {
         _scoreText.text = $"Score: {_ctx.MoneyController.CurrentMoney()}";
         _panel.SetActive(state);
+    }
+
+    void GameOverButtonClickHandler()
+    {
+        _ctx.PoolManager.GetSfx(AudioType.UiClick);
+        _ctx.GameStateController.ChangeState(StateType.Gameplay);
     }
 }
  

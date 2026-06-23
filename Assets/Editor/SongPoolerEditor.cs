@@ -1,8 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(BootStrapper))]
-public class SongPoolerEditor : Editor
+[CustomEditor(typeof(PoolManager))]
+public class PoolManagerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
@@ -10,10 +10,10 @@ public class SongPoolerEditor : Editor
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Tests");
-        BootStrapper bootStrapper = (BootStrapper)target;
+        PoolManager myScript = (PoolManager)target;
         if (GUILayout.Button("Fade to next song"))
         {
-            bootStrapper.GameContext.SongPooler.FadeToNextSong();
+            myScript.FadeToNextSong();
         }
     }
 }

@@ -26,7 +26,7 @@ public abstract class PlayerTask : MonoBehaviour
     public void OnTaskAnnouncement()
     {
         EnableTriggerObj();
-        _ctx.AudioPool.GetAudio(AudioType.TaskAlert);
+        _ctx.PoolManager.GetSfx(AudioType.TaskAlert);
     }
     public void OnTaskStart()
     {
@@ -35,11 +35,13 @@ public abstract class PlayerTask : MonoBehaviour
     }
     public void OnTaskFail()
     {
+        _ctx.PoolManager.GetSfx(AudioType.TaskFail);
         Debug.Log("Task failed. Health penalty: " + TaskWorldHealthPenalty);
         _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
     }
     public void OnTaskSuccess()
     {
+        _ctx.PoolManager.GetSfx(AudioType.TaskSuccess);
         Debug.Log("Task success. Health reward: " + TaskWorldHealthReward);
         _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
     }

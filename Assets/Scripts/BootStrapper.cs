@@ -18,27 +18,18 @@ public class BootStrapper : MonoBehaviour
     public Rigidbody playerRigidbody;
     public GameObject playerCollisionObject;
 
-    [Space(10)]
-    [Header("Audio List")]
-    public AudioPoolData AudioPoolData;
-    public SongPoolerData SongPoolerData;
-
     void Start()
     {
         Initialize();
     }
 
     void Initialize()
-    {
-        GameContext.AudioPool = new();
-        GameContext.SongPooler = new();
-        GameContext.AudioPool.Initialize(AudioPoolData,this);
-        GameContext.SongPooler.Initialize(SongPoolerData,this);
-        
+    {   
+        GameContext.PoolManager.Initialize();
         GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);
         GameContext.GameInput.Initialize();
-        GameContext.PlayerControl.Instantiate(playerRigidbody, GameContext.GameInput, playerCollisionObject);
+        GameContext.PlayerControl.Instantiate(GameContext, playerRigidbody, playerCollisionObject);
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);
         GameContext.GameStateController.Initialize(GameContext);
         GameContext.PlayerInteractor.Initialize(GameContext.GameInput);
@@ -55,7 +46,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.GameStateController.ChangeState(StartingState);
         GameContext.DifficultyManager.SetDifficulty(1);
 
-        GameContext.SongPooler.FadeToNextSong();
+        GameContext.PoolManager.FadeToNextSong();
     }
 
     void InitializeTaskTriggerObjectInstances()

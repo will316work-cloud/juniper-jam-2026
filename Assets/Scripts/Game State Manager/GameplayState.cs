@@ -11,6 +11,8 @@ public class GameplayState : GameState
         _ctx.DayTimeController.SetPanelState(true);
 
         _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.StateChange);
+        _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.GameOver);
+        
         _ctx.UiManager.InGameUiHandler.SetPanelState(true);
 
         _ctx.CoworkerManager.SetCoworkerMoverState(false);
