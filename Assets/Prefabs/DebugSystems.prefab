@@ -299,6 +299,18 @@ MonoBehaviour:
       ScoreText: {fileID: 0}
       RestartButton: {fileID: 0}
       MainMenuButton: {fileID: 0}
+    IngameMenuHandlerData:
+      Panel: {fileID: 0}
+      MainMenuButton: {fileID: 0}
+      RestartButton: {fileID: 0}
+      ResumeButton: {fileID: 0}
+      MasterVolumeSlider: {fileID: 0}
+      SfxVolumeSlider: {fileID: 0}
+      MusicVolumeSlider: {fileID: 0}
+      FpsSlider: {fileID: 0}
+      VsyncToggle: {fileID: 0}
+      ResolutionDropdown: {fileID: 0}
+      FpsSliderText: {fileID: 0}
   playerRigidbody: {fileID: 0}
   playerCollisionObject: {fileID: 0}
 --- !u!1 &5054912498085588025

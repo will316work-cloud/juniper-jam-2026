@@ -3,12 +3,8 @@ using UnityEngine;
 
 public class DebugBatteryUI : MonoBehaviour
 {
-    private TMP_Text _text;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        _text = GetComponent<TMP_Text>();
-    }
+    [SerializeField]private TMP_Text _text;
+    
 
     public void ChangeBatteryText(int currentBattery)
     {
