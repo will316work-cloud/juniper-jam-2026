@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameStateController : MonoBehaviour
 {
-    GameContext _ctx;
+    public bool IsDebugOn;
 
+    GameContext _ctx;
     Dictionary<StateType, GameState> _states = new();
-    GameState _currentState;
+    GameState _currentState; public GameState CurrentState => _currentState;   
     GameState _previousState;
     public void Initialize(GameContext ctx)
     {
@@ -36,7 +37,7 @@ public class GameStateController : MonoBehaviour
     public void ChangeState(StateType stateType, bool hasTransition = false, string transitionText = "")
     {
         StartCoroutine(ChangeStateRoutine(stateType, hasTransition, transitionText));
-        Debug.Log($"Change state to [{stateType}]");
+        if(IsDebugOn) Debug.Log($"Change state to [{stateType}]");
     }
 
 
@@ -44,8 +45,8 @@ public class GameStateController : MonoBehaviour
     {
         if(_currentState != null)
         {
-            if(hasTransition)
-                yield return StartCoroutine(_ctx.TransitionController.TransitionFadeIn(transitionText));
+            // if(hasTransition)
+            //     yield return StartCoroutine(_ctx.TransitionController.TransitionFadeIn(transitionText));
 
             yield return StartCoroutine(_currentState.OnExit());
         }
@@ -57,11 +58,11 @@ public class GameStateController : MonoBehaviour
         {   
             yield return StartCoroutine(_currentState.OnEnter());
         
-            if(hasTransition)
-            {
-                yield return new WaitForSeconds(3.5f);
-                yield return StartCoroutine(_ctx.TransitionController.TransitionFadeOut());
-            }
+            // if(hasTransition)
+            // {
+            //     yield return new WaitForSeconds(3.5f);
+            //     yield return StartCoroutine(_ctx.TransitionController.TransitionFadeOut());
+            // }
                 
         }
     }

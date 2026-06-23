@@ -6,16 +6,11 @@ using UnityEngine.UI;
 
 public class TransitionController : MonoBehaviour
 {
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     [SerializeField] GameObject _transitionPanel;
     [SerializeField] TextMeshProUGUI _transitionText;
     [SerializeField] Image _transitionImage;
     [SerializeField] float _baseStillTime = 4;
-    [SerializeField] float _baseFadeTime = 2;
+    // [SerializeField] float _baseFadeTime = 2;
     GameContext _ctx;
 
     public void Initialize(GameContext ctx)

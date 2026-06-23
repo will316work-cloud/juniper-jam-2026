@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6403503184675287827}
   - component: {fileID: 7432757254868706247}
   - component: {fileID: 8125187701778738570}
+  - component: {fileID: 8667831404183613881}
   m_Layer: 0
   m_Name: MC Geometry (Capsule)
   m_TagString: Untagged
@@ -156,6 +157,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   range: 2
+--- !u!114 &8667831404183613881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095779992716182556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9e317b386d68c4ea3506d5b6a0d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StunHandler
+  StunDuration: 2
+  StunProtectionDuration: 1
 --- !u!1 &7110928345041699031
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,9 +246,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
   accelSpeed: 3
   rotSpeed: 5
-  maxSpeed: 3
+  maxSpeed: 4
   movementDirPivotObj: {fileID: 0}
   battery: {fileID: 7731068390153870466}
+  stunHandler: {fileID: 8667831404183613881}
 --- !u!114 &3142793854620547353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,8 +283,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Battery
   batteryVisual: {fileID: 0}
+  batteryUI: {fileID: 0}
   moneyPerDropoff: 10
-  healthPerDropoff: 10
+  healthPerDropoff: 5
   rotationsPerFill: 10
   rotationsSoFar: 0
   _isFilled: 0
+  IsDebugOn: 0

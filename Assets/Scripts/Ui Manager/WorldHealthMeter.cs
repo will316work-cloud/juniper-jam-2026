@@ -5,19 +5,18 @@ public class WorldHealthMeter : MonoBehaviour
 {
     public GameObject Panel;
     public float MaxHealth;
-    public float HealthLossPerSecond;
     public float HealthBarUpdateFrequency;
     public Image HealthBar;
     private float _currentHealth;
     private float _timePassed;
     private float _healthLossPerTick;
+    private float _healthLossPerSecond;
     private bool _isSystemActive; public bool IsSystemActive => _isSystemActive;
     GameContext _ctx;
 
     public void Initialize(GameContext ctx)
     {
         _currentHealth = MaxHealth;
-        _healthLossPerTick = HealthLossPerSecond * HealthBarUpdateFrequency;
         _ctx = ctx;
         UpdateVisual();
     }
@@ -100,5 +99,11 @@ public class WorldHealthMeter : MonoBehaviour
     void Update()
     {
         Timer();
+    }
+
+    public void SetHealthLossPerSecond(float healthLossAmount)
+    {
+        _healthLossPerSecond = healthLossAmount;
+        _healthLossPerTick = _healthLossPerSecond * HealthBarUpdateFrequency;
     }
 }

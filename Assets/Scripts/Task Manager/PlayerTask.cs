@@ -3,6 +3,8 @@ using UnityEngine;
 public abstract class PlayerTask : MonoBehaviour
 {
     public TaskTriggerObjectInstance TriggerObj;
+    public GameObject TaskPanel;
+    public TaskProp TaskProp;
     public string TaskName;
     [TextArea] public string TaskDescription;
     public int TaskWorldHealthReward;
@@ -14,15 +16,47 @@ public abstract class PlayerTask : MonoBehaviour
     {
         _ctx = ctx;
         DisableTriggerObj();
+        TaskProp.Initialize(ctx);
+        TaskPanel.SetActive(false);
     }
 
-    public abstract void OnTaskAnnouncement();
-    public abstract void OnTaskStart();
-    public abstract void OnTaskFail();
-    public abstract void OnTaskSuccess();
-    public abstract void OnTaskEnd(bool isSuccess);
-    public abstract void Tick();
+    /// <summary>
+    /// Called when a task is assigned to the player. But haven't interacted with it yet.
+    /// </summary>
+    public void OnTaskAnnouncement()
+    {
+        EnableTriggerObj();
+        _ctx.AudioPool.GetAudio(AudioType.TaskAlert);
+    }
+    public void OnTaskStart()
+    {
+        TaskProp.OnTaskStart();
+        SetTaskPanelState(true);
+    }
+    public void OnTaskFail()
+    {
+        Debug.Log("Task failed. Health penalty: " + TaskWorldHealthPenalty);
+        _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
+    }
+    public void OnTaskSuccess()
+    {
+        Debug.Log("Task success. Health reward: " + TaskWorldHealthReward);
+        _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
+    }
+    public void OnTaskEnd(bool isSuccess)
+    {
+        IsSuccess = isSuccess;
+        SetTaskPanelState(false);
+        if(_ctx.GameStateController.CurrentState is PlayerTaskState) _ctx.GameStateController.ChangeState(StateType.Gameplay);
+        else _ctx.TaskManager.OnTaskEnd();
+    }
 
     public void DisableTriggerObj() => TriggerObj.canInteract = false;
+
+    /// <summary>
+    /// Called when a task is assigned to the player. But haven't interacted with it yet.
+    /// </summary>
     public void EnableTriggerObj() => TriggerObj.canInteract = true;
+
+    public void SetTaskPanelState(bool sate) => TaskPanel.SetActive(sate);
 }

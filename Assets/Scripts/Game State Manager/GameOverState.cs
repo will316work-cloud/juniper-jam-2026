@@ -5,7 +5,7 @@ public class GameOverState : GameState
     public override IEnumerator OnEnter()
     {
         _ctx.UiManager.GameOverUiHandler.SetPanelState(true);
-        _ctx.PlayerControl.enabled = false;
+        _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.GameOver);
         _ctx.DayTimeController.SetIsTimerOn(false);
         _ctx.WorldHealthMeter.SetSystemIsEnabled(false);
         yield return null;

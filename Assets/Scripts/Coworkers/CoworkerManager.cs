@@ -1,15 +1,18 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CoworkerManager : MonoBehaviour
 {
-    public List<Transform> PathPoints;
-    public List<Coworker> Coworkers;
-    public float CoworkerBaseMovementSpeed;
-    public int MaximumBaseConcurrentMovingCoworkers;
-    public float MinimumBaseTimeGapeBetweenMovingCoworkers;
+    private List<PathPoint> _pathPoints;
+    // public float CoworkerBaseMovementSpeed;
+    // public int MaximumBaseConcurrentMovingCoworkers;
+    // public float MinimumBaseTimeGapeBetweenMovingCoworkers;
     public int InitialChanceOfMovingWorkerInPercentage;
+    public int ChanceIncreaseOnFailedCoworkerMovingInPercentage;
+    public bool IsDebugOn;
 
+    private List<Coworker> _coworkers;
     private Transform _player;
     private float _coworkerMovementSpeed;
     private int _maximumConcurrentMovingCoworkers;
@@ -25,16 +28,24 @@ public class CoworkerManager : MonoBehaviour
 
     public void Initialize(GameContext ctx)
     {
+        _coworkers = FindObjectsByType<Coworker>().ToList();
+        _pathPoints = FindObjectsByType<PathPoint>().ToList();
+
+        foreach (PathPoint point in _pathPoints) point.Initialize();
+
+        _availableCoworkers.AddRange(_coworkers);
+        
         _player = ctx.PlayerControl.transform;
-        _availableCoworkers.AddRange(Coworkers);
-        _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
-        _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
-        _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
+        // _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
+        // _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
+        // _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
         _chanceOfMovingWorkerInPercentage = InitialChanceOfMovingWorkerInPercentage;
         _currentChanceOfMovingWorkerInPercentage = _chanceOfMovingWorkerInPercentage;
 
-        foreach (Coworker coworker in Coworkers)
+        foreach (Coworker coworker in _coworkers)
             coworker.Initialize(this, _coworkerMovementSpeed);
+
+        if(IsDebugOn) Debug.Log("Coworker count: " + _coworkers.Count);
     }
 
     void CoworkerMover()
@@ -52,7 +63,8 @@ public class CoworkerManager : MonoBehaviour
                 return;
             }
 
-            _currentChanceOfMovingWorkerInPercentage += 100;
+            if(IsDebugOn) Debug.Log("Coworker moving failed.");
+            _currentChanceOfMovingWorkerInPercentage += ChanceIncreaseOnFailedCoworkerMovingInPercentage;
             _coworkerMoverTimer = 0;
         }
     }
@@ -64,40 +76,55 @@ public class CoworkerManager : MonoBehaviour
 
     public void MoveRandomWorker()
     {
-        if(_availableCoworkers.Count == 0 || _movingCoworkers.Count >= _maximumConcurrentMovingCoworkers) return;
+        if(_availableCoworkers.Count == 0)
+        {
+            if(IsDebugOn) Debug.Log("No available coworkers to move.");
+            return;
+        }
+        if(_movingCoworkers.Count >= _maximumConcurrentMovingCoworkers)
+        {
+            if(IsDebugOn) Debug.Log("Maximum number of moving coworkers reached.");
+            return;
+        }
+
         _availableCoworkers[Random.Range(0, _availableCoworkers.Count)].StartMoving(GetRandomPathPoints(3));
+        if(IsDebugOn) Debug.Log("Moving coworker.");
     }
 
-    List<Transform> GetRandomPathPoints(int numberOfPointsRequested)
+    List<PathPoint> GetRandomPathPoints(int numberOfPointsRequested)
     {
-        List<Transform> paths = new();
-        List<Transform> allPoints = new(PathPoints);
+        List<PathPoint> paths = new();
+        List<PathPoint> availabelPathPoints = new();
+        foreach(PathPoint point in _pathPoints)
+            if(point.IsAvailable) availabelPathPoints.Add(point);
 
         for(int i = 0; i < numberOfPointsRequested; i++)
         {
             if(i == 0)
             {
-                Transform closestPoint = PathPointClosestToPlayer(allPoints);
+                PathPoint closestPoint = PathPointClosestToPlayer(availabelPathPoints);
                 paths.Add(closestPoint);
-                allPoints.Remove(closestPoint);
+                availabelPathPoints.Remove(closestPoint);
+                closestPoint.IsAvailable = false;
                 continue;
             }
 
-            int randomIndex = Random.Range(0, allPoints.Count);
-            Transform point = allPoints[randomIndex];
+            int randomIndex = Random.Range(0, availabelPathPoints.Count);
+            PathPoint point = availabelPathPoints[randomIndex];
             paths.Add(point);
-            allPoints.RemoveAt(randomIndex);
+            availabelPathPoints.RemoveAt(randomIndex);
+            point.IsAvailable = false;
         }
         return paths;
     }
 
-    public Transform PathPointClosestToPlayer(List<Transform> pathPoints)
+    public PathPoint PathPointClosestToPlayer(List<PathPoint> pathPoints)
     {
-        Transform closestPath = pathPoints[0];
+        PathPoint closestPath = pathPoints[0];
 
         for(int i = 0; i < pathPoints.Count; i++)
         {
-            if (Vector3.Distance(PlayerLocation(), pathPoints[i].position) < Vector3.Distance(PlayerLocation(), closestPath.position))
+            if (Vector3.Distance(PlayerLocation(), pathPoints[i].Position) < Vector3.Distance(PlayerLocation(), closestPath.Position))
             {
                 closestPath = pathPoints[i];
             }
@@ -122,14 +149,27 @@ public class CoworkerManager : MonoBehaviour
         coworker.SetAvoidancePriority(1);
     }
 
-    public void IncreaseCoworkerSpeed()
+    public void SetCoworkerMovementSpeed(float speed)
     {
-        CoworkerBaseMovementSpeed++;
+        _coworkerMovementSpeed = speed;
 
         foreach (Coworker coworker in _movingCoworkers)
-            coworker.SetMovementSpeed(CoworkerBaseMovementSpeed);
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
         foreach (Coworker coworker in _availableCoworkers)
-            coworker.SetMovementSpeed(CoworkerBaseMovementSpeed);
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
+    }
+
+    public void SetMaximumConcurrentMovingCoworkers(int count) => _maximumConcurrentMovingCoworkers = count;
+
+    /// <summary>
+    /// Resets the movement speed of all coworkers to the current movement speed not to the original base speed.
+    /// </summary>
+    public void ResetCoworkerMovementSpeed()
+    {
+        foreach (Coworker coworker in _movingCoworkers)
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
+        foreach (Coworker coworker in _availableCoworkers)
+            coworker.SetMovementSpeed(_coworkerMovementSpeed);
     }
 
     Vector3 PlayerLocation() => _player.position;
@@ -139,10 +179,11 @@ public class CoworkerManager : MonoBehaviour
     /// </summary>
     public void StopCoworkerMovement()
     {
+        if(_movingCoworkers.Count == 0) return;
         foreach(Coworker coworker in _movingCoworkers)
         {
             coworker.SetMovementSpeed(0);
-            coworker.ZeroVelocity();
+            coworker.SetVelocityToZero();
         }
     }
 
@@ -151,8 +192,11 @@ public class CoworkerManager : MonoBehaviour
     /// </summary>
     public void ContinueMovingCoworkersMovement()
     {
+        if(_movingCoworkers.Count == 0) return;
         foreach (Coworker coworker in _movingCoworkers)
             coworker.SetMovementSpeed(_coworkerMovementSpeed);
+
+        if(IsDebugOn) Debug.Log("Resuming movement of " + _movingCoworkers.Count + " coworkers.");
     }
 
     /// <summary>
@@ -169,6 +213,8 @@ public class CoworkerManager : MonoBehaviour
             AddCoworkerToAvailableCoworkers(coworker);
             coworker.SetAvoidancePriority(1);
         }
+
+        ResetPathPoints();
     }
 
     /// <summary>
@@ -180,9 +226,9 @@ public class CoworkerManager : MonoBehaviour
     {
         TeleportCoworkersToOriginalPlace();
 
-        _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
-        _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
-        _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
+        // _coworkerMovementSpeed = CoworkerBaseMovementSpeed;
+        // _maximumConcurrentMovingCoworkers = MaximumBaseConcurrentMovingCoworkers;
+        // _minimumTimeGapeBetweenMovingCoworkers = MinimumBaseTimeGapeBetweenMovingCoworkers;
         _chanceOfMovingWorkerInPercentage = InitialChanceOfMovingWorkerInPercentage;
         _currentChanceOfMovingWorkerInPercentage = _chanceOfMovingWorkerInPercentage;
 
@@ -201,4 +247,9 @@ public class CoworkerManager : MonoBehaviour
     {
         _isCoworkerMoverActive = state;
     }
+    void ResetPathPoints()
+    {
+        foreach (PathPoint point in _pathPoints) point.IsAvailable = true;
+    }
+    public void SetMoverGapTime(float gapTime) => _minimumTimeGapeBetweenMovingCoworkers = gapTime;
 }

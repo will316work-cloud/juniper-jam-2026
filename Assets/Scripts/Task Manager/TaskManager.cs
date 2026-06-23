@@ -6,8 +6,7 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     #region Temporary
-    public GameObject PrinterUi;
-    public void SetPrinterUiState(bool state) => PrinterUi.SetActive(state);
+
     #endregion
 
     #region Serialized fields
@@ -29,19 +28,16 @@ public class TaskManager : MonoBehaviour
     private bool _isTryingToGetTask;
 
     private Coroutine _taskGettingAttemptCoroutine;
-    private bool _isSystemActive;
+    private bool _isSystemActive; public bool IsSystemActive => _isSystemActive;
 
     PlayerTask _currentTask; public PlayerTask CurrentTask => _currentTask;
     List<PlayerTask> _playerTasks = new();
     List<PlayerTask> _completedTasks = new(); 
-
-    GameContext _ctx;
     #endregion
 
     #region Unity lifecycle methods
     void Update()
     {
-        _currentTask?.Tick();
         _timer?.Tick();
 
         if(!_isSystemActive) return;
@@ -50,7 +46,6 @@ public class TaskManager : MonoBehaviour
 
     public void Initialize(GameContext ctx)
     {       
-        _ctx = ctx;
         _playerTasks.AddRange(FindObjectsByType<PlayerTask>().ToList());
         _chanceToGetTask = _baseChanceToGetTask;
 
@@ -79,6 +74,9 @@ public class TaskManager : MonoBehaviour
     }
 
     public void SetSystemState(bool state) => _isSystemActive = state;
+    public void SetisTimerOn(bool state) => _timer.SetIsTimerOn(state);
+    public bool IsTimerOn() => _timer.IsTimerOn;
+    public void SetTaskGettingGapTime(float frequency) => _taskGettingAttemptFrequency = frequency;
 
     public void GetRandomTask()
     {
@@ -107,7 +105,7 @@ public class TaskManager : MonoBehaviour
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
         _currentTask.OnTaskAnnouncement();
-        _timer.StartTimer(_currentTask.AvailableTime);
+        _timer.StartTimer(_currentTask.AvailableTime, _currentTask.TaskDescription);
 
         if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskName}");
     }
@@ -167,15 +165,22 @@ public class TaskManager : MonoBehaviour
             _currentTask.OnTaskFail();
 
         _currentTask.DisableTriggerObj();
+        _currentTask.SetTaskPanelState(false);
         SetSystemState(true);
-        SetPrinterUiState(false);
         _currentTask = null;
         _timer.SetIsTimerOn(false);
         _timer.SetPanelState(false);
+        RestartTaskSystem();
+    }
+
+    public void SetTaskTimerPanelState(bool state)
+    {
+        _timer.SetPanelState(state);
     }
 
     public void OnTimeOut()
     {
-        _currentTask.OnTaskEnd(false);
+        if(_currentTask != null) 
+            _currentTask.OnTaskEnd(false);
     }
 }
