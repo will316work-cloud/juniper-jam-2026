@@ -1178,6 +1178,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f183aca228acd3488849cf2a07e5454, type: 3}
+--- !u!114 &483636564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7127049810409286374, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d2b8378c6e16b429d3f639142ef0e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaperShredder
+--- !u!1 &483636565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 495784736533796472, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &512740015 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2668138315715160949, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -4737,7 +4753,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5779847989172518601, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -5614,6 +5631,18 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 2126359775}
+    - target: {fileID: 4392313301844223935, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: AvailableTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392313301844223935, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskWorldHealthReward
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392313301844223935, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskWorldHealthPenalty
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
       value: 
@@ -5626,12 +5655,41 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 1537415881}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskProp
+      value: 
+      objectReference: {fileID: 483636564}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskPanel
+      value: 
+      objectReference: {fileID: 483636565}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TriggerObj
+      value: 
+      objectReference: {fileID: 2070108461}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: AvailableTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskDescription
+      value: Sign serious papers and shred the funny ones
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskWorldHealthReward
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskWorldHealthPenalty
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7308703328897265374, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: m_Name
       value: Tasks
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5477521538002161298, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
