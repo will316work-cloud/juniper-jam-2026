@@ -226,6 +226,11 @@ MonoBehaviour:
     AudioEntryList: {fileID: 11400000, guid: 2965be8a1d6423a4187da58e4d6096e9, type: 2}
     BasePoolSize: 12
     Parent: {fileID: 0}
+  SongPoolerData:
+    SourceParent: {fileID: 0}
+    CrossfadeLength: 0
+    MainMenuSong: {fileID: 0}
+    GameplaySongs: []
 --- !u!1 &5054912498085588025
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,33 +587,33 @@ MonoBehaviour:
     CoworkerSpeed: 2
     CoworkerMoverGapTime: 1
     TaskGapTime: 7
-    HealthLossPerSecond: 0.15
+    HealthLossPerSecond: 0.1
     BatteryQuotaCountPerDay: 7
   - Day: 2
     MaxConcurrentMovingCoworker: 6
     CoworkerSpeed: 3
-    CoworkerMoverGapTime: 1
+    CoworkerMoverGapTime: 0.75
     TaskGapTime: 6
     HealthLossPerSecond: 0.2
     BatteryQuotaCountPerDay: 8
   - Day: 3
     MaxConcurrentMovingCoworker: 7
     CoworkerSpeed: 4
-    CoworkerMoverGapTime: 1
+    CoworkerMoverGapTime: 0.5
     TaskGapTime: 5
-    HealthLossPerSecond: 0.25
+    HealthLossPerSecond: 0.3
     BatteryQuotaCountPerDay: 9
   - Day: 4
     MaxConcurrentMovingCoworker: 8
     CoworkerSpeed: 5
-    CoworkerMoverGapTime: 1
+    CoworkerMoverGapTime: 0.25
     TaskGapTime: 4
-    HealthLossPerSecond: 0.3
+    HealthLossPerSecond: 0.4
     BatteryQuotaCountPerDay: 10
-  - Day: 6
+  - Day: 5
     MaxConcurrentMovingCoworker: 9
     CoworkerSpeed: 6
-    CoworkerMoverGapTime: 1
+    CoworkerMoverGapTime: 0.1
     TaskGapTime: 3
-    HealthLossPerSecond: 0.4
+    HealthLossPerSecond: 0.5
     BatteryQuotaCountPerDay: 12
