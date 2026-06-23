@@ -26,6 +26,7 @@ public class DayChangeState : GameState
         _ctx.WorldHealthMeter.ResetHealth();
         _ctx.CoworkerManager.TeleportCoworkersToOriginalPlace();
         _ctx.TaskManager.RestartTaskSystem();
+        _ctx.Quota.ResetDroppedCount();
         yield return _ctx.TransitionController.TransitionFadeOut();
         yield return null;
     }
