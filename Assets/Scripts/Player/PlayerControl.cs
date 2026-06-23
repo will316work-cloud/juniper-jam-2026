@@ -53,7 +53,7 @@ public class PlayerControl : MonoBehaviour
         _originalPosition = transform.position;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (!CanMove)
             return;
