@@ -38,8 +38,28 @@ public class PoolManager : MonoBehaviour
     {
         MasterVolume = Mathf.Clamp01(MasterVolume);
         // optionally apply immediately in edit mode:
-        if(Application.isPlaying) OnOverallVolumeChange();
+        // if(Application.isPlaying) OnOverallVolumeChange();
     }
+
+    public void OnMasterVolumeChange(float volume)
+    {
+        MasterVolume = volume;
+        OnOverallVolumeChange();
+    }
+
+    public void OnSfxVolumeChange(float volume)
+    {
+        OverallVolume_SFX = volume;
+        SfxPooler.SetOverallVolume(MasterVolume * OverallVolume_SFX);
+    }
+
+    public void OnSongVolumeChange(float volume)
+    {
+        OverallVolume_Song = volume;
+        MusicPooler.SetOverallVolume(MasterVolume * OverallVolume_Song);
+    }
+
+
 
 }
 

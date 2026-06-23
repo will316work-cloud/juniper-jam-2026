@@ -27,6 +27,7 @@ public class DayChangeState : GameState
         _ctx.CoworkerManager.TeleportCoworkersToOriginalPlace();
         _ctx.TaskManager.RestartTaskSystem();
         _ctx.Quota.ResetDroppedCount();
+        _ctx.Battery.ResetBatteryFill();
         yield return _ctx.TransitionController.TransitionFadeOut();
         yield return null;
     }

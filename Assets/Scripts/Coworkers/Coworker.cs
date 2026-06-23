@@ -10,7 +10,7 @@ public class Coworker : MonoBehaviour
     private NavMeshAgent _agent;
     CoworkerManager _manager;
     Coroutine _movementRoutine;
-    private bool _isMoving; public bool IsMoving => _isMoving;
+    public bool IsMoving; 
     List<PathPoint> _currentPathPoints = new();
 
 
@@ -26,7 +26,7 @@ public class Coworker : MonoBehaviour
 
     public void StartMoving(List<PathPoint> pathPoints)
     {
-        _isMoving = true;
+        IsMoving = true;
         _currentPathPoints = pathPoints;
         _stuckTimerTime = 0;
         _manager.AddCoworkerToMovingCoworkers(this);
@@ -64,7 +64,7 @@ public class Coworker : MonoBehaviour
         while (_agent.remainingDistance > _agent.stoppingDistance)
             yield return null;
 
-        _isMoving = false;
+        IsMoving = false;
 
         yield return new WaitForSeconds(1f);
 
