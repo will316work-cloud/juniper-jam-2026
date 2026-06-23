@@ -51,7 +51,7 @@ MonoBehaviour:
   TaskDescription: Print out some very serious documents
   TaskWorldHealthReward: 15
   TaskWorldHealthPenalty: 40
-  AvailableTime: 20
+  AvailableTime: 15
   IsSuccess: 0
 --- !u!1 &7308703328897265374
 GameObject:
