@@ -20,7 +20,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private TaskManagerTimerData _timerData;
     #endregion
     #region Private fields
-    private TaskManagerTimer _timer;
+    private TaskManagerTimer _remainingTimeToTriggerCurrentTaskTimer;
     private float _chanceToGetTask;
     private float _timeSinceLastTask;
 
@@ -38,7 +38,7 @@ public class TaskManager : MonoBehaviour
     #region Unity lifecycle methods
     void Update()
     {
-        _timer?.Tick();
+        _remainingTimeToTriggerCurrentTaskTimer?.Tick();
 
         if(!_isSystemActive) return;
         TimeSinceLastTaskTimer();
@@ -49,8 +49,8 @@ public class TaskManager : MonoBehaviour
         _playerTasks.AddRange(FindObjectsByType<PlayerTask>().ToList());
         _chanceToGetTask = _baseChanceToGetTask;
 
-        _timer = new();
-        _timer.Initialize(this,_timerData);
+        _remainingTimeToTriggerCurrentTaskTimer = new();
+        _remainingTimeToTriggerCurrentTaskTimer.Initialize(this,_timerData);
 
         foreach (PlayerTask task in _playerTasks)
         {
@@ -79,12 +79,14 @@ public class TaskManager : MonoBehaviour
     /// </summary>
 
     public void SetSystemState(bool state) => _isSystemActive = state;
-    public void SetisTimerOn(bool state) => _timer.SetIsTimerOn(state);
-    public bool IsTimerOn() => _timer.IsTimerOn;
+    public void SetisTimerOn(bool state) => _remainingTimeToTriggerCurrentTaskTimer.SetIsTimerOn(state);
+    public bool IsTimerOn() => _remainingTimeToTriggerCurrentTaskTimer.IsTimerOn;
     public void SetTaskGettingGapTime(float frequency) => _taskGettingAttemptFrequency = frequency;
 
     public void GetRandomTask()
     {
+        if(!_isSystemActive) return;
+
         if(_taskGettingAttemptCoroutine != null)
             StopCoroutine(_taskGettingAttemptCoroutine);
 
@@ -110,7 +112,7 @@ public class TaskManager : MonoBehaviour
         _playerTasks.Remove(randomTask);
         _completedTasks.Add(randomTask);
         _currentTask.OnTaskAnnouncement();
-        _timer.StartTimer(_currentTask.AvailableTime, _currentTask.TaskDescription);
+        _remainingTimeToTriggerCurrentTaskTimer.StartTimer(_currentTask.AvailableTime, _currentTask.TaskDescription);
 
         if(_isDebugOn) Debug.Log($"New Task selected: {randomTask.TaskName}");
     }
@@ -120,7 +122,7 @@ public class TaskManager : MonoBehaviour
     /// </summary>
     void TimeSinceLastTaskTimer()
     {
-        if(_isTryingToGetTask || _hasActiveTask)
+        if(_isTryingToGetTask || _hasActiveTask || !_isSystemActive)
             return;
 
         _timeSinceLastTask += Time.deltaTime;
@@ -173,14 +175,33 @@ public class TaskManager : MonoBehaviour
         _currentTask.SetTaskPanelState(false);
         SetSystemState(true);
         _currentTask = null;
-        _timer.SetIsTimerOn(false);
-        _timer.SetPanelState(false);
+        _remainingTimeToTriggerCurrentTaskTimer.SetIsTimerOn(false);
+        _remainingTimeToTriggerCurrentTaskTimer.SetPanelState(false);
         RestartTaskSystem();
+    }
+
+    public void InterruptTask()
+    {
+        if(_currentTask != null)
+        {
+            if(_currentTask.IsSuccess)
+                _currentTask.OnTaskSuccess(false);
+            else
+                _currentTask.OnTaskFail(false);
+
+            _currentTask.DisableTriggerObj();
+            _currentTask.SetTaskPanelState(false);
+
+            _currentTask = null;
+        }
+
+        _remainingTimeToTriggerCurrentTaskTimer.SetIsTimerOn(false);
+        _remainingTimeToTriggerCurrentTaskTimer.SetPanelState(false);
     }
 
     public void SetTaskTimerPanelState(bool state)
     {
-        _timer.SetPanelState(state);
+        _remainingTimeToTriggerCurrentTaskTimer.SetPanelState(state);
     }
 
     public void OnTimeOut()
