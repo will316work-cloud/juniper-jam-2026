@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
     Vector3 _camForward;
     Vector3 _camRight;
 
+    private Vector3 _originalPosition;
+
     List<MovementBlockReason> _blockReason = new();
     public bool CanMove => _blockReason.Count == 0;
 
@@ -47,6 +49,8 @@ public class PlayerControl : MonoBehaviour
 
         stunHandler = gameObject.GetComponentInChildren<StunHandler>();
         stunHandler.Initialize(this);
+
+        _originalPosition = transform.position;
     }
 
     private void LateUpdate()
@@ -98,7 +102,14 @@ public class PlayerControl : MonoBehaviour
 
             //applying rotation
             playerCollisionObject.transform.rotation = targetRotThisTick;
-
         }
+    }
+
+    public void TeleportPlayerToStartingPosition()
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.position = _originalPosition;
+        gameObject.transform.position = _originalPosition;
     }
 }

@@ -6,14 +6,24 @@ public class GameOverState : GameState
     {
         _ctx.UiManager.GameOverUiHandler.SetPanelState(true);
         _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.GameOver);
+        _ctx.CoworkerManager.StopCoworkerMovement();
+        _ctx.TaskManager.SetSystemState(false);
+        _ctx.TaskManager.OnTimeOut();
         _ctx.DayTimeController.SetIsTimerOn(false);
         _ctx.WorldHealthMeter.SetSystemIsEnabled(false);
+
         yield return null;
     }
 
     public override IEnumerator OnExit()
     {
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);
+        _ctx.DifficultyManager.SetDifficulty(1);
+        _ctx.PlayerControl.TeleportPlayerToStartingPosition();
+        _ctx.Battery.ResetBatteryFill();
+        _ctx.WorldHealthMeter.ResetHealth();
+        _ctx.MoneyController.ResetMoney();
+        _ctx.CoworkerManager.TeleportCoworkersToOriginalPlace();
         _ctx.DayTimeController.ResetTime();
         _ctx.DayTimeController.ResetDay();
         yield return null;

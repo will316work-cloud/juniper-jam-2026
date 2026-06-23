@@ -5554,7 +5554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[0].HealthLossPerSecond
-      value: 0.2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[1].HealthLossPerSecond

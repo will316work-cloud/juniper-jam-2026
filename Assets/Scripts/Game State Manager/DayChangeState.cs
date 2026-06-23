@@ -11,7 +11,10 @@ public class DayChangeState : GameState
         _ctx.TaskManager.SetisTimerOn(false);
         _ctx.TaskManager.SetTaskTimerPanelState(false);
         _ctx.CoworkerManager.StopCoworkerMovement();
+
         yield return _ctx.TransitionController.TransitionFadeIn();
+
+        _ctx.PlayerControl.TeleportPlayerToStartingPosition();
         _ctx.GameStateController.ChangeState(StateType.Gameplay);
         yield return null;
     }

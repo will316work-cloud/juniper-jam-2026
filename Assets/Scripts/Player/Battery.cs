@@ -55,4 +55,11 @@ public class Battery : MonoBehaviour
         _ctx.BatteryDropoff.canInteract = false;
     }
 
+    public void ResetBatteryFill()
+    {
+        rotationsSoFar = 0;
+        _isFilled = false;
+        _ctx.BatteryDropoff.canInteract = false;
+    }
+
 }

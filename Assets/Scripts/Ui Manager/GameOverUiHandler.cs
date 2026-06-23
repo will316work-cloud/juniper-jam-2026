@@ -19,6 +19,8 @@ public class GameOverUiHandler : IUiHandler
         _restartButton = data.RestartButton;
         _mainMenuButton = data.MainMenuButton;
 
+        _restartButton.onClick.AddListener(() => _ctx.GameStateController.ChangeState(StateType.Gameplay));
+
         SetPanelState(false);
     }
 

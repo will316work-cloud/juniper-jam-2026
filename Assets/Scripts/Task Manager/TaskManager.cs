@@ -73,6 +73,11 @@ public class TaskManager : MonoBehaviour
         if(_isDebugOn) Debug.Log("Task system restarted and reset.");
     }
 
+
+    /// <summary>
+    /// Stops the task system from getting new tasks.
+    /// </summary>
+
     public void SetSystemState(bool state) => _isSystemActive = state;
     public void SetisTimerOn(bool state) => _timer.SetIsTimerOn(state);
     public bool IsTimerOn() => _timer.IsTimerOn;
