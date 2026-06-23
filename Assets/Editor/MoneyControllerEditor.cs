@@ -15,9 +15,6 @@ public class MoneyControllerEditor : Editor
         DrawDefaultInspector();
         MoneyController moneyController = (MoneyController)target;
 
-        _foldout = EditorGUILayout.Foldout(_foldout, "Testing", true, EditorStyles.foldoutHeader);
-        if (!_foldout) return;
-
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Testing", EditorStyles.boldLabel);
 
@@ -41,6 +38,5 @@ public class MoneyControllerEditor : Editor
             moneyController.SpendMoney(_amountToSpend);
         }
 
-        GUI.enabled = true;
     }
 }
