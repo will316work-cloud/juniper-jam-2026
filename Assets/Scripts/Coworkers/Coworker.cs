@@ -89,7 +89,7 @@ public class Coworker : MonoBehaviour
 
     void StuckHandler()
     {
-        if(_movementRoutine != null && _agent.velocity.magnitude <= 0.1f && _agent.remainingDistance > _agent.stoppingDistance)
+        if(_movementRoutine != null && _agent.velocity.magnitude <= 0.1f && _agent.remainingDistance > _agent.stoppingDistance && IsMoving)
         {
             _stuckTimerTime += Time.deltaTime;
             if(_stuckTimerTime >= 4f)

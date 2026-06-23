@@ -2957,6 +2957,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f618d880fe1ce1b4893c751d79e06989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebugBatteryUI
+--- !u!114 &1443016780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7844200702605064454, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1451772969
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,6 +5107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 334545136229245122, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 1443016780}
     - target: {fileID: 414185576016189335, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -5314,7 +5329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2636133274588719505, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2644041113344700243, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_Name
