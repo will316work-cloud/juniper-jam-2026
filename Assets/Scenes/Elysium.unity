@@ -1886,6 +1886,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9067561613672104217, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
   m_PrefabInstance: {fileID: 1264969655437357970}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &831672856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3734902986345955727, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f172ecf96190f45b9c8d45409e7271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrinterCrank
 --- !u!1001 &835249138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2395,17 +2406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &1325975435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2741573946030320890, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
-  m_PrefabInstance: {fileID: 1264969655437357970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f172ecf96190f45b9c8d45409e7271, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrinterCrank
 --- !u!114 &1335317339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2668138315715160949, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -4687,6 +4687,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Resume
       objectReference: {fileID: 0}
+    - target: {fileID: 3734902986345955727, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: MaxAngleChangeTreshold
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896071411885860967, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3925153861851804801, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6231,7 +6239,7 @@ PrefabInstance:
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
       value: 
-      objectReference: {fileID: 1325975435}
+      objectReference: {fileID: 831672856}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskPanel
       value: 

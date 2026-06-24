@@ -121,6 +121,100 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &376874997809038937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2710073683230594935}
+  - component: {fileID: 6241477027162860109}
+  - component: {fileID: 5798828729717134038}
+  - component: {fileID: 3734902986345955727}
+  m_Layer: 5
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2710073683230594935
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376874997809038937}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2763852503902472630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 342.6, y: 0}
+  m_SizeDelta: {x: 75, y: 75}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6241477027162860109
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376874997809038937}
+  m_CullTransparentMesh: 1
+--- !u!114 &5798828729717134038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376874997809038937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.34509805, g: 0.34509805, b: 0.34509805, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3734902986345955727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376874997809038937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f172ecf96190f45b9c8d45409e7271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrinterCrank
+  PivotObj: {fileID: 5522006768282799485}
+  PaperObj: {fileID: 5250110996720827648}
+  PaperStartPosition: {fileID: 8030944184522010604}
+  PaperEndPosition: {fileID: 2425516255188890360}
+  MaxAngleChangeTreshold: 80
+  RoundsNeeded: 12
 --- !u!1 &403767206800965623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,7 +1856,6 @@ GameObject:
   - component: {fileID: 7272452407733289411}
   - component: {fileID: 4705992367971863653}
   - component: {fileID: 1387510108436760613}
-  - component: {fileID: 2741573946030320890}
   m_Layer: 5
   m_Name: Crank
   m_TagString: Untagged
@@ -1827,23 +1920,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2741573946030320890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4219447418723338436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f172ecf96190f45b9c8d45409e7271, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PrinterCrank
-  PivotObj: {fileID: 5522006768282799485}
-  PaperObj: {fileID: 5250110996720827648}
-  PaperStartPosition: {fileID: 8030944184522010604}
-  PaperEndPosition: {fileID: 2425516255188890360}
-  RoundsNeeded: 12
 --- !u!1 &4425930649778036954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,6 +2682,7 @@ RectTransform:
   m_Children:
   - {fileID: 3107320865578841329}
   - {fileID: 7272452407733289411}
+  - {fileID: 2710073683230594935}
   m_Father: {fileID: 9014797399618843460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
