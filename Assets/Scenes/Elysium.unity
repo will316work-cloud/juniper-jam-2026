@@ -1786,7 +1786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskTriggerObjectInstance
   interactionIcon: {fileID: 1264969655437357972}
-  canInteract: 1
+  canInteract: 0
 --- !u!65 &733650968
 BoxCollider:
   m_ObjectHideFlags: 0
