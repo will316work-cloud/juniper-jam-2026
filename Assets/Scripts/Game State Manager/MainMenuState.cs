@@ -4,6 +4,7 @@ public class MainMenuState : GameState
 {
     public override IEnumerator OnEnter()
     {
+
         _ctx.TaskManager.SetSystemState(false);
         _ctx.TaskManager.InterruptTask();
         _ctx.TaskManager.SetisTimerOn(false);
@@ -33,14 +34,15 @@ public class MainMenuState : GameState
         _ctx.DayTimeController.ResetTime();
         _ctx.DayTimeController.ResetDay();
 
-        //_ctx.UiManager.MainMenuHandler.SetPanelState(true);
+        _ctx.UiManager.MainMenuHandler.SetPanelState(true);
+        _ctx.UiManager.CreditsHandler.SetPanelState(false);
 
         yield return null;
     }
 
     public override IEnumerator OnExit()
     {
-        //_ctx.UiManager.MainMenuHandler.SetPanelState(false);
+        _ctx.UiManager.MainMenuHandler.SetPanelState(false);
         yield return null;
     }
 
