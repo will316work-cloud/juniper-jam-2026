@@ -16,6 +16,7 @@ public class GameOverState : GameState
         _ctx.TaskManager.OnTimeOut();
         _ctx.DayTimeController.SetIsTimerOn(false);
         _ctx.WorldHealthMeter.SetSystemIsEnabled(false);
+        CursorHandler.SetCursorVisible(true);
 
         yield return null;
     }
