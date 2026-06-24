@@ -4,7 +4,6 @@ public class MainMenuState : GameState
 {
     public override IEnumerator OnEnter()
     {
-
         _ctx.TaskManager.SetSystemState(false);
         _ctx.TaskManager.InterruptTask();
         _ctx.TaskManager.SetisTimerOn(false);
@@ -14,9 +13,9 @@ public class MainMenuState : GameState
         _ctx.CoworkerManager.SetCoworkerMoverState(false);
 
         _ctx.UiManager.IngameMenuHandler.SetCanOpenInGameMenueState(false);
+        _ctx.UiManager.IngameMenuHandler.SetPanelState(false);
         _ctx.UiManager.InGameUiHandler.SetPanelState(false);
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);
-        _ctx.UiManager.IngameMenuHandler.SetPanelState(true);
 
         _ctx.WorldHealthMeter.SetSystemIsEnabled(false);
         _ctx.WorldHealthMeter.SetTimerState(false);
@@ -43,6 +42,7 @@ public class MainMenuState : GameState
     public override IEnumerator OnExit()
     {
         _ctx.UiManager.MainMenuHandler.SetPanelState(false);
+        _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.Menu);
         yield return null;
     }
 

@@ -22,6 +22,7 @@ public class GameOverUiHandler
         _lossReasonText = data.LossReasonText;
 
         _restartButton.onClick.AddListener(() => GameOverButtonClickHandler());
+        _mainMenuButton.onClick.AddListener(() => _ctx.GameStateController.ChangeState(StateType.MainMenu));
 
         SetPanelState(false);
     }

@@ -28,4 +28,8 @@ MonoBehaviour:
   - Type: 2
     Clip: {fileID: 8300000, guid: ebb47c4c261eff644a6eb8ef94646e21, type: 3}
   - Type: 0
-    Clip: {fileID: 8300000, guid: 853adff657261e344a26f06dd9d92950, type: 3}
+    Clip: {fileID: 8300000, guid: e30d733fa4a57ae43856792b993c84f8, type: 3}
+  - Type: 9
+    Clip: {fileID: 8300000, guid: 2ee4a5667e2d6dc45b6acdbb2862c476, type: 3}
+  - Type: 8
+    Clip: {fileID: 8300000, guid: 571e36ba3df00794480b117e65ea297d, type: 3}
