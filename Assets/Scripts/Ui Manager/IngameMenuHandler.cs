@@ -119,7 +119,9 @@ public class IngameMenuHandler : IUiHandler
 
     private void MainMenuButtonClickHandler()
     {
-        // _ctx.GameStateController.ChangeState(StateType.MainMenu);
+        _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.Menu);
+        SetPanelState(false);
+        _ctx.GameStateController.ChangeState(StateType.MainMenu);
     }
 
     private void ResumeButtonClickHandler()
