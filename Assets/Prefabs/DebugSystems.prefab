@@ -749,5 +749,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   CameraShakeStrength: 0.7
+  CameraShakeDuration: 0.5
   FlashIndicatorImage: {fileID: 0}
   FlashIndicatorColor: {r: 1, g: 0, b: 0, a: 0.7176471}
+  FlashIndicatorFadeInDuration: 0.05
+  FlashIndicatorFadeOutDuration: 0.1
+  ChromaticAberrationIntensity: 1
+  ChromaticAberrationFadeInDuration: 0.05
+  ChromaticAberrationFadeOutDuration: 0.7
+  BloomIntensity: 20
+  BloomTreshold: 0.8
+  BloomFadeInDuration: 0.05
+  BloomFadeOutDuration: 0.7
+  DepthOfFieldFadeInDuration: 0.5
+  ActionTypeColors:
+  - ActionType: 6
+    Color: {r: 0.7581998, g: 1, b: 0, a: 0}
+  - ActionType: 5
+    Color: {r: 1, g: 0, b: 0, a: 0.7176471}
+  - ActionType: 4
+    Color: {r: 0.6132076, g: 0.034574512, b: 0, a: 0.6313726}
+  - ActionType: 0
+    Color: {r: 0.8679245, g: 0.20162868, b: 0.1514774, a: 0}

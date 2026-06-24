@@ -7,11 +7,13 @@ public class MoneyController : MonoBehaviour
     MoneyView _view;
 
     int _initialStartingMoney;
+    MoneyControllerData _data;
 
     public void Initialize(MoneyControllerData data)
     {
         _model = new();
         _view = new(data.MoneyTexts);
+        _data = data;
 
         _initialStartingMoney = data.InitialStartingMoney;
 
@@ -21,6 +23,7 @@ public class MoneyController : MonoBehaviour
     public void GainMoney(int amount)
     {
         _model.GainMoney(amount);
+        UiEffectHandler.BounceText(Type.Out, _data.MoneyTexts[0], 0.5f, 8f,EffectColorChangeType.Green);
         RefreshView();
     }
 
@@ -30,6 +33,8 @@ public class MoneyController : MonoBehaviour
     public void LoseMoney(int amount)
     {
         _model.LoseMoney(amount);
+        UiEffectHandler.BounceText(Type.Shake, _data.MoneyTexts[0], 0.5f, 8f, EffectColorChangeType.Red);
+        UiEffectHandler.BounceText(Type.Out, _data.MoneyTexts[0], 0.5f, 8f);
         RefreshView();
     }
 

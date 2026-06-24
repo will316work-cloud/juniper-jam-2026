@@ -53,11 +53,21 @@ public class TaskManager : MonoBehaviour
         _remainingTimeToTriggerCurrentTaskTimer.Initialize(this,_timerData);
 
         foreach (PlayerTask task in _playerTasks)
-        {
             task.Initialize(ctx);
-        }
+
+        // InitializeTaskTriggerObjectInstances(ctx);
 
         SetSystemState(false);
+    }
+
+    void InitializeTaskTriggerObjectInstances(GameContext ctx)
+    {
+        TaskTriggerObjectInstance[] ttoi = FindObjectsByType<TaskTriggerObjectInstance>();
+
+        if(ttoi.Length > 0)
+        {
+            foreach (TaskTriggerObjectInstance instance in ttoi) instance.Initialize(ctx);
+        }
     }
     #endregion
     

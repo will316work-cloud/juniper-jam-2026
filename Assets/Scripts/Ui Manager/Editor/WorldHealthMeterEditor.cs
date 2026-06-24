@@ -19,7 +19,7 @@ public class WorldHealthMeterEditor : Editor
             myScript.GainHealth(10f);
 
         if (GUILayout.Button("Lose health"))
-            myScript.LoseHealth(10f);
+            myScript.LoseHealth(10f,true);
 
         if(GUILayout.Button("Trigger Timer"))
             myScript.SetTimerState(!myScript.IsSystemActive);

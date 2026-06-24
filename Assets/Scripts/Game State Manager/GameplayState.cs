@@ -6,7 +6,7 @@ public class GameplayState : GameState
     public override IEnumerator OnEnter()
     {
         _ctx.GameStateController.IsPlayerDead = false;
-
+        _ctx.CameraController.SetIsDepthOfFieldEnabled(false);
         _ctx.WorldHealthMeter.SetSystemIsEnabled(true);
         _ctx.WorldHealthMeter.SetTimerState(true);
         _ctx.DayTimeController.SetIsTimerOn(true);

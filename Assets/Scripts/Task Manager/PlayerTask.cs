@@ -15,6 +15,7 @@ public abstract class PlayerTask : MonoBehaviour
     public virtual void Initialize(GameContext ctx)
     {
         _ctx = ctx;
+        TriggerObj.Initialize(ctx);
         DisableTriggerObj();
         TaskProp.Initialize(ctx);
         TaskPanel.SetActive(false);
@@ -36,13 +37,16 @@ public abstract class PlayerTask : MonoBehaviour
     public void OnTaskFail(bool withAudio = true)
     {
         if(!_ctx.GameStateController.IsPlayerDead == false) return;
+        _ctx.CameraController.ApplyChromaticAberration();
+        _ctx.CameraController.ApplyBloom(EffectType.TaskFail);
         if(withAudio) _ctx.PoolManager.GetSfx(AudioType.TaskFail);
         Debug.Log("Task failed. Health penalty: " + TaskWorldHealthPenalty);
-        _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
+        _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward, true);
     }
     public void OnTaskSuccess(bool withAudio = true)
     {
         if(!_ctx.GameStateController.IsPlayerDead == false) return;
+        _ctx.CameraController.ApplyBloom(EffectType.TaskSuccess);
         if(withAudio) _ctx.PoolManager.GetSfx(AudioType.TaskSuccess);
         Debug.Log("Task success. Health reward: " + TaskWorldHealthReward);
         _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
@@ -55,12 +59,19 @@ public abstract class PlayerTask : MonoBehaviour
         else _ctx.TaskManager.OnTaskEnd();
     }
 
-    public void DisableTriggerObj() => TriggerObj.canInteract = false;
+    public void DisableTriggerObj()
+    {
+        TriggerObj.StopLightIndication();
+        TriggerObj.canInteract = false;
+    }
 
     /// <summary>
     /// Called when a task is assigned to the player. But haven't interacted with it yet.
     /// </summary>
-    public void EnableTriggerObj() => TriggerObj.canInteract = true;
-
+    public void EnableTriggerObj()
+    {
+        TriggerObj.canInteract = true;
+        TriggerObj.StartLightIndication();
+    }
     public void SetTaskPanelState(bool sate) => TaskPanel.SetActive(sate);
-}
+} 
