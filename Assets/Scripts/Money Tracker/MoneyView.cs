@@ -16,7 +16,7 @@ public class MoneyView
     {
         foreach (var moneyText in _moneyTexts)
         {
-            moneyText.text = amount.ToString();
+            moneyText.text = amount.ToString()+"$";
         }
     }
 }

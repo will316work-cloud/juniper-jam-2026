@@ -118,6 +118,7 @@ public void SetIsTimerOn(bool state)
         if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = true;
         if(_ctx.Quota.batteriesDroppedCount < _ctx.Quota.quotaAmount && !QuotaProtection) 
         {
+            _ctx.GameStateController.LooseReason = LooseReason.Quota;
             _ctx.GameStateController.ChangeState(StateType.GameOver);
             return;
         }
