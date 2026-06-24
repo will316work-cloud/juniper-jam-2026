@@ -19,6 +19,6 @@ public class TaskTriggerLight : MonoBehaviour
     public void StopIndicator()
     {
         _light.DOKill();
-        _light.DOIntensity(0, 0.5f);
+        _light.intensity = 0;
     }
 }
