@@ -49,7 +49,7 @@ public abstract class PlayerTask : MonoBehaviour
         _ctx.CameraController.ApplyBloom(EffectType.TaskSuccess);
         if(withAudio) _ctx.PoolManager.GetSfx(AudioType.TaskSuccess);
         Debug.Log("Task success. Health reward: " + TaskWorldHealthReward);
-        _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
+        _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward, true);
     }
     public void OnTaskEnd(bool isSuccess)
     {

@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class IngameMenuHandler : IUiHandler
@@ -21,6 +22,8 @@ public class IngameMenuHandler : IUiHandler
     private TextMeshProUGUI _fpsText;
 
     GameContext _ctx;
+    public bool CanOpenIngameMenu;
+    public void SetCanOpenInGameMenueState(bool state) => CanOpenIngameMenu = state;
 
     public bool IsPanelActive() => _panel.activeSelf;
     public void SetPanelState(bool state) => _panel.SetActive(state);
@@ -99,6 +102,21 @@ public class IngameMenuHandler : IUiHandler
         _ctx.GameStateController.ChangeState(StateType.Gameplay);
     }
 
+    void OnMenuOpen()
+    {
+        _ctx.UiManager.InGameUiHandler.SetPanelState(false);
+        SetPanelState(true);
+        Time.timeScale = 0f;
+        CursorHandler.SetCursorVisible(true);
+    }
+
+    public void Tick()
+    {
+        if(Keyboard.current.escapeKey.wasPressedThisFrame && CanOpenIngameMenu)
+            if(!IsPanelActive()) OnMenuOpen();
+            else ResumeButtonClickHandler();
+    }
+
     private void MainMenuButtonClickHandler()
     {
         // _ctx.GameStateController.ChangeState(StateType.MainMenu);
@@ -106,7 +124,9 @@ public class IngameMenuHandler : IUiHandler
 
     private void ResumeButtonClickHandler()
     {
+        CursorHandler.SetCursorVisible(false);
         SetPanelState(false);
+        _ctx.UiManager.InGameUiHandler.SetPanelState(true);
         Time.timeScale = 1f;
     }
 
