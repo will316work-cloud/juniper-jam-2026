@@ -4,7 +4,7 @@ public static class CursorHandler
 {
     public static void SetCursorVisible(bool visible)
     {
-        Cursor.visible = visible;
-        Cursor.lockState = visible ? CursorLockMode.None : CursorLockMode.Locked;
+        // Cursor.visible = visible;
+        // Cursor.lockState = visible ? CursorLockMode.None : CursorLockMode.Locked;
     }
 }
