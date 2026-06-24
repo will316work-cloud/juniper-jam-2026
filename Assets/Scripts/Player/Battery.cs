@@ -4,6 +4,7 @@ public class Battery : MonoBehaviour
 {
     public GameObject batteryVisual;
     [SerializeField] private DebugBatteryUI batteryUI;
+    public TaskTriggerLight lightScript;
     public int moneyPerDropoff;
     public int healthPerDropoff;
     public int rotationsPerFill;
@@ -16,6 +17,7 @@ public class Battery : MonoBehaviour
     public void Initialize(GameContext ctx)
     {
         _ctx = ctx;
+        lightScript.Initialize();
     }
 
     public void ChargeBattery()
@@ -55,6 +57,7 @@ public class Battery : MonoBehaviour
         if (IsDebugOn) Debug.Log("Battery swapped");
         _isFilled = false;
         _ctx.BatteryDropoff.canInteract = false;
+        lightScript.StartIndicator();
     }
 
     public void ResetBatteryFill()

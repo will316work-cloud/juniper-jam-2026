@@ -10,6 +10,7 @@ public class BatteryPickup : MonoBehaviour
         {
             battery.hasBattery = true;
             battery.batteryVisual.SetActive(true);
+            battery.lightScript.StopIndicator();
         }
     }
 }
