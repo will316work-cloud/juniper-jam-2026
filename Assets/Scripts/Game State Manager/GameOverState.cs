@@ -5,7 +5,7 @@ public class GameOverState : GameState
     public override IEnumerator OnEnter()
     {
         _ctx.GameStateController.IsPlayerDead = true;
-        
+        _ctx.CameraController.SetIsDepthOfFieldEnabled(true);
         _ctx.TaskManager.InterruptTask();
         _ctx.PoolManager.GetSfx(AudioType.GameOver);
         _ctx.UiManager.GameOverUiHandler.SetPanelState(true);
@@ -21,6 +21,7 @@ public class GameOverState : GameState
 
     public override IEnumerator OnExit()
     {
+        _ctx.CameraController.SetIsDepthOfFieldEnabled(false);
         _ctx.Quota.ResetDroppedCount();
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);
         _ctx.DifficultyManager.SetDifficulty(1);

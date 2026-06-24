@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,11 +14,13 @@ public class WorldHealthMeter : MonoBehaviour
     private float _healthLossPerSecond;
     private bool _isSystemActive; public bool IsSystemActive => _isSystemActive;
     GameContext _ctx;
+    Color _originalBarColor;
 
     public void Initialize(GameContext ctx)
     {
         _currentHealth = MaxHealth;
         _ctx = ctx;
+        _originalBarColor = HealthBar.color;
         UpdateVisual();
     }
 
@@ -53,7 +56,7 @@ public class WorldHealthMeter : MonoBehaviour
         UpdateVisual();
     }
 
-    public void LoseHealth(float health)
+    public void LoseHealth(float health, bool useEffect = false)
     {
         _currentHealth -= health;
         if(_currentHealth < 0 && _ctx.GameStateController.IsPlayerDead == false)
@@ -63,11 +66,17 @@ public class WorldHealthMeter : MonoBehaviour
             _ctx.GameStateController.ChangeState(StateType.GameOver);
         }
 
-        UpdateVisual();
+        UpdateVisual(useEffect);
     }
 
-    void UpdateVisual()
+    void UpdateVisual(bool useEffect = false)
     {
+        if(useEffect)
+        {
+            UiEffectHandler.BounceTransform(Type.Shake, Panel.transform,0.3f,0.2f);
+            HealthBar.color = Color.red;
+            HealthBar.DOColor(_originalBarColor, 0.4f);
+        }
         HealthBar.fillAmount = _currentHealth / MaxHealth;
     }
 

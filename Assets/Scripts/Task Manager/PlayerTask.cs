@@ -37,13 +37,16 @@ public abstract class PlayerTask : MonoBehaviour
     public void OnTaskFail(bool withAudio = true)
     {
         if(!_ctx.GameStateController.IsPlayerDead == false) return;
+        _ctx.CameraController.ApplyChromaticAberration();
+        _ctx.CameraController.ApplyBloom(EffectType.TaskFail);
         if(withAudio) _ctx.PoolManager.GetSfx(AudioType.TaskFail);
         Debug.Log("Task failed. Health penalty: " + TaskWorldHealthPenalty);
-        _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
+        _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward, true);
     }
     public void OnTaskSuccess(bool withAudio = true)
     {
         if(!_ctx.GameStateController.IsPlayerDead == false) return;
+        _ctx.CameraController.ApplyBloom(EffectType.TaskSuccess);
         if(withAudio) _ctx.PoolManager.GetSfx(AudioType.TaskSuccess);
         Debug.Log("Task success. Health reward: " + TaskWorldHealthReward);
         _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
