@@ -61,6 +61,5 @@ public abstract class PlayerTask : MonoBehaviour
     /// Called when a task is assigned to the player. But haven't interacted with it yet.
     /// </summary>
     public void EnableTriggerObj() => TriggerObj.canInteract = true;
-
     public void SetTaskPanelState(bool sate) => TaskPanel.SetActive(sate);
-}
+} 

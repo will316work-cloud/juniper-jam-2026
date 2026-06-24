@@ -753,6 +753,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &285547446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7127049810409286374, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d2b8378c6e16b429d3f639142ef0e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaperShredder
 --- !u!114 &299930018 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3128424064990420255, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -1053,6 +1064,11 @@ MeshFilter:
 --- !u!1 &405500076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3896071411885860967, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &414008710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 495784736533796472, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
   m_PrefabInstance: {fileID: 1264969655437357970}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &420066616 stripped
@@ -5477,6 +5493,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9204559291756910204, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: PlySpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6204,6 +6224,10 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 894249988}
+    - target: {fileID: 4392313301844223935, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
       value: 
@@ -6216,6 +6240,22 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 1923686063}
+    - target: {fileID: 5477521538002161298, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskProp
+      value: 
+      objectReference: {fileID: 285547446}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TaskPanel
+      value: 
+      objectReference: {fileID: 414008710}
+    - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: TriggerObj
+      value: 
+      objectReference: {fileID: 727601801}
     - target: {fileID: 7308703328897265374, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: m_Name
       value: Tasks

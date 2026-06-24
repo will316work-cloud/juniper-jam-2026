@@ -21,6 +21,7 @@ public class GameOverState : GameState
 
     public override IEnumerator OnExit()
     {
+        _ctx.Quota.ResetDroppedCount();
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);
         _ctx.DifficultyManager.SetDifficulty(1);
         _ctx.PlayerControl.TeleportPlayerToStartingPosition();
