@@ -36,6 +36,8 @@ public class MainMenuState : GameState
         _ctx.UiManager.MainMenuHandler.SetPanelState(true);
         _ctx.UiManager.CreditsHandler.SetPanelState(false);
 
+        _ctx.PoolManager.StartMenuMusic();
+
         yield return null;
     }
 
@@ -43,6 +45,7 @@ public class MainMenuState : GameState
     {
         _ctx.UiManager.MainMenuHandler.SetPanelState(false);
         _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.Menu);
+        _ctx.PoolManager.FadeToNextSong();
         yield return null;
     }
 

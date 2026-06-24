@@ -12,8 +12,8 @@ public class SongPooler
     private AudioSource _currentSource;
     private AudioSource _previousSource;
     private AudioSource _mainMenuSource;
-    private List<AudioClip> _availableGameplaySongs = new(); 
-    private List<AudioClip> _usedGamePlaySongs = new(); 
+    private List<AudioClip> _availableGameplaySongs = new();
+    private List<AudioClip> _usedGamePlaySongs = new();
     private AudioClip _mainMenuSong;
     private float _crossfadeLength;
     private MonoBehaviour _monoBehaviour;
@@ -23,12 +23,14 @@ public class SongPooler
 
     float _overallVolume;
 
+    float TargetVolume => _volume * _overallVolume;
+
     public void SetOverallVolume(float volume)
     {
         _overallVolume = volume;
-        _mainMenuSource.volume = _volume * _overallVolume;
-        _gameplaySource_01.volume = _volume * _overallVolume;
-        _gameplaySource_02.volume = _volume * _overallVolume;
+        _mainMenuSource.volume = TargetVolume;
+        _gameplaySource_01.volume = TargetVolume;
+        _gameplaySource_02.volume = TargetVolume;
     }
 
     public void Initialize(SongPoolerData data, MonoBehaviour monoBehaviour)
@@ -71,7 +73,7 @@ public class SongPooler
         _currentSource.clip = GetRandomGameplaySong();
         _currentSource.volume = 0;
         _currentSource.Play();
-        _currentSource.DOFade(_volume, _crossfadeLength);
+        _currentSource.DOFade(TargetVolume, _crossfadeLength);
 
         while (true)
         {
@@ -84,11 +86,11 @@ public class SongPooler
 
             // Fade out old, fade in new
             _previousSource.DOFade(0, _crossfadeLength).OnComplete(() => _previousSource.Stop());
-            
+
             _currentSource.clip = GetRandomGameplaySong();
             _currentSource.volume = 0;
             _currentSource.Play();
-            _currentSource.DOFade(_volume, _crossfadeLength);
+            _currentSource.DOFade(TargetVolume, _crossfadeLength);
 
             // Wait for the crossfade window to pass before checking again
             yield return new WaitForSeconds(_crossfadeLength);
@@ -103,8 +105,12 @@ public class SongPooler
 
     public void FadeToNextSong()
     {
+        if (_mainMenuSource.isPlaying)
+            _mainMenuSource.DOFade(0, _crossfadeLength).OnComplete(() => _mainMenuSource.Stop());
+
         if (_gameplayCoroutine != null)
             _monoBehaviour.StopCoroutine(_gameplayCoroutine);
+
         _gameplayCoroutine = _monoBehaviour.StartCoroutine(FadeToNextSongRoutine());
     }
 
@@ -119,7 +125,7 @@ public class SongPooler
         _currentSource.clip = GetRandomGameplaySong();
         _currentSource.volume = 0;
         _currentSource.Play();
-        _currentSource.DOFade(_volume, _crossfadeLength);
+        _currentSource.DOFade(TargetVolume, _crossfadeLength);
 
         while (true)
         {
@@ -132,7 +138,7 @@ public class SongPooler
             _currentSource.clip = GetRandomGameplaySong();
             _currentSource.volume = 0;
             _currentSource.Play();
-            _currentSource.DOFade(_volume, _crossfadeLength);
+            _currentSource.DOFade(TargetVolume, _crossfadeLength);
 
             yield return new WaitForSeconds(_crossfadeLength);
         }
@@ -140,18 +146,20 @@ public class SongPooler
 
     public void StartMenuMusic()
     {
+        if (_gameplayCoroutine != null)
+        {
+            _monoBehaviour.StopCoroutine(_gameplayCoroutine);
+            _gameplayCoroutine = null;
+        }
+
+        if (_gameplaySource_01.isPlaying)
+            _gameplaySource_01.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_01.Stop());
+        if (_gameplaySource_02.isPlaying)
+            _gameplaySource_02.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_02.Stop());
+
         _mainMenuSource.volume = 0;
         _mainMenuSource.Play();
-        _mainMenuSource.DOFade(_volume, _crossfadeLength);
-
-        if (_currentSource != null && _currentSource.isPlaying)
-        {
-            _currentSource.DOFade(0, _crossfadeLength).OnComplete(() =>
-            {
-                _currentSource.Stop();
-                _monoBehaviour.StopCoroutine(_gameplayCoroutine);
-            });
-        }
+        _mainMenuSource.DOFade(TargetVolume, _crossfadeLength);
     }
     AudioClip GetRandomGameplaySong()
     {
@@ -176,4 +184,3 @@ public class SongPoolerData
     public AudioClip MainMenuSong;
     public List<AudioClip> GameplaySongs = new();
 }
-
