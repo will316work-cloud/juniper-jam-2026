@@ -15,6 +15,7 @@ public abstract class PlayerTask : MonoBehaviour
     public virtual void Initialize(GameContext ctx)
     {
         _ctx = ctx;
+        TriggerObj.Initialize(ctx);
         DisableTriggerObj();
         TaskProp.Initialize(ctx);
         TaskPanel.SetActive(false);
@@ -55,11 +56,19 @@ public abstract class PlayerTask : MonoBehaviour
         else _ctx.TaskManager.OnTaskEnd();
     }
 
-    public void DisableTriggerObj() => TriggerObj.canInteract = false;
+    public void DisableTriggerObj()
+    {
+        TriggerObj.StopLightIndication();
+        TriggerObj.canInteract = false;
+    }
 
     /// <summary>
     /// Called when a task is assigned to the player. But haven't interacted with it yet.
     /// </summary>
-    public void EnableTriggerObj() => TriggerObj.canInteract = true;
+    public void EnableTriggerObj()
+    {
+        TriggerObj.canInteract = true;
+        TriggerObj.StartLightIndication();
+    }
     public void SetTaskPanelState(bool sate) => TaskPanel.SetActive(sate);
 } 
