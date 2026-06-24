@@ -14,10 +14,12 @@ public class Coworker : MonoBehaviour
     Coroutine _movementRoutine;
     List<PathPoint> _currentPathPoints = new();
     private float _stuckTimerTime;
+    ParticleSystem _walkParticle;
 
     public void Initialize(CoworkerManager manager, float movementSpeed)
     {
         _manager = manager;
+        _walkParticle = gameObject.GetComponentInChildren<ParticleSystem>();
         _agent = gameObject.GetComponent<NavMeshAgent>();
         _originalPosition = transform.position;
         _stuckTimerTime = 0;
@@ -26,6 +28,7 @@ public class Coworker : MonoBehaviour
 
     public void StartMoving(List<PathPoint> pathPoints)
     {
+        _walkParticle.Play();
         IsMoving = true;
         _currentPathPoints = pathPoints;
         _stuckTimerTime = 0;
@@ -70,6 +73,8 @@ public class Coworker : MonoBehaviour
 
         _manager.AddCoworkerToAvailableCoworkers(this);
         _movementRoutine = null;
+        _walkParticle.Stop();
+        _walkParticle.Clear();
     }
 
     /// <summary>
@@ -84,6 +89,9 @@ public class Coworker : MonoBehaviour
             _agent.ResetPath();
             _agent.velocity = Vector3.zero;
             _stuckTimerTime = 0f;
+            _walkParticle.Stop();
+            _walkParticle.Clear();
+            IsMoving = false;
         }
     }    
 

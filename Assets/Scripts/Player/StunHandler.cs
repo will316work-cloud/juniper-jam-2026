@@ -23,7 +23,7 @@ public class StunHandler : MonoBehaviour
     IEnumerator StunRoutine()
     {
         _ctx.PoolManager.GetSfx(AudioType.PlayerIsHit);
-        _ctx.CameraController.ShakeCamera();
+        _ctx.CameraController.ShakeCamera(EffectType.Stunned);
         if(IsDebugOn) Debug.Log("Player is stunned");
         _playerControl.AddMovementBlockReason(MovementBlockReason.Stun);
         _isStunned = true;

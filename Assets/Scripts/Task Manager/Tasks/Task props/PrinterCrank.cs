@@ -9,6 +9,7 @@ public class PrinterCrank : TaskProp, IPointerDownHandler, IPointerUpHandler
     public GameObject PaperObj;
     public Transform PaperStartPosition;
     public Transform PaperEndPosition;
+    public float MaxAngleChangeTreshold = 90;
     public int RoundsNeeded;
 
     private bool _isDragging;
@@ -42,6 +43,9 @@ public class PrinterCrank : TaskProp, IPointerDownHandler, IPointerUpHandler
         {
             float currentAngle = GetMouseAngle();
             float delta = Mathf.DeltaAngle(_previousAngle, currentAngle);
+
+            if (Mathf.Abs(delta) >= MaxAngleChangeTreshold)
+                return;
 
             if (delta > 0)
             {

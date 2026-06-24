@@ -42,21 +42,9 @@ public class BootStrapper : MonoBehaviour
         GameContext.CameraController.Initialize();
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);
 
-        InitializeTaskTriggerObjectInstances();
-
         GameContext.GameStateController.ChangeState(StartingState);
         GameContext.DifficultyManager.SetDifficulty(1);
 
         GameContext.PoolManager.FadeToNextSong();
-    }
-
-    void InitializeTaskTriggerObjectInstances()
-    {
-        TaskTriggerObjectInstance[] ttoi = FindObjectsByType<TaskTriggerObjectInstance>();
-
-        if(ttoi.Length > 0)
-        {
-            foreach (TaskTriggerObjectInstance instance in ttoi) instance.Initialize(GameContext);
-        }
     }
 }

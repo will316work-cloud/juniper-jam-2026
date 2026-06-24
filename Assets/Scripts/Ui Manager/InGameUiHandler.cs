@@ -18,21 +18,20 @@ public class InGameUiHandler : IUiHandler
         _interactionIndicatorObj = data.InteractionIndicatorObj;
         _panel = data.InGameUiPanel;
 
-        _ingameMenuButton.onClick.AddListener(() => IngameMenuButtonHandler());
+        // _ingameMenuButton.onClick.AddListener(() => IngameMenuButtonHandler());
 
         SetPanelState(false);
     }
 
-    void IngameMenuButtonHandler()
-    {
-        Time.timeScale = 0f;
-        SetPanelState(false);
-        _ctx.UiManager.IngameMenuHandler.SetPanelState(false);
-        _ctx.UiManager.IngameMenuHandler.SetPanelState(true);
-    }
+    // void IngameMenuButtonHandler()
+    // {
+    //     CursorHandler.SetCursorVisible(true);
+    //     Time.timeScale = 0f;
+    //     SetPanelState(false);
+    //     _ctx.UiManager.IngameMenuHandler.SetPanelState(true);
+    // }
     
     public void SetPanelState(bool state) => _panel.SetActive(state);
-
     public void SetInteractionIndicatorstate(bool state) => _interactionIndicatorObj.SetActive(state);
     public bool IndicatorState() => _interactionIndicatorObj.activeSelf;
 }

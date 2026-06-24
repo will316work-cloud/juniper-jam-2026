@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class IngameMenuHandler : IUiHandler
@@ -21,6 +22,8 @@ public class IngameMenuHandler : IUiHandler
     private TextMeshProUGUI _fpsText;
 
     GameContext _ctx;
+    public bool CanOpenIngameMenu;
+    public void SetCanOpenInGameMenueState(bool state) => CanOpenIngameMenu = state;
 
     public bool IsPanelActive() => _panel.activeSelf;
     public void SetPanelState(bool state) => _panel.SetActive(state);
@@ -72,6 +75,7 @@ public class IngameMenuHandler : IUiHandler
         _masterVolumeSlider.value = _ctx.PoolManager.MasterVolume * 100;
         _sfxVolumeSlider.value = _ctx.PoolManager.OverallVolume_SFX * 100;
         _musicVolumeSlider.value = _ctx.PoolManager.OverallVolume_Song * 100;
+
         _vsyncToggle.isOn = QualitySettings.vSyncCount == 1;
         _fpsSlider.value = Application.targetFrameRate;
         _fpsText.text = Application.targetFrameRate.ToString();
@@ -81,6 +85,7 @@ public class IngameMenuHandler : IUiHandler
 
     private void RestartButtonClickHandler()
     {
+        _ctx.Quota.ResetDroppedCount();
         _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.Menu);
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);
         _ctx.DifficultyManager.SetDifficulty(1);
@@ -97,6 +102,21 @@ public class IngameMenuHandler : IUiHandler
         _ctx.GameStateController.ChangeState(StateType.Gameplay);
     }
 
+    void OnMenuOpen()
+    {
+        _ctx.UiManager.InGameUiHandler.SetPanelState(false);
+        SetPanelState(true);
+        Time.timeScale = 0f;
+        CursorHandler.SetCursorVisible(true);
+    }
+
+    public void Tick()
+    {
+        if(Keyboard.current.escapeKey.wasPressedThisFrame && CanOpenIngameMenu)
+            if(!IsPanelActive()) OnMenuOpen();
+            else ResumeButtonClickHandler();
+    }
+
     private void MainMenuButtonClickHandler()
     {
         // _ctx.GameStateController.ChangeState(StateType.MainMenu);
@@ -104,7 +124,9 @@ public class IngameMenuHandler : IUiHandler
 
     private void ResumeButtonClickHandler()
     {
+        CursorHandler.SetCursorVisible(false);
         SetPanelState(false);
+        _ctx.UiManager.InGameUiHandler.SetPanelState(true);
         Time.timeScale = 1f;
     }
 
