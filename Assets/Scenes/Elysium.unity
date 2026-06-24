@@ -6354,6 +6354,10 @@ PrefabInstance:
       value: 0.345
       objectReference: {fileID: 0}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: StartingState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: playerRigidbody
       value: 
       objectReference: {fileID: 874905338}

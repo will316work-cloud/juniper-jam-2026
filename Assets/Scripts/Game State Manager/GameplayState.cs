@@ -5,6 +5,7 @@ public class GameplayState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        Time.timeScale = 1f;
         CursorHandler.SetCursorVisible(false);
         _ctx.UiManager.IngameMenuHandler.SetCanOpenInGameMenueState(true);
         _ctx.GameStateController.IsPlayerDead = false;

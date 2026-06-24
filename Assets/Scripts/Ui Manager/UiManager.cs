@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -17,8 +18,19 @@ public class UiManager : MonoBehaviour
 
         MainMenuHandler.Initialize(ctx, uiManagerContext.MainMenuHandlerData);
         CreditsHandler.Initialize(ctx, uiManagerContext.CreditsHandlerData);
+
+        InitializeButtons(ctx);
     }
 
+    void InitializeButtons(GameContext ctx)
+    {
+        ButtonScript[] buttons = FindObjectsByType<ButtonScript>(FindObjectsInactive.Include);
+
+        foreach (ButtonScript button in buttons)
+            button.Initialize(ctx.PoolManager.SfxPooler);
+
+        Debug.Log("Button count: " + buttons.Length);
+    }
     private void Update()
     {
         IngameMenuHandler.Tick();
