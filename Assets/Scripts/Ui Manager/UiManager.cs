@@ -12,6 +12,11 @@ public class UiManager : MonoBehaviour
         GameOverUiHandler.Initialize(ctx, uiManagerContext.GameOverUiHandlerData);
         IngameMenuHandler.Initialize(ctx, uiManagerContext.IngameMenuHandlerData);
     }
+
+    void Update()
+    {
+        IngameMenuHandler.Tick();
+    }
 }
 
 [System.Serializable]

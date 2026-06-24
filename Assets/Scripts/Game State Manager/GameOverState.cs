@@ -4,6 +4,7 @@ public class GameOverState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        _ctx.UiManager.IngameMenuHandler.SetCanOpenInGameMenueState(false);
         _ctx.GameStateController.IsPlayerDead = true;
         _ctx.CameraController.SetIsDepthOfFieldEnabled(true);
         _ctx.TaskManager.InterruptTask();

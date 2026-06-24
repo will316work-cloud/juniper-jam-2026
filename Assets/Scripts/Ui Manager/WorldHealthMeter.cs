@@ -49,11 +49,19 @@ public class WorldHealthMeter : MonoBehaviour
 
     public void SetHealth(float health) => _currentHealth = health;
 
-    public void GainHealth(float health)
+    public void GainHealth(float health, bool useEffect = false)
     {
+        if(useEffect)
+        {
+            UiEffectHandler.BounceTransform(Type.Shake, Panel.transform,0.3f,0.65f);
+            // UiEffectHandler.BounceTransform(Type.Out, Panel.transform,0.3f,0.1f);
+            HealthBar.color = Color.green;
+            HealthBar.DOColor(_originalBarColor, 0.3f);
+        }
+
         _currentHealth += health;
         if(_currentHealth > MaxHealth) _currentHealth = MaxHealth;
-        UpdateVisual();
+        UpdateVisual(useEffect);
     }
 
     public void LoseHealth(float health, bool useEffect = false)
@@ -66,17 +74,19 @@ public class WorldHealthMeter : MonoBehaviour
             _ctx.GameStateController.ChangeState(StateType.GameOver);
         }
 
+        if(useEffect)
+        {
+            UiEffectHandler.BounceTransform(Type.Shake, Panel.transform,0.3f,0.65f);
+            // UiEffectHandler.BounceTransform(Type.Out, Panel.transform,0.3f,2f);
+            HealthBar.color = Color.red;
+            HealthBar.DOColor(_originalBarColor, 0.4f);
+        }
+
         UpdateVisual(useEffect);
     }
 
     void UpdateVisual(bool useEffect = false)
     {
-        if(useEffect)
-        {
-            UiEffectHandler.BounceTransform(Type.Shake, Panel.transform,0.3f,0.2f);
-            HealthBar.color = Color.red;
-            HealthBar.DOColor(_originalBarColor, 0.4f);
-        }
         HealthBar.fillAmount = _currentHealth / MaxHealth;
     }
 
