@@ -89,6 +89,9 @@ public class Coworker : MonoBehaviour
             _agent.ResetPath();
             _agent.velocity = Vector3.zero;
             _stuckTimerTime = 0f;
+            _walkParticle.Stop();
+            _walkParticle.Clear();
+            IsMoving = false;
         }
     }    
 
