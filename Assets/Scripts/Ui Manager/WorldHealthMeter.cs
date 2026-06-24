@@ -71,6 +71,8 @@ public class WorldHealthMeter : MonoBehaviour
         {
             _ctx.GameStateController.IsPlayerDead = true;
             _currentHealth = 0;
+            
+            _ctx.GameStateController.LooseReason = LooseReason.Health;
             _ctx.GameStateController.ChangeState(StateType.GameOver);
         }
 

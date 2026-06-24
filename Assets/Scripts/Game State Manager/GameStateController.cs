@@ -10,6 +10,7 @@ public class GameStateController : MonoBehaviour
     Dictionary<StateType, GameState> _states = new();
     GameState _currentState; public GameState CurrentState => _currentState;    
     GameState _previousState;
+    public LooseReason LooseReason = LooseReason.None;
 
     public bool IsPlayerDead = true;
     public void Initialize(GameContext ctx)
