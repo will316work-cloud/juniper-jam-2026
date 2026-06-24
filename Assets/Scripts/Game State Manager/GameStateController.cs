@@ -8,8 +8,10 @@ public class GameStateController : MonoBehaviour
 
     GameContext _ctx;
     Dictionary<StateType, GameState> _states = new();
-    GameState _currentState; public GameState CurrentState => _currentState;   
+    GameState _currentState; public GameState CurrentState => _currentState;    
     GameState _previousState;
+
+    public bool IsPlayerDead = true;
     public void Initialize(GameContext ctx)
     {
         _ctx = ctx;

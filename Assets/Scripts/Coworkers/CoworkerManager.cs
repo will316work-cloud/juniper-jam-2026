@@ -22,8 +22,8 @@ public class CoworkerManager : MonoBehaviour
     private int _chanceOfMovingWorkerInPercentage;
     private int _currentChanceOfMovingWorkerInPercentage;
 
-    List<Coworker> _availableCoworkers = new();
-    List<Coworker> _movingCoworkers = new();
+    [SerializeField] List<Coworker> _availableCoworkers = new();
+    [SerializeField] List<Coworker> _movingCoworkers = new();
     private bool _isCoworkerMoverActive; public bool IsCoworkerMoverActive => _isCoworkerMoverActive;
 
     public void Initialize(GameContext ctx)

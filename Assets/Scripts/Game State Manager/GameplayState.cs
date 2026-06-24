@@ -5,6 +5,8 @@ public class GameplayState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        _ctx.GameStateController.IsPlayerDead = false;
+
         _ctx.WorldHealthMeter.SetSystemIsEnabled(true);
         _ctx.WorldHealthMeter.SetTimerState(true);
         _ctx.DayTimeController.SetIsTimerOn(true);
@@ -22,6 +24,7 @@ public class GameplayState : GameState
         yield return new WaitForSeconds(0.5f);
 
         _ctx.CoworkerManager.SetCoworkerMoverState(true);
+
         _ctx.TaskManager.SetSystemState(true);
         _ctx.TaskManager.RestartTaskSystem();
 

@@ -33,15 +33,17 @@ public abstract class PlayerTask : MonoBehaviour
         TaskProp.OnTaskStart();
         SetTaskPanelState(true);
     }
-    public void OnTaskFail()
+    public void OnTaskFail(bool withAudio = true)
     {
-        _ctx.PoolManager.GetSfx(AudioType.TaskFail);
+        if(!_ctx.GameStateController.IsPlayerDead == false) return;
+        if(withAudio) _ctx.PoolManager.GetSfx(AudioType.TaskFail);
         Debug.Log("Task failed. Health penalty: " + TaskWorldHealthPenalty);
         _ctx.WorldHealthMeter.LoseHealth(TaskWorldHealthReward);
     }
-    public void OnTaskSuccess()
+    public void OnTaskSuccess(bool withAudio = true)
     {
-        _ctx.PoolManager.GetSfx(AudioType.TaskSuccess);
+        if(!_ctx.GameStateController.IsPlayerDead == false) return;
+        if(withAudio) _ctx.PoolManager.GetSfx(AudioType.TaskSuccess);
         Debug.Log("Task success. Health reward: " + TaskWorldHealthReward);
         _ctx.WorldHealthMeter.GainHealth(TaskWorldHealthReward);
     }

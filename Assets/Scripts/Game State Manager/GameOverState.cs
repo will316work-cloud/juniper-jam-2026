@@ -4,6 +4,9 @@ public class GameOverState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        _ctx.GameStateController.IsPlayerDead = true;
+        
+        _ctx.TaskManager.InterruptTask();
         _ctx.PoolManager.GetSfx(AudioType.GameOver);
         _ctx.UiManager.GameOverUiHandler.SetPanelState(true);
         _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.GameOver);

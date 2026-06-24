@@ -115,7 +115,7 @@ public void SetIsTimerOn(bool state)
 
     public void GoNextDay()
     {
-        if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = false;
+        if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = true;
         if(_ctx.Quota.batteriesDroppedCount < _ctx.Quota.quotaAmount && !QuotaProtection) 
         {
             _ctx.GameStateController.ChangeState(StateType.GameOver);
