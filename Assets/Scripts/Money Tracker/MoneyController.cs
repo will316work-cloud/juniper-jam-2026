@@ -20,6 +20,11 @@ public class MoneyController : MonoBehaviour
         ResetMoney();
     }    
 
+    public void SetPanelState(bool state)
+    {
+        _view.SetPanelState(state);
+    }
+
     public void GainMoney(int amount)
     {
         _model.GainMoney(amount);

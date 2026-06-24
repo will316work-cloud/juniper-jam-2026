@@ -16,6 +16,7 @@ public class UiManager : MonoBehaviour
     void Update()
     {
         IngameMenuHandler.Tick();
+        InGameUiHandler.Tick();
     }
 }
 

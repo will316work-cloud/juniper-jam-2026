@@ -102,7 +102,7 @@ public class IngameMenuHandler : IUiHandler
         _ctx.GameStateController.ChangeState(StateType.Gameplay);
     }
 
-    void OnMenuOpen()
+    public void OnMenuOpen()
     {
         _ctx.UiManager.InGameUiHandler.SetPanelState(false);
         SetPanelState(true);
