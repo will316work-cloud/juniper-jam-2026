@@ -82,6 +82,7 @@ public class IngameMenuHandler : IUiHandler
 
     private void RestartButtonClickHandler()
     {
+        _ctx.Quota.ResetDroppedCount();
         _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.Menu);
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);
         _ctx.DifficultyManager.SetDifficulty(1);
