@@ -30,11 +30,9 @@ public class PaperShredder : TaskProp
 
         for (int i = 0; i < count; i++)
         {
-            PaperSheet p =
-                Instantiate(PaperPrefab, PapersParent);
+            PaperSheet p = Instantiate(PaperPrefab, PapersParent);
 
-            bool signable =
-                Random.value > BadPaperChance;
+            bool signable = Random.value > BadPaperChance;
 
             p.Initialize(this, signable);
 
@@ -57,8 +55,7 @@ public class PaperShredder : TaskProp
         {
             _ended = true;
 
-            _ctx.TaskManager.CurrentTask
-                .OnTaskEnd(true);
+            _ctx.TaskManager.CurrentTask.OnTaskEnd(true);
 
             ResetTask();
         }
@@ -71,8 +68,7 @@ public class PaperShredder : TaskProp
 
         _ended = true;
 
-        _ctx.TaskManager.CurrentTask
-            .OnTaskEnd(false);
+        _ctx.TaskManager.CurrentTask.OnTaskEnd(false);
 
         ResetTask();
     }

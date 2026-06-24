@@ -34,6 +34,8 @@ public class GameplayState : GameState
 
         _ctx.MoneyController.SetPanelState(true);
 
+        _ctx.UiManager.InGameUiHandler.SetPanelState(true);
+        _ctx.UiManager.MainMenuHandler.SetPanelState(false);
         yield return null;
     }
 

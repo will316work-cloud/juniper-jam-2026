@@ -2,18 +2,24 @@ using UnityEngine;
 
 public class UiManager : MonoBehaviour
 {
-    public InGameUiHandler InGameUiHandler = new(); 
+    public InGameUiHandler InGameUiHandler = new();
     public GameOverUiHandler GameOverUiHandler = new();
-    public IngameMenuHandler IngameMenuHandler = new(); 
+    public IngameMenuHandler IngameMenuHandler = new();
+
+    public MainMenuHandler MainMenuHandler = new();
+    public CreditsHandler CreditsHandler = new();
 
     public void Initialize(GameContext ctx, UiManagerContext uiManagerContext)
     {
         InGameUiHandler.Initialize(ctx, uiManagerContext.InGameUiHandlerData);
         GameOverUiHandler.Initialize(ctx, uiManagerContext.GameOverUiHandlerData);
         IngameMenuHandler.Initialize(ctx, uiManagerContext.IngameMenuHandlerData);
+
+        MainMenuHandler.Initialize(ctx, uiManagerContext.MainMenuHandlerData);
+        CreditsHandler.Initialize(ctx, uiManagerContext.CreditsHandlerData);
     }
 
-    void Update()
+    private void Update()
     {
         IngameMenuHandler.Tick();
         InGameUiHandler.Tick();
@@ -26,4 +32,7 @@ public class UiManagerContext
     public InGameUiHandlerData InGameUiHandlerData;
     public GameOverUiHandlerData GameOverUiHandlerData;
     public IngameMenuHandlerData IngameMenuHandlerData;
+
+    public MainMenuHandlerData MainMenuHandlerData;
+    public CreditsHandlerData CreditsHandlerData;
 }
