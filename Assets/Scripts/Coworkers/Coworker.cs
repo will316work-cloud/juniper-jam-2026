@@ -15,6 +15,7 @@ public class Coworker : MonoBehaviour
     List<PathPoint> _currentPathPoints = new();
     private float _stuckTimerTime;
     ParticleSystem _walkParticle;
+    Animator _animator;
 
     public void Initialize(CoworkerManager manager, float movementSpeed)
     {
@@ -34,6 +35,12 @@ public class Coworker : MonoBehaviour
         _stuckTimerTime = 0;
         _manager.AddCoworkerToMovingCoworkers(this);
         _movementRoutine = StartCoroutine(PathPointHandler());
+    }
+
+    public void SetSpinningState(bool state)
+    {
+        if(state) _animator.SetTrigger("Spin");
+        else _animator.SetTrigger("Idle");
     }
 
     IEnumerator PathPointHandler()
@@ -75,6 +82,7 @@ public class Coworker : MonoBehaviour
         _movementRoutine = null;
         _walkParticle.Stop();
         _walkParticle.Clear();
+        //SetSpinningState(false);
     }
 
     /// <summary>
