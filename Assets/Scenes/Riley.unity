@@ -8677,6 +8677,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewCoworkers
       objectReference: {fileID: 0}
+    - target: {fileID: 5374069331218578406, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374069331218578406, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374069331218578406, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374069331218578406, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374069331218578406, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.092
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374069331218578406, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.695
+      objectReference: {fileID: 0}
     - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
