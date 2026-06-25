@@ -11,7 +11,13 @@ public class BatteryPickup : MonoBehaviour
         {
             battery.hasBattery = true;
             battery.batteryVisual.SetActive(true); 
+            SetBatteryPickupIsVisible(false);
         }
+    }
+
+    public void SetBatteryPickupIsVisible(bool visible)
+    {
+        gameObject.SetActive(visible);
     }
 
     // private BatteryPool _pool;

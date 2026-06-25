@@ -18,6 +18,7 @@ public class BatteryDropoff : InteractableObjectInstance
             _ctx.MoneyController.GainMoney(_ctx.Battery.moneyPerDropoff);
             _ctx.WorldHealthMeter.GainHealth(_ctx.Battery.healthPerDropoff,true);
             _ctx.Quota.DropOff();
+            _ctx.BatteryPickup.SetBatteryPickupIsVisible(true);
         }
     }
 }
