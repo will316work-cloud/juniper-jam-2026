@@ -8412,7 +8412,7 @@ PrefabInstance:
     - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: ChairSound
       value: 
-      objectReference: {fileID: 8300000, guid: 7ac8a889c0cf57e4abecccd08b738114, type: 3}
+      objectReference: {fileID: 8300000, guid: ec634b128654e444cb4063d1853eeb87, type: 3}
     - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: OverallVolume
       value: 0.7
