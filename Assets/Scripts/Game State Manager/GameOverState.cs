@@ -4,6 +4,7 @@ public class GameOverState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        _ctx.PoolManager.FadeInGameOverMusic();
         _ctx.UiManager.IngameMenuHandler.SetCanOpenInGameMenueState(false);
         _ctx.GameStateController.IsPlayerDead = true;
         _ctx.CameraController.SetIsDepthOfFieldEnabled(true);
@@ -23,6 +24,8 @@ public class GameOverState : GameState
 
     public override IEnumerator OnExit()
     {
+        _ctx.PoolManager.FadeOutGameOverMusic();
+        
         _ctx.CameraController.SetIsDepthOfFieldEnabled(false);
         _ctx.Quota.ResetDroppedCount();
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);

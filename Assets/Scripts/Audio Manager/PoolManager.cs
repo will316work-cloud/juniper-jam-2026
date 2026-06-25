@@ -29,6 +29,12 @@ public class PoolManager : MonoBehaviour
     public void FadeOutMenuMusic() => MusicPooler.FadeOutMenuMusic();
     public void FadeInGameplayMusic() => MusicPooler.FadeInGameplayMusic();
 
+    public void FadeInGameOverMusic() => MusicPooler.FadeInGameOverMusic();
+    public void FadeOutGameOverMusic() => MusicPooler.FadeOutGameOverMusic();
+
+    public void FadeInDayChangeMusic() => MusicPooler.FadeInDayChangeMusic();
+    public void FadeOutDayChangeMusic() => MusicPooler.FadeOutDayChangeMusic();
+
     public void OnOverallVolumeChange()
     {
         SfxPooler.SetOverallVolume(MasterVolume * OverallVolume_SFX);

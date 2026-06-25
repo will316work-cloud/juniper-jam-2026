@@ -4,6 +4,8 @@ public class DayChangeState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        _ctx.PoolManager.FadeInDayChangeMusic();
+
         _ctx.WorldHealthMeter.SetTimerState(false);
         _ctx.DayTimeController.SetIsTimerOn(false);
         
@@ -41,6 +43,8 @@ public class DayChangeState : GameState
         _ctx.Battery.ResetBatteryFill();
 
         yield return _ctx.TransitionController.TransitionFadeOut();
+
+        _ctx.PoolManager.FadeOutDayChangeMusic();
 
         // TaskManager
         _ctx.TaskManager.RestartTaskSystem();
