@@ -51,9 +51,9 @@ MonoBehaviour:
   TaskDescription: 'Sign serious papers and shred the funny ones
 
 '
-  TaskWorldHealthReward: 10
-  TaskWorldHealthPenalty: 10
-  AvailableTime: 10
+  TaskWorldHealthReward: 30
+  TaskWorldHealthPenalty: 40
+  AvailableTime: 20
   IsSuccess: 0
 --- !u!1 &4460454556978018997
 GameObject:
