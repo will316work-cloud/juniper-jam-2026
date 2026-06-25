@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -18,6 +19,8 @@ public class BatteryPickup : MonoBehaviour
 
     public void SetBatteryPickupIsVisible(bool visible)
     {
+        transform.localScale = Vector3.one * 0.1f;
+        transform.DOScale(1,1).SetEase(Ease.InOutBounce);
         gameObject.SetActive(visible);
     }
 
