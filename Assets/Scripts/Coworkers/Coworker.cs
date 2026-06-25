@@ -7,6 +7,9 @@ public class Coworker : MonoBehaviour
 {
     public float TimeTresholdForBeingStuck = 2;
     public bool IsMoving; 
+    public float _minSpinSpeed;
+    public float _maxSpinSpeed;
+    private float _spinSpeed;
 
     Vector3 _originalPosition; public Vector3 OriginalPosition => _originalPosition;
     private NavMeshAgent _agent;
@@ -22,9 +25,12 @@ public class Coworker : MonoBehaviour
         _manager = manager;
         _walkParticle = gameObject.GetComponentInChildren<ParticleSystem>();
         _agent = gameObject.GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
         _originalPosition = transform.position;
         _stuckTimerTime = 0;
         SetMovementSpeed(movementSpeed);
+        _spinSpeed = Random.Range(_minSpinSpeed, _maxSpinSpeed);
+        if (Random.value < 0.5f) _spinSpeed = -_spinSpeed;
     }
 
     public void StartMoving(List<PathPoint> pathPoints)
@@ -37,6 +43,7 @@ public class Coworker : MonoBehaviour
         _movementRoutine = StartCoroutine(PathPointHandler());
     }
 
+    //the state code is never used. spinning logic is now based on IsMoving
     public void SetSpinningState(bool state)
     {
         if(state) _animator.SetTrigger("Spin");
@@ -119,9 +126,16 @@ public class Coworker : MonoBehaviour
             _stuckTimerTime = 0f;
     }
 
+    private void Spin() 
+    {
+        if(!IsMoving) return;
+        transform.Rotate(0f, _spinSpeed * Time.deltaTime, 0f, Space.World);
+    }
+
     void Update()
     {
         StuckHandler();
+        Spin();
     }
 
     public void SetAvoidancePriority(int priority) => _agent.avoidancePriority = priority;
