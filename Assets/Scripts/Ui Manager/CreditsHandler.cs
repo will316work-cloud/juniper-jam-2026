@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,14 @@ public class CreditsHandler : IUiHandler
 
     private void BackButtonHandler()
     {
+        _ctx.UiManager.StartCoroutine(BackButtonHandlerRoutine());
+    }
+    private IEnumerator BackButtonHandlerRoutine()
+    {
         SetPanelState(false);
+        _ctx.CameraController.SwitchToCamera(CameraType.Menu);
+        yield return new WaitForSeconds(1.1f);
+        _ctx.UiManager.MainMenuHandler.SetPanelState(true);
     }
 }
 

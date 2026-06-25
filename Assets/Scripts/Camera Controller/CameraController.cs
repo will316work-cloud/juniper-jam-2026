@@ -48,14 +48,17 @@ public class CameraController : MonoBehaviour
     private CinemachineVolumeSettings _volumeSettings;
     [SerializeField] private CinemachineCamera _menuCamera;
     [SerializeField] private CinemachineCamera _gameCamera;
+    [SerializeField] private CinemachineCamera _creditsCamera;
+    
     CinemachineCamera _currentCamera;
+    CinemachineCamera _previousCamera;
+    CinemachineBrain _cameraBrain;
 
     Dictionary<CameraType, CinemachineCamera> _cameras = new();
 
     public void Initialize()
     {
-        // _menuCamera = GameObject.FindWithTag("MenuCamera").GetComponent<CinemachineCamera>();
-        _gameCamera = GameObject.FindWithTag("GameplayCamera").GetComponent<CinemachineCamera>();
+        _cameraBrain = Camera.main.GetComponent<CinemachineBrain>();
 
         _volumeSettings = _gameCamera.GetComponent<CinemachineVolumeSettings>();
         _volumeSettings.Profile.TryGet(out _chromaticAberration);
@@ -66,6 +69,7 @@ public class CameraController : MonoBehaviour
         // _cameras.Add(CameraType.Menu, _menuCamera);
         _cameras.Add(CameraType.Gameplay, _gameCamera);
         _cameras.Add(CameraType.Menu, _menuCamera);
+        _cameras.Add(CameraType.Credits, _creditsCamera);
 
         _currentCamera = _menuCamera;
     }
@@ -76,15 +80,46 @@ public class CameraController : MonoBehaviour
 
         if(cameraType == CameraType.Menu && _currentCamera != _menuCamera)
         {
-            if(_currentCamera != null) _currentCamera.Priority = 0;
+            if(_currentCamera != null)
+            {
+                _previousCamera = _currentCamera;
+
+                if(_previousCamera == _cameras[CameraType.Credits])
+                    _cameraBrain.DefaultBlend.Time = 1f;
+
+                _currentCamera.Priority = 0;
+            }
+
             _currentCamera = _cameras[CameraType.Menu];
             _currentCamera.Priority = 10;
             _perlin.enabled = true;
         }
         else if(cameraType == CameraType.Gameplay && _currentCamera != _gameCamera)
         {
-            if(_currentCamera != null) _currentCamera.Priority = 0;
+            _cameraBrain.DefaultBlend.Time = 0;
+
+            if(_currentCamera != null)
+            {
+                _currentCamera.Priority = 0;
+                _previousCamera = _currentCamera;
+            }
+
             _currentCamera = _cameras[CameraType.Gameplay];
+            _currentCamera.Priority = 10;
+            _perlin.enabled = false;
+        }
+        else if(cameraType == CameraType.Credits && _currentCamera != _gameCamera)
+        {
+            if(_currentCamera != null)
+            {
+                if(_previousCamera == _cameras[CameraType.Menu])
+                    _cameraBrain.DefaultBlend.Time = 1f;
+
+                _currentCamera.Priority = 0;
+                _previousCamera = _currentCamera;
+            }
+
+            _currentCamera = _cameras[CameraType.Credits];
             _currentCamera.Priority = 10;
             _perlin.enabled = false;
         }
