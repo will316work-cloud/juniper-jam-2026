@@ -19,4 +19,5 @@ public class GameContext
     public PoolManager PoolManager;
     public CameraController CameraController;
     public SettingsData SettingsData;
+    public BatteryPickup BatteryPickup;
 }

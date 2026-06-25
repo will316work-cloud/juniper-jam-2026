@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Battery battery;
     [SerializeField] private StunHandler stunHandler;
     private float _rotationDeltaSum = 0f;
-    private Rigidbody rb;
+    private Rigidbody rb; public Rigidbody Rb => rb; 
     private GameInput gameInput;
     private GameObject playerCollisionObject;
     Vector3 _camForward;

@@ -25,7 +25,7 @@ public class GameOverState : GameState
     public override IEnumerator OnExit()
     {
         _ctx.PoolManager.FadeOutGameOverMusic();
-        
+        _ctx.BatteryPickup.SetBatteryPickupIsVisible(true);
         _ctx.CameraController.SetIsDepthOfFieldEnabled(false);
         _ctx.Quota.ResetDroppedCount();
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);

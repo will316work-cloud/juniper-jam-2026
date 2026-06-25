@@ -22,9 +22,9 @@ MonoBehaviour:
   - Type: 7
     Clip: {fileID: 8300000, guid: f40700aff983ae24b950c0bfc403da42, type: 3}
   - Type: 4
-    Clip: {fileID: 8300000, guid: d5792f8265fa8d242bf07d3f4a1b9f24, type: 3}
+    Clip: {fileID: 8300000, guid: 053eaa8e4da4be64ca460f17a4d42fd8, type: 3}
   - Type: 3
-    Clip: {fileID: 8300000, guid: 9079f53392d5fe54b8e9e29dff677460, type: 3}
+    Clip: {fileID: 8300000, guid: 2fe88f8f9b4b8834c8f0d8b768ea5df7, type: 3}
   - Type: 2
     Clip: {fileID: 8300000, guid: 14a3e4d0dc858d64ab56491fd10b0e80, type: 3}
   - Type: 0
