@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateController
   IsDebugOn: 0
+  LooseReason: 0
   IsPlayerDead: 1
 --- !u!1 &379154647252390983
 GameObject:
@@ -218,7 +219,7 @@ MonoBehaviour:
   SongPoolerData:
     SourceParent: {fileID: 0}
     CrossfadeLength: 4
-    MainMenuSong: {fileID: 8300000, guid: 3c0f7ebe5b715584aa1ceaafb16fcb84, type: 3}
+    MainMenuSong: {fileID: 8300000, guid: e0c1092a76551af4fa4fc946734985cf, type: 3}
     GameplaySongs:
     - {fileID: 8300000, guid: 8c83bc434d83a1b4ab1c347a12827f95, type: 3}
     - {fileID: 8300000, guid: 325c530dea10af54380a4e6021168843, type: 3}
@@ -295,9 +296,12 @@ MonoBehaviour:
       InGameUiPanel: {fileID: 0}
       InteractionIndicatorObj: {fileID: 0}
       IngameMenuButton: {fileID: 0}
+      PlayerImage: {fileID: 0}
+      PlayerStates: []
     GameOverUiHandlerData:
       Panel: {fileID: 0}
       ScoreText: {fileID: 0}
+      LossReasonText: {fileID: 0}
       RestartButton: {fileID: 0}
       MainMenuButton: {fileID: 0}
     IngameMenuHandlerData:
@@ -312,6 +316,15 @@ MonoBehaviour:
       VsyncToggle: {fileID: 0}
       ResolutionDropdown: {fileID: 0}
       FpsSliderText: {fileID: 0}
+    MainMenuHandlerData:
+      MainMenuPanel: {fileID: 0}
+      PlayButton: {fileID: 0}
+      CreditsButton: {fileID: 0}
+      SettingsButton: {fileID: 0}
+      QuitButton: {fileID: 0}
+    CreditsHandlerData:
+      CreditsPanel: {fileID: 0}
+      BackButton: {fileID: 0}
   playerRigidbody: {fileID: 0}
   playerCollisionObject: {fileID: 0}
 --- !u!1 &5054912498085588025
@@ -425,7 +438,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6f19de701775a3f4c824622467186918, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ce1f94286ef15064d9628833b15ff48f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &1760346673991785314
 MonoBehaviour:

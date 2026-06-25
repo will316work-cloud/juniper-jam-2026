@@ -8,7 +8,7 @@ public class WorldHealthMeter : MonoBehaviour
     public float MaxHealth;
     public float HealthBarUpdateFrequency;
     public Image HealthBar;
-    private float _currentHealth;
+    private float _currentHealth; public float CurrentHealth => _currentHealth;
     private float _timePassed;
     private float _healthLossPerTick;
     private float _healthLossPerSecond;
@@ -71,6 +71,8 @@ public class WorldHealthMeter : MonoBehaviour
         {
             _ctx.GameStateController.IsPlayerDead = true;
             _currentHealth = 0;
+            
+            _ctx.GameStateController.LooseReason = LooseReason.Health;
             _ctx.GameStateController.ChangeState(StateType.GameOver);
         }
 
@@ -90,7 +92,7 @@ public class WorldHealthMeter : MonoBehaviour
         HealthBar.fillAmount = _currentHealth / MaxHealth;
     }
 
-    void SetPanelState(bool state) => Panel.SetActive(state);
+    public void SetPanelState(bool state) => Panel.SetActive(state);
 
     void Timer()
     {

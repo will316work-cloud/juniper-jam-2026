@@ -62,6 +62,14 @@ public class IngameMenuHandler : IUiHandler
         _restartButton.onClick.AddListener(() => RestartButtonClickHandler());
         _resumeButton.onClick.AddListener(() => ResumeButtonClickHandler());
 
+        Application.targetFrameRate = 60;
+
+        _masterVolumeSlider.value = _ctx.PoolManager.MasterVolume * 100;
+        _sfxVolumeSlider.value = _ctx.PoolManager.OverallVolume_SFX * 100;
+        _musicVolumeSlider.value = _ctx.PoolManager.OverallVolume_Song * 100;
+        _vsyncToggle.isOn = QualitySettings.vSyncCount == 1;
+        _fpsSlider.value = Application.targetFrameRate;
+
         _masterVolumeSlider.onValueChanged.AddListener(HandleMasterVolumeChange);
         _sfxVolumeSlider.onValueChanged.AddListener(HandleSfxVolumeChange);
         _musicVolumeSlider.onValueChanged.AddListener(HandleMusicVolumeChange);
@@ -69,15 +77,6 @@ public class IngameMenuHandler : IUiHandler
         _fpsSlider.onValueChanged.AddListener(HandleFpsSliderChange);
         _vsyncToggle.onValueChanged.AddListener(HandleVsyncToggleValueChange);
         _resolutionDropdown.onValueChanged.AddListener(HandleResolutionChange);
-
-        Application.targetFrameRate = 60;
-
-        _masterVolumeSlider.value = _ctx.PoolManager.MasterVolume * 100;
-        _sfxVolumeSlider.value = _ctx.PoolManager.OverallVolume_SFX * 100;
-        _musicVolumeSlider.value = _ctx.PoolManager.OverallVolume_Song * 100;
-
-        _vsyncToggle.isOn = QualitySettings.vSyncCount == 1;
-        _fpsSlider.value = Application.targetFrameRate;
         _fpsText.text = Application.targetFrameRate.ToString();
 
         SetPanelState(false);
@@ -102,7 +101,7 @@ public class IngameMenuHandler : IUiHandler
         _ctx.GameStateController.ChangeState(StateType.Gameplay);
     }
 
-    void OnMenuOpen()
+    public void OnMenuOpen()
     {
         _ctx.UiManager.InGameUiHandler.SetPanelState(false);
         SetPanelState(true);
@@ -119,7 +118,9 @@ public class IngameMenuHandler : IUiHandler
 
     private void MainMenuButtonClickHandler()
     {
-        // _ctx.GameStateController.ChangeState(StateType.MainMenu);
+        _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.Menu);
+        SetPanelState(false);
+        _ctx.GameStateController.ChangeState(StateType.MainMenu);
     }
 
     private void ResumeButtonClickHandler()

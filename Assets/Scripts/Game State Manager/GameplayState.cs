@@ -5,12 +5,15 @@ public class GameplayState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        Time.timeScale = 1f;
         CursorHandler.SetCursorVisible(false);
         _ctx.UiManager.IngameMenuHandler.SetCanOpenInGameMenueState(true);
         _ctx.GameStateController.IsPlayerDead = false;
         _ctx.CameraController.SetIsDepthOfFieldEnabled(false);
+
         _ctx.WorldHealthMeter.SetSystemIsEnabled(true);
         _ctx.WorldHealthMeter.SetTimerState(true);
+
         _ctx.DayTimeController.SetIsTimerOn(true);
         _ctx.DayTimeController.SetPanelState(true);
 
@@ -30,6 +33,10 @@ public class GameplayState : GameState
         _ctx.TaskManager.SetSystemState(true);
         _ctx.TaskManager.RestartTaskSystem();
 
+        _ctx.MoneyController.SetPanelState(true);
+
+        _ctx.UiManager.InGameUiHandler.SetPanelState(true);
+        _ctx.UiManager.MainMenuHandler.SetPanelState(false);
         yield return null;
     }
 
