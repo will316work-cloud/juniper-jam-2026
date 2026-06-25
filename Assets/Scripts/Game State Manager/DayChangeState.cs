@@ -1,9 +1,12 @@
 using System.Collections;
+using UnityEngine;
 
 public class DayChangeState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        _ctx.PoolManager.FadeInDayChangeMusic();
+
         _ctx.WorldHealthMeter.SetTimerState(false);
         _ctx.DayTimeController.SetIsTimerOn(false);
         
@@ -14,7 +17,7 @@ public class DayChangeState : GameState
 
         _ctx.CoworkerManager.StopCoworkerMovement();
         
-        _ctx.PoolManager.GetSfx(AudioType.DayChangeClockSound);
+        // _ctx.PoolManager.GetSfx(AudioType.DayChangeClockSound);
         yield return _ctx.TransitionController.TransitionFadeIn();
 
         _ctx.PlayerControl.TeleportPlayerToStartingPosition();
@@ -40,6 +43,8 @@ public class DayChangeState : GameState
         // Battery
         _ctx.Battery.ResetBatteryFill();
 
+        yield return new WaitForSeconds(2.5f);
+        _ctx.PoolManager.FadeInGameplayMusic();
         yield return _ctx.TransitionController.TransitionFadeOut();
 
         // TaskManager

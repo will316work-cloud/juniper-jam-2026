@@ -103,10 +103,21 @@ public class IngameMenuHandler : IUiHandler
 
     public void OnMenuOpen()
     {
+        RefreshSettings();
         _ctx.UiManager.InGameUiHandler.SetPanelState(false);
         SetPanelState(true);
         Time.timeScale = 0f;
         CursorHandler.SetCursorVisible(true);
+    }
+
+    private void RefreshSettings()
+    {
+        _masterVolumeSlider.SetValueWithoutNotify(_ctx.PoolManager.MasterVolume * 100);
+        _sfxVolumeSlider.SetValueWithoutNotify(_ctx.PoolManager.OverallVolume_SFX * 100);
+        _musicVolumeSlider.SetValueWithoutNotify(_ctx.PoolManager.OverallVolume_Song * 100);
+        _vsyncToggle.SetIsOnWithoutNotify(QualitySettings.vSyncCount == 1);
+        _fpsSlider.SetValueWithoutNotify(Application.targetFrameRate);
+        _fpsText.text = "FPS Cap - " + Application.targetFrameRate.ToString();
     }
 
     public void Tick()

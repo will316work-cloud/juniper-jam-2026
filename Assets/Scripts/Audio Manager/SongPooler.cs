@@ -7,19 +7,27 @@ using UnityEngine;
 public class SongPooler
 {
     private Transform _sourceParent;
+
     private AudioSource _gameplaySource_01;
     private AudioSource _gameplaySource_02;
     private AudioSource _currentSource;
     private AudioSource _previousSource;
+
     private AudioSource _mainMenuSource;
+    private AudioSource _gameOverSource;
+    private AudioSource _dayChangeSource;
+    
     private List<AudioClip> _availableGameplaySongs = new();
     private List<AudioClip> _usedGamePlaySongs = new();
-    private AudioClip _mainMenuSong;
     private float _crossfadeLength;
     private MonoBehaviour _monoBehaviour;
     private float _volume = 0.7f;
     private Coroutine _gameplayCoroutine;
     private AudioClip _previousClip;
+
+    private AudioClip _mainMenuSong;
+    private AudioClip _gameOverSong;
+    private AudioClip _dayChangeSong;
 
     float _overallVolume;
 
@@ -38,6 +46,8 @@ public class SongPooler
         _monoBehaviour = monoBehaviour;
         _sourceParent = data.SourceParent;
         _mainMenuSong = data.MainMenuSong;
+        _gameOverSong = data.GameOverSong;
+        _dayChangeSong = data.DayChangeSong;
         _crossfadeLength = data.CrossfadeLength;
         _availableGameplaySongs.AddRange(data.GameplaySongs);
 
@@ -52,6 +62,13 @@ public class SongPooler
         _mainMenuSource = CreateAudioSource();
         _mainMenuSource.loop = true;
         _mainMenuSource.clip = _mainMenuSong;
+
+        _gameOverSource = CreateAudioSource();
+        _gameOverSource.loop = true;
+        _gameOverSource.clip = _gameOverSong;
+
+        _dayChangeSource = CreateAudioSource();
+        _dayChangeSource.clip = _dayChangeSong;
     }
 
     AudioSource CreateAudioSource()
@@ -101,8 +118,7 @@ public class SongPooler
         _availableGameplaySongs.AddRange(_usedGamePlaySongs);
         _usedGamePlaySongs.Clear();
     }
-
-    public void FadeInMenuMusic()
+    void FadeOutAllSources(AudioSource except)
     {
         if (_gameplayCoroutine != null)
         {
@@ -110,15 +126,23 @@ public class SongPooler
             _gameplayCoroutine = null;
         }
 
-        DOTween.Kill(_gameplaySource_01);
-        DOTween.Kill(_gameplaySource_02);
+        TryFadeOut(_gameplaySource_01);
+        TryFadeOut(_gameplaySource_02);
+        if (_mainMenuSource != except) TryFadeOut(_mainMenuSource);
+        if (_gameOverSource != except) TryFadeOut(_gameOverSource);
+        if (_dayChangeSource != except) TryFadeOut(_dayChangeSource);
+    }
 
-        if (_gameplaySource_01.isPlaying)
-            _gameplaySource_01.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_01.Stop());
-        if (_gameplaySource_02.isPlaying)
-            _gameplaySource_02.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_02.Stop());
+    void TryFadeOut(AudioSource source)
+    {
+        DOTween.Kill(source);
+        if (source.isPlaying)
+            source.DOFade(0, _crossfadeLength).OnComplete(() => source.Stop());
+    }
 
-        DOTween.Kill(_mainMenuSource);
+    public void FadeInMenuMusic()
+    {
+        FadeOutAllSources(_mainMenuSource);
         _mainMenuSource.volume = 0;
         _mainMenuSource.Play();
         _mainMenuSource.DOFade(TargetVolume, _crossfadeLength);
@@ -126,13 +150,41 @@ public class SongPooler
 
     public void FadeOutMenuMusic()
     {
-        DOTween.Kill(_mainMenuSource);
-        if (_mainMenuSource.isPlaying)
-            _mainMenuSource.DOFade(0, _crossfadeLength).OnComplete(() => _mainMenuSource.Stop());
+        TryFadeOut(_mainMenuSource);
+    }
+
+    public void FadeInGameOverMusic()
+    {
+        FadeOutAllSources(_gameOverSource);
+        _gameOverSource.volume = 0;
+        _gameOverSource.Play();
+        _gameOverSource.DOFade(TargetVolume, _crossfadeLength);
+    }
+
+    public void FadeOutGameOverMusic()
+    {
+        TryFadeOut(_gameOverSource);
+    }
+
+    public void FadeInDayChangeMusic()
+    {
+        FadeOutAllSources(_dayChangeSource);
+        _dayChangeSource.volume = 0;
+        _dayChangeSource.Play();
+        _dayChangeSource.DOFade(TargetVolume, _crossfadeLength);
+    }
+
+    public void FadeOutDayChangeMusic()
+    {
+        TryFadeOut(_dayChangeSource);
     }
 
     public void FadeInGameplayMusic()
     {
+        TryFadeOut(_mainMenuSource);
+        TryFadeOut(_gameOverSource);
+        TryFadeOut(_dayChangeSource);
+
         if (_gameplayCoroutine != null)
             _monoBehaviour.StopCoroutine(_gameplayCoroutine);
 
@@ -199,5 +251,8 @@ public class SongPoolerData
     public Transform SourceParent;
     public float CrossfadeLength;
     public AudioClip MainMenuSong;
+    public AudioClip GameOverSong;
+    public AudioClip DayChangeSong;
+
     public List<AudioClip> GameplaySongs = new();
 }

@@ -43,8 +43,8 @@ public class CameraController : MonoBehaviour
     public List<ActionTypeColor> ActionTypeColors = new();
 
     private CinemachineVolumeSettings _volumeSettings;
-    CinemachineCamera _menuCamera;
-    CinemachineCamera _gameCamera;
+    [SerializeField] private CinemachineCamera _menuCamera;
+    [SerializeField] private CinemachineCamera _gameCamera;
     CinemachineCamera _currentCamera;
 
     Dictionary<CameraType, CinemachineCamera> _cameras = new();
@@ -61,15 +61,27 @@ public class CameraController : MonoBehaviour
 
         // _cameras.Add(CameraType.Menu, _menuCamera);
         _cameras.Add(CameraType.Gameplay, _gameCamera);
+        _cameras.Add(CameraType.Menu, _menuCamera);
 
         _currentCamera = _gameCamera;
     }
 
-    public void SwitchToGameCamera(CameraType cameraType)
+    public void SwitchToCamera(CameraType cameraType)
     {
-        _currentCamera.gameObject.SetActive(false);
-        _currentCamera = _cameras[cameraType];
-        _currentCamera.gameObject.SetActive(true);
+        if (_currentCamera == _cameras[cameraType]) return;
+
+        if(cameraType == CameraType.Menu && _currentCamera != _menuCamera)
+        {
+            if(_currentCamera != null) _currentCamera.Priority = 0;
+            _currentCamera = _cameras[CameraType.Menu];
+            _currentCamera.Priority = 10;
+        }
+        else if(cameraType == CameraType.Gameplay && _currentCamera != _gameCamera)
+        {
+            if(_currentCamera != null) _currentCamera.Priority = 0;
+            _currentCamera = _cameras[CameraType.Gameplay];
+            _currentCamera.Priority = 10;
+        }
     }
 
     public Color GetColor(EffectType type)
