@@ -37,6 +37,7 @@ public class GameOverState : GameState
         _ctx.CoworkerManager.TeleportCoworkersToOriginalPlace();
         _ctx.DayTimeController.ResetTime();
         _ctx.DayTimeController.ResetDay();
+        _ctx.BatteryDropoff.StopLightIndication();
         yield return null;
     }
 

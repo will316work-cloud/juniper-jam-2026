@@ -96,6 +96,7 @@ public class IngameMenuHandler : IUiHandler
         _ctx.CoworkerManager.TeleportCoworkersToOriginalPlace();
         _ctx.DayTimeController.ResetTime();
         _ctx.DayTimeController.ResetDay();
+        _ctx.BatteryDropoff.StopLightIndication();
 
         SetPanelState(false);
         Time.timeScale = 1f;
