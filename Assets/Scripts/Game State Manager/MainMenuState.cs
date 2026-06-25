@@ -40,6 +40,8 @@ public class MainMenuState : GameState
 
         _ctx.PoolManager.FadeInMenuMusic();
 
+        _ctx.CameraController.SwitchToCamera(CameraType.Menu);
+
         yield return null;
     }
 
