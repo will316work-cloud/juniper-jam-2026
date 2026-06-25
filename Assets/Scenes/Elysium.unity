@@ -8385,7 +8385,7 @@ PrefabInstance:
       objectReference: {fileID: 1273065507}
     - target: {fileID: 7962077968466086223, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: QuotaProtection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[4].Day
