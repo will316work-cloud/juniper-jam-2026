@@ -67,7 +67,7 @@ public class CameraController : MonoBehaviour
         _cameras.Add(CameraType.Gameplay, _gameCamera);
         _cameras.Add(CameraType.Menu, _menuCamera);
 
-        _currentCamera = _gameCamera;
+        _currentCamera = _menuCamera;
     }
 
     public void SwitchToCamera(CameraType cameraType)

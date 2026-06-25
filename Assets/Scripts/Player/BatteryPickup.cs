@@ -9,11 +9,10 @@ public class BatteryPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-               battery.hasBattery = true;
-               battery.batteryVisual.SetActive(true); 
+            battery.hasBattery = true;
+            battery.batteryVisual.SetActive(true); 
         }
     }
-
 
     // private BatteryPool _pool;
     // private BatterySpawnPoint _spawnPoint;

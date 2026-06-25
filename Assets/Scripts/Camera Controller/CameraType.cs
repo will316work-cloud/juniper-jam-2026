@@ -1,5 +1,6 @@
 public enum CameraType 
 { 
     Menu, 
-    Gameplay 
+    Gameplay,
+    None 
 };
