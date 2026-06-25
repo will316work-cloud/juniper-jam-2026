@@ -8095,6 +8095,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: Settings.vsync
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: Settings.fpsCap
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: playerRigidbody
       value: 
       objectReference: {fileID: 874905338}
@@ -8106,6 +8114,10 @@ PrefabInstance:
       propertyPath: GameContext.Battery
       value: 
       objectReference: {fileID: 880874991}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: Settings.resolution
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: AudioPoolData.Parent
       value: 

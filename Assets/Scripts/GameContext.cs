@@ -18,4 +18,5 @@ public class GameContext
     public DifficultyManager DifficultyManager;
     public PoolManager PoolManager;
     public CameraController CameraController;
+    public SettingsData SettingsData;
 }

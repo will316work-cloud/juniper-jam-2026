@@ -18,6 +18,10 @@ public class BootStrapper : MonoBehaviour
     public Rigidbody playerRigidbody;
     public GameObject playerCollisionObject;
 
+    [Space(10)]
+    [Header("Starting Settings")]
+    public StartingSettings Settings;
+
     void Start()
     {
         Initialize();
@@ -25,6 +29,8 @@ public class BootStrapper : MonoBehaviour
 
     void Initialize()
     {   
+
+        GameContext.SettingsData = new(Settings);
         GameContext.PoolManager.Initialize();
         GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);
