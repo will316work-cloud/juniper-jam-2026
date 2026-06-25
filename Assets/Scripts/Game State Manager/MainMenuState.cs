@@ -13,6 +13,8 @@ public class MainMenuState : GameState
 
         _ctx.CoworkerManager.ResetSystem();
         _ctx.CoworkerManager.SetCoworkerMoverState(false);
+        _ctx.TitleCoworkerManager.ResetSystem();
+        _ctx.TitleCoworkerManager.SetCoworkerMoverState(true);
 
         _ctx.UiManager.IngameMenuHandler.SetCanOpenInGameMenueState(false);
         _ctx.UiManager.IngameMenuHandler.SetPanelState(false);

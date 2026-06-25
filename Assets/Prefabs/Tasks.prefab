@@ -48,12 +48,10 @@ MonoBehaviour:
   TaskPanel: {fileID: 0}
   TaskProp: {fileID: 0}
   TaskName: Paper Shredder
-  TaskDescription: 'Sign serious papers and shred the funny ones
-
-'
+  TaskDescription: Sign serious papers and shred the funny ones
   TaskWorldHealthReward: 30
   TaskWorldHealthPenalty: 40
-  AvailableTime: 20
+  AvailableTime: 25
   IsSuccess: 0
 --- !u!1 &4460454556978018997
 GameObject:
@@ -156,12 +154,10 @@ MonoBehaviour:
   TaskPanel: {fileID: 0}
   TaskProp: {fileID: 0}
   TaskName: Water Cooler
-  TaskDescription: 'Screw in a new bottle into the Water Cooler
-
-'
-  TaskWorldHealthReward: 10
-  TaskWorldHealthPenalty: 10
-  AvailableTime: 10
+  TaskDescription: Spin on a new Water Cooler jug
+  TaskWorldHealthReward: 30
+  TaskWorldHealthPenalty: 40
+  AvailableTime: 15
   IsSuccess: 0
 --- !u!1 &7308703328897265374
 GameObject:

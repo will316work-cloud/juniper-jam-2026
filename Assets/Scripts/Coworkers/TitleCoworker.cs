@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Coworker : MonoBehaviour 
+public class TitleCoworker : MonoBehaviour 
 {
     public float TimeTresholdForBeingStuck = 2;
     public bool IsMoving; 
@@ -13,14 +13,14 @@ public class Coworker : MonoBehaviour
 
     Vector3 _originalPosition; public Vector3 OriginalPosition => _originalPosition;
     private NavMeshAgent _agent;
-    CoworkerManager _manager;
+    TitleCoworkerManager _manager;
     Coroutine _movementRoutine;
-    List<PathPoint> _currentPathPoints = new();
+    List<TitlePathPoint> _currentPathPoints = new();
     private float _stuckTimerTime;
     ParticleSystem _walkParticle;
     Animator _animator;
 
-    public void Initialize(CoworkerManager manager, float movementSpeed)
+    public void Initialize(TitleCoworkerManager manager, float movementSpeed)
     {
         _manager = manager;
         _walkParticle = gameObject.GetComponentInChildren<ParticleSystem>();
@@ -33,7 +33,7 @@ public class Coworker : MonoBehaviour
         if (Random.value < 0.5f) _spinSpeed = -_spinSpeed;
     }
 
-    public void StartMoving(List<PathPoint> pathPoints)
+    public void StartMoving(List<TitlePathPoint> pathPoints)
     {
         _walkParticle.Play();
         IsMoving = true;
@@ -56,7 +56,7 @@ public class Coworker : MonoBehaviour
         
         while(pathPointIndex < _currentPathPoints.Count)
         {
-            PathPoint currentPathPoint = _currentPathPoints[pathPointIndex];
+            TitlePathPoint currentPathPoint = _currentPathPoints[pathPointIndex];
 
             _agent.SetDestination(currentPathPoint.Position);
             while(_agent.pathPending)
@@ -73,7 +73,7 @@ public class Coworker : MonoBehaviour
 
     IEnumerator GoBackToOriginalPosition()
     {
-        foreach(PathPoint point in _currentPathPoints) point.IsAvailable = true;
+        foreach(TitlePathPoint point in _currentPathPoints) point.IsAvailable = true;
 
         _agent.SetDestination(_originalPosition);
         while(_agent.pathPending)
