@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8313325486623091254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.9721281, a: 1}
+  m_Color: {r: 1, g: 0.6905941, b: 0.41037738, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deaa16ecc7f5dc44ea9462b190aeb0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Quota
-  _img: {fileID: 0}
-  _text: {fileID: 0}
+  _img: {fileID: 4594726544904657487}
+  _text: {fileID: 229229417638912264}
   quotaAmount: 10
   batteriesDroppedCount: 0
 --- !u!1 &1850982670726169777

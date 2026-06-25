@@ -27,6 +27,9 @@ public class DifficultyManager : MonoBehaviour
         _gameContext.CoworkerManager.SetCoworkerMovementSpeed(setting.CoworkerSpeed);
         _gameContext.CoworkerManager.SetMaximumConcurrentMovingCoworkers(setting.MaxConcurrentMovingCoworker);
         _gameContext.CoworkerManager.SetMoverGapTime(setting.CoworkerMoverGapTime);
+        _gameContext.TitleCoworkerManager.SetCoworkerMovementSpeed(6f);
+        _gameContext.TitleCoworkerManager.SetMaximumConcurrentMovingCoworkers(3);
+        _gameContext.TitleCoworkerManager.SetMoverGapTime(0.25f);
         _gameContext.TaskManager.SetTaskGettingGapTime(setting.TaskGapTime);
         _gameContext.WorldHealthMeter.SetHealthLossPerSecond(setting.HealthLossPerSecond);
         _gameContext.Quota.SetQuota(setting.BatteryQuotaCountPerDay);
