@@ -1,9 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 public class Battery : MonoBehaviour
 {
     public GameObject batteryVisual;
+    [SerializeField] private GameObject _batteryFill;
+    [SerializeField] private Material _batteryOrange;
+    [SerializeField] private Material _batteryGreen;
     [SerializeField] private DebugBatteryUI batteryUI;
+    [SerializeField] private GameObject pickupVisual;
+    [SerializeField] private GameObject _droppedBatteryVisual;
+    [SerializeField] private GameObject _droppedBatteryTargetLocation;
+    [SerializeField] private float _droppedBatteryAnimationDuration;
+    private Vector3 _droppedBatteryOGLocation;
+    private MeshRenderer _batteryRenderer;
     public TaskTriggerLight lightScript;
     public int moneyPerDropoff;
     public int healthPerDropoff;
@@ -18,6 +28,8 @@ public class Battery : MonoBehaviour
     {
         _ctx = ctx;
         lightScript.Initialize();
+        _batteryRenderer = _batteryFill.GetComponent<MeshRenderer>();
+        _droppedBatteryOGLocation = _droppedBatteryVisual.transform.position;
     }
 
     public void ChargeBattery()
@@ -29,6 +41,7 @@ public class Battery : MonoBehaviour
         {
             _isFilled = true;
             _ctx.BatteryDropoff.canInteract = true;
+            _batteryRenderer.material = _batteryGreen;
         }
     }
 
@@ -36,6 +49,7 @@ public class Battery : MonoBehaviour
     {
         if (_isFilled) return;
         if(IsDebugOn) Debug.Log("Battery is " + (float)rotationsSoFar / (float)rotationsPerFill * 100 + " percent full");
+        _batteryFill.transform.localScale = new Vector3(1, (float)rotationsSoFar / (float)rotationsPerFill, 1);
         batteryUI.ChangeBatteryText(rotationsSoFar);
         //visual element changes here (soFar / perFill) amount
     }
@@ -43,6 +57,7 @@ public class Battery : MonoBehaviour
     private void DecreaseVisualFill()
     {
         if(IsDebugOn) Debug.Log("New Battery Visual");
+        _batteryFill.transform.localScale = new Vector3(1, (float)rotationsSoFar / (float)rotationsPerFill, 1);
         batteryUI.ChangeBatteryText(rotationsSoFar);
         //visual element changes here (soFar / perFill) amount
     }
@@ -51,6 +66,7 @@ public class Battery : MonoBehaviour
     {
         if(!_isFilled) return;
         rotationsSoFar = 0;
+        _batteryRenderer.material = _batteryOrange;
         DecreaseVisualFill();
         hasBattery = false;
         batteryVisual.SetActive(false);
@@ -58,6 +74,21 @@ public class Battery : MonoBehaviour
         _isFilled = false;
         _ctx.BatteryDropoff.canInteract = false;
         lightScript.StartIndicator();
+        pickupVisual.SetActive(true);
+        StartCoroutine(DroppedBatteryAnimation(_droppedBatteryAnimationDuration));
+    }
+
+    IEnumerator DroppedBatteryAnimation(float duration) {
+        _droppedBatteryVisual.SetActive(true);
+        //_droppedBatteryVisual.transform.position = _droppedBatteryOGLocation.position;
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / duration;
+            _droppedBatteryVisual.transform.position = Vector3.Lerp(_droppedBatteryOGLocation, _droppedBatteryTargetLocation.transform.position, normalizedTime);
+            yield return null;
+        }
+        _droppedBatteryVisual.SetActive(false);
+        _droppedBatteryVisual.transform.localPosition = _droppedBatteryOGLocation;
     }
 
     public void ResetBatteryFill()
