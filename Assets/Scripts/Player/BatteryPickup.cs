@@ -6,6 +6,7 @@ public class BatteryPickup : MonoBehaviour
 {
 
     [SerializeField] private Battery battery;
+    [SerializeField] private GameObject pickupVisual;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -14,6 +15,7 @@ public class BatteryPickup : MonoBehaviour
             battery.batteryVisual.SetActive(true); 
             battery.lightScript.StopIndicator();
             SetBatteryPickupIsVisible(false);
+            pickupVisual.SetActive(false);
         }
     }
 
