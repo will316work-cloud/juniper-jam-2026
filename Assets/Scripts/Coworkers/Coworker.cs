@@ -128,8 +128,16 @@ public class Coworker : MonoBehaviour
 
     private void Spin() 
     {
-        if(!IsMoving) return;
-        transform.Rotate(0f, _spinSpeed * Time.deltaTime, 0f, Space.World);
+        float _tempSpeed;
+        if (IsMoving)
+        {
+            _tempSpeed = _spinSpeed * 2;
+        }
+        else
+        {
+            _tempSpeed = _spinSpeed;
+        }
+        transform.Rotate(0f, _tempSpeed * Time.deltaTime, 0f, Space.World);
     }
 
     void Update()
@@ -138,6 +146,7 @@ public class Coworker : MonoBehaviour
         Spin();
     }
 
+    
     public void SetAvoidancePriority(int priority) => _agent.avoidancePriority = priority;
     public void SetMovementSpeed(float speed) => _agent.speed = speed;
     public void SetVelocityToZero() => _agent.velocity = Vector3.zero;

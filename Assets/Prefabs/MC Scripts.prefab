@@ -2480,6 +2480,10 @@ MonoBehaviour:
   _batteryOrange: {fileID: 2100000, guid: 1b3b17caf8027884ea6e626b8f187349, type: 2}
   _batteryGreen: {fileID: 2100000, guid: f86a37396cab82c4590e435357b7da0d, type: 2}
   batteryUI: {fileID: 0}
+  pickupVisual: {fileID: 0}
+  _droppedBatteryVisual: {fileID: 0}
+  _droppedBatteryTargetLocation: {fileID: 0}
+  _droppedBatteryAnimationDuration: 5
   lightScript: {fileID: 0}
   moneyPerDropoff: 10
   healthPerDropoff: 5
