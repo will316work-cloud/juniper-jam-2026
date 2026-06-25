@@ -45,6 +45,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.GameStateController.ChangeState(StartingState);
         GameContext.DifficultyManager.SetDifficulty(1);
 
-        GameContext.PoolManager.FadeToNextSong();
+        if (StartingState != StateType.MainMenu)
+            GameContext.PoolManager.FadeInGameplayMusic();
     }
 }

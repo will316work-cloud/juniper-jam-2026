@@ -13,7 +13,7 @@ public class PoolManagerEditor : Editor
         PoolManager myScript = (PoolManager)target;
         if (GUILayout.Button("Fade to next song"))
         {
-            myScript.FadeToNextSong();
+            myScript.FadeInGameplayMusic();
         }
     }
 }

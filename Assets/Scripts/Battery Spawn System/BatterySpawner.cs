@@ -67,7 +67,7 @@ public class BatterySpawner : MonoBehaviour
 
         BatterySpawnPoint selectedPoint = availablePoints[Random.Range(0, availablePoints.Count)];
         BatteryPickup battery = batteryPool.GetBattery();
-        battery.SpawnAt(selectedPoint);
+        // battery.SpawnAt(selectedPoint);
     }
 
     private List<BatterySpawnPoint> GetAvailablePoints()

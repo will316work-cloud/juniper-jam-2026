@@ -77,22 +77,21 @@ public class SongPooler
 
         while (true)
         {
-            // Wait until it's time to start the crossfade
             yield return new WaitForSeconds(_currentSource.clip.length - _crossfadeLength);
 
-            // Swap sources
             _previousSource = _currentSource;
             _currentSource = (_currentSource == _gameplaySource_01) ? _gameplaySource_02 : _gameplaySource_01;
 
-            // Fade out old, fade in new
-            _previousSource.DOFade(0, _crossfadeLength).OnComplete(() => _previousSource.Stop());
+            var prevSrc = _previousSource;
+            DOTween.Kill(prevSrc);
+            prevSrc.DOFade(0, _crossfadeLength).OnComplete(() => prevSrc.Stop());
 
+            DOTween.Kill(_currentSource);
             _currentSource.clip = GetRandomGameplaySong();
             _currentSource.volume = 0;
             _currentSource.Play();
             _currentSource.DOFade(TargetVolume, _crossfadeLength);
 
-            // Wait for the crossfade window to pass before checking again
             yield return new WaitForSeconds(_crossfadeLength);
         }
     }
@@ -103,11 +102,37 @@ public class SongPooler
         _usedGamePlaySongs.Clear();
     }
 
-    public void FadeToNextSong()
+    public void FadeInMenuMusic()
     {
+        if (_gameplayCoroutine != null)
+        {
+            _monoBehaviour.StopCoroutine(_gameplayCoroutine);
+            _gameplayCoroutine = null;
+        }
+
+        DOTween.Kill(_gameplaySource_01);
+        DOTween.Kill(_gameplaySource_02);
+
+        if (_gameplaySource_01.isPlaying)
+            _gameplaySource_01.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_01.Stop());
+        if (_gameplaySource_02.isPlaying)
+            _gameplaySource_02.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_02.Stop());
+
+        DOTween.Kill(_mainMenuSource);
+        _mainMenuSource.volume = 0;
+        _mainMenuSource.Play();
+        _mainMenuSource.DOFade(TargetVolume, _crossfadeLength);
+    }
+
+    public void FadeOutMenuMusic()
+    {
+        DOTween.Kill(_mainMenuSource);
         if (_mainMenuSource.isPlaying)
             _mainMenuSource.DOFade(0, _crossfadeLength).OnComplete(() => _mainMenuSource.Stop());
+    }
 
+    public void FadeInGameplayMusic()
+    {
         if (_gameplayCoroutine != null)
             _monoBehaviour.StopCoroutine(_gameplayCoroutine);
 
@@ -120,8 +145,13 @@ public class SongPooler
         _currentSource = (_currentSource == _gameplaySource_01) ? _gameplaySource_02 : _gameplaySource_01;
 
         if (_previousSource != null && _previousSource.isPlaying)
-            _previousSource.DOFade(0, _crossfadeLength).OnComplete(() => _previousSource.Stop());
+        {
+            var prevSrc = _previousSource;
+            DOTween.Kill(prevSrc);
+            prevSrc.DOFade(0, _crossfadeLength).OnComplete(() => prevSrc.Stop());
+        }
 
+        DOTween.Kill(_currentSource);
         _currentSource.clip = GetRandomGameplaySong();
         _currentSource.volume = 0;
         _currentSource.Play();
@@ -133,8 +163,12 @@ public class SongPooler
 
             _previousSource = _currentSource;
             _currentSource = (_currentSource == _gameplaySource_01) ? _gameplaySource_02 : _gameplaySource_01;
-            _previousSource.DOFade(0, _crossfadeLength).OnComplete(() => _previousSource.Stop());
 
+            var prevSrc = _previousSource;
+            DOTween.Kill(prevSrc);
+            prevSrc.DOFade(0, _crossfadeLength).OnComplete(() => prevSrc.Stop());
+
+            DOTween.Kill(_currentSource);
             _currentSource.clip = GetRandomGameplaySong();
             _currentSource.volume = 0;
             _currentSource.Play();
@@ -144,23 +178,6 @@ public class SongPooler
         }
     }
 
-    public void StartMenuMusic()
-    {
-        if (_gameplayCoroutine != null)
-        {
-            _monoBehaviour.StopCoroutine(_gameplayCoroutine);
-            _gameplayCoroutine = null;
-        }
-
-        if (_gameplaySource_01.isPlaying)
-            _gameplaySource_01.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_01.Stop());
-        if (_gameplaySource_02.isPlaying)
-            _gameplaySource_02.DOFade(0, _crossfadeLength).OnComplete(() => _gameplaySource_02.Stop());
-
-        _mainMenuSource.volume = 0;
-        _mainMenuSource.Play();
-        _mainMenuSource.DOFade(TargetVolume, _crossfadeLength);
-    }
     AudioClip GetRandomGameplaySong()
     {
         if (_availableGameplaySongs.Count == 0)
