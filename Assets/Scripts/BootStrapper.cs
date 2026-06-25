@@ -18,6 +18,10 @@ public class BootStrapper : MonoBehaviour
     public Rigidbody playerRigidbody;
     public GameObject playerCollisionObject;
 
+    [Space(10)]
+    [Header("Starting Settings")]
+    public StartingSettings Settings;
+
     void Start()
     {
         Initialize();
@@ -25,6 +29,8 @@ public class BootStrapper : MonoBehaviour
 
     void Initialize()
     {   
+
+        GameContext.SettingsData = new(Settings);
         GameContext.PoolManager.Initialize();
         GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);
@@ -45,6 +51,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.GameStateController.ChangeState(StartingState);
         GameContext.DifficultyManager.SetDifficulty(1);
 
-        GameContext.PoolManager.FadeToNextSong();
+        if (StartingState != StateType.MainMenu)
+            GameContext.PoolManager.FadeInGameplayMusic();
     }
 }

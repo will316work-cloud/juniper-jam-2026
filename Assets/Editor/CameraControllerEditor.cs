@@ -19,9 +19,9 @@ public class CameraControllerEditor : Editor
         if (GUILayout.Button("Shake Current Camera"))
             myScript.ShakeCamera(_selectedAction);
         if(GUILayout.Button("Switch to Game camera"))
-            myScript.SwitchToGameCamera(CameraType.Gameplay);
+            myScript.SwitchToCamera(CameraType.Gameplay);
         if(GUILayout.Button("Switch to Menu camera"))
-            myScript.SwitchToGameCamera(CameraType.Menu);
+            myScript.SwitchToCamera(CameraType.Menu);
         if(GUILayout.Button("Apply Chromatic Aberration"))
             myScript.ApplyChromaticAberration();
         if(GUILayout.Button("Apply Bloom"))
@@ -30,6 +30,7 @@ public class CameraControllerEditor : Editor
             myScript.SetIsDepthOfFieldEnabled(false);
         if(GUILayout.Button("Enable Depth of Field"))
             myScript.SetIsDepthOfFieldEnabled(true);
+        
         
     }
 }

@@ -9,6 +9,8 @@ public class DayTimeController : MonoBehaviour
     public TextMeshProUGUI DayText;
     public TextMeshProUGUI TimeText;
 
+    [SerializeField] private BatterySpawner batterySpawner;
+
     private int _shiftStartingHour = 9;
     private int _shiftEndHour = 17;
     private float _timePassed;
@@ -27,6 +29,9 @@ public class DayTimeController : MonoBehaviour
         _ctx = ctx;
         _currentDay = 1;
         _ingameMinuteLengthInSeconds = (float)DayLenghtInSeconds / ((_shiftEndHour - _shiftStartingHour) * 60);
+
+        if(batterySpawner == null)
+            batterySpawner = Object.FindAnyObjectByType<BatterySpawner>();
 
         ResetTime();
         ResetDay();
@@ -49,17 +54,12 @@ public class DayTimeController : MonoBehaviour
 
     void UpdateTimeVisual()
     {
-        if(_currentHour < 10)
-            TimeText.text = $"0{_currentHour}:";
-        else
-            TimeText.text = $"{_currentHour}:";
-
         if(_currentMinute < 10)
             TimeText.text = $"{_currentHour}:0{_currentMinute}";
         else
             TimeText.text = $"{_currentHour}:{_currentMinute}";
     }
-    
+
     void UpdateDayVisual()
     {
         DayText.text = $"Day {_currentDay}";
@@ -84,6 +84,7 @@ public class DayTimeController : MonoBehaviour
                 {
                     SetIsTimerOn(false);
                     GoNextDay();
+                    return;
                 }
             }
 
@@ -100,12 +101,20 @@ public class DayTimeController : MonoBehaviour
         _ctx.DifficultyManager.SetDifficulty(_currentDay);
     }
 
-
-public void SetIsTimerOn(bool state)
+    public void SetIsTimerOn(bool state)
     {
         _isTimerOn = state;
         Debug.Log($"Day Time Timer is {_isTimerOn}");
-    }  
+
+        if(batterySpawner == null)
+            return;
+
+        if(state)
+            batterySpawner.StartDaySpawning();
+        else
+            batterySpawner.StopDaySpawning();
+    }
+
     public void SetPanelState(bool state) => Panel.SetActive(state);
 
     void Update()
@@ -116,8 +125,9 @@ public void SetIsTimerOn(bool state)
     public void GoNextDay()
     {
         if(_ctx.TaskManager.CurrentTask != null) _ctx.TaskManager.CurrentTask.IsSuccess = true;
-        if(_ctx.Quota.batteriesDroppedCount < _ctx.Quota.quotaAmount && !QuotaProtection) 
+        if(_ctx.Quota.batteriesDroppedCount < _ctx.Quota.quotaAmount && !QuotaProtection)
         {
+            _ctx.GameStateController.LooseReason = LooseReason.Quota;
             _ctx.GameStateController.ChangeState(StateType.GameOver);
             return;
         }

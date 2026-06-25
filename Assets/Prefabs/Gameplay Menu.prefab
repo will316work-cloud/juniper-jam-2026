@@ -76,8 +76,9 @@ GameObject:
   - component: {fileID: 8328195799034445459}
   - component: {fileID: 6772270488594142991}
   - component: {fileID: 3887100821133384721}
+  - component: {fileID: 8169184098894881240}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,6 +186,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8169184098894881240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212703708212360672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8028a9d65a7fa84ea53aa54ea3fe666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
+  AudioType: 0
 --- !u!1 &2076495309549060057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,6 +2520,7 @@ GameObject:
   - component: {fileID: 5791200886094062055}
   - component: {fileID: 7356024920119613976}
   - component: {fileID: 766196407151549711}
+  - component: {fileID: 237069606583745576}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -2615,6 +2630,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &237069606583745576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716005090703755695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8028a9d65a7fa84ea53aa54ea3fe666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
+  AudioType: 0
 --- !u!1 &9064157993488546165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,6 +2655,7 @@ GameObject:
   - component: {fileID: 2710029086978643192}
   - component: {fileID: 8804470169988172470}
   - component: {fileID: 346591523211897701}
+  - component: {fileID: 1921203685294744090}
   m_Layer: 5
   m_Name: To Main Menu
   m_TagString: Untagged
@@ -2736,6 +2765,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1921203685294744090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064157993488546165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8028a9d65a7fa84ea53aa54ea3fe666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
+  AudioType: 0
 --- !u!1001 &828746769733291195
 PrefabInstance:
   m_ObjectHideFlags: 0

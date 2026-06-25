@@ -25,8 +25,15 @@ public class PoolManager : MonoBehaviour
     }
 
     public void GetSfx(AudioType audioType, bool randomPitch = true) => SfxPooler.GetAudio(audioType, randomPitch);
-    public void StartMenuMusic() => MusicPooler.StartMenuMusic();
-    public void FadeToNextSong() => MusicPooler.FadeToNextSong();
+    public void FadeInMenuMusic() => MusicPooler.FadeInMenuMusic();
+    public void FadeOutMenuMusic() => MusicPooler.FadeOutMenuMusic();
+    public void FadeInGameplayMusic() => MusicPooler.FadeInGameplayMusic();
+
+    public void FadeInGameOverMusic() => MusicPooler.FadeInGameOverMusic();
+    public void FadeOutGameOverMusic() => MusicPooler.FadeOutGameOverMusic();
+
+    public void FadeInDayChangeMusic() => MusicPooler.FadeInDayChangeMusic();
+    public void FadeOutDayChangeMusic() => MusicPooler.FadeOutDayChangeMusic();
 
     public void OnOverallVolumeChange()
     {

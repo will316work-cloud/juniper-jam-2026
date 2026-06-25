@@ -5,6 +5,8 @@ public class GameplayState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        Time.timeScale = 1f;
+        _ctx.CameraController.SwitchToCamera(CameraType.Gameplay);
         CursorHandler.SetCursorVisible(false);
         _ctx.UiManager.IngameMenuHandler.SetCanOpenInGameMenueState(true);
         _ctx.GameStateController.IsPlayerDead = false;
@@ -34,6 +36,8 @@ public class GameplayState : GameState
 
         _ctx.MoneyController.SetPanelState(true);
 
+        _ctx.UiManager.InGameUiHandler.SetPanelState(true);
+        _ctx.UiManager.MainMenuHandler.SetPanelState(false);
         yield return null;
     }
 
