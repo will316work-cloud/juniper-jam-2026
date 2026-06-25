@@ -499,10 +499,10 @@ MonoBehaviour:
   WebsiteURL: https://javahir-ibragimov.itch.io/
   OpenScale: {x: 2, y: 2, z: 1}
   ClosedScale: {x: 0.8, y: 0.8, z: 1}
-  MinX: -1000
-  MaxX: 1000
-  MinY: 50
-  MaxY: 600
+  MinX: -750
+  MaxX: 750
+  MinY: -300
+  MaxY: 300
   OpenRotation: 0
   ClosedRotation: 7
 --- !u!1 &4100817946439867289

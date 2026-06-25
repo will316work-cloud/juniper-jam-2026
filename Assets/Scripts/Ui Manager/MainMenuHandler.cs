@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class MainMenuHandler : IUiHandler
     private GameObject _mainMenuPanel;
     private GameObject _buttonMenuPanel;
     private GameObject _settingsPanel;
+
     private Button _playButton;
     private Button _creditsButton;
     private Button _quitButton;
@@ -99,21 +101,18 @@ public class MainMenuHandler : IUiHandler
     }
     public void SetButtonPanelState(bool state) => _buttonMenuPanel.SetActive(state);
     public void SetSettingsPanelState(bool state) => _settingsPanel.SetActive(state);
+    private void PlayButtonHandler() => _ctx.GameStateController.ChangeState(StateType.Gameplay);
+    private void CreditsButtonHandler() => _ctx.UiManager.StartCoroutine(CreditsButtonhandlerRoutine());
 
-    public bool IsPanelActive()
+    private IEnumerator CreditsButtonhandlerRoutine()
     {
-        return _mainMenuPanel.activeSelf;
-    }
-
-    private void PlayButtonHandler()
-    {
-        _ctx.GameStateController.ChangeState(StateType.Gameplay);
-    }
-
-    private void CreditsButtonHandler()
-    {
+        SetPanelState(false);
+        _ctx.CameraController.SwitchToCamera(CameraType.Credits);
+        yield return new WaitForSeconds(1.1f);
         _ctx.UiManager.CreditsHandler.SetPanelState(true);
     }
+
+    public bool IsPanelActive() => _mainMenuPanel.activeSelf;
 
     private void SettingsButtonHandler()
     {

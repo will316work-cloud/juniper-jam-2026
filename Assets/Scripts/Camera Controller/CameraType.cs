@@ -2,5 +2,6 @@ public enum CameraType
 { 
     Menu, 
     Gameplay,
-    None 
+    None,
+    Credits
 };
