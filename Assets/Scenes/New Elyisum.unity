@@ -2677,6 +2677,63 @@ MonoBehaviour:
   FocusTarget: {fileID: 0}
   FocusOffset: 0
   Profile: {fileID: 11400000, guid: c190b8658e24e9b4da78ec40e4f959e9, type: 2}
+--- !u!1001 &860735937
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4287543380766295903, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_Name
+      value: NewCoworkers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058495349260056614, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 785f48de1b71a6a4a855e75434964382, type: 3}
 --- !u!1 &874905332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4095779992716182556, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
@@ -8283,6 +8340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coworkers
       objectReference: {fileID: 0}
+    - target: {fileID: 1219111405640202653, guid: 9e95f3d436bb90b4bbd203a72d0aece9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3222132773080603955, guid: 9e95f3d436bb90b4bbd203a72d0aece9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9402,3 +9463,4 @@ SceneRoots:
   - {fileID: 8033675884765271869}
   - {fileID: 1769899520}
   - {fileID: 1677941941}
+  - {fileID: 860735937}
