@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 using Unity.Cinemachine;
 using UnityEngine.Rendering.Universal;
@@ -40,6 +39,10 @@ public class CameraController : MonoBehaviour
     DepthOfField _depthOfField;
     Tween _depthOfFieldSequence;
 
+    [Header("Depth of field")]
+    CinemachineBasicMultiChannelPerlin _perlin;
+
+
     public List<ActionTypeColor> ActionTypeColors = new();
 
     private CinemachineVolumeSettings _volumeSettings;
@@ -58,6 +61,7 @@ public class CameraController : MonoBehaviour
         _volumeSettings.Profile.TryGet(out _chromaticAberration);
         _volumeSettings.Profile.TryGet(out _bloom);
         _volumeSettings.Profile.TryGet(out _depthOfField);
+        _perlin = _menuCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
 
         // _cameras.Add(CameraType.Menu, _menuCamera);
         _cameras.Add(CameraType.Gameplay, _gameCamera);
@@ -75,12 +79,14 @@ public class CameraController : MonoBehaviour
             if(_currentCamera != null) _currentCamera.Priority = 0;
             _currentCamera = _cameras[CameraType.Menu];
             _currentCamera.Priority = 10;
+            _perlin.enabled = true;
         }
         else if(cameraType == CameraType.Gameplay && _currentCamera != _gameCamera)
         {
             if(_currentCamera != null) _currentCamera.Priority = 0;
             _currentCamera = _cameras[CameraType.Gameplay];
             _currentCamera.Priority = 10;
+            _perlin.enabled = false;
         }
     }
 

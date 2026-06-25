@@ -31,5 +31,6 @@ public class CameraControllerEditor : Editor
         if(GUILayout.Button("Enable Depth of Field"))
             myScript.SetIsDepthOfFieldEnabled(true);
         
+        
     }
 }
