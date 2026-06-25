@@ -52,6 +52,7 @@ public class MainMenuState : GameState
         _ctx.PoolManager.FadeOutMenuMusic();
         _ctx.PoolManager.FadeInGameplayMusic();
         _ctx.BatteryPickup.SetBatteryPickupIsVisible(true);
+        _ctx.BatteryDropoff.StopLightIndication();
         yield return null;
     }
 
