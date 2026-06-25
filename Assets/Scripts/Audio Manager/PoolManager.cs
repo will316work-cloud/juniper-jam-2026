@@ -5,6 +5,7 @@ public class PoolManager : MonoBehaviour
 {
     public SfxVolumeSettings[] SfxVolumeSettings = new SfxVolumeSettings[Enum.GetValues(typeof(AudioType)).Length];
 
+    [Space(15)]
     [Range(0, 1)] public float OverallVolume_Song = 0.7f;
     [Range(0, 1)] public float OverallVolume_SFX = 0.7f;
     [Range(0, 1)] public float MasterVolume = 0.7f;
@@ -14,14 +15,24 @@ public class PoolManager : MonoBehaviour
 
     public SfxPoolData AudioPoolData = new();
     public SongPoolerData SongPoolerData = new();
-    
+    public PlayerMovementSoundHandler PlayerMovementSoundHandler = new();
+    [Space(10)]
+    [Header("Player Chair Sound")]
+    public AudioClip ChairSound;
+    [Range(0, 1)] public float ChairVolume = 0.7f;
 
-    public void Initialize()
+    public void Initialize(GameContext ctx)
     {
         SfxPooler.Initialize(AudioPoolData, this, SfxVolumeSettings);
         MusicPooler.Initialize(SongPoolerData, this);
+        PlayerMovementSoundHandler.Initialize(ctx.PlayerControl, SfxPooler.CreateNewSource(),ChairSound);
         
         OnOverallVolumeChange();
+    }
+
+    void Update()
+    {
+        PlayerMovementSoundHandler.Tick();
     }
 
     public void GetSfx(AudioType audioType, bool randomPitch = true) => SfxPooler.GetAudio(audioType, randomPitch);
@@ -39,6 +50,7 @@ public class PoolManager : MonoBehaviour
     {
         SfxPooler.SetOverallVolume(MasterVolume * OverallVolume_SFX);
         MusicPooler.SetOverallVolume(MasterVolume * OverallVolume_Song);
+        PlayerMovementSoundHandler.Setvolume(MasterVolume * OverallVolume_SFX * ChairVolume);
     }
 
     private void OnValidate()
@@ -58,6 +70,7 @@ public class PoolManager : MonoBehaviour
     {
         OverallVolume_SFX = volume;
         SfxPooler.SetOverallVolume(MasterVolume * OverallVolume_SFX);
+        PlayerMovementSoundHandler.Setvolume(MasterVolume * OverallVolume_SFX * ChairVolume);
     }
 
     public void OnSongVolumeChange(float volume)
@@ -65,9 +78,6 @@ public class PoolManager : MonoBehaviour
         OverallVolume_Song = volume;
         MusicPooler.SetOverallVolume(MasterVolume * OverallVolume_Song);
     }
-
-
-
 }
 
 [Serializable]

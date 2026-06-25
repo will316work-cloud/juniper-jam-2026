@@ -30,7 +30,7 @@ public class SfxPooler
         CreateBasePool();
     }
 
-    AudioSource CreateNewSource()
+    public AudioSource CreateNewSource()
     {
         GameObject obj = new("Audio Source");
         AudioSource src = obj.AddComponent<AudioSource>();

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -13,8 +14,16 @@ public class BatteryPickup : MonoBehaviour
             battery.hasBattery = true;
             battery.batteryVisual.SetActive(true); 
             battery.lightScript.StopIndicator();
+            SetBatteryPickupIsVisible(false);
             pickupVisual.SetActive(false);
         }
+    }
+
+    public void SetBatteryPickupIsVisible(bool visible)
+    {
+        transform.localScale = Vector3.one * 0.1f;
+        transform.DOScale(1,1).SetEase(Ease.InOutBounce);
+        gameObject.SetActive(visible);
     }
 
     // private BatteryPool _pool;
