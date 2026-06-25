@@ -20,7 +20,7 @@ public class BatteryPool : MonoBehaviour
     private BatteryPickup CreateNewBattery()
     {
         BatteryPickup battery = Instantiate(batteryPrefab, transform);
-        battery.Initialize(this);
+        // battery.Initialize(this);
         return battery;
     }
     public BatteryPickup GetBattery()

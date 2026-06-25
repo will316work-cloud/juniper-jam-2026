@@ -1,9 +1,11 @@
 using System.Collections;
+using UnityEngine;
 
 public class MainMenuState : GameState
 {
     public override IEnumerator OnEnter()
     {
+        Time.timeScale = 1f;
         _ctx.TaskManager.SetSystemState(false);
         _ctx.TaskManager.InterruptTask();
         _ctx.TaskManager.SetisTimerOn(false);
@@ -36,6 +38,8 @@ public class MainMenuState : GameState
         _ctx.UiManager.MainMenuHandler.SetPanelState(true);
         _ctx.UiManager.CreditsHandler.SetPanelState(false);
 
+        _ctx.PoolManager.FadeInMenuMusic();
+
         yield return null;
     }
 
@@ -43,6 +47,8 @@ public class MainMenuState : GameState
     {
         _ctx.UiManager.MainMenuHandler.SetPanelState(false);
         _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.Menu);
+        _ctx.PoolManager.FadeOutMenuMusic();
+        _ctx.PoolManager.FadeInGameplayMusic();
         yield return null;
     }
 
