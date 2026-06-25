@@ -6385,6 +6385,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
   m_PrefabInstance: {fileID: 9009597500402193937}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2033963220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1992298861921025254, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+  m_PrefabInstance: {fileID: 9009597500402193937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3aeaeb488a83740899191c82b3d9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BatteryPickup
 --- !u!114 &2066328572 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 842047089577111222, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -8696,6 +8707,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 641314407}
     - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: ChairSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ac8a889c0cf57e4abecccd08b738114, type: 3}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: OverallVolume
       value: 0.7
       objectReference: {fileID: 0}
@@ -8799,6 +8814,10 @@ PrefabInstance:
       propertyPath: playerCollisionObject
       value: 
       objectReference: {fileID: 874905332}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: GameContext.BatteryPickup
+      value: 
+      objectReference: {fileID: 2033963220}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: GameContext.PlayerControl
       value: 
