@@ -13,7 +13,8 @@ public static class UiEffectHandler
 
         if(bounceType is Type.Shake)
         {
-            element.DOShakeScale(duration, bounceStrength);
+            element.DOShakeScale(duration, bounceStrength)
+                .OnComplete(() => element.DOScale(new Vector3(1, 1, 1), duration));
             return;
         }
             

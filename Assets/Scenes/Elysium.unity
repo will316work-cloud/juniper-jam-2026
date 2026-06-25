@@ -7860,6 +7860,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 156353508272246205, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: _baseStillTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 156353508272246205, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: _transitionText
       value: 
       objectReference: {fileID: 1351637543}
@@ -7899,6 +7903,10 @@ PrefabInstance:
       propertyPath: SongPoolerData.DayChangeSong
       value: 
       objectReference: {fileID: 8300000, guid: 61faaedf92d058c4f999cc74f6eb8b82, type: 3}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: SongPoolerData.CrossfadeLength
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: SfxVolumeSettings.Array.data[1].Type
       value: 1
@@ -8377,7 +8385,7 @@ PrefabInstance:
       objectReference: {fileID: 1273065507}
     - target: {fileID: 7962077968466086223, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: QuotaProtection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8904451751828532327, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: DaySettings.Array.data[4].Day
