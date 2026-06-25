@@ -9,5 +9,8 @@ public enum AudioType
     DayChangeClockSound,
     GameOver,
     MenuButtonClick,
-    ButtonHover
+    ButtonHover,
+    BatteryIsChargedAlert,
+    Signature,
+    
 }

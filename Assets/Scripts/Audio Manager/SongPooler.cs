@@ -171,7 +171,7 @@ public class SongPooler
         FadeOutAllSources(_dayChangeSource);
         _dayChangeSource.volume = 0;
         _dayChangeSource.Play();
-        _dayChangeSource.DOFade(TargetVolume, _crossfadeLength);
+        _dayChangeSource.DOFade(TargetVolume, _crossfadeLength / 2);
     }
 
     public void FadeOutDayChangeMusic()
@@ -218,15 +218,15 @@ public class SongPooler
 
             var prevSrc = _previousSource;
             DOTween.Kill(prevSrc);
-            prevSrc.DOFade(0, _crossfadeLength).OnComplete(() => prevSrc.Stop());
+            prevSrc.DOFade(0, _crossfadeLength * 2).OnComplete(() => prevSrc.Stop());
 
             DOTween.Kill(_currentSource);
             _currentSource.clip = GetRandomGameplaySong();
             _currentSource.volume = 0;
             _currentSource.Play();
-            _currentSource.DOFade(TargetVolume, _crossfadeLength);
+            _currentSource.DOFade(TargetVolume, _crossfadeLength * 2);
 
-            yield return new WaitForSeconds(_crossfadeLength);
+            yield return new WaitForSeconds(_crossfadeLength * 2);
         }
     }
 

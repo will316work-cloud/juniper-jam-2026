@@ -49,6 +49,7 @@ public class DayChangeState : GameState
 
         // TaskManager
         _ctx.TaskManager.RestartTaskSystem();
+        UiEffectHandler.BounceText(Type.Out, _ctx.DayTimeController.DayText, 1f, 8f);
         yield return null;
     }
 

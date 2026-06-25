@@ -11,9 +11,9 @@ public class BatteryPickup : MonoBehaviour
         {
             battery.hasBattery = true;
             battery.batteryVisual.SetActive(true); 
+            battery.lightScript.StopIndicator();
         }
     }
-
 
     // private BatteryPool _pool;
     // private BatterySpawnPoint _spawnPoint;

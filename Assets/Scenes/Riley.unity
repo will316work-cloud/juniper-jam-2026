@@ -4084,6 +4084,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1652603003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7965548425263276490, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+  m_PrefabInstance: {fileID: 9009597500402193937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b2cfda9556fa94292a0da6740eaa69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskTriggerLight
 --- !u!1 &1667600260
 GameObject:
   m_ObjectHideFlags: 0
@@ -4832,7 +4843,7 @@ MonoBehaviour:
     DefaultMode: 2
   DefaultBlend:
     Style: 1
-    Time: 0
+    Time: 0.1
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -5606,132 +5617,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7152117928992869690, guid: 0a28f2e891f624d40bef4913f295c74f, type: 3}
   m_PrefabInstance: {fileID: 343213037}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2033963218
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2033963219}
-  - component: {fileID: 2033963223}
-  - component: {fileID: 2033963222}
-  - component: {fileID: 2033963221}
-  - component: {fileID: 2033963220}
-  m_Layer: 0
-  m_Name: BatteryPickup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2033963219
+--- !u!4 &2033963219 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+  m_PrefabInstance: {fileID: 9009597500402193937}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033963218}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9999519, z: -0, w: 0.009815385}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 574948878}
-  m_LocalEulerAnglesHint: {x: 0, y: 178.875, z: 0}
---- !u!114 &2033963220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033963218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb3aeaeb488a83740899191c82b3d9e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BatteryPickup
-  battery: {fileID: 880874991}
---- !u!65 &2033963221
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033963218}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &2033963222
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033963218}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 4e352b6e988fb45428a1f6b70651865c, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2033963223
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033963218}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &2066328572 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 842047089577111222, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -8704,6 +8594,10 @@ PrefabInstance:
       propertyPath: batteryUI
       value: 
       objectReference: {fileID: 1443016778}
+    - target: {fileID: 7731068390153870466, guid: 566fcc5ea2348924c937c0d32bba8b84, type: 3}
+      propertyPath: lightScript
+      value: 
+      objectReference: {fileID: 1652603003}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8822,6 +8716,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+--- !u!1001 &9009597500402193937
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 574948878}
+    m_Modifications:
+    - target: {fileID: 1992298861921025254, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: battery
+      value: 
+      objectReference: {fileID: 880874991}
+    - target: {fileID: 2838501737516095590, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_Name
+      value: BatteryPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.009815385
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9999519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 178.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4026751902870873526, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aee4ce28a5f0bb04cbb23466af372b23, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

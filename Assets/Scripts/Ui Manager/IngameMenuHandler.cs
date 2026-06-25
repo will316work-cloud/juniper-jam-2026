@@ -58,17 +58,18 @@ public class IngameMenuHandler : IUiHandler
 
         _fpsText = data.FpsSliderText;
 
+        SetDropdownValues();
+
         _mainMenuButton.onClick.AddListener(() => MainMenuButtonClickHandler());
         _restartButton.onClick.AddListener(() => RestartButtonClickHandler());
         _resumeButton.onClick.AddListener(() => ResumeButtonClickHandler());
 
-        Application.targetFrameRate = 60;
-
         _masterVolumeSlider.value = _ctx.PoolManager.MasterVolume * 100;
         _sfxVolumeSlider.value = _ctx.PoolManager.OverallVolume_SFX * 100;
         _musicVolumeSlider.value = _ctx.PoolManager.OverallVolume_Song * 100;
-        _vsyncToggle.isOn = QualitySettings.vSyncCount == 1;
-        _fpsSlider.value = Application.targetFrameRate;
+        _vsyncToggle.isOn = _ctx.SettingsData.Vsync;
+        _fpsSlider.value = _ctx.SettingsData.FpsCap;
+        _resolutionDropdown.value = _ctx.SettingsData.ResolutionIndex;
 
         _masterVolumeSlider.onValueChanged.AddListener(HandleMasterVolumeChange);
         _sfxVolumeSlider.onValueChanged.AddListener(HandleSfxVolumeChange);
@@ -77,7 +78,7 @@ public class IngameMenuHandler : IUiHandler
         _fpsSlider.onValueChanged.AddListener(HandleFpsSliderChange);
         _vsyncToggle.onValueChanged.AddListener(HandleVsyncToggleValueChange);
         _resolutionDropdown.onValueChanged.AddListener(HandleResolutionChange);
-        _fpsText.text = Application.targetFrameRate.ToString();
+        _fpsText.text = "FPS Cap - " + (int)_ctx.SettingsData.FpsCap;
 
         SetPanelState(false);
     }
@@ -115,9 +116,10 @@ public class IngameMenuHandler : IUiHandler
         _masterVolumeSlider.SetValueWithoutNotify(_ctx.PoolManager.MasterVolume * 100);
         _sfxVolumeSlider.SetValueWithoutNotify(_ctx.PoolManager.OverallVolume_SFX * 100);
         _musicVolumeSlider.SetValueWithoutNotify(_ctx.PoolManager.OverallVolume_Song * 100);
-        _vsyncToggle.SetIsOnWithoutNotify(QualitySettings.vSyncCount == 1);
-        _fpsSlider.SetValueWithoutNotify(Application.targetFrameRate);
-        _fpsText.text = "FPS Cap - " + Application.targetFrameRate.ToString();
+        _vsyncToggle.SetIsOnWithoutNotify(_ctx.SettingsData.Vsync);
+        _fpsSlider.SetValueWithoutNotify(_ctx.SettingsData.FpsCap);
+        _resolutionDropdown.SetValueWithoutNotify(_ctx.SettingsData.ResolutionIndex);
+        _fpsText.text = "FPS Cap - " + (int)_ctx.SettingsData.FpsCap;
     }
 
     public void Tick()
@@ -144,8 +146,7 @@ public class IngameMenuHandler : IUiHandler
 
     void HandleVsyncToggleValueChange(bool value)
     {
-        if(_vsyncToggle.isOn) QualitySettings.vSyncCount = 1;
-        else QualitySettings.vSyncCount = 0;
+        _ctx.SettingsData.Vsync = value;
     }
     void HandleMasterVolumeChange(float value)
     {
@@ -182,13 +183,25 @@ public class IngameMenuHandler : IUiHandler
     }
     void HandleFpsSliderChange(float change)
     {
-        Application.targetFrameRate = (int)change;
-        _fpsText.text = "FPS Cap - " + Application.targetFrameRate.ToString();
+        _ctx.SettingsData.FpsCap = change;
+        _fpsText.text = "FPS Cap - " + (int)change;
     }
 
     void HandleResolutionChange(int index)
     {
-        Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
+        _ctx.SettingsData.ResolutionIndex = index;
+    }
+
+    void SetDropdownValues()
+    {
+        _resolutionDropdown.options.Clear();
+
+        _resolutionDropdown.options.Add(new TMP_Dropdown.OptionData("854x480 - Windowed"));
+        _resolutionDropdown.options.Add(new TMP_Dropdown.OptionData("960x540 - Windowed"));
+        _resolutionDropdown.options.Add(new TMP_Dropdown.OptionData("1280x720 - Windowed"));
+        _resolutionDropdown.options.Add(new TMP_Dropdown.OptionData("1920x1080 - FullScreenWindow"));
+        _resolutionDropdown.options.Add(new TMP_Dropdown.OptionData("2560x1440 - FullScreenWindow"));
+        _resolutionDropdown.options.Add(new TMP_Dropdown.OptionData("3840x2160 - FullScreenWindow"));
     }
 }
 
