@@ -4615,8 +4615,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842932355}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33875751, y: -0.13285008, z: 0.048381414, w: 0.9301901}
-  m_LocalPosition: {x: 2.69, y: 8.530001, z: -10.649999}
+  m_LocalRotation: {x: -0.06570232, y: 0.009251624, z: -0.0005532922, w: -0.99779624}
+  m_LocalPosition: {x: -21.242973, y: 0.64027166, z: 1.0977955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6000,6 +6000,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -76.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1521738505637410583, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1769253543633855413, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -7334,6 +7338,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7590346263027128382, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590346263027128382, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590346263027128382, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 623.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7610657871340999062, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -7941,7 +7957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: StartingState
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: playerRigidbody
