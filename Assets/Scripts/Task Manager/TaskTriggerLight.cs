@@ -10,6 +10,7 @@ public class TaskTriggerLight : MonoBehaviour
     public void Initialize()
     {
         _light = gameObject.GetComponent<Light>();
+        _light.intensity = 0;
     }
     public void StartIndicator()
     {

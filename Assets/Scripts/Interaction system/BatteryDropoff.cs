@@ -3,9 +3,12 @@ using UnityEngine;
 public class BatteryDropoff : InteractableObjectInstance
 {
     GameContext _ctx;
+    TaskTriggerLight _light;
 
     public void Initialize(GameContext ctx)
     {
+        _light = GetComponentInChildren<TaskTriggerLight>();
+        _light.Initialize();
         _ctx = ctx;
     }
 
@@ -19,6 +22,10 @@ public class BatteryDropoff : InteractableObjectInstance
             _ctx.WorldHealthMeter.GainHealth(_ctx.Battery.healthPerDropoff,true);
             _ctx.Quota.DropOff();
             _ctx.BatteryPickup.SetBatteryPickupIsVisible(true);
+            _light.StopIndicator();
         }
     }
+
+    public void StartLightIndication() => _light.StartIndicator();
+    public void StopLightIndication() => _light.StopIndicator();
 }

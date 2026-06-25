@@ -42,6 +42,7 @@ public class Battery : MonoBehaviour
             _isFilled = true;
             _ctx.BatteryDropoff.canInteract = true;
             _batteryRenderer.material = _batteryGreen;
+            _ctx.BatteryDropoff.StartLightIndication();
         }
     }
 
