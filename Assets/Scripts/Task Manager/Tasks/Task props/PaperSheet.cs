@@ -28,7 +28,7 @@ public class PaperSheet : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         if (_canvasGroup == null)
             _canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-        XMark.SetActive(!signable);
+        XMark.SetActive(false);
         SignedMark.SetActive(false);
 
         SignButton.onClick.RemoveAllListeners();

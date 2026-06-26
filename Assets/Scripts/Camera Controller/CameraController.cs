@@ -74,11 +74,11 @@ public class CameraController : MonoBehaviour
         _currentCamera = _menuCamera;
     }
 
-    public void SwitchToCamera(CameraType cameraType)
+    public void SwitchToCamera(CameraType requestedCameraType)
     {
-        if (_currentCamera == _cameras[cameraType]) return;
+        if (_currentCamera == _cameras[requestedCameraType]) return;
 
-        if(cameraType == CameraType.Menu && _currentCamera != _menuCamera)
+        if(requestedCameraType == CameraType.Menu && _currentCamera != _menuCamera)
         {
             if(_currentCamera != null)
             {
@@ -94,7 +94,7 @@ public class CameraController : MonoBehaviour
             _currentCamera.Priority = 10;
             _perlin.enabled = true;
         }
-        else if(cameraType == CameraType.Gameplay && _currentCamera != _gameCamera)
+        else if(requestedCameraType == CameraType.Gameplay && _currentCamera != _gameCamera)
         {
             _cameraBrain.DefaultBlend.Time = 0;
 
@@ -108,10 +108,12 @@ public class CameraController : MonoBehaviour
             _currentCamera.Priority = 10;
             _perlin.enabled = false;
         }
-        else if(cameraType == CameraType.Credits && _currentCamera != _gameCamera)
+        else if(requestedCameraType == CameraType.Credits && _currentCamera != _gameCamera)
         {
             if(_currentCamera != null)
             {
+                _previousCamera = _currentCamera;
+
                 if(_previousCamera == _cameras[CameraType.Menu])
                     _cameraBrain.DefaultBlend.Time = 1f;
 
