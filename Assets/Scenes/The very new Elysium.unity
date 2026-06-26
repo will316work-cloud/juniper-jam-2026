@@ -8440,6 +8440,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 641314407}
     - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: ChairVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: AudioPoolData.Parent
       value: 
       objectReference: {fileID: 335484442}
