@@ -33,7 +33,9 @@ public class UIPaper : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ID
     public string PaperQuote;
 
     [Header("Website")]
-    public string WebsiteURL;
+    public string WebsiteURL1;
+    public string WebsiteURL2;
+    public string WebsiteURL3;
 
     [Header("Animation")]
     public Vector3 OpenScale = new Vector3(2f, 2f, 1f);
@@ -130,11 +132,20 @@ public class UIPaper : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ID
         StartCoroutine(SmoothTransform(ClosedScale, ClosedRotation, 0.3f));
     }
 
-    public void OpenWebsite()
+    public void OpenWebsite1()
     {
-        if (!string.IsNullOrWhiteSpace(WebsiteURL)) Application.OpenURL(WebsiteURL);
+        if (!string.IsNullOrWhiteSpace(WebsiteURL1)) Application.OpenURL(WebsiteURL1);
     }
 
+    public void OpenWebsite2()
+    {
+        if (!string.IsNullOrWhiteSpace(WebsiteURL2)) Application.OpenURL(WebsiteURL2);
+    }
+
+    public void OpenWebsite3()
+    {
+        if (!string.IsNullOrWhiteSpace(WebsiteURL3)) Application.OpenURL(WebsiteURL3);
+    }
     private IEnumerator SmoothTransform(Vector3 targetScale, float targetRotation, float duration)
     {
         isAnimating = true;
