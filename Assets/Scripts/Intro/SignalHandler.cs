@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SignalHandler : MonoBehaviour
 {
@@ -12,12 +13,39 @@ public class SignalHandler : MonoBehaviour
 
     public List<string> Texts = new();
     public TextMeshProUGUI _text;
+    public TextMeshProUGUI _skipIntroText;
+    
     int _textIndex = 0;
+
+    bool _canSkipIntro = false;
 
     void Start()
     {
         Ambient.loop = true;   
+
+        _skipIntroText.text = "Press any key to skip intro..";
+        StartCoroutine(SkipHandler());
     }
+
+    void Update()
+    {
+        if(!_canSkipIntro) return;
+
+        if(Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            _canSkipIntro = false;
+            GoToNextScene(); 
+        }      
+    }
+
+    IEnumerator SkipHandler()
+    {
+        yield return new WaitForSeconds(2f);
+        _canSkipIntro = true;
+        _skipIntroText.DOFade(1, 1f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+    }
+
+
 
     public void PlayBoomSound() => BoomSound.Play();
     public void PlayMusic() => Music.Play();
@@ -43,5 +71,14 @@ public class SignalHandler : MonoBehaviour
         _text.DOFade(0, 1f);
     }
 
-    public void GoToNextScene() => UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    public void GoToNextScene()
+    {
+        _skipIntroText.DOKill();
+        BoomSound.Stop();
+        Music.Stop();
+        Ambient.Stop();
+        
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
 }
