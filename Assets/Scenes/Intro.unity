@@ -365,14 +365,17 @@ MonoBehaviour:
   Music: {fileID: 878360987}
   Ambient: {fileID: 469791911}
   Texts:
-  - There was a beautiful planet, a planet where recourses were plentiful and people
-    well fed.
-  - But some day everything changed.
+  - There was a beautiful planet, a planet where resourses were plentiful and people
+    well fed...
+  - But one day everything changed...
   - 'Humanity has lost all of it''s energy sources... '
-  - There was no wind anymore, the oceans have stopped moving
-  - The sun is too weak to produce solar energy
+  - There was no wind anymore
   - The oceans have stopped moving
-  - Everyday cities were dying..
+  - The sun was too weak to produce solar energy
+  - Everyday cities were dying
+  - The earth was in danger of complete destruction
+  - Untill someone invented...
+  - The chair
   _text: {fileID: 1888744437}
 --- !u!4 &275018041
 Transform:
@@ -1566,7 +1569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: awdasd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 567fc80826d4b3245b4dab5fd2715929, type: 2}
   m_sharedMaterial: {fileID: 7900874212284494944, guid: 567fc80826d4b3245b4dab5fd2715929, type: 2}
@@ -1575,8 +1578,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
