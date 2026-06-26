@@ -146,6 +146,7 @@ public class Coworker : MonoBehaviour
         Spin();
     }
 
+
     
     public void SetAvoidancePriority(int priority) => _agent.avoidancePriority = priority;
     public void SetMovementSpeed(float speed) => _agent.speed = speed;

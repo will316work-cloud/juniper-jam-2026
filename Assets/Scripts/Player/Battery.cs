@@ -55,9 +55,10 @@ public class Battery : MonoBehaviour
         //visual element changes here (soFar / perFill) amount
     }
 
-    private void DecreaseVisualFill()
+    public void DecreaseVisualFill()
     {
         if(IsDebugOn) Debug.Log("New Battery Visual");
+        _batteryRenderer.material = _batteryOrange;
         _batteryFill.transform.localScale = new Vector3(1, (float)rotationsSoFar / (float)rotationsPerFill, 1);
         batteryUI.ChangeBatteryText(rotationsSoFar);
         //visual element changes here (soFar / perFill) amount
@@ -67,7 +68,6 @@ public class Battery : MonoBehaviour
     {
         if(!_isFilled) return;
         rotationsSoFar = 0;
-        _batteryRenderer.material = _batteryOrange;
         DecreaseVisualFill();
         hasBattery = false;
         batteryVisual.SetActive(false);

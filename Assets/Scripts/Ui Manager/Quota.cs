@@ -34,9 +34,9 @@ public class Quota : MonoBehaviour
     public void ResetQuotaIMG()
     {
         _img.fillAmount = .05f;
-        if(ColorUtility.TryParseHtmlString("#00FFF8", out Color blueColor))
+        if(ColorUtility.TryParseHtmlString("#FFB069", out Color orangeColor))
         {
-            _img.color = blueColor;
+            _img.color = orangeColor;
         }
         else
         {

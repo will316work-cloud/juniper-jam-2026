@@ -97,6 +97,7 @@ public class IngameMenuHandler : IUiHandler
         _ctx.DayTimeController.ResetTime();
         _ctx.DayTimeController.ResetDay();
         _ctx.BatteryDropoff.StopLightIndication();
+        _ctx.Battery.DecreaseVisualFill();
 
         SetPanelState(false);
         Time.timeScale = 1f;

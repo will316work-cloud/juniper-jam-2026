@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 135a7036ca1a07b4e9e162d80e6b6e77, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4468,7 +4468,7 @@ MonoBehaviour:
   FocusTracking: 0
   FocusTarget: {fileID: 0}
   FocusOffset: 0
-  Profile: {fileID: 11400000, guid: c190b8658e24e9b4da78ec40e4f959e9, type: 2}
+  Profile: {fileID: 11400000, guid: 65489e26b19c2ed458551c17184ac23c, type: 2}
 --- !u!114 &1234282449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6399,7 +6399,7 @@ MonoBehaviour:
   FocusTracking: 0
   FocusTarget: {fileID: 0}
   FocusOffset: 0
-  Profile: {fileID: 11400000, guid: c190b8658e24e9b4da78ec40e4f959e9, type: 2}
+  Profile: {fileID: 11400000, guid: 65489e26b19c2ed458551c17184ac23c, type: 2}
 --- !u!114 &1677941943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6962,7 +6962,7 @@ Camera:
   m_GameObject: {fileID: 1842932355}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.427451, g: 0.5411765, b: 0.8470589, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -8475,6 +8475,14 @@ PrefabInstance:
       propertyPath: _transitionPanel
       value: 
       objectReference: {fileID: 641314407}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: ChairSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ec634b128654e444cb4063d1853eeb87, type: 3}
+    - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: ChairVolume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: AudioPoolData.Parent
       value: 
