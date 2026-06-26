@@ -966,6 +966,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!1 &228181095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3102461259040792091, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &232224014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,6 +2500,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672945237}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &680261913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3345977212696122743, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &703485969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e86aaeb77f3aa4c8f6f4dae748ee75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskTriggerObjectInstance
-  interactionIcon: {fileID: 1264969655437357972}
+  interactionIcon: {fileID: 1532510664}
   canInteract: 1
 --- !u!114 &727601802
 MonoBehaviour:
@@ -2834,7 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e86aaeb77f3aa4c8f6f4dae748ee75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskTriggerObjectInstance
-  interactionIcon: {fileID: 1264969655437357972}
+  interactionIcon: {fileID: 1715116024}
   canInteract: 0
 --- !u!65 &733650968
 BoxCollider:
@@ -3411,7 +3421,7 @@ PrefabInstance:
     - target: {fileID: 8212536318569389057, guid: 927cd0905b1ef6b49a4a23c7a39f2e32, type: 3}
       propertyPath: interactionIcon
       value: 
-      objectReference: {fileID: 1264969655437357972}
+      objectReference: {fileID: 680261913}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5719,6 +5729,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &1532510664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6352578711378386314, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1543363484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6420,6 +6435,11 @@ MonoBehaviour:
 --- !u!1 &1691918347 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1007804625399783994, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1715116024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 463859688452865058, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
   m_PrefabInstance: {fileID: 1264969655437357970}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1723969597
@@ -7576,7 +7596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e86aaeb77f3aa4c8f6f4dae748ee75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskTriggerObjectInstance
-  interactionIcon: {fileID: 1264969655437357972}
+  interactionIcon: {fileID: 228181095}
   canInteract: 1
 --- !u!65 &1923686064
 BoxCollider:
@@ -7832,7 +7852,7 @@ PrefabInstance:
     - target: {fileID: 8212536318569389057, guid: 927cd0905b1ef6b49a4a23c7a39f2e32, type: 3}
       propertyPath: interactionIcon
       value: 
-      objectReference: {fileID: 1264969655437357972}
+      objectReference: {fileID: 680261913}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6674198407086384218, guid: 927cd0905b1ef6b49a4a23c7a39f2e32, type: 3}
@@ -8167,6 +8187,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3896071411885860967, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5322339019730826473, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8247,6 +8271,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5779847989172518601, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127049810409286374, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: SeriousPaperPrefab
+      value: 
+      objectReference: {fileID: 5220863933989025203, guid: 3dfa0b6994b4618408a09deeb16a6a31, type: 3}
+    - target: {fileID: 7127049810409286374, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: UnSeriousPaperPrefab
+      value: 
+      objectReference: {fileID: 5220863933989025203, guid: d3f35ec57e1e57e4583d9a8d64733b4f, type: 3}
     - target: {fileID: 8612358163671645270, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9083,6 +9119,10 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 733650967}
+    - target: {fileID: 4460454556978018997, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
       value: 
@@ -9095,6 +9135,10 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 1923686063}
+    - target: {fileID: 5477521538002161298, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
       value: 
@@ -9110,6 +9154,10 @@ PrefabInstance:
     - target: {fileID: 7308703328897265374, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: m_Name
       value: Tasks
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526091613525286747, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

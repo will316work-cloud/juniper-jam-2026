@@ -14,6 +14,9 @@ public class PaperShredder : TaskProp
 
     private List<PaperSheet> _papers = new();
 
+    public PaperSheet SeriousPaperPrefab;
+    public PaperSheet UnSeriousPaperPrefab;
+
     private int _resolved;
     private bool _ended;
 
@@ -22,6 +25,26 @@ public class PaperShredder : TaskProp
         base.Initialize(ctx);
     }
 
+
+    // Original code
+    // public override void OnTaskStart()
+    // {
+    //     ResetTask();
+
+    //     int count = Random.Range(MinPapers, MaxPapers + 1);
+
+    //     for (int i = 0; i < count; i++)
+    //     {
+    //         PaperSheet p = Instantiate(PaperPrefab, PapersParent);
+
+    //         bool signable = Random.value > BadPaperChance;
+
+    //         p.Initialize(this, signable);
+
+    //         _papers.Add(p);
+    //     }
+    // }
+    
     public override void OnTaskStart()
     {
         ResetTask();
@@ -30,11 +53,24 @@ public class PaperShredder : TaskProp
 
         for (int i = 0; i < count; i++)
         {
-            PaperSheet p = Instantiate(PaperPrefab, PapersParent);
-
+            PaperSheet p = null;
             bool signable = Random.value > BadPaperChance;
 
-            p.Initialize(this, signable);
+            if(signable)
+            {
+                p = Instantiate(SeriousPaperPrefab, PapersParent);
+                p.Initialize(this, true);
+            }
+                
+            else
+            {
+                p = Instantiate(UnSeriousPaperPrefab, PapersParent);
+                p.Initialize(this, false);
+            }
+                
+
+            // bool signable = Random.value > BadPaperChance;
+            // p.Initialize(this, signable);
 
             _papers.Add(p);
         }
