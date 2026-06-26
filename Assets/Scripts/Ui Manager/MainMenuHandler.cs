@@ -8,11 +8,14 @@ public class MainMenuHandler : IUiHandler
     private GameObject _mainMenuPanel;
     private GameObject _buttonMenuPanel;
     private GameObject _settingsPanel;
+    private GameObject _howToPanel;
 
     private Button _playButton;
+    private Button _howToButton;
     private Button _creditsButton;
     private Button _quitButton;
     private Button _backToMenuFromSettingsButton;
+    private Button _backToMenuFromHowToButton;
     private Button _settingsButton;
 
     private GameContext _ctx;
@@ -34,12 +37,15 @@ public class MainMenuHandler : IUiHandler
         _mainMenuPanel = data.MainMenuPanel;
         _buttonMenuPanel = data.ButtonMenuPanel;
         _settingsPanel = data.SettingsPanel;
+        _howToPanel = data.HowToPanel;
 
         _playButton = data.PlayButton;
+        _howToButton = data.HowToButton;
         _creditsButton = data.CreditsButton;
         _quitButton = data.QuitButton;
         _settingsButton = data.SettingsButton;
         _backToMenuFromSettingsButton = data.BackToMenuFromSettingsButton;
+        _backToMenuFromHowToButton = data.BackToMenuFromHowToButton;
 
         _masterVolumeSlider = data.MasterVolumeSlider;
         _sfxVolumeSlider = data.SfxVolumeSlider;
@@ -81,10 +87,12 @@ public class MainMenuHandler : IUiHandler
         _fpsText.text = "FPS Cap - " + (int)_ctx.SettingsData.FpsCap;
 
         _playButton.onClick.AddListener(PlayButtonHandler);
+        _howToButton.onClick.AddListener(HowToButtonHandler);
         _creditsButton.onClick.AddListener(CreditsButtonHandler);
         _quitButton.onClick.AddListener(QuitButtonHandler);
         _settingsButton.onClick.AddListener(SettingsButtonHandler);
         _backToMenuFromSettingsButton.onClick.AddListener(BeckToMenuFromSettingsButtonHandler);
+        _backToMenuFromHowToButton.onClick.AddListener(BackToMenuFromHowToButtonHandler);
 
         SetPanelState(false);
     }
@@ -94,6 +102,7 @@ public class MainMenuHandler : IUiHandler
         if(state)
         {
             SetSettingsPanelState(false);
+            SetHowToPanelState(false);
             SetButtonPanelState(true);
         }
 
@@ -101,6 +110,7 @@ public class MainMenuHandler : IUiHandler
     }
     public void SetButtonPanelState(bool state) => _buttonMenuPanel.SetActive(state);
     public void SetSettingsPanelState(bool state) => _settingsPanel.SetActive(state);
+    public void SetHowToPanelState(bool state) => _howToPanel.SetActive(state);
     private void PlayButtonHandler() => _ctx.GameStateController.ChangeState(StateType.Gameplay);
     private void CreditsButtonHandler() => _ctx.UiManager.StartCoroutine(CreditsButtonhandlerRoutine());
 
@@ -121,6 +131,13 @@ public class MainMenuHandler : IUiHandler
         SetSettingsPanelState(true);
     }
 
+    private void HowToButtonHandler()
+    {
+        SetButtonPanelState(false);
+        SetSettingsPanelState(false);
+        SetHowToPanelState(true);
+    }
+
     private void RefreshSettings()
     {
         _masterVolumeSlider.SetValueWithoutNotify(_ctx.PoolManager.MasterVolume * 100);
@@ -135,6 +152,12 @@ public class MainMenuHandler : IUiHandler
     private void BeckToMenuFromSettingsButtonHandler()
     {
         SetSettingsPanelState(false);
+        SetButtonPanelState(true);
+    }
+
+    private void BackToMenuFromHowToButtonHandler()
+    {
+        SetHowToPanelState(false);
         SetButtonPanelState(true);
     }
 
@@ -214,12 +237,15 @@ public class MainMenuHandlerData
     public GameObject MainMenuPanel;
     public GameObject ButtonMenuPanel;
     public GameObject SettingsPanel;
+    public GameObject HowToPanel;
 
     public Button PlayButton;
+    public Button HowToButton;
     public Button CreditsButton;
     public Button SettingsButton;
     public Button QuitButton;
     public Button BackToMenuFromSettingsButton;
+    public Button BackToMenuFromHowToButton;
 
     public Slider MasterVolumeSlider;
     public Slider SfxVolumeSlider;
