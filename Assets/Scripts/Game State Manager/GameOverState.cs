@@ -38,6 +38,7 @@ public class GameOverState : GameState
         _ctx.DayTimeController.ResetTime();
         _ctx.DayTimeController.ResetDay();
         _ctx.BatteryDropoff.StopLightIndication();
+        _ctx.Battery.DecreaseVisualFill();
         yield return null;
     }
 
