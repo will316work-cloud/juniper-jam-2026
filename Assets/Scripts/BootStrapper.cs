@@ -55,6 +55,7 @@ public class BootStrapper : MonoBehaviour
         GameContext.DifficultyManager.Initialize(GameContext);
         GameContext.CameraController.Initialize();
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);
+        GameContext.BatteryPickup.Initialize(GameContext);
 
         GameContext.GameStateController.ChangeState(StartingState);
         // GameContext.GameStateController.ChangeState(StateType.MainMenu);
