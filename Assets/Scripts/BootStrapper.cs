@@ -65,10 +65,4 @@ public class BootStrapper : MonoBehaviour
 
         IntroFadeOutImage.DOFade(0, 2f);
     }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitUntil(() => !IntroFadeOutImage.gameObject.activeSelf && IntroFadeOutImage != null);
-        IntroFadeOutImage.DOFade(0, 1f);
-    }
 }
