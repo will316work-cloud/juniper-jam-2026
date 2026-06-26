@@ -12,5 +12,5 @@ public enum AudioType
     ButtonHover,
     BatteryIsChargedAlert,
     Signature,
-    
+    BatteryPickup
 }
