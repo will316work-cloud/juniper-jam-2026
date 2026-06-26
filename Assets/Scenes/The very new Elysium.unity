@@ -1167,17 +1167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &302653948 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7720395535208077612, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
-  m_PrefabInstance: {fileID: 1264969655437357970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &331881849
 GameObject:
   m_ObjectHideFlags: 0
@@ -6945,6 +6934,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819026338}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1824064822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1974111047763953345, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1842932355
 GameObject:
   m_ObjectHideFlags: 0
@@ -8562,7 +8562,7 @@ PrefabInstance:
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: UiManagerContext.InGameUiHandlerData.PlayerImage
       value: 
-      objectReference: {fileID: 302653948}
+      objectReference: {fileID: 1824064822}
     - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: UiManagerContext.IngameMenuHandlerData.FpsSlider
       value: 
@@ -8675,6 +8675,18 @@ PrefabInstance:
       propertyPath: UiManagerContext.MainMenuHandlerData.BackToMenuFromSettingsButton
       value: 
       objectReference: {fileID: 1203157683}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: UiManagerContext.InGameUiHandlerData.PlayerStates.Array.data[0].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e56beaa3f6c37a4e8341d77e5613f67, type: 3}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: UiManagerContext.InGameUiHandlerData.PlayerStates.Array.data[1].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: a283bfe83773e2048b337afb92344886, type: 3}
+    - target: {fileID: 1369279837698593163, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: UiManagerContext.InGameUiHandlerData.PlayerStates.Array.data[2].Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: b87da0afd6992264e8fd88c71860fedd, type: 3}
     - target: {fileID: 5710150950220461322, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.87231
