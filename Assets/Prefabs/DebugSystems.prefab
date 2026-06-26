@@ -227,8 +227,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8c83bc434d83a1b4ab1c347a12827f95, type: 3}
     - {fileID: 8300000, guid: 325c530dea10af54380a4e6021168843, type: 3}
     - {fileID: 8300000, guid: 3c0f7ebe5b715584aa1ceaafb16fcb84, type: 3}
-  ChairSound: {fileID: 8300000, guid: 7ac8a889c0cf57e4abecccd08b738114, type: 3}
-  ChairVolume: 0.7
+  ChairSound: {fileID: 8300000, guid: ec634b128654e444cb4063d1853eeb87, type: 3}
+  ChairVolume: 0.3
 --- !u!1 &2919626840520574295
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c38b08d057a62448272e46b84baaf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootStrapper
-  StartingState: 0
+  StartingState: 4
   GameContext:
     TaskManager: {fileID: 7425457635203395114}
     MoneyController: {fileID: 7232258236160706912}
@@ -285,6 +285,7 @@ MonoBehaviour:
     WorldHealthMeter: {fileID: 7865111822663165091}
     DayTimeController: {fileID: 7962077968466086223}
     CoworkerManager: {fileID: 1760346673991785314}
+    TitleCoworkerManager: {fileID: 6401580797665518061}
     Quota: {fileID: 0}
     BatteryDropoff: {fileID: 0}
     Battery: {fileID: 0}
@@ -305,11 +306,11 @@ MonoBehaviour:
       PlayerImage: {fileID: 0}
       PlayerStates:
       - PlayerState: 0
-        Icon: {fileID: 21300000, guid: 38b9546b79bf39344b3dae9d7dc59c36, type: 3}
+        Icon: {fileID: 21300000, guid: 5e56beaa3f6c37a4e8341d77e5613f67, type: 3}
       - PlayerState: 1
-        Icon: {fileID: 21300000, guid: 262915bc304a75446bcef35679df742e, type: 3}
+        Icon: {fileID: 21300000, guid: a283bfe83773e2048b337afb92344886, type: 3}
       - PlayerState: 2
-        Icon: {fileID: 21300000, guid: 23c199a1eed2a264c813ec66911cded8, type: 3}
+        Icon: {fileID: 21300000, guid: b87da0afd6992264e8fd88c71860fedd, type: 3}
     GameOverUiHandlerData:
       Panel: {fileID: 0}
       ScoreText: {fileID: 0}
@@ -352,7 +353,90 @@ MonoBehaviour:
   Settings:
     fpsCap: 90
     vsync: 1
-    resolution: 3
+    resolution: 2
+  IntroFadeOutImage: {fileID: 0}
+--- !u!1 &3397547155068907970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18857805709244988}
+  - component: {fileID: 1238023551319748442}
+  - component: {fileID: 6401580797665518061}
+  m_Layer: 0
+  m_Name: TitleCoworker Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &18857805709244988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397547155068907970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5710150950220461322}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238023551319748442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397547155068907970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 8cedd268e08cbd44197079ba23092856, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!114 &6401580797665518061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397547155068907970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a61d6a2c98309479785d517131eb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleCoworkerManager
+  InitialChanceOfMovingWorkerInPercentage: 100
+  ChanceIncreaseOnFailedCoworkerMovingInPercentage: 20
+  IsDebugOn: 0
+  _availableCoworkers: []
+  _movingCoworkers: []
 --- !u!1 &5054912498085588025
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +604,7 @@ Transform:
   - {fileID: 573322975362796703}
   - {fileID: 410416987249261353}
   - {fileID: 4059040463682871233}
+  - {fileID: 18857805709244988}
   - {fileID: 4910002407465157291}
   - {fileID: 6682863484729466413}
   - {fileID: 8759802170040419739}
@@ -573,7 +658,6 @@ MonoBehaviour:
   _transitionPanel: {fileID: 0}
   _transitionText: {fileID: 0}
   _transitionImage: {fileID: 0}
-  _baseStillTime: 6
 --- !u!1 &7952648505988107125
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,19 +792,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
   DaySettings:
   - Day: 1
-    MaxConcurrentMovingCoworker: 5
+    MaxConcurrentMovingCoworker: 4
     CoworkerSpeed: 2
     CoworkerMoverGapTime: 1
-    TaskGapTime: 7
-    HealthLossPerSecond: 1
-    BatteryQuotaCountPerDay: 7
+    TaskGapTime: 8
+    HealthLossPerSecond: 0.1
+    BatteryQuotaCountPerDay: 6
   - Day: 2
     MaxConcurrentMovingCoworker: 6
     CoworkerSpeed: 3
     CoworkerMoverGapTime: 0.75
     TaskGapTime: 6
     HealthLossPerSecond: 0.25
-    BatteryQuotaCountPerDay: 8
+    BatteryQuotaCountPerDay: 7
   - Day: 3
     MaxConcurrentMovingCoworker: 7
     CoworkerSpeed: 4
@@ -812,3 +896,4 @@ MonoBehaviour:
     Color: {r: 0.8679245, g: 0.20162868, b: 0.1514774, a: 0}
   _menuCamera: {fileID: 0}
   _gameCamera: {fileID: 0}
+  _creditsCamera: {fileID: 0}

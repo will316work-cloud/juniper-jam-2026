@@ -30,6 +30,7 @@ public static class UiEffectHandler
     {
         Color originalColor = text.color;
         Color colorToFadeTo = colorChangeType is EffectColorChangeType.Red ? Color.red : Color.green;
+        Vector3 originalPos = text.rectTransform.anchoredPosition;
 
         if(colorChangeType != EffectColorChangeType.None)
             text.DOColor(colorToFadeTo, duration/2).OnComplete(() => text.DOColor(originalColor, duration));
@@ -37,16 +38,24 @@ public static class UiEffectHandler
         if(bounceType is Type.Shake)
         {
             DOTween.Shake(() => text.rectTransform.anchoredPosition, x => text.rectTransform.anchoredPosition = x, duration, strength);
-            text.rectTransform.DOShakeRotation(duration, strength).OnComplete(() => text.rectTransform.rotation = Quaternion.Euler(0, 0, 0));;
+            text.rectTransform.DOShakeRotation(duration, strength)
+                .OnComplete(() => text.rectTransform.rotation = Quaternion.Euler(0, 0, 0))
+                .OnComplete(() => text.rectTransform.anchoredPosition = originalPos)
+                .OnComplete(() => text.transform.localScale = new Vector3(1, 1, 1));
             return;
         }
 
         float scaleStrength = strength*0.1f;
 
         text.rectTransform.DOScale(new Vector3(1 + scaleStrength, 1 + scaleStrength, 1), duration/2)
-            .OnComplete(() => text.rectTransform.DOScale(new Vector3(1, 1, 1), duration));
+            .OnComplete(() => text.rectTransform.DOScale(new Vector3(1, 1, 1), duration))
+            .OnComplete(() => text.rectTransform.anchoredPosition = originalPos)
+            .OnComplete(() => text.transform.localScale = new Vector3(1, 1, 1));
 
-        text.rectTransform.DOShakeRotation(duration, strength).OnComplete(() => text.rectTransform.rotation = Quaternion.Euler(0, 0, 0));
+        text.rectTransform.DOShakeRotation(duration, strength)
+        .OnComplete(() => text.rectTransform.rotation = Quaternion.Euler(0, 0, 0))
+        .OnComplete(() => text.rectTransform.anchoredPosition = originalPos)
+        .OnComplete(() => text.transform.localScale = new Vector3(1, 1, 1));
     }
 }
 

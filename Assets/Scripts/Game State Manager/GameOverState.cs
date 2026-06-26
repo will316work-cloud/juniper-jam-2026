@@ -17,6 +17,7 @@ public class GameOverState : GameState
         _ctx.TaskManager.OnTimeOut();
         _ctx.DayTimeController.SetIsTimerOn(false);
         _ctx.WorldHealthMeter.SetSystemIsEnabled(false);
+        _ctx.MoneyController.SetPanelState(false);
         CursorHandler.SetCursorVisible(true);
 
         yield return null;
@@ -39,6 +40,8 @@ public class GameOverState : GameState
         _ctx.DayTimeController.ResetDay();
         _ctx.BatteryDropoff.StopLightIndication();
         _ctx.Battery.DecreaseVisualFill();
+        _ctx.MoneyController.SetPanelState(true);
+        _ctx.PoolManager.FadeInGameplayMusic();
         yield return null;
     }
 

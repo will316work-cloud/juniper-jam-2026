@@ -33,6 +33,9 @@ public class SongPooler
 
     float TargetVolume => _volume * _overallVolume;
 
+    public bool IsSongPlaying => (_gameplaySource_01 != null && _gameplaySource_01.isPlaying) ||
+                                 (_gameplaySource_02 != null && _gameplaySource_02.isPlaying);
+
     public void SetOverallVolume(float volume)
     {
         _overallVolume = volume;
