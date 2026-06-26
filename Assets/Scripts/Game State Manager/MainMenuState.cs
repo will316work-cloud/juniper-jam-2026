@@ -49,6 +49,7 @@ public class MainMenuState : GameState
 
     public override IEnumerator OnExit()
     {
+        _ctx.PlayerControl.TeleportPlayerToStartingPosition();
         _ctx.UiManager.MainMenuHandler.SetPanelState(false);
         _ctx.PlayerControl.RemoveMovementBlockReason(MovementBlockReason.Menu);
         _ctx.PoolManager.FadeOutMenuMusic();
