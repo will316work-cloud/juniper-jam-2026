@@ -1,5 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BootStrapper : MonoBehaviour
 {
@@ -21,6 +24,10 @@ public class BootStrapper : MonoBehaviour
     [Space(10)]
     [Header("Starting Settings")]
     public StartingSettings Settings;
+
+    [Space(10)]
+    [Header("Intro Image")]
+    public Image IntroFadeOutImage;
 
     void Start()
     {
@@ -50,9 +57,12 @@ public class BootStrapper : MonoBehaviour
         GameContext.UiManager.Initialize(GameContext, UiManagerContext);
 
         GameContext.GameStateController.ChangeState(StartingState);
+        // GameContext.GameStateController.ChangeState(StateType.MainMenu);
         GameContext.DifficultyManager.SetDifficulty(1);
 
         if (StartingState != StateType.MainMenu)
             GameContext.PoolManager.FadeInGameplayMusic();
+
+        IntroFadeOutImage.DOFade(0, 2f);
     }
 }
