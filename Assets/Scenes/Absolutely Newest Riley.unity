@@ -5422,7 +5422,6 @@ GameObject:
   - component: {fileID: 1201712347}
   - component: {fileID: 1201712346}
   - component: {fileID: 1201712349}
-  - component: {fileID: 1201712348}
   m_Layer: 5
   m_Name: Video (1)
   m_TagString: Untagged
@@ -5469,7 +5468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 7a8de040a5fa1894db1177bb8dd7348f, type: 2}
+  m_Texture: {fileID: 8400000, guid: 55497f973fc2d584d8d9dc4d39b89fca, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5484,18 +5483,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201712344}
   m_CullTransparentMesh: 1
---- !u!114 &1201712348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201712344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feec9da93a9fd52438d5adef5bcad9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WebGLVideoPlayer
 --- !u!328 &1201712349
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -5508,7 +5495,7 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 7a8de040a5fa1894db1177bb8dd7348f, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 55497f973fc2d584d8d9dc4d39b89fca, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -8107,7 +8094,6 @@ GameObject:
   - component: {fileID: 1573674726}
   - component: {fileID: 1573674725}
   - component: {fileID: 1573674724}
-  - component: {fileID: 1573674723}
   m_Layer: 5
   m_Name: Video
   m_TagString: Untagged
@@ -8134,18 +8120,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 483}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1573674723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573674721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feec9da93a9fd52438d5adef5bcad9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WebGLVideoPlayer
 --- !u!328 &1573674724
 VideoPlayer:
   m_ObjectHideFlags: 0
