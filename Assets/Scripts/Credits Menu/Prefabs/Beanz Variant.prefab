@@ -358,6 +358,14 @@ PrefabInstance:
       propertyPath: ProfileImage
       value: 
       objectReference: {fileID: 3848644508197722208}
+    - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: ProfileSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f1df75af99bd744e9eab6957a457923, type: 3}
+    - target: {fileID: 8988092252795627464, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f1df75af99bd744e9eab6957a457923, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

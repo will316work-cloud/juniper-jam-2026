@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 141296014201984831, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 81eeee3676e673d48800ea5c6bfe873f, type: 3}
+      objectReference: {fileID: 21300000, guid: c30c2549478816843aca955176a730db, type: 3}
     - target: {fileID: 141296014201984831, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -37,8 +37,18 @@ PrefabInstance:
       value: -51.783653
       objectReference: {fileID: 0}
     - target: {fileID: 566673824869437302, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: m_text
+      value: '"No idea"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 566673824869437302, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 629503032017536293, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: m_text
+      value: 'Eijix
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 734234515851894071, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: m_SizeDelta.y
@@ -78,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4100817946439867289, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: m_Name
-      value: Itchio
+      value: ArtStation
       objectReference: {fileID: 0}
     - target: {fileID: 6177781799391205939, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: m_Pivot.x
@@ -176,6 +186,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -195
       objectReference: {fileID: 0}
+    - target: {fileID: 7338333498273425051, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: m_text
+      value: '3D Artist,
+
+        Game Designer'
+      objectReference: {fileID: 0}
     - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: NameText
       value: 
@@ -185,21 +201,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1117903770303603421}
     - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: PaperName
+      value: Eijix
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: PaperRole
-      value: 'Game Designer,\nEngineer, '
+      value: 3D Artist,\nGame Designer
       objectReference: {fileID: 0}
     - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: QuoteText
       value: 
       objectReference: {fileID: 7892648742056168240}
     - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: PaperQuote
+      value: '"No idea"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: WebsiteURL1
+      value: https://eiji-vitor-ferreira.artstation.com/
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: ProfileImage
       value: 
       objectReference: {fileID: 1650981209544139662}
     - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: ProfileSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3d316bc67b669424c9efc82477c5525a, type: 3}
+    - target: {fileID: 8955049898524926853, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
       propertyPath: ClosedRotation
       value: -13.313
       objectReference: {fileID: 0}
+    - target: {fileID: 8988092252795627464, guid: b756935aa0dd7d74286ef5a141330838, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3d316bc67b669424c9efc82477c5525a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
