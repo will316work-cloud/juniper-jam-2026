@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/OldFinal.unity
     guid: 2029bbba53c446e44b157401192e0b96
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro.unity
     guid: 01d7f99c5cb3ab845a2a913cfcce3bb3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/The very new Elysium.unity
     guid: 8480916de8f97264da54a48980317566
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Riley.unity
     guid: 5afba28b8c2f97c4b8c902bf34af89a0
   m_configObjects:
