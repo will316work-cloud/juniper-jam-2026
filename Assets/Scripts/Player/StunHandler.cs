@@ -43,7 +43,12 @@ public class StunHandler : MonoBehaviour
         if(IsDebugOn) Debug.Log("Stun protection is over");
     }
 
-    public void ActivateStunProtection() => StartCoroutine(StunProtectionRoutine());
+    public void ActivateStunProtection()
+    {
+        _isProtectedFromStun = true;
+        if(IsDebugOn) Debug.Log("Stun protection is active");
+        StartCoroutine(StunProtectionRoutine());
+    }
 
     void OnTriggerEnter(Collider other)
     {

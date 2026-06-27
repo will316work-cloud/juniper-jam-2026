@@ -4,8 +4,10 @@ using UnityEngine;
 public class MainMenuState : GameState
 {
     public override IEnumerator OnEnter()
-    {
+    {   
         Time.timeScale = 1f;
+        _ctx.SettingsData.CheckIfLevelFiveIsCleared();
+        
         _ctx.TaskManager.SetSystemState(false);
         _ctx.TaskManager.InterruptTask();
         _ctx.TaskManager.SetisTimerOn(false);

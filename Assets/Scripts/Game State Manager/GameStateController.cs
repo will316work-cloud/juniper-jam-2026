@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameStateController : MonoBehaviour
 {
     public bool IsDebugOn;
-
     GameContext _ctx;
     Dictionary<StateType, GameState> _states = new();
     GameState _currentState; public GameState CurrentState => _currentState;    

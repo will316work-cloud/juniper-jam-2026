@@ -5,6 +5,22 @@ public class SettingsData
     private float _fpsCap;
     private bool _vsync;
     private int _resolutionIndex;
+    public bool _isDayFiveCleared; public bool IsDayFiveCleared => _isDayFiveCleared;
+    GameObject _employeeOfTheMonthObj;
+
+    public void CheckIfLevelFiveIsCleared()
+    {
+        _isDayFiveCleared = PlayerPrefs.GetInt("levelFiveCleared", 0) == 1;
+
+        if(_isDayFiveCleared) 
+            _employeeOfTheMonthObj.SetActive(true);
+        else 
+            _employeeOfTheMonthObj.SetActive(false);
+    }
+    public void SetLevelFiveCleared()
+    {
+        PlayerPrefs.SetInt("levelFiveCleared", 1);
+    }
 
     public float FpsCap
     {
@@ -26,9 +42,12 @@ public class SettingsData
 
     public SettingsData(StartingSettings startingSettings)
     {
-        FpsCap = startingSettings.fpsCap;
-        Vsync = startingSettings.vsync;
-        ResolutionIndex = (int)startingSettings.resolution;
+        _employeeOfTheMonthObj = startingSettings.EmployeeOfTheMonthObj;
+        CheckIfLevelFiveIsCleared();
+
+        FpsCap = startingSettings.FpsCap;
+        Vsync = startingSettings.Vsync;
+        ResolutionIndex = (int)startingSettings.Resolution;
     }
 
     private static void ApplyResolution(int index)
@@ -58,7 +77,8 @@ public enum ResolutionOption
 [System.Serializable]
 public class StartingSettings
 {
-    public float fpsCap;
-    public bool vsync;
-    public ResolutionOption resolution;
+    public float FpsCap;
+    public bool Vsync;
+    public ResolutionOption Resolution;
+    public GameObject EmployeeOfTheMonthObj;
 }
