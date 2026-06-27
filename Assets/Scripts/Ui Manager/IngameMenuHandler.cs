@@ -85,6 +85,8 @@ public class IngameMenuHandler : IUiHandler
 
     private void RestartButtonClickHandler()
     {
+        _ctx.TaskManager.InterruptTask();
+        _ctx.TaskManager.RestartTaskSystem();
         _ctx.Quota.ResetDroppedCount();
         _ctx.PlayerControl.AddMovementBlockReason(MovementBlockReason.Menu);
         _ctx.UiManager.GameOverUiHandler.SetPanelState(false);
@@ -98,6 +100,7 @@ public class IngameMenuHandler : IUiHandler
         _ctx.DayTimeController.ResetDay();
         _ctx.BatteryDropoff.StopLightIndication();
         _ctx.Battery.DecreaseVisualFill();
+        
 
         SetPanelState(false);
         Time.timeScale = 1f;
