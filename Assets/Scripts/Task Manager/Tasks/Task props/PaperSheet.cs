@@ -16,10 +16,13 @@ public class PaperSheet : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private Canvas _canvas;
     private CanvasGroup _canvasGroup;
 
-    public void Initialize(PaperShredder task, bool signable)
+    GameContext _ctx;
+
+    public void Initialize(PaperShredder task, bool signable, GameContext ctx)
     {
         _task = task;
         IsSignable = signable;
+        _ctx = ctx;
 
         _rect = GetComponent<RectTransform>();
         _canvas = GetComponentInParent<Canvas>();
@@ -46,6 +49,7 @@ public class PaperSheet : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         IsResolved = true;
         SignedMark.SetActive(true);
         SignButton.interactable = false;
+        _ctx.PoolManager.GetSfx(AudioType.Signature);
         // SignButton.gameObject.SetActive(false);
         _task.ResolvePaper();
     }
@@ -57,6 +61,7 @@ public class PaperSheet : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         if (IsSignable) { _task.FailTask(); return; }
 
         IsResolved = true;
+        _ctx.PoolManager.GetSfx(AudioType.Shredder);
         _task.ResolvePaper();
         Destroy(gameObject);
     }

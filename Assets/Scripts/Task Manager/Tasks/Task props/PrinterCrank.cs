@@ -49,6 +49,10 @@ public class PrinterCrank : TaskProp, IPointerDownHandler, IPointerUpHandler
 
             if (delta > 0)
             {
+
+                if(!_ctx.PoolManager.TaskSoundHandler.IsPlaying)
+                    _ctx.PoolManager.TaskSoundHandler.StartTaskSound(TaskSoundType.Printer);
+
                 PivotObj.transform.rotation = Quaternion.Euler(0, 0, currentAngle);
                 _amountRotated += Mathf.Abs(delta);
 
@@ -58,9 +62,14 @@ public class PrinterCrank : TaskProp, IPointerDownHandler, IPointerUpHandler
                 if (_amountRotated >= RoundsNeeded * 360 && !_taskCompleted)
                 {
                     _taskCompleted = true;
-
+                    _ctx.PoolManager.GetSfx(AudioType.PrinterTaskDone);
                     _ctx.TaskManager.CurrentTask.OnTaskEnd(true);
                 }
+            }
+            else
+            {
+                if(_ctx.PoolManager.TaskSoundHandler.IsPlaying) 
+                    _ctx.PoolManager.TaskSoundHandler.StopTaskSound();
             }
 
             _previousAngle = currentAngle;

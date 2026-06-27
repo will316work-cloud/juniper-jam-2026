@@ -59,13 +59,13 @@ public class PaperShredder : TaskProp
             if(signable)
             {
                 p = Instantiate(SeriousPaperPrefab, PapersParent);
-                p.Initialize(this, true);
+                p.Initialize(this, true, _ctx);
             }
                 
             else
             {
                 p = Instantiate(UnSeriousPaperPrefab, PapersParent);
-                p.Initialize(this, false);
+                p.Initialize(this, false, _ctx);
             }
                 
 
