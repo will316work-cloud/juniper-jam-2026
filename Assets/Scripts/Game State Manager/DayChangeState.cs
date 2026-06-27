@@ -28,6 +28,9 @@ public class DayChangeState : GameState
     public override IEnumerator OnExit()
     {
         // Day - Time
+        if(_ctx.DayTimeController.CurrentDay == 5)
+            _ctx.SettingsData.SetLevelFiveCleared();
+            
         _ctx.DayTimeController.IncrementDay();
         _ctx.DayTimeController.ResetTime();
 

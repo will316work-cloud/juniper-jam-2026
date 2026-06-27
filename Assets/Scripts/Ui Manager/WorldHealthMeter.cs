@@ -16,6 +16,8 @@ public class WorldHealthMeter : MonoBehaviour
     GameContext _ctx;
     Color _originalBarColor;
 
+    public bool IsDebugOn;
+
     public void Initialize(GameContext ctx)
     {
         _currentHealth = MaxHealth;
@@ -103,7 +105,7 @@ public class WorldHealthMeter : MonoBehaviour
         if(_timePassed >= HealthBarUpdateFrequency)
         {
             LoseHealth(_healthLossPerTick);
-            Debug.Log($"Health lost: {_healthLossPerTick}, Current Health: {_currentHealth}");
+            if(IsDebugOn) Debug.Log($"Health lost: {_healthLossPerTick}, Current Health: {_currentHealth}");
             ResetTimer();
         }
     }

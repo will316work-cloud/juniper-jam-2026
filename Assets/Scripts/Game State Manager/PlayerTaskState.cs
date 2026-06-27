@@ -16,6 +16,7 @@ public class PlayerTaskState : GameState
         CursorHandler.SetCursorVisible(false);
         _ctx.CameraController.SetIsDepthOfFieldEnabled(false);
         _ctx.TaskManager.OnTaskEnd();
+        _ctx.PlayerControl.ActivateStunProtection();
         yield return null;
     }
 

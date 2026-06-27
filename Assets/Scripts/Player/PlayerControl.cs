@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
             _blockReason.Remove(reason);
     }
 
+    public void ActivateStunProtection() => stunHandler.ActivateStunProtection();
+
     public void ClearMovementBlockReasons() => _blockReason.Clear();
 
     public void Instantiate(GameContext ctx, Rigidbody rigidbody, GameObject collisionObject)

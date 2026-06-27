@@ -15,7 +15,7 @@ public class DayTimeController : MonoBehaviour
     private int _shiftEndHour = 17;
     private float _timePassed;
     private float _ingameMinuteLengthInSeconds;
-    private int _currentDay;
+    private int _currentDay; public int CurrentDay => _currentDay;
     private int _currentHour;
     private int _currentMinute;
     private bool _isTimerOn; public bool IsTimerOn => _isTimerOn;

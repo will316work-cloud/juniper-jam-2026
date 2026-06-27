@@ -36,8 +36,8 @@ public class BootStrapper : MonoBehaviour
 
     void Initialize()
     {   
-
         GameContext.SettingsData = new(Settings);
+
         GameContext.PoolManager.Initialize(GameContext);
         GameContext.TaskManager.Initialize(GameContext);
         GameContext.MoneyController.Initialize(MoneyControllerData);

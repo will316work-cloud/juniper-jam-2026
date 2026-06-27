@@ -29,7 +29,6 @@ public class MainMenuHandler : IUiHandler
     private TMP_Dropdown _resolutionDropdown;
     private TextMeshProUGUI _fpsText;
 
-
     public void Initialize(GameContext ctx, MainMenuHandlerData data)
     {
         _ctx = ctx;

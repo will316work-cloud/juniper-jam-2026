@@ -33,7 +33,6 @@ public class UiManager : MonoBehaviour
     }
     private void Update()
     {
-        IngameMenuHandler.Tick();
         InGameUiHandler.Tick();
     }
 }

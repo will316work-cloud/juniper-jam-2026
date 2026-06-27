@@ -83,7 +83,7 @@ public class Coworker : MonoBehaviour
 
         IsMoving = false;
 
-        yield return new WaitForSeconds(1f);
+        // yield return new WaitForSeconds(1f);
 
         _manager.AddCoworkerToAvailableCoworkers(this);
         _movementRoutine = null;
