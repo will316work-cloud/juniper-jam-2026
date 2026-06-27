@@ -3,19 +3,29 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class BatteryPickup : MonoBehaviour
-{
+{ 
 
     [SerializeField] private Battery battery;
     [SerializeField] private GameObject pickupVisual;
+    private GameContext _ctx;
+
+    public void Initialize(GameContext ctx)
+    {
+        _ctx = ctx;
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            if (battery.hasBattery) return;
             battery.hasBattery = true;
             battery.batteryVisual.SetActive(true); 
             battery.lightScript.StopIndicator();
             SetBatteryPickupIsVisible(false);
             pickupVisual.SetActive(false);
+            _ctx.PoolManager.GetSfx(AudioType.BatteryPickup, false);
         }
     }
 

@@ -295,7 +295,7 @@ MonoBehaviour:
     CameraController: {fileID: 7819961338893241385}
     BatteryPickup: {fileID: 0}
   MoneyControllerData:
-    InitialStartingMoney: 10
+    InitialStartingMoney: 0
     MoneyTexts:
     - {fileID: 0}
   UiManagerContext:
@@ -333,11 +333,14 @@ MonoBehaviour:
       MainMenuPanel: {fileID: 0}
       ButtonMenuPanel: {fileID: 0}
       SettingsPanel: {fileID: 0}
+      HowToPanel: {fileID: 0}
       PlayButton: {fileID: 0}
+      HowToButton: {fileID: 0}
       CreditsButton: {fileID: 0}
       SettingsButton: {fileID: 0}
       QuitButton: {fileID: 0}
       BackToMenuFromSettingsButton: {fileID: 0}
+      BackToMenuFromHowToButton: {fileID: 0}
       MasterVolumeSlider: {fileID: 0}
       SfxVolumeSlider: {fileID: 0}
       MusicVolumeSlider: {fileID: 0}
