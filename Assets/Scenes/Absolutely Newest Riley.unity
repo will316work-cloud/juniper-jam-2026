@@ -1123,6 +1123,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitlePathPoint
   IsAvailable: 1
+--- !u!1 &283582244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7311087050746028649, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &283582249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283582244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feec9da93a9fd52438d5adef5bcad9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLVideoPlayer
+  _videoFileName: Task.mp4
 --- !u!114 &285547446 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7127049810409286374, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -1584,6 +1602,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1842932358}
   m_LocalEulerAnglesHint: {x: 0, y: -16.256, z: 0}
+--- !u!1 &404551743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8116532959200251086, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &404551748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404551743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feec9da93a9fd52438d5adef5bcad9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLVideoPlayer
+  _videoFileName: Quota.mp4
 --- !u!1 &405407085
 GameObject:
   m_ObjectHideFlags: 0
@@ -3886,6 +3922,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!1 &1005928433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2976512472513493748, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1005928438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005928433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feec9da93a9fd52438d5adef5bcad9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLVideoPlayer
+  _videoFileName: Spin.mp4
 --- !u!114 &1033909397 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2212863423938414348, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
@@ -3908,6 +3962,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &1101491521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2133668146595156021, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+  m_PrefabInstance: {fileID: 1264969655437357970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1101491526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101491521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feec9da93a9fd52438d5adef5bcad9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLVideoPlayer
+  _videoFileName: Drop.mp4
 --- !u!1001 &1123426257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6994,8 +7066,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842932355}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33875751, y: -0.13285008, z: 0.048381414, w: 0.9301901}
-  m_LocalPosition: {x: 2.69, y: 8.530001, z: -10.649999}
+  m_LocalRotation: {x: -0.065702334, y: 0.00925162, z: -0.00055322045, w: -0.99779624}
+  m_LocalPosition: {x: -20.742973, y: 9.540273, z: 1.0977955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9913,7 +9985,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2976512472513493748, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1005928438}
+    - targetCorrespondingSourceObject: {fileID: 2133668146595156021, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1101491526}
+    - targetCorrespondingSourceObject: {fileID: 8116532959200251086, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 404551748}
+    - targetCorrespondingSourceObject: {fileID: 7311087050746028649, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283582249}
   m_SourcePrefab: {fileID: 100100000, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
 --- !u!1 &1264969655437357971 stripped
 GameObject:
