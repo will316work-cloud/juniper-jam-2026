@@ -103,6 +103,7 @@ public class WorldHealthMeter : MonoBehaviour
         if(_timePassed >= HealthBarUpdateFrequency)
         {
             LoseHealth(_healthLossPerTick);
+            Debug.Log($"Health lost: {_healthLossPerTick}, Current Health: {_currentHealth}");
             ResetTimer();
         }
     }

@@ -19,7 +19,9 @@ public class BatteryPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (battery.hasBattery) return;
+            if (battery.hasBattery) {
+                pickupVisual.SetActive(false);
+                return; }
             battery.hasBattery = true;
             battery.batteryVisual.SetActive(true); 
             battery.lightScript.StopIndicator();
