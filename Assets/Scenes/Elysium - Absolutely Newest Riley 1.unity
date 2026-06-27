@@ -13859,6 +13859,10 @@ PrefabInstance:
       propertyPath: _transitionPanel
       value: 
       objectReference: {fileID: 641314407}
+    - target: {fileID: 1238023551319748442, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 970ff1087529ae04db85639a7e9bcfd2, type: 2}
     - target: {fileID: 1280896018878652175, guid: 6a3efaee2f7aa494ba16cebd8949b65b, type: 3}
       propertyPath: ChairVolume
       value: 0
