@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class SettingsData
@@ -7,18 +9,28 @@ public class SettingsData
     private int _resolutionIndex;
     public bool _isDayFiveCleared; public bool IsDayFiveCleared => _isDayFiveCleared;
     GameObject _employeeOfTheMonthObj;
+    GameObject _eployeeOfTheMonthImagesObj;
 
     public void CheckIfLevelFiveIsCleared()
     {
         _isDayFiveCleared = PlayerPrefs.GetInt("levelFiveCleared", 0) == 1;
 
-        if(_isDayFiveCleared) 
+        if(_isDayFiveCleared)
+        {
             _employeeOfTheMonthObj.SetActive(true);
-        else 
+            _eployeeOfTheMonthImagesObj.SetActive(true);
+        } 
+        else
+        {
             _employeeOfTheMonthObj.SetActive(false);
+            _eployeeOfTheMonthImagesObj.SetActive(false);
+        }   
+
+        Debug.Log(_isDayFiveCleared);
     }
     public void SetLevelFiveCleared()
     {
+
         PlayerPrefs.SetInt("levelFiveCleared", 1);
     }
 
@@ -42,7 +54,9 @@ public class SettingsData
 
     public SettingsData(StartingSettings startingSettings)
     {
+        _eployeeOfTheMonthImagesObj = startingSettings.EmployeeOfTheMonthImagesObj;
         _employeeOfTheMonthObj = startingSettings.EmployeeOfTheMonthObj;
+
         CheckIfLevelFiveIsCleared();
 
         FpsCap = startingSettings.FpsCap;
@@ -81,4 +95,5 @@ public class StartingSettings
     public bool Vsync;
     public ResolutionOption Resolution;
     public GameObject EmployeeOfTheMonthObj;
+    public GameObject EmployeeOfTheMonthImagesObj;
 }
