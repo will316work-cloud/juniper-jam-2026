@@ -7,13 +7,19 @@ using UnityEngine.InputSystem;
 
 public class SignalHandler : MonoBehaviour
 {
-    public AudioSource BoomSound;
+    public AudioSource BoomSound_01;
+    public AudioSource BoomSound_02;
+    public AudioSource BoomSound_03;
+    public AudioSource BoomSound_04;
+    public AudioSource BoomSound_05;
     public AudioSource Music;
     public AudioSource Ambient;
 
     public List<string> Texts = new();
     public TextMeshProUGUI _text;
     public TextMeshProUGUI _skipIntroText;
+    Coroutine _skipHandlerRoutine;
+    Tween _skipIntroTween;
     
     int _textIndex = 0;
 
@@ -24,7 +30,7 @@ public class SignalHandler : MonoBehaviour
         Ambient.loop = true;   
 
         _skipIntroText.text = "Press any key to skip intro..";
-        StartCoroutine(SkipHandler());
+        _skipHandlerRoutine = StartCoroutine(SkipHandler());
     }
 
     void Update()
@@ -40,17 +46,22 @@ public class SignalHandler : MonoBehaviour
 
     IEnumerator SkipHandler()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(6f);
         _canSkipIntro = true;
-        _skipIntroText.DOFade(1, 1f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        _skipIntroTween = _skipIntroText.DOFade(1, 1f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        yield return new WaitForSeconds(6f);
+        _skipIntroTween.Kill();
+        _skipIntroText.DOFade(0, 1f);
     }
 
+    public void PlayBoomSound_01() => BoomSound_01.Play();
+    public void PlayBoomSound_02() => BoomSound_02.Play();
+    public void PlayBoomSound_03() => BoomSound_03.Play();
+    public void PlayBoomSound_04() => BoomSound_04.Play();
+    public void PlayBoomSound_05() => BoomSound_05.Play();
 
-
-    public void PlayBoomSound() => BoomSound.Play();
     public void PlayMusic() => Music.Play();
     public void PlayAmbient() => Ambient.Play();
-
 
     public void FadeInText()
     {
@@ -73,12 +84,14 @@ public class SignalHandler : MonoBehaviour
 
     public void GoToNextScene()
     {
+        if(_skipHandlerRoutine != null) StopCoroutine(_skipHandlerRoutine);
+        _skipIntroTween.Kill();
         _skipIntroText.DOKill();
-        BoomSound.Stop();
+        BoomSound_01.Stop();
+        BoomSound_02.Stop();
         Music.Stop();
         Ambient.Stop();
         
-
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }
