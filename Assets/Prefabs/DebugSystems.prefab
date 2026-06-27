@@ -798,7 +798,7 @@ MonoBehaviour:
     MaxConcurrentMovingCoworker: 4
     CoworkerSpeed: 2
     CoworkerMoverGapTime: 1
-    TaskGapTime: 8
+    TaskGapTime: 7
     HealthLossPerSecond: 0.1
     BatteryQuotaCountPerDay: 6
   - Day: 2
