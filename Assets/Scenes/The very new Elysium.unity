@@ -8123,6 +8123,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 495784736533796472, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2185891657858823838, guid: 4c6c901c34baf734185974af85d5a752, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -9044,6 +9048,10 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 733650967}
+    - target: {fileID: 4460454556978018997, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4494177593600767001, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
       value: 
@@ -9056,6 +9064,10 @@ PrefabInstance:
       propertyPath: TriggerObj
       value: 
       objectReference: {fileID: 1923686063}
+    - target: {fileID: 5477521538002161298, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6276646302667631924, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: TaskProp
       value: 
@@ -9071,6 +9083,10 @@ PrefabInstance:
     - target: {fileID: 7308703328897265374, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
       propertyPath: m_Name
       value: Tasks
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526091613525286747, guid: 08edfb29e20f6ef45aa236346b1adc48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
