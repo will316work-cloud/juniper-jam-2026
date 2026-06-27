@@ -43,6 +43,8 @@ public class StunHandler : MonoBehaviour
         if(IsDebugOn) Debug.Log("Stun protection is over");
     }
 
+    public void ActivateStunProtection() => StartCoroutine(StunProtectionRoutine());
+
     void OnTriggerEnter(Collider other)
     {
         if(!_isProtectedFromStun && !_isStunned && other.TryGetComponent(out Coworker coworker) && coworker.IsMoving)

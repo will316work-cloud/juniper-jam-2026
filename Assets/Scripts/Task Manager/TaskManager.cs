@@ -33,6 +33,7 @@ public class TaskManager : MonoBehaviour
     PlayerTask _currentTask; public PlayerTask CurrentTask => _currentTask;
     List<PlayerTask> _playerTasks = new();
     List<PlayerTask> _completedTasks = new(); 
+
     #endregion
 
     #region Unity lifecycle methods

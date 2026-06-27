@@ -124,12 +124,6 @@ public class IngameMenuHandler : IUiHandler
         _fpsText.text = "FPS Cap - " + (int)_ctx.SettingsData.FpsCap;
     }
 
-    public void Tick()
-    {
-        if(Keyboard.current.escapeKey.wasPressedThisFrame && CanOpenIngameMenu)
-            if(!IsPanelActive()) OnMenuOpen();
-            else ResumeButtonClickHandler();
-    }
 
     private void MainMenuButtonClickHandler()
     {
