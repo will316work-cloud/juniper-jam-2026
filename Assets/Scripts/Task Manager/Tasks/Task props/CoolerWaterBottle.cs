@@ -59,6 +59,9 @@ public class CoolerWaterBottle : TaskProp
 
         if (deltaLeft > 0f)
         {
+            if(!_ctx.PoolManager.TaskSoundHandler.IsPlaying)
+                _ctx.PoolManager.TaskSoundHandler.StartTaskSound(TaskSoundType.WaterBottle);
+                
             _progress += deltaLeft / PullDistancePerCycle;
             while (_progress >= 1f)
             {
@@ -66,6 +69,8 @@ public class CoolerWaterBottle : TaskProp
                 _completedCycles++;
                 if (_completedCycles >= RequiredCycles)
                 {
+                    _ctx.PoolManager.GetSfx(AudioType.WaterBottleTaskDone);
+                    _ctx.PoolManager.TaskSoundHandler.StopTaskSound();
                     _ctx.TaskManager.CurrentTask.OnTaskEnd(true);
                     ResetTaskState();
                     return;
@@ -73,6 +78,11 @@ public class CoolerWaterBottle : TaskProp
             }
             BottleAnimator.Play(AnimationState, 0, _progress);
             BottleAnimator.speed = 0f;
+        }
+        else
+        {
+            if(_ctx.PoolManager.TaskSoundHandler.IsPlaying) 
+                _ctx.PoolManager.TaskSoundHandler.StopTaskSound();
         }
         _previousMouse = currentMouse;
     }

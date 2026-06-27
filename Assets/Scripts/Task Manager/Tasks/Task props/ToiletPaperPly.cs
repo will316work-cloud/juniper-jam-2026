@@ -47,6 +47,9 @@ public class ToiletPaperPly : TaskProp
 
         if (delta > 0)
         {
+            if(!_ctx.PoolManager.TaskSoundHandler.IsPlaying)
+                _ctx.PoolManager.TaskSoundHandler.StartTaskSound(TaskSoundType.ToiletPaper);
+
             PaperPly.localPosition -= new Vector3(0, delta * PlySpeed, 0);
             _distanceTraveled += delta * PlySpeed;
 

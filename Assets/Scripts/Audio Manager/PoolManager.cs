@@ -12,10 +12,13 @@ public class PoolManager : MonoBehaviour
 
     public SfxPooler SfxPooler = new();
     public SongPooler MusicPooler = new();
+    public TaskSoundHandler TaskSoundHandler = new();
+    public PlayerMovementSoundHandler PlayerMovementSoundHandler = new();
 
     public SfxPoolData AudioPoolData = new();
     public SongPoolerData SongPoolerData = new();
-    public PlayerMovementSoundHandler PlayerMovementSoundHandler = new();
+    public TaskSoundHandlerData TaskSoundHandlerData = new();
+    
     [Space(10)]
     [Header("Player Chair Sound")]
     public AudioClip ChairSound;
@@ -26,6 +29,7 @@ public class PoolManager : MonoBehaviour
         SfxPooler.Initialize(AudioPoolData, this, SfxVolumeSettings);
         MusicPooler.Initialize(SongPoolerData, this);
         PlayerMovementSoundHandler.Initialize(ctx.PlayerControl, SfxPooler.CreateNewSource(),ChairSound);
+        TaskSoundHandler.Initialize(TaskSoundHandlerData);
         
         OnOverallVolumeChange();
     }
@@ -51,6 +55,7 @@ public class PoolManager : MonoBehaviour
         SfxPooler.SetOverallVolume(MasterVolume * OverallVolume_SFX);
         MusicPooler.SetOverallVolume(MasterVolume * OverallVolume_Song);
         PlayerMovementSoundHandler.Setvolume(MasterVolume * OverallVolume_SFX * ChairVolume);
+        TaskSoundHandler.SetVolume(MasterVolume * OverallVolume_SFX);
     }
 
     private void OnValidate()

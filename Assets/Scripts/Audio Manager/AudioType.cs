@@ -12,5 +12,10 @@ public enum AudioType
     ButtonHover,
     BatteryIsChargedAlert,
     Signature,
-    BatteryPickup
+    BatteryPickup,
+    WaterBottleTaskDone,
+    Shredder,
+    WaterBottleTightening,
+    ToiletPaperRolling,
+    PrinterTaskDone,
 }

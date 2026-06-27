@@ -43,7 +43,7 @@ public class Battery : MonoBehaviour
             _ctx.BatteryDropoff.canInteract = true;
             _batteryRenderer.material = _batteryGreen;
             _ctx.BatteryDropoff.StartLightIndication();
-            // _ctx.PoolManager.GetSfx(AudioType.BatteryIsChargedAlert);
+            _ctx.PoolManager.GetSfx(AudioType.BatteryIsChargedAlert);
         }
     }
 

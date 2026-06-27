@@ -34,6 +34,8 @@ public class TaskManager : MonoBehaviour
     List<PlayerTask> _playerTasks = new();
     List<PlayerTask> _completedTasks = new(); 
 
+    GameContext _ctx;
+
     #endregion
 
     #region Unity lifecycle methods
@@ -47,6 +49,8 @@ public class TaskManager : MonoBehaviour
 
     public void Initialize(GameContext ctx)
     {       
+        _ctx = ctx;
+
         _playerTasks.AddRange(FindObjectsByType<PlayerTask>().ToList());
         _chanceToGetTask = _baseChanceToGetTask;
 
@@ -177,6 +181,7 @@ public class TaskManager : MonoBehaviour
 
     public void OnTaskEnd()
     {
+        _ctx.PoolManager.TaskSoundHandler.StopTaskSound();
 
         if(_currentTask == null) return;
         if(_currentTask.IsSuccess)
@@ -195,6 +200,8 @@ public class TaskManager : MonoBehaviour
 
     public void InterruptTask()
     {
+        _ctx.PoolManager.TaskSoundHandler.StopTaskSound();
+
         if(_currentTask != null)
         {
             if(_currentTask.IsSuccess)
