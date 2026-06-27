@@ -26,8 +26,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/OldNewRiley.unity
     guid: 3cbce02183f43864bbc039ab151a1b7c
+  - enabled: 0
+    path: Assets/Scenes/OldNewOldRiley.unity
+    guid: ca68c1dd2d2f8154cacb80a364b832b4
   - enabled: 1
     path: Assets/Scenes/Absolutely Newest Riley.unity
-    guid: ca68c1dd2d2f8154cacb80a364b832b4
+    guid: 69b43d21dcb05d84db3aad45ed10b246
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
