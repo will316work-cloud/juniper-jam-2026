@@ -9,6 +9,7 @@ public class UiManager : MonoBehaviour
 
     public MainMenuHandler MainMenuHandler = new();
     public CreditsHandler CreditsHandler = new();
+    public ScoreBoardController ScoreBoardController = new();
 
     public void Initialize(GameContext ctx, UiManagerContext uiManagerContext)
     {
@@ -18,6 +19,7 @@ public class UiManager : MonoBehaviour
 
         MainMenuHandler.Initialize(ctx, uiManagerContext.MainMenuHandlerData);
         CreditsHandler.Initialize(ctx, uiManagerContext.CreditsHandlerData);
+        ScoreBoardController.Initialize(uiManagerContext.ScoreBoardUiData, this, ctx);
 
         InitializeButtons(ctx);
     }
@@ -46,4 +48,5 @@ public class UiManagerContext
 
     public MainMenuHandlerData MainMenuHandlerData;
     public CreditsHandlerData CreditsHandlerData;
+    public ScoreBoardUiData ScoreBoardUiData;
 }
