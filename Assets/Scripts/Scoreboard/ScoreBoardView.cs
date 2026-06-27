@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using DG.Tweening;
 public class ScoreBoardView
 { 
     private GameObject _scorePanel;
@@ -22,8 +23,16 @@ public class ScoreBoardView
     public void HidePanel() => _scorePanel.SetActive(false);
     public void ShowPanel() => _scorePanel.SetActive(true);
 
-    public void ShowLoadingText() => _loadingText.gameObject.SetActive(true);
-    public void HideLoadingText() => _loadingText.gameObject.SetActive(false);
+    public void ShowLoadingText()
+    {
+        _loadingText.DOFade(0,0).OnComplete(() => _loadingText.DOFade(1, 0.5f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine));
+        _loadingText.gameObject.SetActive(true);
+    }
+    public void HideLoadingText()
+    {
+        _loadingText.DOKill();
+        _loadingText.gameObject.SetActive(false);
+    }
 
     void CreateEntries(GameObject prefab, Transform parent)
     {

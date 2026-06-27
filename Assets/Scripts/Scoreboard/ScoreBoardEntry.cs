@@ -8,6 +8,8 @@ public class ScoreBoardEntry : MonoBehaviour
 
     public void SetEntry(string name, string score)
     {
+        score = score == "" ? "" : "$" +score;
+
         NameText.text = name;
         ScoreText.text = score;
 
