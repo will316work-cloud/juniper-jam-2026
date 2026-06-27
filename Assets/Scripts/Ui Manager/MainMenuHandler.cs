@@ -17,6 +17,7 @@ public class MainMenuHandler : IUiHandler
     private Button _backToMenuFromSettingsButton;
     private Button _backToMenuFromHowToButton;
     private Button _settingsButton;
+    public Button _scoreboardButton;
 
     private GameContext _ctx;
 
@@ -45,6 +46,7 @@ public class MainMenuHandler : IUiHandler
         _settingsButton = data.SettingsButton;
         _backToMenuFromSettingsButton = data.BackToMenuFromSettingsButton;
         _backToMenuFromHowToButton = data.BackToMenuFromHowToButton;
+        _scoreboardButton = data.ScoreboardButton;
 
         _masterVolumeSlider = data.MasterVolumeSlider;
         _sfxVolumeSlider = data.SfxVolumeSlider;
@@ -92,6 +94,7 @@ public class MainMenuHandler : IUiHandler
         _settingsButton.onClick.AddListener(SettingsButtonHandler);
         _backToMenuFromSettingsButton.onClick.AddListener(BeckToMenuFromSettingsButtonHandler);
         _backToMenuFromHowToButton.onClick.AddListener(BackToMenuFromHowToButtonHandler);
+        _scoreboardButton.onClick.AddListener(ScoreboardButtonHandler);
 
         SetPanelState(false);
     }
@@ -119,6 +122,12 @@ public class MainMenuHandler : IUiHandler
         _ctx.CameraController.SwitchToCamera(CameraType.Credits);
         yield return new WaitForSeconds(1.1f);
         _ctx.UiManager.CreditsHandler.SetPanelState(true);
+    }
+
+    private void ScoreboardButtonHandler()
+    {
+        SetPanelState(false);
+        _ctx.UiManager.ScoreBoardController.OpenScoreboard();
     }
 
     public bool IsPanelActive() => _mainMenuPanel.activeSelf;
@@ -245,6 +254,7 @@ public class MainMenuHandlerData
     public Button QuitButton;
     public Button BackToMenuFromSettingsButton;
     public Button BackToMenuFromHowToButton;
+    public Button ScoreboardButton;
 
     public Slider MasterVolumeSlider;
     public Slider SfxVolumeSlider;
