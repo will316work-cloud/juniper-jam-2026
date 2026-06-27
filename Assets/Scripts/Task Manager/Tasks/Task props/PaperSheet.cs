@@ -46,6 +46,7 @@ public class PaperSheet : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         IsResolved = true;
         SignedMark.SetActive(true);
         SignButton.interactable = false;
+        SignButton.gameObject.SetActive(false);
         _task.ResolvePaper();
     }
 
